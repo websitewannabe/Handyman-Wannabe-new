@@ -122,6 +122,7 @@ const Hero = () => {
 
           <div 
             className="max-w-md mx-auto mb-12 relative"
+            style={{ position: 'relative', zIndex: 9000 }}
             ref={searchRef}
           >
             <form onSubmit={handleSearch}>
@@ -145,7 +146,7 @@ const Hero = () => {
 
             {/* Search Results Dropdown */}
             {isDropdownVisible && (
-              <div className="absolute z-50 mt-2 w-full bg-white shadow-xl rounded-lg overflow-hidden search-dropdown">
+              <div className="absolute mt-2 w-full bg-white shadow-xl rounded-lg overflow-hidden search-dropdown">
                 <ul>
                   {filteredServices.map((service) => (
                     <li 
