@@ -64,12 +64,12 @@
       transform: scale(1);
       box-shadow: 0 0 0 0 rgba(145, 211, 15, 0.7);
     }
-    
+
     70% {
       transform: scale(1.05);
       box-shadow: 0 0 0 15px rgba(145, 211, 15, 0);
     }
-    
+
     100% {
       transform: scale(1);
       box-shadow: 0 0 0 0 rgba(145, 211, 15, 0);
@@ -98,12 +98,14 @@
 .search-dropdown {
   z-index: 9999;
   animation: fadeIn 0.2s ease-in-out;
-  max-height: 300px;
+  max-height: 200px; /* Reduced height to show ~3 items */
   overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 0.5rem;
   position: absolute;
   width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  top: 100%;
+  left: 0;
 }
 
 @keyframes fadeIn {
