@@ -106,12 +106,34 @@ const HomeInspectionsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Our Inspection Services</h2>
-          
+
           <div className="flex justify-center items-center max-w-6xl mx-auto">
             <div className="text-3xl font-bold text-center text-primary py-16">
               👉 Our Services Coming Soon!
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Pre-Purchase Inspections",
+                description: "Thorough evaluations for potential buyers.",
+                services: [
+                  "Detailed property assessment",
+                  "Identify potential problems",
+                  "Provide repair cost estimates",
+                  "Supply transparent disclosures"
+                ],
+                bestFor: "Buyers protecting their investment",
+                image: "https://images.unsplash.com/photo-1571017698717-96384e22d934?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Home
+              },
+              {
+                title: "Seller's Inspections",
+                description: "Identify and address issues before listing.",
+                services: [
+                  "Pre-listing property evaluation",
+                  "Identify potential repair needs",
+                  "Improve property marketability",
                   "Supply transparent disclosures"
                 ],
                 bestFor: "Sellers preparing their property",
@@ -285,7 +307,7 @@ const HomeInspectionsPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-          
+
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
