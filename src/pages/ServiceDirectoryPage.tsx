@@ -120,7 +120,7 @@ const ServiceDirectoryPage = () => {
             <div>
               <h2 className="text-2xl font-bold text-[#1B4332] mb-2">
                 {category 
-                  ? `${category.replace(/-/g, ' ')} Services`
+                  ? `${category.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Services`
                   : 'All Services'
                 }
               </h2>
