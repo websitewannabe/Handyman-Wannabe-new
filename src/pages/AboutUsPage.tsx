@@ -21,18 +21,6 @@ const teamMembers = [
     role: "Lead Electrician",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
     bio: "Master electrician with a passion for innovative solutions and safety-first approach."
-  },
-  {
-    name: "Mike Johnson",
-    role: "Plumbing Expert",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Specializing in both emergency repairs and complete bathroom renovations."
-  },
-  {
-    name: "Lisa Rodriguez",
-    role: "Interior Specialist",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Bringing spaces to life with expert painting and drywall services."
   }
 ];
 
@@ -98,7 +86,7 @@ const AboutUsPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
