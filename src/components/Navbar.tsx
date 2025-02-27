@@ -107,7 +107,7 @@ const Navbar = () => {
     if (service === "Misc.") {
       return '/services/misc';
     }
-    
+
     // Handle other services
     const slug = service.toLowerCase().replace(/\s+&\s+|-/g, '-').replace(/\s+/g, '-');
     return `/services/${slug}`;
@@ -230,7 +230,7 @@ const Navbar = () => {
                   (719) 315-6628
                 </span>
               </div>
-              <button className="bg-primary text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-primary/90 transition-colors">
+              <button className="bg-primary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-primary/90 transition-colors">
                 Have Our AI Call You
               </button>
             </div>
