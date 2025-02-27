@@ -4519,7 +4519,7 @@
     "description": "Installation and setup of smart home hubs such as Amazon Echo, Google Nest Hub, and Samsung SmartThings.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "https://source.unsplash.com/featured/?smarthome,hub",
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBob21lfGVufDB8fDB8fHww",
     "features": [
       "Installation of smart home hubs",
       "Configuration with connected devices",
@@ -4535,7 +4535,7 @@
     "description": "Integrate smart devices with voice assistants such as Alexa, Google Assistant, and Siri for hands-free control.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "https://source.unsplash.com/featured/?voiceassistant,smarthome",
+    "image": "https://images.unsplash.com/photo-1543512214-318c7553f230?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QWxleGF8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Setup and pairing with voice assistants",
       "Configuration for lighting, security, and climate",
@@ -4551,7 +4551,7 @@
     "description": "Create custom smart home automation routines to control lighting, security, and climate systems.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "https://source.unsplash.com/featured/?automation,smarthome",
+    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8U21hcnQlMjBob21lfGVufDB8fDB8fHww",
     "features": [
       "Automation setup for lights, security, and climate",
       "Custom scheduling for daily routines",
