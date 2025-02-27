@@ -43,8 +43,13 @@ const Hero = () => {
     }
 
     const filtered = servicesData.filter(service =>
-      service.name.toLowerCase().includes(searchQuery.toLowerCase())
-    ).slice(0, 5); // Limit to 5 results
+      service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      service.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (service.features && service.features.some(feature => 
+        feature.toLowerCase().includes(searchQuery.toLowerCase())
+      ))
+    );
 
     setFilteredServices(filtered);
     setIsDropdownVisible(filtered.length > 0);
@@ -146,9 +151,9 @@ const Hero = () => {
 
             {/* Search Results Dropdown */}
             {isDropdownVisible && (
-              <div className="absolute mt-2 w-full bg-white shadow-xl rounded-lg overflow-hidden search-dropdown">
+              <div className="absolute mt-2 w-full bg-white shadow-xl rounded-lg overflow-auto search-dropdown" style={{ maxHeight: '400px' }}>
                 <ul>
-                  {filteredServices.slice(0, 3).map((service) => (
+                  {filteredServices.map((service) => (
                     <li 
                       key={service.id} 
                       className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors"
