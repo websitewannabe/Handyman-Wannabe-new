@@ -159,9 +159,9 @@ const Hero = () => {
                       className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors"
                       onClick={() => handleSelectService(service)}
                     >
-                      <div>
-                        <p className="font-medium text-gray-800">{service.name}</p>
-                        <p className="text-sm text-gray-500">{service.category}</p>
+                      <div className="flex flex-col">
+                        <p className="font-medium text-gray-800 text-sm">{service.name}</p>
+                        <p className="text-xs text-gray-500">{service.category}</p>
                       </div>
                     </li>
                   ))}

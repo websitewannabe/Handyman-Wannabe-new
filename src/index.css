@@ -98,18 +98,19 @@
 .search-dropdown {
   z-index: 9999;
   animation: fadeIn 0.2s ease-in-out;
-  max-height: 200px; /* Reduced height to show ~3 items */
+  max-height: 150px; /* Further reduced height */
   overflow-y: auto;
   position: absolute;
-  width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%; /* Slightly narrower than the search bar */
+  left: 5%; /* Center the narrower dropdown */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   top: 100%;
-  left: 0;
 }
 
 .search-dropdown li {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+  font-size: 0.9rem; /* Slightly smaller text */
 }
 
 @keyframes fadeIn {
