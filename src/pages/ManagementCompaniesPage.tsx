@@ -106,16 +106,128 @@ const ManagementCompaniesPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Our Property Management Services</h2>
-
-          <div className="text-center max-w-3xl mx-auto">
-            <motion.p 
-              className="text-2xl font-semibold text-primary"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              Our Services Coming Soon!
-            </motion.p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Routine Property Maintenance",
+                description: "Keep properties in excellent condition with scheduled maintenance.",
+                services: [
+                  "Perform regular property inspections",
+                  "Handle general handyman tasks",
+                  "Replace filters and basic fixtures",
+                  "Address tenant maintenance requests"
+                ],
+                bestFor: "Property managers needing consistent maintenance",
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Building2
+              },
+              {
+                title: "Unit Turnover Services",
+                description: "Prepare rental units for new tenants efficiently.",
+                services: [
+                  "Patch and paint walls and ceilings",
+                  "Replace damaged flooring and baseboards",
+                  "Fix cabinets, doors, and fixtures",
+                  "Deep clean units before move-in"
+                ],
+                bestFor: "Apartment managers streamlining turnover",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Home
+              },
+              {
+                title: "Emergency Repair Services",
+                description: "Fast response for urgent maintenance needs.",
+                services: [
+                  "Repair burst pipes and water leaks",
+                  "Fix broken locks and security issues",
+                  "Handle electrical outages",
+                  "Provide temporary structural fixes"
+                ],
+                bestFor: "Properties needing immediate assistance",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Settings
+              },
+              {
+                title: "Common Area Maintenance",
+                description: "Maintain shared spaces in prime condition.",
+                services: [
+                  "Clean and repair common areas",
+                  "Replace lighting fixtures",
+                  "Repair mailboxes and entry gates",
+                  "Ensure ADA compliance"
+                ],
+                bestFor: "Multi-unit building maintenance",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Brush
+              },
+              {
+                title: "HVAC & Plumbing",
+                description: "Keep systems running efficiently.",
+                services: [
+                  "Service HVAC filters and ducts",
+                  "Fix clogged drains and leaks",
+                  "Install new fixtures",
+                  "Winterize plumbing systems"
+                ],
+                bestFor: "Regular system maintenance needs",
+                image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Droplet
+              },
+              {
+                title: "Security & Access Control",
+                description: "Maintain secure entry points and systems.",
+                services: [
+                  "Install and maintain smart locks",
+                  "Repair security gates",
+                  "Replace door locks and keys",
+                  "Service intercoms and cameras"
+                ],
+                bestFor: "Properties prioritizing security",
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                icon: Lock
+              }
+            ].map((category, index) => (
+              <Link
+                key={index}
+                to={`/service-directory?category=${category.title.toLowerCase().replace(/\s+/g, '-')}`}
+                className="block"
+              >
+                <motion.div
+                  className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="relative h-48">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
+                      {category.title}
+                    </h3>
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <p className="text-gray-600 mb-4">{category.description}</p>
+                    <ul className="space-y-2 mb-6 flex-grow">
+                      {category.services.map((service, serviceIndex) => (
+                        <li key={serviceIndex} className="flex items-start">
+                          <Star className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" />
+                          <span>{service}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="bg-primary/10 p-4 rounded-lg mt-auto">
+                      <p className="text-sm font-medium text-primary">Best For:</p>
+                      <p className="text-gray-700">{category.bestFor}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -190,7 +302,7 @@ const ManagementCompaniesPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-
+          
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
