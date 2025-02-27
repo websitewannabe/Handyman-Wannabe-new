@@ -162,7 +162,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.href.startsWith('#') ? item.href : item.href}
-                    className={`flex items-center text-lg font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
+                    className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
                       isActive(item.href) 
                         ? 'text-secondary' 
                         : isScrolled || shouldUseBlackText
@@ -226,7 +226,7 @@ const Navbar = () => {
             <div className="flex flex-col items-center space-y-2">
               <div className="flex items-center">
                 <Phone className={`w-5 h-5 ${isScrolled || shouldUseBlackText ? 'text-[#00274D]' : 'text-white'} mr-2`} />
-                <span className={`text-lg font-medium ${isScrolled || shouldUseBlackText ? 'text-[#00274D]' : 'text-white'}`}>
+                <span className={`text-base font-medium ${isScrolled || shouldUseBlackText ? 'text-[#00274D]' : 'text-white'}`}>
                   (719) 315-6628
                 </span>
               </div>
