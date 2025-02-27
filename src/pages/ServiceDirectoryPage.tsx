@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
+import { Search, Grid as GridIcon, List,  Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import servicesData from "../data/services.json";
 
@@ -26,37 +26,18 @@ const ServiceDirectoryPage = () => {
 
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-  // Filter categories
-  const filterCategories = {
-    'Service Type': ['Interior', 'Exterior', 'Repair', 'Installation'],
-    'Popular Services': ['Featured', 'Most Requested', 'Seasonal'],
-    'Price Range': ['Budget-Friendly', 'Mid-Range', 'Premium']
-  };
 
-  // Filter services based on search, category, and filters
+  // Filter services based on search and category
   const filteredServices = (servicesData as Service[]).filter(service => {
     const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesCategory = !category || service.subcategory === category;
 
-    const matchesFilters = activeFilters.length === 0 || 
-                          activeFilters.some(filter => service.features.includes(filter));
-
-    return matchesSearch && matchesCategory && matchesFilters;
+    return matchesSearch && matchesCategory;
   });
-
-  const toggleFilter = (filter: string) => {
-    setActiveFilters((prev: string[]) => 
-        prev.includes(filter)
-            ? prev.filter(f => f !== filter)
-            : [...prev, filter]
-    );
-};
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -166,47 +147,6 @@ const ServiceDirectoryPage = () => {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8">
-            {/* Filters Sidebar */}
-            <div className="w-full md:w-64 flex-shrink-0">
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-[#1B4332]">Filters</h3>
-                  <Filter className="w-5 h-5 text-[#1B4332]" />
-                </div>
-
-                {Object.entries(filterCategories).map(([category, filters]) => (
-                  <div key={category} className="mb-6">
-                    <button
-                      className="flex items-center justify-between w-full text-left font-medium mb-2 text-[#1B4332]"
-                      onClick={() => setExpandedFilter(expandedFilter === category ? null : category)}
-                    >
-                      {category}
-                      {expandedFilter === category ? (
-                        <ChevronUp className="w-4 h-4" />
-                      ) : (
-                        <ChevronDown className="w-4 h-4" />
-                      )}
-                    </button>
-
-                    {expandedFilter === category && (
-                      <div className="space-y-2">
-                        {filters.map(filter => (
-                          <label key={filter} className="flex items-center space-x-2">
-                            <input
-                              type="checkbox"
-                              checked={activeFilters.includes(filter)}
-                              onChange={() => toggleFilter(filter)}
-                              className="rounded text-primary focus:ring-primary"
-                            />
-                            <span className="text-sm text-gray-700">{filter}</span>
-                          </label>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
 
             {/* Services Grid/List */}
             <div className="flex-grow">
