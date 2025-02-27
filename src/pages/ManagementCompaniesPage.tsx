@@ -107,31 +107,11 @@ const ManagementCompaniesPage = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Our Property Management Services</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "Routine Property Maintenance",
-                description: "Keep properties in excellent condition with scheduled maintenance.",
-                services: [
-                  "Perform regular property inspections",
-                  "Handle general handyman tasks",
-                  "Replace filters and basic fixtures",
-                  "Address tenant maintenance requests"
-                ],
-                bestFor: "Property managers needing consistent maintenance",
-                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                icon: Building2
-              },
-              {
-                title: "Unit Turnover Services",
-                description: "Prepare rental units for new tenants efficiently.",
-                services: [
-                  "Patch and paint walls and ceilings",
-                  "Replace damaged flooring and baseboards",
-                  "Fix cabinets, doors, and fixtures",
-                  "Deep clean units before move-in"
-                ],
-                bestFor: "Apartment managers streamlining turnover",
+          <div className="flex justify-center items-center max-w-6xl mx-auto">
+            <div className="text-3xl font-bold text-center text-primary py-16">
+              👉 Our Services Coming Soon!
+            </div>
+          </div>
                 image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 icon: Home
               },
