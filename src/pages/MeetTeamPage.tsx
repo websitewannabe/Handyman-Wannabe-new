@@ -33,6 +33,22 @@ const teamMembers = [
     projects: 380,
     rating: 4.8
   },
+  {
+    name: "Mike Johnson",
+    role: "Plumbing Expert",
+    specialty: "plumbing",
+    experience: "10+ years",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+    bio: "Specializing in both emergency repairs and complete bathroom renovations.",
+    funFact: "Holds the company record for fastest emergency response time",
+    icon: Droplet,
+    projects: 520,
+    rating: 4.9
+  },
+  {
+    name: "Lisa Rodriguez",
+    role: "Interior Specialist",
+    specialty: "painting",
     experience: "8+ years",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
     bio: "Bringing spaces to life with expert painting and drywall services.",
