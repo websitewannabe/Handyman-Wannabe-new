@@ -155,15 +155,6 @@ const Hero = () => {
                       onClick={() => handleSelectService(service)}
                     >
                       <div className="flex items-center">
-                        <div className="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden mr-3">
-                          {service.image && (
-                            <img 
-                              src={service.image} 
-                              alt={service.name} 
-                              className="w-full h-full object-cover"
-                            />
-                          )}
-                        </div>
                         <div>
                           <p className="font-medium text-gray-800">{service.name}</p>
                           <p className="text-sm text-gray-500">{service.category}</p>
