@@ -115,13 +115,7 @@ const HomeInspectionsPage = () => {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Our Services coming soon</h2>
-        </div>
-      </section>
-
-      {/* Process Steps Section */}
+{/* Process Steps Section */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <motion.div
