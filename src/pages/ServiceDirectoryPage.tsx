@@ -23,11 +23,27 @@ interface Service {
 const ServiceDirectoryPage = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
+  const subcategory = searchParams.get('subcategory');
 
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
+  // Add useEffect to handle body overflow when modal is open
+  React.useEffect(() => {
+    if (selectedService) {
+      // Disable scrolling on body when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable scrolling when modal is closed
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cleanup function to ensure scrolling is re-enabled when component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedService]);
 
   // Filter services based on search and category
   const filteredServices = (servicesData as Service[]).filter(service => {
