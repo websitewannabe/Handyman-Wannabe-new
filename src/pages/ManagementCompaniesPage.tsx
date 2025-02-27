@@ -106,12 +106,24 @@ const ManagementCompaniesPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Our Property Management Services</h2>
-          
+
           <div className="flex justify-center items-center max-w-6xl mx-auto">
             <div className="text-3xl font-bold text-center text-primary py-16">
               👉 Our Services Coming Soon!
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Preventative Maintenance",
+                description: "Regular upkeep to prevent major issues.",
+                services: [
+                  "Inspect and repair minor damages",
+                  "Clean gutters and downspouts",
+                  "Check and adjust smoke detectors and carbon monoxide detectors",
+                  "Inspect and maintain electrical systems"
+                ],
+                bestFor: "Long-term property preservation",
                 image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 icon: Home
               },
@@ -282,7 +294,7 @@ const ManagementCompaniesPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-          
+
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
