@@ -107,31 +107,14 @@ const MiscPage = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Our Miscellaneous Services</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "Soundproofing",
-                description: "Reduce noise levels in homes, offices, and multi-unit buildings.",
-                services: [
-                  "Install acoustic panels and foam",
-                  "Seal air gaps in doors and windows",
-                  "Add soundproofing materials to walls",
-                  "Install sound-dampening insulation"
-                ],
-                bestFor: "Homeowners and renters wanting quiet, distraction-free spaces",
-                image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                icon: Volume2
-              },
-              {
-                title: "Pet Proofing",
-                description: "Ensure your home is safe and comfortable for pets.",
-                services: [
-                  "Install scratch-resistant door protectors",
-                  "Secure loose wires and cables",
-                  "Set up pet gates and safe areas",
-                  "Create pet-friendly spaces"
-                ],
-                bestFor: "Pet owners needing damage protection and safety enhancements",
+          <div className="flex justify-center items-center max-w-6xl mx-auto">
+            <div className="text-center py-16 px-8 bg-gray-50 rounded-lg shadow-sm w-full">
+              <h3 className="text-3xl font-bold text-primary mb-4">👉 More Services Coming Soon!</h3>
+              <p className="text-xl text-gray-600">
+                We're constantly expanding our service offerings to meet your needs.
+                Check back soon for additional specialized services or contact us for custom requests.
+              </p>
+            </div>
                 image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 icon: Dog
               },
