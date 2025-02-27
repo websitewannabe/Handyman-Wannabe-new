@@ -10,76 +10,28 @@ const fadeIn = {
 
 const teamMembers = [
   {
-    name: "John Smith",
-    role: "Master Carpenter",
-    specialty: "carpentry",
-    experience: "15+ years",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "With over 15 years of experience, John leads our carpentry division with precision and creativity.",
-    funFact: "Once built a treehouse that was featured in Architectural Digest",
-    icon: Hammer,
-    projects: 450,
-    rating: 4.9
-  },
-  {
-    name: "Sarah Chen",
-    role: "Lead Electrician",
-    specialty: "electrical",
-    experience: "12+ years",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Master electrician with a passion for innovative solutions and safety-first approach.",
-    funFact: "Developed a smart home system for elderly care facilities",
-    icon: Zap,
-    projects: 380,
-    rating: 4.8
-  },
-  {
-    name: "Mike Johnson",
-    role: "Plumbing Expert",
-    specialty: "plumbing",
-    experience: "10+ years",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Specializing in both emergency repairs and complete bathroom renovations.",
-    funFact: "Holds the company record for fastest emergency response time",
-    icon: Droplet,
-    projects: 520,
-    rating: 4.9
-  },
-  {
-    name: "Lisa Rodriguez",
-    role: "Interior Specialist",
-    specialty: "painting",
-    experience: "8+ years",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Bringing spaces to life with expert painting and drywall services.",
-    funFact: "Started as an art teacher before finding her passion in home improvement",
-    icon: Paintbrush,
-    projects: 290,
-    rating: 4.7
-  },
-  {
-    name: "David Martinez",
-    role: "General Handyman",
+    name: "Dennis Tierney",
+    role: "Field Manager",
     specialty: "general",
-    experience: "20+ years",
+    experience: "15+ years",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "A jack-of-all-trades with extensive experience in every aspect of home repair.",
-    funFact: "Can fix anything with duct tape and WD-40 (but prefers proper repairs)",
+    bio: "Experienced field manager overseeing all on-site operations and ensuring quality workmanship on every project.",
+    funFact: "Can troubleshoot any home issue within minutes of inspection",
     icon: Tool,
     projects: 750,
     rating: 4.9
   },
   {
-    name: "Rachel Thompson",
-    role: "Carpentry Specialist",
-    specialty: "carpentry",
-    experience: "9+ years",
-    image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Custom cabinet and furniture specialist with an eye for detail.",
-    funFact: "Builds custom guitars in her spare time",
-    icon: Hammer,
-    projects: 310,
-    rating: 4.8
+    name: "Chris Tierney",
+    role: "Director of Operations",
+    specialty: "management",
+    experience: "18+ years",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+    bio: "Strategic operations director with a focus on efficiency, customer satisfaction, and business growth.",
+    funFact: "Transformed our scheduling system to reduce response times by 45%",
+    icon: Wrench,
+    projects: 950,
+    rating: 4.9
   }
 ];
 
@@ -98,7 +50,7 @@ const MeetTeamPage = () => {
               Meet Our Team
             </motion.h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
