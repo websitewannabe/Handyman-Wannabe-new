@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import servicesData from "../data/services.json";
 
 const services: Service[] = servicesData;
@@ -21,6 +21,41 @@ interface Service {
 }
 
 const ServiceDirectoryPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Check for service query parameter on page load
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const serviceId = queryParams.get('service');
+
+    if (serviceId) {
+      setIsLoading(true);
+
+      // Find the service in services data
+      const service = services.find(s => s.id === serviceId);
+
+      if (service) {
+        setSelectedService(service);
+        setIsModalOpen(true);
+
+        // Optionally set the category and subcategory to match the service
+        setSelectedCategory(service.category.toLowerCase());
+        setSelectedSubcategory(service.subcategory);
+      }
+
+      // Remove the query parameter from URL after processing
+      navigate(location.pathname, { replace: true });
+      setIsLoading(false);
+    }
+  }, [location]);
+
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
 
@@ -28,7 +63,7 @@ const ServiceDirectoryPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
+
 
   // Filter categories
   const filterCategories = {

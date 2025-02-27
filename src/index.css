@@ -4,28 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #06b6d4;
-  --secondary: #0e7490;
-  --accent: #06b6d4;
-  --dark: #0f172a;
-  --light: #f8fafc;
-}
-
-/* Search dropdown styles */
-.search-results-dropdown {
-  z-index: 100;
-  position: absolute;
-  width: 100%;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-/* Service modal styles */
-.service-modal-overlay {
-  z-index: 200;
-}
-
 @layer base {
   html {
     font-family: 'Montserrat', sans-serif;
@@ -60,6 +38,27 @@
   /* Navigation Dropdown Animations */
   .dropdown-enter {
     opacity: 0;
+
+/* Ensure search dropdown appears above other elements */
+.z-50 {
+  z-index: 50;
+}
+
+/* Loading animation styles */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Max height for dropdowns */
+.max-h-80 {
+  max-height: 20rem;
+}
+
     transform: translateY(-10px);
   }
 
@@ -86,12 +85,12 @@
       transform: scale(1);
       box-shadow: 0 0 0 0 rgba(145, 211, 15, 0.7);
     }
-
+    
     70% {
       transform: scale(1.05);
       box-shadow: 0 0 0 15px rgba(145, 211, 15, 0);
     }
-
+    
     100% {
       transform: scale(1);
       box-shadow: 0 0 0 0 rgba(145, 211, 15, 0);
@@ -114,20 +113,4 @@
       animation: none;
     }
   }
-}
-
-/* Additional styles */
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.hero-to-body {
-  position: relative;
-  margin-top: -100px;
-  z-index: 10;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
 }
