@@ -151,16 +151,16 @@ const Hero = () => {
 
             {/* Search Results Dropdown */}
             {isDropdownVisible && (
-              <div className="absolute mt-2 w-full bg-white shadow-xl rounded-lg overflow-auto search-dropdown" style={{ maxHeight: '400px' }}>
-                <ul>
+              <div className="absolute mt-1 w-full bg-white shadow-md rounded-lg overflow-auto search-dropdown">
+                <ul className="py-1">
                   {filteredServices.map((service) => (
                     <li 
                       key={service.id} 
-                      className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors"
+                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer transition-colors"
                       onClick={() => handleSelectService(service)}
                     >
                       <div className="flex flex-col">
-                        <p className="font-medium text-gray-800 text-sm">{service.name}</p>
+                        <p className="font-medium text-gray-800 text-sm truncate">{service.name}</p>
                         <p className="text-xs text-gray-500">{service.category}</p>
                       </div>
                     </li>

@@ -98,19 +98,20 @@
 .search-dropdown {
   z-index: 9999;
   animation: fadeIn 0.2s ease-in-out;
-  max-height: 150px; /* Further reduced height */
+  max-height: 120px; /* Reduced height */
   overflow-y: auto;
   position: absolute;
-  width: 90%; /* Slightly narrower than the search bar */
-  left: 5%; /* Center the narrower dropdown */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
+  width: 85%; /* Narrower dropdown */
+  left: 7.5%; /* Center the narrower dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
   top: 100%;
 }
 
 .search-dropdown li {
-  padding: 0.5rem 0.75rem; /* Reduced padding */
-  font-size: 0.9rem; /* Slightly smaller text */
+  padding: 0.35rem 0.6rem; /* Reduced padding for more compact items */
+  font-size: 0.85rem; /* Smaller text */
+  line-height: 1.2;
 }
 
 @keyframes fadeIn {
