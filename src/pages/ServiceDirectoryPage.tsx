@@ -206,7 +206,7 @@ const ServiceDirectoryPage = () => {
                       animate={{ opacity: 1, y: 0 }}
                       onClick={() => setSelectedService(service)}
                     >
-                      <div className="p-8 flex gap-6">
+                      <div className="p-6 flex gap-6">
                         <div className="w-48 h-32 flex-shrink-0">
                           <img
                             src={service.image}
