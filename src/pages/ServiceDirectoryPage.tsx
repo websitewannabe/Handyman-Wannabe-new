@@ -69,7 +69,7 @@ const ServiceDirectoryPage = () => {
             transition={{ delay: 0.1 }}
           >
             {category 
-              ? `Browse our selection of ${category.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Services`
+              ? `Browse our selection of ${category.replace(/-/g, ' ')} services`
               : 'Explore our comprehensive range of professional services tailored to your home needs'
             }
           </motion.p>
