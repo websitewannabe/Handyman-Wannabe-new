@@ -23,7 +23,7 @@ interface Service {
 const ServiceDirectoryPage = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
-  
+
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -41,12 +41,12 @@ const ServiceDirectoryPage = () => {
   const filteredServices = (servicesData as Service[]).filter(service => {
     const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesCategory = !category || service.subcategory === category;
-    
+
     const matchesFilters = activeFilters.length === 0 || 
                           activeFilters.some(filter => service.features.includes(filter));
-    
+
     return matchesSearch && matchesCategory && matchesFilters;
   });
 
@@ -92,7 +92,7 @@ const ServiceDirectoryPage = () => {
               : 'Explore our comprehensive range of professional services'
             }
           </motion.p>
-          
+
           {/* Search Bar */}
           <motion.div
             className="max-w-2xl mx-auto"
@@ -147,7 +147,7 @@ const ServiceDirectoryPage = () => {
                 {filteredServices.length} services available
               </p>
             </div>
-            
+
             {/* View Toggle */}
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
               <button
@@ -187,7 +187,7 @@ const ServiceDirectoryPage = () => {
                         <ChevronDown className="w-4 h-4" />
                       )}
                     </button>
-                    
+
                     {expandedFilter === category && (
                       <div className="space-y-2">
                         {filters.map(filter => (
@@ -215,7 +215,7 @@ const ServiceDirectoryPage = () => {
                   {filteredServices.map(service => (
                     <motion.div
                       key={service.id}
-                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       onClick={() => setSelectedService(service)}
@@ -233,7 +233,7 @@ const ServiceDirectoryPage = () => {
                           </div>
                         )}
                       </div>
-                      <div className="p-6">
+                      <div className="p-6 flex-grow">
                         <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
                         <p className="text-gray-600 mb-4">{service.description}</p>
                         <ul className="space-y-2 mb-6">
@@ -244,9 +244,11 @@ const ServiceDirectoryPage = () => {
                             </li>
                           ))}
                         </ul>
-                        <button className="w-full bg-primary text-white font-bold py-2 rounded-lg hover:bg-primary/90 transition-colors">
-                          Learn More
-                        </button>
+                        <div className="mt-auto">
+                          <button className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
+                            Learn More
+                          </button>
+                        </div>
                       </div>
                     </motion.div>
                   ))}
