@@ -75,21 +75,21 @@ const ServiceDirectoryPage = () => {
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
           <motion.h1 
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Service Directory
           </motion.h1>
           <motion.p 
-            className="text-lg md:text-xl mb-6 text-white/90"
+            className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
             {category 
               ? `Browse our selection of ${category.replace(/-/g, ' ')} services`
-              : 'Explore our comprehensive range of professional services'
+              : 'Explore our comprehensive range of professional services tailored to your home needs'
             }
           </motion.p>
 
@@ -215,9 +215,10 @@ const ServiceDirectoryPage = () => {
                   {filteredServices.map(service => (
                     <motion.div
                       key={service.id}
-                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer flex flex-col"
+                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col h-full"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
                       onClick={() => setSelectedService(service)}
                     >
                       <div className="relative h-48">
@@ -233,18 +234,20 @@ const ServiceDirectoryPage = () => {
                           </div>
                         )}
                       </div>
-                      <div className="p-6 flex-grow">
-                        <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
-                        <p className="text-gray-600 mb-4">{service.description}</p>
-                        <ul className="space-y-2 mb-6">
-                          {service.features.slice(0, 2).map((feature, index) => (
-                            <li key={index} className="flex items-center text-sm text-gray-600">
-                              <Star className="w-4 h-4 text-primary mr-2" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="mt-auto">
+                      <div className="p-6 flex flex-col h-full">
+                        <div className="flex-grow">
+                          <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
+                          <p className="text-gray-600 mb-4">{service.description}</p>
+                          <ul className="space-y-2 mb-6">
+                            {service.features.slice(0, 2).map((feature, index) => (
+                              <li key={index} className="flex items-center text-sm text-gray-600">
+                                <Star className="w-4 h-4 text-primary mr-2" />
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="mt-auto pt-2">
                           <button className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
                             Learn More
                           </button>
