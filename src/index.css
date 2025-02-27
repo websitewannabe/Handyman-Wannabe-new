@@ -108,6 +108,10 @@
   left: -10%; /* Adjusted centering for wider dropdown */
 }
 
+.search-dropdown li {
+  padding: 0.5rem 1rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
