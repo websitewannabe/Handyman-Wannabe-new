@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone, Zap, Droplet, Paintbrush, Ruler, Hammer, DoorOpen, Car as GarageDoor, Waves, Flower2, ClipboardCheck, Shield, Home as SmartHome, Lock, Bath, Lightbulb, Sofa, Truck, Brush, Building2, Package } from 'lucide-react';
-import PhoneCallModal from './PhoneCallModal';
+import { Link, useLocation } from 'react-router-dom';
 
 interface NavItem {
   label: string;
@@ -67,7 +66,7 @@ const navItems: NavItem[] = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -231,7 +230,7 @@ const Navbar = () => {
                   (719) 315-6628
                 </span>
               </div>
-              <button onClick={() => setIsPhoneModalOpen(true)} className="bg-primary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-primary/90 transition-colors">
+              <button className="bg-primary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-primary/90 transition-colors">
                 Have Our AI Call You
               </button>
             </div>
@@ -310,17 +309,13 @@ const Navbar = () => {
                     <span className="text-xl font-bold text-[#00274D]">(719) 315-6628</span>
                   </div>
                 </div>
-                <button onClick={() => setIsPhoneModalOpen(true)} className="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-lg">
+                <button className="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-lg">
                   Have Our AI Call You
                 </button>
               </div>
             </div>
           </div>
         )}
-        <PhoneCallModal 
-          isOpen={isPhoneModalOpen}
-          onClose={() => setIsPhoneModalOpen(false)}
-        />
       </div>
     </nav>
   );
