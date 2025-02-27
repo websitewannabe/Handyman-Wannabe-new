@@ -109,6 +109,15 @@
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
   }
 
+  .hero-to-body {
+    position: relative;
+    margin-top: -100px;
+    z-index: 10;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  }
+
   /* Search dropdown styles */
   .search-dropdown {
     z-index: 50;
