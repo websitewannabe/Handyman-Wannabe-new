@@ -233,20 +233,18 @@ const ServiceDirectoryPage = () => {
                           </div>
                         )}
                       </div>
-                      <div className="p-6 flex flex-col h-full">
-                        <div className="flex-grow">
-                          <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
-                          <p className="text-gray-600 mb-4">{service.description}</p>
-                          <ul className="space-y-2 mb-6">
-                            {service.features.slice(0, 3).map((feature, index) => (
-                              <li key={index} className="flex items-start">
-                                <Check className="w-5 h-5 text-primary mr-2 mt-0.5" />
-                                <span className="text-gray-700">{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="mt-auto pt-4">
+                      <div className="p-6 flex-grow">
+                        <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
+                        <p className="text-gray-600 mb-4">{service.description}</p>
+                        <ul className="space-y-2 mb-6">
+                          {service.features.slice(0, 2).map((feature, index) => (
+                            <li key={index} className="flex items-center text-sm text-gray-600">
+                              <Star className="w-4 h-4 text-primary mr-2" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="mt-auto">
                           <button className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
                             Learn More
                           </button>
