@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import servicesData from './services.json';
+import servicesData from '../data/services.json';
 
 const services = [
   'Outlet Repair',
