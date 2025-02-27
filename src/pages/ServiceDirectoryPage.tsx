@@ -1,10 +1,12 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import servicesData from "../data/services.json";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useSearchParams, Link } from 'react-router-dom';
-import { Search, Star, List, Grid } from 'lucide-react';
-import servicesData from '../data/services.json';
+const services: Service[] = servicesData;
 
+// Service interface definitions
 interface Service {
   id: string;
   name: string;
@@ -14,160 +16,61 @@ interface Service {
   image: string;
   features: string[];
   popular: boolean;
-  price: string;
-  timeEstimate: string;
+  price?: string;
+  timeEstimate?: string;
 }
 
 const ServiceDirectoryPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initialCategory = searchParams.get('category');
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get('category');
 
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilters, setActiveFilters] = useState<string[]>(initialCategory ? [initialCategory] : []);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-  // Group services by subcategory to create filter options
-  const subcategories = Array.from(new Set((servicesData as Service[]).map(service => service.subcategory)));
-  
-  // Create category map for filter display
-  const categoryMap: Record<string, string> = {};
-  (servicesData as Service[]).forEach(service => {
-    if (!categoryMap[service.subcategory]) {
-      categoryMap[service.subcategory] = service.category;
-    }
-  });
-
-  // Price ranges for filtering
-  const priceRanges = [
-    { label: 'Budget (< $100)', filter: 'budget' },
-    { label: 'Mid-range ($100-$250)', filter: 'mid-range' },
-    { label: 'Premium (> $250)', filter: 'premium' }
-  ];
-
-  // Time estimates for filtering
-  const timeEstimates = [
-    { label: 'Quick (< 2 hours)', filter: 'quick' },
-    { label: 'Standard (2-4 hours)', filter: 'standard' },
-    { label: 'Extended (> 4 hours)', filter: 'extended' }
-  ];
-
   // Filter categories
   const filterCategories = {
-    'Service Type': subcategories.map(subcat => ({
-      label: subcat.replace(/-/g, ' '),
-      filter: subcat
-    })),
-    'Price Range': priceRanges,
-    'Duration': timeEstimates,
-    'Popular': [{ label: 'Popular Services', filter: 'popular' }]
+    'Service Type': ['Interior', 'Exterior', 'Repair', 'Installation'],
+    'Popular Services': ['Featured', 'Most Requested', 'Seasonal'],
+    'Price Range': ['Budget-Friendly', 'Mid-Range', 'Premium']
   };
 
-  useEffect(() => {
-    // Update URL params when filters change
-    if (activeFilters.length > 0) {
-      // Only update the URL with category filters (subcategories)
-      const categoryFilters = activeFilters.filter(filter => 
-        subcategories.includes(filter)
-      );
-      
-      if (categoryFilters.length > 0) {
-        setSearchParams({ category: categoryFilters[0] });
-      } else {
-        setSearchParams({});
-      }
-    } else {
-      setSearchParams({});
-    }
-  }, [activeFilters, setSearchParams, subcategories]);
-
-  // Reset all filters
-  const resetFilters = () => {
-    setActiveFilters([]);
-    setSearchQuery('');
-  };
-
-  // Toggle a filter
-  const toggleFilter = (filter: string) => {
-    setActiveFilters(prev => {
-      if (prev.includes(filter)) {
-        return prev.filter(f => f !== filter);
-      } else {
-        return [...prev, filter];
-      }
-    });
-  };
-
-  // Check if service matches all active filters
-  const matchesFilters = (service: Service) => {
-    if (activeFilters.length === 0) return true;
-    
-    return activeFilters.every(filter => {
-      // Check for subcategory filter
-      if (subcategories.includes(filter)) {
-        return service.subcategory === filter;
-      }
-      
-      // Check for price range filter
-      if (filter === 'budget') {
-        const price = parseInt(service.price.replace(/\D/g, ''));
-        return price < 100;
-      }
-      if (filter === 'mid-range') {
-        const price = parseInt(service.price.replace(/\D/g, ''));
-        return price >= 100 && price <= 250;
-      }
-      if (filter === 'premium') {
-        const price = parseInt(service.price.replace(/\D/g, ''));
-        return price > 250;
-      }
-      
-      // Check for time estimate filter
-      if (filter === 'quick') {
-        return service.timeEstimate.includes('1');
-      }
-      if (filter === 'standard') {
-        return service.timeEstimate.includes('2') || service.timeEstimate.includes('3') || service.timeEstimate.includes('4');
-      }
-      if (filter === 'extended') {
-        return parseInt(service.timeEstimate.split('-')[1] || service.timeEstimate.split(' ')[0]) > 4;
-      }
-      
-      // Check for popular filter
-      if (filter === 'popular') {
-        return service.popular;
-      }
-      
-      return false;
-    });
-  };
-
-  // Filter services based on search and active filters
+  // Filter services based on search, category, and filters
   const filteredServices = (servicesData as Service[]).filter(service => {
-    const matchesSearch = searchQuery === '' || 
-                         service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-    return matchesSearch && matchesFilters(service);
+    const matchesCategory = !category || service.subcategory === category;
+
+    const matchesFilters = activeFilters.length === 0 || 
+                          activeFilters.some(filter => service.features.includes(filter));
+
+    return matchesSearch && matchesCategory && matchesFilters;
   });
+
+  const toggleFilter = (filter: string) => {
+    setActiveFilters((prev: string[]) => 
+        prev.includes(filter)
+            ? prev.filter(f => f !== filter)
+            : [...prev, filter]
+    );
+};
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero section with gradient background */}
-      <div className="relative bg-gradient-to-r from-green-800 to-green-600 py-16 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <svg
-            className="absolute bottom-0 left-0 right-0 text-gray-50"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-          >
-            <path
-              fill="currentColor"
-              fillOpacity="1"
-              d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center">
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1617104551722-3b2d51366400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(240, 90, 39, 0.4)' }}></div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
@@ -184,271 +87,327 @@ const ServiceDirectoryPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            {initialCategory 
-              ? `Browse our selection of ${initialCategory.replace(/-/g, ' ')} services`
+            {category 
+              ? `Browse our selection of ${category.replace(/-/g, ' ')} services`
               : 'Explore our comprehensive range of professional services tailored to your home needs'
             }
           </motion.p>
-        </div>
-      </div>
 
-      {/* Main content */}
-      <div className="container mx-auto px-4 py-8 -mt-16 relative z-20">
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-6">
-            {/* Search input */}
-            <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
+          {/* Search Bar */}
+          <motion.div
+            className="max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="relative">
               <input
                 type="text"
                 placeholder="Search services..."
-                className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-4 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-primary text-lg"
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <button
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Wave transition */}
+        <div className="absolute -bottom-1 left-0 right-0 z-20">
+          <svg
+            className="w-full relative"
+            style={{ height: '120px', color: '#ebd5c1' }}
+            preserveAspectRatio="none"
+            viewBox="0 0 1200 120"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+          >
+            <path d="M 0,60 C 150,60 200,100 300,100 C 400,100 500,40 600,40 C 700,40 800,100 900,100 C 1000,100 1050,60 1200,60 L 1200,120 L 0,120 Z" />
+          </svg>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20" style={{ backgroundColor: '#ebd5c1' }}>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-[#1B4332] mb-2">
+                {category 
+                  ? `${category.replace(/-/g, ' ')} Services`
+                  : 'All Services'
+                }
+              </h2>
+              <p className="text-gray-700">
+                {filteredServices.length} services available
+              </p>
             </div>
 
-            {/* View mode and filter reset */}
-            <div className="flex items-center space-x-4">
-              <button 
-                onClick={resetFilters}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
-                  activeFilters.length > 0 
-                    ? 'bg-green-100 text-green-800 hover:bg-green-200' 
-                    : 'bg-gray-100 text-gray-500'
-                }`}
-                disabled={activeFilters.length === 0 && searchQuery === ''}
+            {/* View Toggle */}
+            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`p-2 rounded ${viewMode === 'grid' ? 'bg-white shadow text-primary' : 'text-[#1B4332] hover:bg-white/50'}`}
               >
-                Reset Filters
+                <GridIcon className="w-5 h-5" />
               </button>
-              <div className="flex bg-gray-100 rounded-lg p-1">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md ${viewMode === 'grid' ? 'bg-white shadow' : ''}`}
-                >
-                  <Grid size={20} className="text-gray-700" />
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-md ${viewMode === 'list' ? 'bg-white shadow' : ''}`}
-                >
-                  <List size={20} className="text-gray-700" />
-                </button>
+              <button
+                onClick={() => setViewMode('list')}
+                className={`p-2 rounded ${viewMode === 'list' ? 'bg-white shadow text-primary' : 'text-[#1B4332] hover:bg-white/50'}`}
+              >
+                <List className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* Filters Sidebar */}
+            <div className="w-full md:w-64 flex-shrink-0">
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-[#1B4332]">Filters</h3>
+                  <Filter className="w-5 h-5 text-[#1B4332]" />
+                </div>
+
+                {Object.entries(filterCategories).map(([category, filters]) => (
+                  <div key={category} className="mb-6">
+                    <button
+                      className="flex items-center justify-between w-full text-left font-medium mb-2 text-[#1B4332]"
+                      onClick={() => setExpandedFilter(expandedFilter === category ? null : category)}
+                    >
+                      {category}
+                      {expandedFilter === category ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
+                    </button>
+
+                    {expandedFilter === category && (
+                      <div className="space-y-2">
+                        {filters.map(filter => (
+                          <label key={filter} className="flex items-center space-x-2">
+                            <input
+                              type="checkbox"
+                              checked={activeFilters.includes(filter)}
+                              onChange={() => toggleFilter(filter)}
+                              className="rounded text-primary focus:ring-primary"
+                            />
+                            <span className="text-sm text-gray-700">{filter}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Filter section */}
-          <div className="mb-8">
-            <div className="flex flex-wrap gap-2">
-              {Object.entries(filterCategories).map(([category, filters]) => (
-                <div key={category} className="relative">
-                  <button
-                    onClick={() => setExpandedFilter(expandedFilter === category ? null : category)}
-                    className="px-4 py-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 text-sm font-medium flex items-center"
-                  >
-                    {category}
-                    <span className="ml-1">
-                      {expandedFilter === category ? '▲' : '▼'}
-                    </span>
-                    {activeFilters.some(filter => 
-                      filters.some(f => f.filter === filter)
-                    ) && (
-                      <span className="ml-1 w-2 h-2 bg-green-500 rounded-full"></span>
-                    )}
-                  </button>
-                  
-                  {/* Dropdown filter options */}
-                  {expandedFilter === category && (
-                    <div className="absolute z-50 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 p-2 max-h-64 overflow-y-auto">
-                      {filters.map((filter) => (
-                        <div 
-                          key={filter.filter} 
-                          className="flex items-center p-2 hover:bg-gray-50 rounded cursor-pointer"
-                          onClick={() => toggleFilter(filter.filter)}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={activeFilters.includes(filter.filter)}
-                            onChange={() => {}}
-                            className="h-4 w-4 text-green-600 rounded"
-                          />
-                          <span className="ml-2 text-sm">
-                            {filter.label}
-                          </span>
-                          {category === 'Service Type' && (
-                            <span className="ml-auto text-xs text-gray-500">
-                              {categoryMap[filter.filter]}
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Active filters display */}
-          {activeFilters.length > 0 && (
-            <div className="mb-6 flex flex-wrap gap-2">
-              {activeFilters.map(filter => {
-                // Find the label for this filter
-                let label = filter.replace(/-/g, ' ');
-                
-                // Look for a match in any category
-                Object.values(filterCategories).flat().forEach(f => {
-                  if (f.filter === filter) {
-                    label = f.label;
-                  }
-                });
-                
-                return (
-                  <div 
-                    key={filter}
-                    className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm flex items-center"
-                  >
-                    <span>{label}</span>
-                    <button 
-                      onClick={() => toggleFilter(filter)}
-                      className="ml-2 w-4 h-4 flex items-center justify-center rounded-full bg-green-200 hover:bg-green-300"
+            {/* Services Grid/List */}
+            <div className="flex-grow">
+              {viewMode === 'grid' ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredServices.map(service => (
+                    <motion.div
+                      key={service.id}
+                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col h-full"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
+                      onClick={() => setSelectedService(service)}
                     >
-                      ×
-                    </button>
-                  </div>
-                );
-              })}
+                      <div className="relative h-48">
+                        <img
+                          src={service.image}
+                          alt={service.name}
+                          className="w-full h-full object-cover"
+                        />
+                        {service.popular && (
+                          <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                            <Star className="w-4 h-4 mr-1" />
+                            Popular
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-6 flex flex-col h-full">
+                        <div className="flex-grow">
+                          <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
+                          <p className="text-gray-600 mb-4">{service.description}</p>
+                          <ul className="space-y-2 mb-6">
+                            {service.features.slice(0, 2).map((feature, index) => (
+                              <li key={index} className="flex items-center text-sm text-gray-600">
+                                <Star className="w-4 h-4 text-primary mr-2" />
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="mt-auto pt-2">
+                          <button className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
+                            Learn More
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {filteredServices.map(service => (
+                    <motion.div
+                      key={service.id}
+                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      onClick={() => setSelectedService(service)}
+                    >
+                      <div className="p-6 flex gap-6">
+                        <div className="w-48 h-32 flex-shrink-0">
+                          <img
+                            src={service.image}
+                            alt={service.name}
+                            className="w-full h-full object-cover rounded-lg"
+                          />
+                        </div>
+                        <div className="flex-grow">
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
+                              <p className="text-gray-600 mb-4">{service.description}</p>
+                            </div>
+                            {service.popular && (
+                              <div className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                                <Star className="w-4 h-4 mr-1" />
+                                Popular
+                              </div>
+                            )}
+                          </div>
+                          <ul className="space-y-2 mb-4">
+                            {service.features.map((feature, index) => (
+                              <li key={index} className="flex items-center text-sm text-gray-600">
+                                <Star className="w-4 h-4 text-primary mr-2" />
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                          <button className="bg-primary text-white font-bold px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            Learn More
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
-
-          {/* Results count */}
-          <div className="mb-6">
-            <p className="text-gray-600">
-              {filteredServices.length === 0 
-                ? 'No services found matching your criteria.' 
-                : `Found ${filteredServices.length} service${filteredServices.length !== 1 ? 's' : ''}`}
-            </p>
-          </div>
-
-          {/* Service cards */}
-          <div className={
-            viewMode === 'grid'
-              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'
-              : 'space-y-6'
-          }>
-            {filteredServices.map(service => (
-              <motion.div
-                key={service.id}
-                className={`bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col h-full ${
-                  viewMode === 'list' ? 'flex-row' : ''
-                }`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-                onClick={() => setSelectedService(service)}
-              >
-                <div className={`relative ${viewMode === 'list' ? 'w-1/3' : 'h-48'}`}>
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className={`w-full h-full object-cover ${viewMode === 'list' ? 'h-full' : ''}`}
-                  />
-                  {service.popular && (
-                    <div className="absolute top-0 right-0 bg-green-600 text-white text-xs font-bold px-3 py-1 m-2 rounded-full">
-                      Popular
-                    </div>
-                  )}
-                </div>
-                <div className={`p-6 flex flex-col h-full ${viewMode === 'list' ? 'w-2/3' : ''}`}>
-                  <div className="flex-grow">
-                    <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-bold text-[#1B4332]">{service.name}</h3>
-                      <span className="text-green-600 font-medium text-sm">{service.price}</span>
-                    </div>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                    <ul className="space-y-2 mb-6">
-                      {service.features.slice(0, 2).map((feature, index) => (
-                        <li key={index} className="flex items-center text-sm text-gray-600">
-                          <Star className="w-4 h-4 text-primary mr-2" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mt-auto pt-2">
-                    <button className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
-                      Learn More
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Service Detail Modal */}
-      {selectedService && (
-        <div className="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                      {selectedService.name}
-                    </h3>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        {selectedService.description}
-                      </p>
-                    </div>
-                    <div className="mt-4">
-                      <h4 className="text-md font-medium text-gray-900">Features:</h4>
-                      <ul className="mt-2 space-y-2">
-                        {selectedService.features.map((feature, index) => (
-                          <li key={index} className="flex items-center text-sm text-gray-600">
-                            <Star className="w-4 h-4 text-primary mr-2" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="mt-4 flex justify-between">
-                      <div>
-                        <h4 className="text-md font-medium text-gray-900">Price:</h4>
-                        <p className="text-sm text-gray-600">{selectedService.price}</p>
-                      </div>
-                      <div>
-                        <h4 className="text-md font-medium text-gray-900">Time Estimate:</h4>
-                        <p className="text-sm text-gray-600">{selectedService.timeEstimate}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <Link
-                  to={`/quote?service=${selectedService.id}`}
-                  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-                >
-                  Get a Quote
-                </Link>
+      {/* Service Modal */}
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="relative h-64">
+                <img
+                  src={selectedService.image}
+                  alt={selectedService.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <button
-                  type="button"
-                  className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors"
                   onClick={() => setSelectedService(null)}
                 >
-                  Close
+                  <ChevronDown className="w-6 h-6" />
                 </button>
+                {selectedService.popular && (
+                  <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                    <Star className="w-4 h-4 mr-1" />
+                    Popular
+                  </div>
+                )}
+                <div className="absolute bottom-4 left-6 right-6">
+                  <h3 className="text-3xl font-bold text-white mb-2">
+                    {selectedService.name}
+                  </h3>
+                  <p className="text-white/90 text-lg">
+                    {selectedService.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
+
+              {/* Modal Content */}
+              <div className="p-6">
+                {/* Service Details */}
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center text-primary mb-2">
+                      <DollarSign className="w-5 h-5 mr-2" />
+                      <span className="font-bold">Price Estimate</span>
+                    </div>
+                    <p className="text-gray-700">{selectedService.price}</p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center text-primary mb-2">
+                      <Clock className="w-5 h-5 mr-2" />
+                      <span className="font-bold">Duration</span>
+                    </div>
+                    <p className="text-gray-700">{selectedService.timeEstimate}</p>
+                  </div>
+                </div>
+
+                {/* Features */}
+                <div className="mb-8">
+                  <h4 className="text-lg font-bold mb-4">What's Included</h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {selectedService.features.map((feature, index) => (
+                      <li key={index} className="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <Star className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Call to Action */}
+                <div className="flex gap-4">
+                  <button className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors">
+                    Book Now
+                  </button>
+                  <button className="flex-1 border-2 border-primary text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/5 transition-colors">
+                    Get a Quote
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating Chat Button */}
+      <button className="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg hover:bg-primary/90 transition-colors z-50">
+        <MessageSquare className="w-6 h-6" />
+      </button>
     </div>
   );
 };
