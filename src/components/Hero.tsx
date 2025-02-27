@@ -45,7 +45,7 @@ const Hero = () => {
     const filtered = servicesData.filter(service =>
       service.name.toLowerCase().includes(searchQuery.toLowerCase())
     ).slice(0, 5); // Limit to 5 results
-
+    
     setFilteredServices(filtered);
     setIsDropdownVisible(filtered.length > 0);
   }, [searchQuery]);
@@ -67,7 +67,7 @@ const Hero = () => {
 
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('mousedown', handleModalClickOutside);
-
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('mousedown', handleModalClickOutside);
@@ -77,7 +77,7 @@ const Hero = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim() === '') return;
-
+    
     // Navigate to service directory with search query if no specific service selected
     navigate(`/services?search=${encodeURIComponent(searchQuery)}`);
   };
@@ -119,7 +119,7 @@ const Hero = () => {
           <p className="text-xl mb-12 text-gray-200 max-w-2xl mx-auto">
             Expert craftsmen ready to tackle any home improvement task with precision and care. Available 24/7 for your convenience.
           </p>
-
+          
           <div 
             className="max-w-md mx-auto mb-12 relative"
             style={{ position: 'relative', zIndex: 9000 }}
@@ -143,7 +143,7 @@ const Hero = () => {
                 </button>
               </div>
             </form>
-
+            
             {/* Search Results Dropdown */}
             {isDropdownVisible && (
               <div className="absolute mt-2 w-full bg-white shadow-xl rounded-lg overflow-hidden search-dropdown">
@@ -174,13 +174,13 @@ const Hero = () => {
                 </ul>
               </div>
             )}
-
+            
             {/* Service Modal */}
             {isModalOpen && selectedService && (
-              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-60 p-4 service-modal-overlay"> {/* Increased z-index */}
+              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
                 <div 
                   ref={modalRef}
-                  className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto service-modal"
+                  className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="relative">
@@ -190,7 +190,7 @@ const Hero = () => {
                     >
                       <X className="w-6 h-6 text-gray-800" />
                     </button>
-
+                    
                     {selectedService.image && (
                       <div className="h-48 sm:h-64 overflow-hidden">
                         <img 
@@ -201,11 +201,11 @@ const Hero = () => {
                       </div>
                     )}
                   </div>
-
+                  
                   <div className="p-6">
                     <h2 className="text-2xl font-bold text-gray-800 mb-2">{selectedService.name}</h2>
                     <p className="text-gray-600 mb-6">{selectedService.description}</p>
-
+                    
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       <div className="bg-gray-50 p-4 rounded-lg">
                         <div className="flex items-center text-primary mb-2">
@@ -214,7 +214,7 @@ const Hero = () => {
                         </div>
                         <p className="text-gray-700">{selectedService.price}</p>
                       </div>
-
+                      
                       <div className="bg-gray-50 p-4 rounded-lg">
                         <div className="flex items-center text-primary mb-2">
                           <Clock className="w-5 h-5 mr-2" />
@@ -223,7 +223,7 @@ const Hero = () => {
                         <p className="text-gray-700">{selectedService.timeEstimate}</p>
                       </div>
                     </div>
-
+                    
                     <div className="mb-6">
                       <h3 className="text-lg font-semibold mb-3 text-gray-800">Features</h3>
                       <ul className="space-y-2">
@@ -235,7 +235,7 @@ const Hero = () => {
                         ))}
                       </ul>
                     </div>
-
+                    
                     <button 
                       className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
                     >
