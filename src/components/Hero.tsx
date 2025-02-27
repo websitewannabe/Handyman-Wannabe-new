@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, Phone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import servicesData from './services.json';
 
 const services = [
   'Outlet Repair',
@@ -13,6 +15,55 @@ const services = [
 ];
 
 const Hero = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [suggestions, setSuggestions] = useState<{ id: string, name: string }[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (inputValue.length > 0) {
+      const filteredServices = servicesData.filter(service =>
+        service.name.toLowerCase().includes(inputValue.toLowerCase())
+      );
+      setSuggestions(filteredServices.slice(0, 5).map(service => ({
+        id: service.id,
+        name: service.name
+      })));
+      setShowDropdown(true);
+    } else {
+      setSuggestions([]);
+      setShowDropdown(false);
+    }
+  }, [inputValue]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSuggestionClick = (suggestion: { id: string, name: string }) => {
+    setInputValue(suggestion.name);
+    setShowDropdown(false);
+    setIsLoading(true);
+
+    // Navigate to service directory with service ID as query parameter
+    navigate(`/services?service=${suggestion.id}`);
+  };
+
   const [searchQuery, setSearchQuery] = useState('');
   const [searchStatus, setSearchStatus] = useState<'idle' | 'available' | 'unavailable'>('idle');
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
@@ -56,27 +107,52 @@ const Hero = () => {
           <p className="text-xl mb-12 text-gray-200 max-w-2xl mx-auto">
             Expert craftsmen ready to tackle any home improvement task with precision and care. Available 24/7 for your convenience.
           </p>
-          
-          <form 
-            onSubmit={handleSearch}
-            className="max-w-md mx-auto mb-12"
-          >
-            <div className="relative">
-              <input
-                type="text"
-                placeholder={`Search for... ${services[currentServiceIndex]}`}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-primary text-lg"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                <Search className="w-5 h-5" />
-              </button>
+
+          <div className="flex items-center justify-center mt-8">
+            <div className="relative w-full max-w-3xl">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="What service do you need help with?"
+                  className="w-full py-3 pl-12 pr-4 text-gray-900 bg-white rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  autoComplete="off"
+                />
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  {isLoading ? (
+                    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <Search className="w-6 h-6 text-gray-400" />
+                  )}
+                </div>
+              </div>
+
+              {showDropdown && suggestions.length > 0 && (
+                <div 
+                  ref={dropdownRef}
+                  className="absolute w-full mt-2 bg-white rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"
+                  style={{ maxHeight: '300px' }}
+                >
+                  <ul>
+                    {suggestions.map((suggestion, index) => (
+                      <li 
+                        key={index}
+                        className="px-4 py-3 cursor-pointer hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
+                        onClick={() => handleSuggestionClick(suggestion)}
+                      >
+                        <div className="flex items-center">
+                          <Search className="w-4 h-4 mr-2 text-primary" />
+                          <span>{suggestion.name}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          </form>
+          </div>
+
 
           {searchStatus !== 'idle' && (
             <div
