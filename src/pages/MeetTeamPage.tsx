@@ -1,11 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Phone, Mail, Star, PenTool as Tool, Wrench, Zap, Droplet, Hammer, Paintbrush } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Phone,
+  Mail,
+  Star,
+  PenTool as Tool,
+  Wrench,
+  Zap,
+  Droplet,
+  Hammer,
+  Paintbrush,
+} from "lucide-react";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const teamMembers = [
@@ -14,25 +24,28 @@ const teamMembers = [
     role: "Field Manager",
     specialty: "general",
     experience: "15+ years",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://handymanwannabe.com/wp-content/uploads/2023/09/2023-09-20_10-27-49-1-e1695818312193.png",
     bio: "Experienced field manager overseeing all on-site operations and ensuring quality workmanship on every project.",
     funFact: "Can troubleshoot any home issue within minutes of inspection",
-    icon: Tool,
+    icon: Wrench,
     projects: 750,
-    rating: 4.9
+    rating: 4.9,
   },
   {
     name: "Chris Tierney",
     role: "Director of Operations",
     specialty: "management",
     experience: "18+ years",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+    image:
+      "https://handymanwannabe.com/wp-content/uploads/2024/07/IMG_9996-scaled-e1722452280194-1536x1183.jpeg",
     bio: "Strategic operations director with a focus on efficiency, customer satisfaction, and business growth.",
-    funFact: "Transformed our scheduling system to reduce response times by 45%",
-    icon: Wrench,
+    funFact:
+      "Transformed our scheduling system to reduce response times by 45%",
+    icon: Tool,
     projects: 950,
-    rating: 4.9
-  }
+    rating: 4.9,
+  },
 ];
 
 const MeetTeamPage = () => {
@@ -42,7 +55,7 @@ const MeetTeamPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <motion.h1 
+            <motion.h1
               className="text-4xl font-bold text-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -72,8 +85,12 @@ const MeetTeamPage = () => {
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                        <p className="text-primary font-medium">{member.role}</p>
+                        <h3 className="text-xl font-bold mb-1">
+                          {member.name}
+                        </h3>
+                        <p className="text-primary font-medium">
+                          {member.role}
+                        </p>
                       </div>
                       <div className="bg-primary/10 p-2 rounded-full">
                         <member.icon className="w-6 h-6 text-primary" />
@@ -82,12 +99,15 @@ const MeetTeamPage = () => {
                     <p className="text-gray-600 mb-4">{member.bio}</p>
                     <div className="border-t pt-4">
                       <p className="text-gray-500 italic mb-4">
-                        <span className="font-medium text-dark">Fun Fact:</span> {member.funFact}
+                        <span className="font-medium text-dark">Fun Fact:</span>{" "}
+                        {member.funFact}
                       </p>
                       <div className="flex justify-between items-center">
                         <div className="flex items-center">
                           <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                          <span className="ml-1 font-bold">{member.rating}</span>
+                          <span className="ml-1 font-bold">
+                            {member.rating}
+                          </span>
                         </div>
                         <div className="text-gray-600">
                           {member.projects}+ Projects Completed
@@ -112,7 +132,8 @@ const MeetTeamPage = () => {
           >
             <h2 className="text-4xl font-bold mb-6">Want to Join Our Team?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              We're always looking for skilled professionals to join our growing family.
+              We're always looking for skilled professionals to join our growing
+              family.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <button className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
@@ -120,7 +141,9 @@ const MeetTeamPage = () => {
               </button>
               <div className="flex items-center">
                 <Mail className="w-6 h-6 mr-2" />
-                <span className="text-2xl font-bold">careers@handymanwannabe.com</span>
+                <span className="text-2xl font-bold">
+                  careers@handymanwannabe.com
+                </span>
               </div>
             </div>
           </motion.div>

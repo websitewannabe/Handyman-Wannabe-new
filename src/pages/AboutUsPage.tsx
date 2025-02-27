@@ -1,27 +1,38 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Star, Shield, Clock, ThumbsUp, Wrench } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Star,
+  Shield,
+  Clock,
+  ThumbsUp,
+  Wrench,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const teamMembers = [
   {
     name: "Dennis Tierney",
     role: "Field Manager",
-    image: "https://via.placeholder.com/256", // Placeholder image
-    bio: "Experienced Field Manager"
+    image:
+      "https://handymanwannabe.com/wp-content/uploads/2023/09/2023-09-20_10-27-49-1-e1695818312193.png", // Placeholder image
+    bio: "Experienced Field Manager",
   },
   {
     name: "Chris Tierney",
     role: "Director of Operations",
-    image: "https://via.placeholder.com/256", // Placeholder image
-    bio: "Director of Operations"
-  }
+    image:
+      "https://handymanwannabe.com/wp-content/uploads/2024/07/IMG_9996-scaled-e1722452280194-1536x1183.jpeg", // Placeholder image
+    bio: "Director of Operations",
+  },
 ];
 
 const AboutUsPage = () => {
@@ -37,7 +48,9 @@ const AboutUsPage = () => {
           >
             <h1 className="text-4xl font-bold mb-6">Our Mission</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              To make home repairs and improvements stress-free by connecting customers with trusted, skilled handymen who deliver exceptional results.
+              To make home repairs and improvements stress-free by connecting
+              customers with trusted, skilled handymen who deliver exceptional
+              results.
             </p>
           </motion.div>
 
@@ -46,23 +59,23 @@ const AboutUsPage = () => {
               {
                 icon: Wrench,
                 title: "High-Quality Workmanship",
-                description: "Every job completed to the highest standards"
+                description: "Every job completed to the highest standards",
               },
               {
                 icon: Shield,
                 title: "Transparent Pricing",
-                description: "No hidden fees or surprise charges"
+                description: "No hidden fees or surprise charges",
               },
               {
                 icon: Clock,
                 title: "Fast & Easy Scheduling",
-                description: "Book your service in under 2 minutes"
+                description: "Book your service in under 2 minutes",
               },
               {
                 icon: ThumbsUp,
                 title: "Satisfaction Guaranteed",
-                description: "100% satisfaction or your money back"
-              }
+                description: "100% satisfaction or your money back",
+              },
             ].map((value, index) => (
               <motion.div
                 key={index}
@@ -85,8 +98,12 @@ const AboutUsPage = () => {
       {/* Meet Our Team */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"> {/* Updated grid */}
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Meet Our Team
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {" "}
+            {/* Updated grid */}
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
@@ -165,9 +182,12 @@ const AboutUsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <h2 className="text-4xl font-bold mb-6">Need Reliable Home Repairs?</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              Need Reliable Home Repairs?
+            </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Let's get started on making your home improvement dreams a reality.
+              Let's get started on making your home improvement dreams a
+              reality.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <button className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
