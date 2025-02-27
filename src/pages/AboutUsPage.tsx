@@ -21,18 +21,6 @@ const teamMembers = [
     role: "Lead Electrician",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
     bio: "Master electrician with a passion for innovative solutions and safety-first approach."
-  },
-  {
-    name: "Mike Johnson",
-    role: "Plumbing Expert",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Specializing in both emergency repairs and complete bathroom renovations."
-  },
-  {
-    name: "Lisa Rodriguez",
-    role: "Interior Specialist",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    bio: "Bringing spaces to life with expert painting and drywall services."
   }
 ];
 
