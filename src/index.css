@@ -96,14 +96,10 @@
 
 /* Search dropdown styles */
 .search-dropdown {
-  z-index: 100;
+  z-index: 50;
   animation: fadeIn 0.2s ease-in-out;
   max-height: 300px;
   overflow-y: auto;
-  position: absolute;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
 }
 
 @keyframes fadeIn {
@@ -119,23 +115,11 @@
 
 /* Service modal styles */
 .service-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
   animation: modalFadeIn 0.3s ease-in-out;
 }
 
 .service-modal {
-  z-index: 1001;
   animation: modalSlideIn 0.3s ease-in-out;
-  position: relative;
-  max-width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
 }
 
 @keyframes modalFadeIn {
