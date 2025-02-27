@@ -23,7 +23,7 @@ interface Service {
 const ServiceDirectoryPage = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
-  
+
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -41,12 +41,12 @@ const ServiceDirectoryPage = () => {
   const filteredServices = (servicesData as Service[]).filter(service => {
     const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesCategory = !category || service.subcategory === category;
-    
+
     const matchesFilters = activeFilters.length === 0 || 
                           activeFilters.some(filter => service.features.includes(filter));
-    
+
     return matchesSearch && matchesCategory && matchesFilters;
   });
 
@@ -92,7 +92,7 @@ const ServiceDirectoryPage = () => {
               : 'Explore our comprehensive range of professional services'
             }
           </motion.p>
-          
+
           {/* Search Bar */}
           <motion.div
             className="max-w-2xl mx-auto"
@@ -147,7 +147,7 @@ const ServiceDirectoryPage = () => {
                 {filteredServices.length} services available
               </p>
             </div>
-            
+
             {/* View Toggle */}
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
               <button
@@ -187,7 +187,7 @@ const ServiceDirectoryPage = () => {
                         <ChevronDown className="w-4 h-4" />
                       )}
                     </button>
-                    
+
                     {expandedFilter === category && (
                       <div className="space-y-2">
                         {filters.map(filter => (
