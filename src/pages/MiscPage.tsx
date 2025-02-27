@@ -10,13 +10,6 @@ const MiscPage = () => {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
 
-  const serviceSubcategories = [
-    "exterior-home-power-washing",
-    "interior-painting",
-    "minor-plumbing-repairs",
-    // Add more subcategories here
-  ];
-
   return (
     <div className="relative">
       {/* Hero Section */}
@@ -115,16 +108,6 @@ const MiscPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-primary">Our Services Coming Soon</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {serviceSubcategories.map((subcategory) => (
-                  <div key={subcategory} className="p-4 border border-gray-200 rounded-lg shadow-sm">
-                    <h3 className="text-xl font-medium mb-2">
-                      {subcategory.toLowerCase().replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Services
-                    </h3>
-                    {/* Add service details here */}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
