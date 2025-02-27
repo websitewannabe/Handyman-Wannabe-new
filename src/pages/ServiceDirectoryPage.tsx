@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
-import { useSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import servicesData from "../data/services.json";
 
 const services: Service[] = servicesData;
@@ -21,49 +21,14 @@ interface Service {
 }
 
 const ServiceDirectoryPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedSubcategory, setSelectedSubcategory] = useState<string>('');
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedService, setSelectedService] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  // Check for service query parameter on page load
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const serviceId = queryParams.get('service');
-
-    if (serviceId) {
-      setIsLoading(true);
-
-      // Find the service in services data
-      const service = services.find(s => s.id === serviceId);
-
-      if (service) {
-        setSelectedService(service);
-        setIsModalOpen(true);
-
-        // Optionally set the category and subcategory to match the service
-        setSelectedCategory(service.category.toLowerCase());
-        setSelectedSubcategory(service.subcategory);
-      }
-
-      // Remove the query parameter from URL after processing
-      navigate(location.pathname, { replace: true });
-      setIsLoading(false);
-    }
-  }, [location]);
-
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
-
+  
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
-
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
 
   // Filter categories
   const filterCategories = {
@@ -76,12 +41,12 @@ const ServiceDirectoryPage = () => {
   const filteredServices = (servicesData as Service[]).filter(service => {
     const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
-
+    
     const matchesCategory = !category || service.subcategory === category;
-
+    
     const matchesFilters = activeFilters.length === 0 || 
                           activeFilters.some(filter => service.features.includes(filter));
-
+    
     return matchesSearch && matchesCategory && matchesFilters;
   });
 
@@ -127,7 +92,7 @@ const ServiceDirectoryPage = () => {
               : 'Explore our comprehensive range of professional services'
             }
           </motion.p>
-
+          
           {/* Search Bar */}
           <motion.div
             className="max-w-2xl mx-auto"
@@ -182,7 +147,7 @@ const ServiceDirectoryPage = () => {
                 {filteredServices.length} services available
               </p>
             </div>
-
+            
             {/* View Toggle */}
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
               <button
@@ -222,7 +187,7 @@ const ServiceDirectoryPage = () => {
                         <ChevronDown className="w-4 h-4" />
                       )}
                     </button>
-
+                    
                     {expandedFilter === category && (
                       <div className="space-y-2">
                         {filters.map(filter => (
