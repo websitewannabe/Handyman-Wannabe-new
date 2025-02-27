@@ -4,6 +4,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Filter animations */
+@keyframes filterExpand {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.filter-dropdown {
+  animation: filterExpand 0.2s ease-out;
+}
+
+/* Custom checkbox styles */
+.filter-checkbox {
+  @apply h-4 w-4 text-green-600 rounded border-gray-300 focus:ring-green-500;
+}
+
+/* Filter tag animations */
+.filter-tag {
+  @apply transition-all duration-200;
+}
+.filter-tag:hover {
+  @apply bg-green-200;
+}
+
+/* Multi-select dropdown styles */
+.multi-select-dropdown {
+  @apply shadow-lg border border-gray-200 p-2;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+/* Service card hover effect */
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
 @layer base {
   html {
     font-family: 'Montserrat', sans-serif;
