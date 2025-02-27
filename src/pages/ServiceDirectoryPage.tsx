@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
+import { Search, Grid as GridIcon, List, Clock, DollarSign, MessageSquare } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import servicesData from "../data/services.json";
-
-const services: Service[] = servicesData;
 
 // Service interface definitions
 interface Service {
@@ -16,8 +14,8 @@ interface Service {
   image: string;
   features: string[];
   popular: boolean;
-  price?: string;
-  timeEstimate?: string;
+  price: string;
+  timeEstimate: string;
 }
 
 const ServiceDirectoryPage = () => {
@@ -26,53 +24,25 @@ const ServiceDirectoryPage = () => {
 
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-  // Filter categories
-  const filterCategories = {
-    'Service Type': ['Interior', 'Exterior', 'Repair', 'Installation'],
-    'Popular Services': ['Featured', 'Most Requested', 'Seasonal'],
-    'Price Range': ['Budget-Friendly', 'Mid-Range', 'Premium']
-  };
-
-  // Filter services based on search, category, and filters
+  // Filter services based on search and category only
   const filteredServices = (servicesData as Service[]).filter(service => {
     const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          service.description.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesCategory = !category || service.subcategory === category;
 
-    const matchesFilters = activeFilters.length === 0 || 
-                          activeFilters.some(filter => service.features.includes(filter));
-
-    return matchesSearch && matchesCategory && matchesFilters;
+    return matchesSearch && matchesCategory;
   });
 
-  const toggleFilter = (filter: string) => {
-    setActiveFilters((prev: string[]) => 
-        prev.includes(filter)
-            ? prev.filter(f => f !== filter)
-            : [...prev, filter]
-    );
-};
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1617104551722-3b2d51366400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(240, 90, 39, 0.4)' }}></div>
-        </div>
+    <div className="relative min-h-screen bg-white">
+      {/* Hero Background */}
+      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-blue-600 to-blue-800 -z-10"></div>
 
+      {/* Header Content */}
+      <div className="container mx-auto px-4 py-8">
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
           <motion.h1 
             className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
@@ -92,224 +62,140 @@ const ServiceDirectoryPage = () => {
               : 'Explore our comprehensive range of professional services tailored to your home needs'
             }
           </motion.p>
+        </div>
 
-          {/* Search Bar */}
-          <motion.div
-            className="max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <div className="relative">
+        {/* Search Bar */}
+        <div className="relative z-10 max-w-2xl mx-auto mt-8">
+          <div className="bg-white rounded-full shadow-xl overflow-hidden">
+            <div className="flex items-center p-2">
+              <div className="pl-4 text-gray-400">
+                <Search size={20} />
+              </div>
               <input
                 type="text"
-                placeholder="Search services..."
+                placeholder="Search for services..."
+                className="w-full px-4 py-3 focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-primary text-lg"
               />
-              <button
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                <Search className="w-5 h-5" />
-              </button>
             </div>
-          </motion.div>
+          </div>
         </div>
+      </div>
 
-        {/* Wave transition */}
-        <div className="absolute -bottom-1 left-0 right-0 z-20">
-          <svg
-            className="w-full relative"
-            style={{ height: '120px', color: '#ebd5c1' }}
-            preserveAspectRatio="none"
-            viewBox="0 0 1200 120"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-          >
-            <path d="M 0,60 C 150,60 200,100 300,100 C 400,100 500,40 600,40 C 700,40 800,100 900,100 C 1000,100 1050,60 1200,60 L 1200,120 L 0,120 Z" />
-          </svg>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20" style={{ backgroundColor: '#ebd5c1' }}>
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-            <div>
-              <h2 className="text-2xl font-bold text-[#1B4332] mb-2">
-                {category 
-                  ? `${category.replace(/-/g, ' ')} Services`
-                  : 'All Services'
-                }
-              </h2>
-              <p className="text-gray-700">
-                {filteredServices.length} services available
-              </p>
+      {/* Service Listings */}
+      <div className="container mx-auto px-4 py-12 -mt-16">
+        <div className="bg-white rounded-xl shadow-xl p-6">
+          {/* View Mode Toggle */}
+          <div className="flex justify-between items-center mb-8">
+            <div className="text-gray-600">
+              {filteredServices.length} service{filteredServices.length !== 1 ? 's' : ''} found
             </div>
-
-            {/* View Toggle */}
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
-              <button
+            <div className="flex items-center space-x-2">
+              <span className="text-sm text-gray-600 mr-2">View:</span>
+              <button 
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded ${viewMode === 'grid' ? 'bg-white shadow text-primary' : 'text-[#1B4332] hover:bg-white/50'}`}
+                className={`p-2 rounded ${viewMode === 'grid' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'}`}
+                aria-label="Grid view"
               >
-                <GridIcon className="w-5 h-5" />
+                <GridIcon size={16} />
               </button>
-              <button
+              <button 
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded ${viewMode === 'list' ? 'bg-white shadow text-primary' : 'text-[#1B4332] hover:bg-white/50'}`}
+                className={`p-2 rounded ${viewMode === 'list' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'}`}
+                aria-label="List view"
               >
-                <List className="w-5 h-5" />
+                <List size={16} />
               </button>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Filters Sidebar */}
-            <div className="w-full md:w-64 flex-shrink-0">
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-[#1B4332]">Filters</h3>
-                  <Filter className="w-5 h-5 text-[#1B4332]" />
-                </div>
-
-                {Object.entries(filterCategories).map(([category, filters]) => (
-                  <div key={category} className="mb-6">
-                    <button
-                      className="flex items-center justify-between w-full text-left font-medium mb-2 text-[#1B4332]"
-                      onClick={() => setExpandedFilter(expandedFilter === category ? null : category)}
-                    >
-                      {category}
-                      {expandedFilter === category ? (
-                        <ChevronUp className="w-4 h-4" />
-                      ) : (
-                        <ChevronDown className="w-4 h-4" />
-                      )}
-                    </button>
-
-                    {expandedFilter === category && (
-                      <div className="space-y-2">
-                        {filters.map(filter => (
-                          <label key={filter} className="flex items-center space-x-2">
-                            <input
-                              type="checkbox"
-                              checked={activeFilters.includes(filter)}
-                              onChange={() => toggleFilter(filter)}
-                              className="rounded text-primary focus:ring-primary"
-                            />
-                            <span className="text-sm text-gray-700">{filter}</span>
-                          </label>
-                        ))}
+          {/* Service Cards */}
+          {filteredServices.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-gray-500 text-lg">No services found matching your criteria.</p>
+              <button 
+                onClick={() => {
+                  setSearchQuery('');
+                }}
+                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+              >
+                Clear Search
+              </button>
+            </div>
+          ) : (
+            <div className={`
+              ${viewMode === 'grid' 
+                ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' 
+                : 'space-y-6'
+              }
+            `}>
+              {filteredServices.map((service) => (
+                <motion.div 
+                  key={service.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  onClick={() => setSelectedService(service)}
+                  className={`
+                    cursor-pointer bg-white border border-gray-200 hover:border-blue-200 hover:shadow-md transition-all
+                    ${viewMode === 'grid' 
+                      ? 'rounded-xl overflow-hidden flex flex-col'
+                      : 'rounded-xl overflow-hidden flex flex-col sm:flex-row'
+                    }
+                  `}
+                >
+                  <div 
+                    className={`
+                      relative 
+                      ${viewMode === 'grid' 
+                        ? 'h-48 w-full'
+                        : 'h-40 sm:h-auto sm:w-48'
+                      }
+                    `}
+                  >
+                    <img 
+                      src={service.image}
+                      alt={service.name}
+                      className="h-full w-full object-cover"
+                    />
+                    {service.popular && (
+                      <div className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                        <Star size={12} className="inline mr-1" />
+                        Popular
                       </div>
                     )}
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Services Grid/List */}
-            <div className="flex-grow">
-              {viewMode === 'grid' ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredServices.map(service => (
-                    <motion.div
-                      key={service.id}
-                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col h-full"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
-                      onClick={() => setSelectedService(service)}
-                    >
-                      <div className="relative h-48">
-                        <img
-                          src={service.image}
-                          alt={service.name}
-                          className="w-full h-full object-cover"
-                        />
-                        {service.popular && (
-                          <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                            <Star className="w-4 h-4 mr-1" />
-                            Popular
-                          </div>
-                        )}
+                  <div className={`
+                    p-6 flex flex-col
+                    ${viewMode === 'grid' ? 'flex-grow' : 'flex-grow w-full'}
+                  `}>
+                    <h3 className="font-bold text-lg mb-2 line-clamp-1">{service.name}</h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{service.description}</p>
+
+                    <div className="mt-auto">
+                      <div className="flex items-center text-gray-500 text-sm mb-3">
+                        <Clock size={16} className="mr-2" />
+                        <span>{service.timeEstimate}</span>
+                        <div className="mx-2 h-1 w-1 rounded-full bg-gray-300"></div>
+                        <DollarSign size={16} className="mr-1" />
+                        <span>{service.price}</span>
                       </div>
-                      <div className="p-6 flex flex-col h-full">
-                        <div className="flex-grow">
-                          <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
-                          <p className="text-gray-600 mb-4">{service.description}</p>
-                          <ul className="space-y-2 mb-6">
-                            {service.features.slice(0, 2).map((feature, index) => (
-                              <li key={index} className="flex items-center text-sm text-gray-600">
-                                <Star className="w-4 h-4 text-primary mr-2" />
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="mt-auto pt-2">
-                          <button className="w-full bg-primary text-white font-medium py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
-                            Learn More
-                          </button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {filteredServices.map(service => (
-                    <motion.div
-                      key={service.id}
-                      className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      onClick={() => setSelectedService(service)}
-                    >
-                      <div className="p-6 flex gap-6">
-                        <div className="w-48 h-32 flex-shrink-0">
-                          <img
-                            src={service.image}
-                            alt={service.name}
-                            className="w-full h-full object-cover rounded-lg"
-                          />
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex justify-between items-start">
-                            <div>
-                              <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
-                              <p className="text-gray-600 mb-4">{service.description}</p>
-                            </div>
-                            {service.popular && (
-                              <div className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                                <Star className="w-4 h-4 mr-1" />
-                                Popular
-                              </div>
-                            )}
-                          </div>
-                          <ul className="space-y-2 mb-4">
-                            {service.features.map((feature, index) => (
-                              <li key={index} className="flex items-center text-sm text-gray-600">
-                                <Star className="w-4 h-4 text-primary mr-2" />
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                          <button className="bg-primary text-white font-bold px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors">
-                            Learn More
-                          </button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              )}
+
+                      <button className="w-full mt-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition flex items-center justify-center">
+                        <MessageSquare size={16} className="mr-2" />
+                        Learn More
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          )}
         </div>
-      </section>
+      </div>
 
-      {/* Service Modal */}
+      {/* Service Detail Modal from original code */}
       <AnimatePresence>
         {selectedService && (
           <motion.div
