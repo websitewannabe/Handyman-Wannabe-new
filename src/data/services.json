@@ -2372,7 +2372,11 @@
     "category": "Windows & Doors",
     "subcategory": "window-services",
     "image": "path/to/window_glass_replacement.jpg",
-    "features": ["Glass replacement", "Small section repairs", "Single-pane windows"],
+    "features": [
+      "Glass replacement",
+      "Small section repairs",
+      "Single-pane windows"
+    ],
     "popular": false,
     "price": "Varies",
     "timeEstimate": "1-3 hours"
@@ -2396,7 +2400,11 @@
     "category": "Windows & Doors",
     "subcategory": "window-services",
     "image": "path/to/window_lock_repair.jpg",
-    "features": ["Lock replacement", "Latch adjustments", "Security improvement"],
+    "features": [
+      "Lock replacement",
+      "Latch adjustments",
+      "Security improvement"
+    ],
     "popular": false,
     "price": "Varies",
     "timeEstimate": "1-3 hours"
@@ -2420,7 +2428,11 @@
     "category": "Windows & Doors",
     "subcategory": "window-services",
     "image": "path/to/window_blinds.jpg",
-    "features": ["Blinds installation", "Curtain rod mounting", "Light control"],
+    "features": [
+      "Blinds installation",
+      "Curtain rod mounting",
+      "Light control"
+    ],
     "popular": false,
     "price": "Varies",
     "timeEstimate": "1-3 hours"
@@ -2444,7 +2456,11 @@
     "category": "Windows & Doors",
     "subcategory": "window-services",
     "image": "path/to/window_trim.jpg",
-    "features": ["Trim replacement", "Aesthetic improvement", "Water damage prevention"],
+    "features": [
+      "Trim replacement",
+      "Aesthetic improvement",
+      "Water damage prevention"
+    ],
     "popular": false,
     "price": "Varies",
     "timeEstimate": "2-4 hours"
@@ -2456,7 +2472,11 @@
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
     "image": "path/to/interior_door_install.jpg",
-    "features": ["Door replacement", "Bedroom & bathroom doors", "Closet doors"],
+    "features": [
+      "Door replacement",
+      "Bedroom & bathroom doors",
+      "Closet doors"
+    ],
     "popular": true,
     "price": "Varies",
     "timeEstimate": "2-5 hours"
@@ -2468,7 +2488,11 @@
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
     "image": "path/to/exterior_door.jpg",
-    "features": ["Front door replacement", "Side door installation", "Weatherproofing"],
+    "features": [
+      "Front door replacement",
+      "Side door installation",
+      "Weatherproofing"
+    ],
     "popular": false,
     "price": "Varies",
     "timeEstimate": "3-6 hours"
@@ -2492,7 +2516,11 @@
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
     "image": "path/to/storm_door.jpg",
-    "features": ["Screen door installation", "Storm door replacement", "Weather protection"],
+    "features": [
+      "Screen door installation",
+      "Storm door replacement",
+      "Weather protection"
+    ],
     "popular": false,
     "price": "Varies",
     "timeEstimate": "2-4 hours"
@@ -2516,7 +2544,11 @@
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
     "image": "path/to/smart_lock.jpg",
-    "features": ["Smart lock setup", "Keyless entry installation", "Enhanced security"],
+    "features": [
+      "Smart lock setup",
+      "Keyless entry installation",
+      "Enhanced security"
+    ],
     "popular": true,
     "price": "Varies",
     "timeEstimate": "2-3 hours"
@@ -2568,11 +2600,7 @@
     "category": "Windows & Doors",
     "subcategory": "sliding-french-doors",
     "image": "path/to/image.jpg",
-    "features": [
-      "Lock replacement",
-      "Handle adjustment",
-      "Improved security"
-    ],
+    "features": ["Lock replacement", "Handle adjustment", "Improved security"],
     "popular": false,
     "price": "Depends on lock type",
     "timeEstimate": "1-2 hours"
@@ -2584,11 +2612,7 @@
     "category": "Windows & Doors",
     "subcategory": "sliding-french-doors",
     "image": "path/to/image.jpg",
-    "features": [
-      "New door installation",
-      "Old door removal",
-      "Secure fitting"
-    ],
+    "features": ["New door installation", "Old door removal", "Secure fitting"],
     "popular": true,
     "price": "Varies by door type",
     "timeEstimate": "4-6 hours"
@@ -2632,11 +2656,7 @@
     "category": "Windows & Doors",
     "subcategory": "garage-shed-doors",
     "image": "path/to/image.jpg",
-    "features": [
-      "Lock repair",
-      "Door reinforcement",
-      "Weatherproofing"
-    ],
+    "features": ["Lock repair", "Door reinforcement", "Weatherproofing"],
     "popular": false,
     "price": "Depends on repair scope",
     "timeEstimate": "2-4 hours"
@@ -2664,7 +2684,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
     "image": "/images/garage/misaligned-door.jpg",
-    "features": ["Smooth operation", "Prevents further damage", "Professional adjustment"],
+    "features": [
+      "Smooth operation",
+      "Prevents further damage",
+      "Professional adjustment"
+    ],
     "popular": true,
     "price": "Varies",
     "timeEstimate": "1-2 hours"
@@ -2676,7 +2700,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
     "image": "/images/garage/weather-stripping.jpg",
-    "features": ["Enhanced insulation", "Energy efficiency", "Weather protection"],
+    "features": [
+      "Enhanced insulation",
+      "Energy efficiency",
+      "Weather protection"
+    ],
     "popular": false,
     "price": "$50 - $150",
     "timeEstimate": "1 hour"
@@ -2712,7 +2740,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
     "image": "/images/garage/tighten-hardware.jpg",
-    "features": ["Enhanced safety", "Prevents breakdowns", "Long-term stability"],
+    "features": [
+      "Enhanced safety",
+      "Prevents breakdowns",
+      "Long-term stability"
+    ],
     "popular": false,
     "price": "$75 - $150",
     "timeEstimate": "1 hour"
@@ -2736,7 +2768,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
     "image": "/images/garage/spring-tension.jpg",
-    "features": ["Safer operation", "Prevents sudden movements", "Extends spring life"],
+    "features": [
+      "Safer operation",
+      "Prevents sudden movements",
+      "Extends spring life"
+    ],
     "popular": false,
     "price": "$80 - $150",
     "timeEstimate": "1-2 hours"
@@ -2760,7 +2796,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
     "image": "/images/garage/opener-sensors.jpg",
-    "features": ["Safety sensors", "Obstacle detection", "System recalibration"],
+    "features": [
+      "Safety sensors",
+      "Obstacle detection",
+      "System recalibration"
+    ],
     "popular": false,
     "price": "$80 - $200",
     "timeEstimate": "1-2 hours"
@@ -2784,7 +2824,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
     "image": "/images/garage/opener-remote.jpg",
-    "features": ["Universal compatibility", "Secure access", "Smart control options"],
+    "features": [
+      "Universal compatibility",
+      "Secure access",
+      "Smart control options"
+    ],
     "popular": true,
     "price": "$50 - $150",
     "timeEstimate": "30 minutes - 1 hour"
@@ -2796,7 +2840,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
     "image": "/images/garage/opener-battery.jpg",
-    "features": ["Power failure protection", "Reliable operation", "Easy maintenance"],
+    "features": [
+      "Power failure protection",
+      "Reliable operation",
+      "Easy maintenance"
+    ],
     "popular": false,
     "price": "$75 - $200",
     "timeEstimate": "1-2 hours"
@@ -2808,7 +2856,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-panel-hardware-replacement",
     "image": "/images/garage/panel-replacement.jpg",
-    "features": ["Restores door integrity", "Matching panel options", "Durable materials"],
+    "features": [
+      "Restores door integrity",
+      "Matching panel options",
+      "Durable materials"
+    ],
     "popular": true,
     "price": "$200 - $600",
     "timeEstimate": "2-4 hours"
@@ -2837,14 +2889,18 @@
     "price": "$75 - $200",
     "timeEstimate": "1-2 hours"
   },
-   {
+  {
     "id": "garage-insulation-01",
     "name": "Installing Garage Door Insulation Kits",
     "description": "Install insulation kits to improve energy efficiency and temperature control.",
     "category": "Garage Doors",
     "subcategory": "garage-door-insulation-weatherproofing",
     "image": "/images/garage/insulation-kits.jpg",
-    "features": ["Energy efficient", "Temperature regulation", "Noise reduction"],
+    "features": [
+      "Energy efficient",
+      "Temperature regulation",
+      "Noise reduction"
+    ],
     "popular": true,
     "price": "$150 - $400",
     "timeEstimate": "2-4 hours"
@@ -2868,7 +2924,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-door-insulation-weatherproofing",
     "image": "/images/garage/gap-sealing.jpg",
-    "features": ["Weather-resistant", "Energy efficient", "Prevents pest intrusion"],
+    "features": [
+      "Weather-resistant",
+      "Energy efficient",
+      "Prevents pest intrusion"
+    ],
     "popular": false,
     "price": "$100 - $250",
     "timeEstimate": "1-3 hours"
@@ -2892,7 +2952,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-security-safety-enhancements",
     "image": "/images/garage/motion-lighting.jpg",
-    "features": ["Automatic activation", "Energy efficient", "Weather-resistant"],
+    "features": [
+      "Automatic activation",
+      "Energy efficient",
+      "Weather-resistant"
+    ],
     "popular": true,
     "price": "$50 - $150",
     "timeEstimate": "1-2 hours"
@@ -2916,7 +2980,11 @@
     "category": "Garage Doors",
     "subcategory": "garage-security-safety-enhancements",
     "image": "/images/garage/safety-testing.jpg",
-    "features": ["Auto-reverse feature", "Sensor calibration", "Enhanced safety"],
+    "features": [
+      "Auto-reverse feature",
+      "Sensor calibration",
+      "Enhanced safety"
+    ],
     "popular": false,
     "price": "$75 - $200",
     "timeEstimate": "1-2 hours"
@@ -2928,7 +2996,11 @@
     "category": "Powerwashing",
     "subcategory": "exterior-home-power-washing",
     "image": "/images/powerwashing/home-siding.jpg",
-    "features": ["Removes dirt & stains", "Mildew prevention", "Safe for most exteriors"],
+    "features": [
+      "Removes dirt & stains",
+      "Mildew prevention",
+      "Safe for most exteriors"
+    ],
     "popular": true,
     "price": "$150 - $500",
     "timeEstimate": "2-5 hours"
@@ -2940,7 +3012,11 @@
     "category": "Powerwashing",
     "subcategory": "exterior-home-power-washing",
     "image": "/images/powerwashing/exterior-trim.jpg",
-    "features": ["Removes built-up grime", "Restores appearance", "Safe for painted surfaces"],
+    "features": [
+      "Removes built-up grime",
+      "Restores appearance",
+      "Safe for painted surfaces"
+    ],
     "popular": false,
     "price": "$75 - $250",
     "timeEstimate": "1-3 hours"
@@ -2952,7 +3028,11 @@
     "category": "Powerwashing",
     "subcategory": "exterior-home-power-washing",
     "image": "/images/powerwashing/porch-cleaning.jpg",
-    "features": ["Removes algae & mold", "Improves curb appeal", "Safe for wood & concrete"],
+    "features": [
+      "Removes algae & mold",
+      "Improves curb appeal",
+      "Safe for wood & concrete"
+    ],
     "popular": true,
     "price": "$100 - $300",
     "timeEstimate": "2-4 hours"
@@ -2964,7 +3044,11 @@
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
     "image": "/images/powerwashing/concrete-driveway.jpg",
-    "features": ["Removes tough stains", "Prevents mildew growth", "Safe for concrete surfaces"],
+    "features": [
+      "Removes tough stains",
+      "Prevents mildew growth",
+      "Safe for concrete surfaces"
+    ],
     "popular": true,
     "price": "$100 - $350",
     "timeEstimate": "2-4 hours"
@@ -2976,7 +3060,11 @@
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
     "image": "/images/powerwashing/brick-stone-walkway.jpg",
-    "features": ["Removes moss & algae", "Restores natural color", "Prevents slippery surfaces"],
+    "features": [
+      "Removes moss & algae",
+      "Restores natural color",
+      "Prevents slippery surfaces"
+    ],
     "popular": false,
     "price": "$120 - $400",
     "timeEstimate": "2-5 hours"
@@ -2988,7 +3076,11 @@
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
     "image": "/images/powerwashing/paver-cleaning.jpg",
-    "features": ["Deep cleans paver surfaces", "Eliminates weed growth", "Enhances longevity"],
+    "features": [
+      "Deep cleans paver surfaces",
+      "Eliminates weed growth",
+      "Enhances longevity"
+    ],
     "popular": true,
     "price": "$150 - $500",
     "timeEstimate": "3-6 hours"
@@ -3000,7 +3092,11 @@
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
     "image": "/images/powerwashing/oil-stain-removal.jpg",
-    "features": ["Breaks down oil & grease", "Removes tough tire marks", "Eco-friendly cleaning agents"],
+    "features": [
+      "Breaks down oil & grease",
+      "Removes tough tire marks",
+      "Eco-friendly cleaning agents"
+    ],
     "popular": false,
     "price": "$125 - $450",
     "timeEstimate": "2-5 hours"
@@ -3012,7 +3108,11 @@
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
     "image": "/images/powerwashing/wooden-deck.jpg",
-    "features": ["Mold & mildew removal", "Preserves wood finish", "Prepares deck for staining"],
+    "features": [
+      "Mold & mildew removal",
+      "Preserves wood finish",
+      "Prepares deck for staining"
+    ],
     "popular": true,
     "price": "$150 - $500",
     "timeEstimate": "3-6 hours"
@@ -3024,7 +3124,11 @@
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
     "image": "/images/powerwashing/composite-deck.jpg",
-    "features": ["Safe for composite surfaces", "Restores color & texture", "Removes dirt & grime"],
+    "features": [
+      "Safe for composite surfaces",
+      "Restores color & texture",
+      "Removes dirt & grime"
+    ],
     "popular": false,
     "price": "$120 - $450",
     "timeEstimate": "2-5 hours"
@@ -3036,7 +3140,11 @@
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
     "image": "/images/powerwashing/algae-moss-removal.jpg",
-    "features": ["Prevents slip hazards", "Eliminates moss & algae", "Enhances patio longevity"],
+    "features": [
+      "Prevents slip hazards",
+      "Eliminates moss & algae",
+      "Enhances patio longevity"
+    ],
     "popular": true,
     "price": "$130 - $400",
     "timeEstimate": "2-5 hours"
@@ -3048,7 +3156,11 @@
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
     "image": "/images/powerwashing/concrete-patio.jpg",
-    "features": ["Restores color", "Removes stains & dirt", "Prepares for sealing"],
+    "features": [
+      "Restores color",
+      "Removes stains & dirt",
+      "Prepares for sealing"
+    ],
     "popular": false,
     "price": "$150 - $500",
     "timeEstimate": "3-6 hours"
@@ -3060,7 +3172,11 @@
     "category": "Powerwashing",
     "subcategory": "fence-gate-power-washing",
     "image": "/images/powerwashing/wooden-fence.jpg",
-    "features": ["Prepares fence for staining", "Removes dirt & mildew", "Restores wood appearance"],
+    "features": [
+      "Prepares fence for staining",
+      "Removes dirt & mildew",
+      "Restores wood appearance"
+    ],
     "popular": true,
     "price": "$100 - $300",
     "timeEstimate": "2-4 hours"
@@ -3072,7 +3188,11 @@
     "category": "Powerwashing",
     "subcategory": "fence-gate-power-washing",
     "image": "/images/powerwashing/vinyl-metal-fence.jpg",
-    "features": ["Safe for vinyl & metal", "Restores clean appearance", "Eco-friendly solutions"],
+    "features": [
+      "Safe for vinyl & metal",
+      "Restores clean appearance",
+      "Eco-friendly solutions"
+    ],
     "popular": false,
     "price": "$80 - $250",
     "timeEstimate": "1-3 hours"
@@ -3084,7 +3204,11 @@
     "category": "Powerwashing",
     "subcategory": "fence-gate-power-washing",
     "image": "/images/powerwashing/moldy-gate.jpg",
-    "features": ["Kills mold & mildew", "Prevents future growth", "Safe for all gate materials"],
+    "features": [
+      "Kills mold & mildew",
+      "Prevents future growth",
+      "Safe for all gate materials"
+    ],
     "popular": true,
     "price": "$90 - $280",
     "timeEstimate": "2-4 hours"
@@ -3096,7 +3220,11 @@
     "category": "Powerwashing",
     "subcategory": "garage-outdoor-cleaning",
     "image": "/images/powerwashing/garage-door.jpg",
-    "features": ["Restores clean appearance", "Removes dirt & stains", "Safe for painted surfaces"],
+    "features": [
+      "Restores clean appearance",
+      "Removes dirt & stains",
+      "Safe for painted surfaces"
+    ],
     "popular": false,
     "price": "$100 - $350",
     "timeEstimate": "2-5 hours"
@@ -3108,7 +3236,11 @@
     "category": "Powerwashing",
     "subcategory": "garage-outdoor-cleaning",
     "image": "/images/powerwashing/shed-cleaning.jpg",
-    "features": ["Mildew removal", "Restores original color", "Safe for wood & metal sheds"],
+    "features": [
+      "Mildew removal",
+      "Restores original color",
+      "Safe for wood & metal sheds"
+    ],
     "popular": false,
     "price": "$80 - $300",
     "timeEstimate": "2-4 hours"
@@ -3120,7 +3252,11 @@
     "category": "Powerwashing",
     "subcategory": "garage-outdoor-cleaning",
     "image": "/images/powerwashing/pergola-cleaning.jpg",
-    "features": ["Restores outdoor structures", "Safe for wood & metal", "Removes grime & mold"],
+    "features": [
+      "Restores outdoor structures",
+      "Safe for wood & metal",
+      "Removes grime & mold"
+    ],
     "popular": true,
     "price": "$100 - $400",
     "timeEstimate": "3-6 hours"
@@ -3132,7 +3268,11 @@
     "category": "Powerwashing",
     "subcategory": "gutter-roofline-power-washing",
     "image": "/images/powerwashing/gutter-cleaning.jpg",
-    "features": ["Safe soft washing", "Removes grime & dirt", "Prevents staining"],
+    "features": [
+      "Safe soft washing",
+      "Removes grime & dirt",
+      "Prevents staining"
+    ],
     "popular": true,
     "price": "$90 - $280",
     "timeEstimate": "2-4 hours"
@@ -3144,7 +3284,11 @@
     "category": "Powerwashing",
     "subcategory": "gutter-roofline-power-washing",
     "image": "/images/powerwashing/soffits-fascia.jpg",
-    "features": ["Soft washing for delicate surfaces", "Eliminates cobwebs & debris", "Brightens home exterior"],
+    "features": [
+      "Soft washing for delicate surfaces",
+      "Eliminates cobwebs & debris",
+      "Brightens home exterior"
+    ],
     "popular": false,
     "price": "$100 - $300",
     "timeEstimate": "2-5 hours"
@@ -3180,7 +3324,11 @@
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
     "image": "https://images.unsplash.com/photo-1508470816701-eb1f9e310d27?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmFraW5nJTIwTGVhdmVzfGVufDB8fDB8fHww",
-    "features": ["Seasonal cleanup", "Debris removal", "Prepares for lawn growth"],
+    "features": [
+      "Seasonal cleanup",
+      "Debris removal",
+      "Prepares for lawn growth"
+    ],
     "popular": true,
     "price": "$75 - $250",
     "timeEstimate": "2-5 hours"
@@ -3192,7 +3340,11 @@
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
     "image": "https://images.unsplash.com/photo-1621478374422-35206faedbd7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8TXVsY2h8ZW58MHx8MHx8fDA%3D",
-    "features": ["Improves soil health", "Aesthetic enhancement", "Reduces weed growth"],
+    "features": [
+      "Improves soil health",
+      "Aesthetic enhancement",
+      "Reduces weed growth"
+    ],
     "popular": false,
     "price": "$100 - $350",
     "timeEstimate": "3-6 hours"
@@ -3204,7 +3356,11 @@
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
     "image": "https://images.unsplash.com/photo-1636911766057-9052c6ab0449?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEZlcnRpbGl6ZXJ8ZW58MHx8MHx8fDA%3D",
-    "features": ["Healthy lawn growth", "Weed prevention", "Nutrient-rich fertilizer"],
+    "features": [
+      "Healthy lawn growth",
+      "Weed prevention",
+      "Nutrient-rich fertilizer"
+    ],
     "popular": true,
     "price": "$80 - $300",
     "timeEstimate": "2-5 hours"
@@ -3240,7 +3396,11 @@
     "category": "Landscaping",
     "subcategory": "shrub-tree-maintenance",
     "image": "https://images.unsplash.com/photo-1561128290-010a208deff8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SGVkZ2UlMjBUcmltbWluZ3xlbnwwfHwwfHx8MA%3D%3D",
-    "features": ["Fuller growth", "Better air circulation", "Disease prevention"],
+    "features": [
+      "Fuller growth",
+      "Better air circulation",
+      "Disease prevention"
+    ],
     "popular": true,
     "price": "$80 - $250",
     "timeEstimate": "2-4 hours"
@@ -3264,7 +3424,11 @@
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
     "image": "https://images.unsplash.com/photo-1662975102853-9d3a25e42a20?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFBsYW50aW5nJTIwRmxvd2Vyc3xlbnwwfHwwfHx8MA%3D%3D",
-    "features": ["Garden beautification", "Expert plant selection", "Seasonal planting"],
+    "features": [
+      "Garden beautification",
+      "Expert plant selection",
+      "Seasonal planting"
+    ],
     "popular": true,
     "price": "$100 - $500",
     "timeEstimate": "3-8 hours"
@@ -3288,7 +3452,11 @@
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
     "image": "https://images.unsplash.com/photo-1658697024992-58f1d8a75926?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8R2FyZGVuJTIwQm9yZGVyc3xlbnwwfHwwfHx8MA%3D%3D",
-    "features": ["Garden structure", "Erosion control", "Aesthetic enhancement"],
+    "features": [
+      "Garden structure",
+      "Erosion control",
+      "Aesthetic enhancement"
+    ],
     "popular": true,
     "price": "$150 - $400",
     "timeEstimate": "3-7 hours"
@@ -3300,7 +3468,11 @@
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
     "image": "https://images.unsplash.com/photo-1598902108854-10e335adac99?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UmFpc2VkJTIwR2FyZGVuJTIwQmVkc3xlbnwwfHwwfHx8MA%3D%3D",
-    "features": ["Better soil drainage", "Easier maintenance", "Customizable sizing"],
+    "features": [
+      "Better soil drainage",
+      "Easier maintenance",
+      "Customizable sizing"
+    ],
     "popular": false,
     "price": "$200 - $600",
     "timeEstimate": "4-8 hours"
@@ -3348,7 +3520,11 @@
     "category": "Landscaping",
     "subcategory": "hardscape-install-repair",
     "image": "https://images.unsplash.com/photo-1599148401005-fe6d7497cb5e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fEdhcmRlbiUyMEVkZ2luZ3xlbnwwfHwwfHx8MA%3D%3D",
-    "features": ["Prevents soil erosion", "Defines garden areas", "Enhances durability"],
+    "features": [
+      "Prevents soil erosion",
+      "Defines garden areas",
+      "Enhances durability"
+    ],
     "popular": false,
     "price": "$150 - $500",
     "timeEstimate": "4-8 hours"
@@ -3360,7 +3536,11 @@
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
     "image": "https://images.unsplash.com/photo-1589834390005-5d4fb9bf3d32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V29vZGVuJTIwRmVuY2V8ZW58MHx8MHx8fDA%3D",
-    "features": ["Increased privacy", "Weather-resistant materials", "Custom gate designs"],
+    "features": [
+      "Increased privacy",
+      "Weather-resistant materials",
+      "Custom gate designs"
+    ],
     "popular": true,
     "price": "$500 - $2,500",
     "timeEstimate": "6-16 hours"
@@ -3372,7 +3552,11 @@
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
     "image": "https://images.unsplash.com/photo-1692767855757-a4612e73f15b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEZlbmNlJTIwU3RhaW5pbmd8ZW58MHx8MHx8fDA%3D",
-    "features": ["UV protection", "Moisture resistance", "Extends fence lifespan"],
+    "features": [
+      "UV protection",
+      "Moisture resistance",
+      "Extends fence lifespan"
+    ],
     "popular": false,
     "price": "$200 - $800",
     "timeEstimate": "4-10 hours"
@@ -3384,7 +3568,11 @@
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
     "image": "https://images.unsplash.com/photo-1527869166081-9b297ad9de89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RmVuY2UlMjBSZXBhaXJ8ZW58MHx8MHx8fDA%3D",
-    "features": ["Enhanced stability", "Structural reinforcement", "Long-lasting repairs"],
+    "features": [
+      "Enhanced stability",
+      "Structural reinforcement",
+      "Long-lasting repairs"
+    ],
     "popular": false,
     "price": "$150 - $600",
     "timeEstimate": "3-8 hours"
@@ -3396,7 +3584,11 @@
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
     "image": "https://images.unsplash.com/photo-1565239307960-b274e77f78a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEdhcmRlbiUyMEZlbmNlfGVufDB8fDB8fHww",
-    "features": ["Enhanced garden appeal", "Pet containment", "Various material options"],
+    "features": [
+      "Enhanced garden appeal",
+      "Pet containment",
+      "Various material options"
+    ],
     "popular": true,
     "price": "$100 - $400",
     "timeEstimate": "2-6 hours"
@@ -3408,7 +3600,11 @@
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
     "image": "https://images.unsplash.com/photo-1611735341450-74d61e660ad2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RHJpcCUyMElycmlnYXRpb258ZW58MHx8MHx8fDA%3D",
-    "features": ["Water-efficient", "Soil moisture control", "Easy maintenance"],
+    "features": [
+      "Water-efficient",
+      "Soil moisture control",
+      "Easy maintenance"
+    ],
     "popular": true,
     "price": "$250 - $1,000",
     "timeEstimate": "4-12 hours"
@@ -3420,7 +3616,11 @@
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
     "image": "https://images.unsplash.com/photo-1464638681273-0962e9b53566?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3ByaW5rbGVyfGVufDB8fDB8fHww",
-    "features": ["Efficient water coverage", "Prevents water waste", "Better lawn hydration"],
+    "features": [
+      "Efficient water coverage",
+      "Prevents water waste",
+      "Better lawn hydration"
+    ],
     "popular": false,
     "price": "$50 - $300",
     "timeEstimate": "2-6 hours"
@@ -3432,7 +3632,11 @@
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
     "image": "https://images.unsplash.com/photo-1523301551780-cd17359a95d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8U3ByaW5rbGVyfGVufDB8fDB8fHww",
-    "features": ["Even water distribution", "Prevents dry spots", "Reduces overwatering"],
+    "features": [
+      "Even water distribution",
+      "Prevents dry spots",
+      "Reduces overwatering"
+    ],
     "popular": false,
     "price": "$75 - $350",
     "timeEstimate": "2-5 hours"
@@ -3444,7 +3648,11 @@
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
     "image": "https://images.unsplash.com/photo-1610599943348-c3c740a28450?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEdhcmRlbiUyMEhvc2V8ZW58MHx8MHx8fDA%3D",
-    "features": ["Convenient watering", "Prevents hose tangling", "Durable fixtures"],
+    "features": [
+      "Convenient watering",
+      "Prevents hose tangling",
+      "Durable fixtures"
+    ],
     "popular": true,
     "price": "$100 - $400",
     "timeEstimate": "3-7 hours"
@@ -3456,7 +3664,11 @@
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
     "image": "https://images.unsplash.com/photo-1627064716464-21735e6ae84e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fFN0b3JtJTIwRGVicmlzfGVufDB8fDB8fHww",
-    "features": ["Safety improvement", "Restores lawn appearance", "Efficient cleanup"],
+    "features": [
+      "Safety improvement",
+      "Restores lawn appearance",
+      "Efficient cleanup"
+    ],
     "popular": true,
     "price": "$200 - $1,000",
     "timeEstimate": "5-12 hours"
@@ -3468,7 +3680,11 @@
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
     "image": "https://images.unsplash.com/photo-1600698482700-abcf95e01c37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFJlbW92aW5nJTIwb2xkJTIwcGxhbnRzfGVufDB8fDB8fHww",
-    "features": ["Prepares for new landscaping", "Cleaner outdoor space", "Eco-friendly disposal"],
+    "features": [
+      "Prepares for new landscaping",
+      "Cleaner outdoor space",
+      "Eco-friendly disposal"
+    ],
     "popular": false,
     "price": "$150 - $500",
     "timeEstimate": "4-10 hours"
@@ -3479,7 +3695,7 @@
     "description": "Disposing of small loads of organic waste, broken pots, and outdoor debris.",
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
-    "image": "https://images.unsplash.com/photo-1617348453258-d1d72d5d0b87?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8WWFyZCUyMFdhc3RlfGVufDB8fDB8fHww",
+    "image": "https://images.unsplash.com/photo-1560749003-f4b1e17e2dff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QmFja3lhcmR8ZW58MHx8MHx8fDA%3D",
     "features": ["Efficient waste disposal", "Reduces clutter", "Eco-friendly"],
     "popular": true,
     "price": "$100 - $400",
@@ -3491,8 +3707,12 @@
     "description": "Decluttering and organizing outdoor storage sheds for better functionality.",
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
-    "image": "https://images.unsplash.com/photo-1617104551722-3b2d52038658?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8U2hlZCUyME9yZ2FuaXphdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
-    "features": ["Increased storage space", "Easier access to tools", "Pest prevention"],
+    "image": "https://images.unsplash.com/photo-1512941158376-70562fd07922?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFNoZWR8ZW58MHx8MHx8fDA%3D",
+    "features": [
+      "Increased storage space",
+      "Easier access to tools",
+      "Pest prevention"
+    ],
     "popular": false,
     "price": "$150 - $600",
     "timeEstimate": "4-12 hours"
@@ -3503,7 +3723,7 @@
     "description": "Building or fixing wooden planter boxes for growing flowers, herbs, and vegetables.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "https://images.unsplash.com/photo-1597912037121-c558ae5d4205?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8UGxhbnRlciUyMEJveHxlbnwwfHwwfHx8MA%3D%3D",
+    "image": "https://images.unsplash.com/photo-1600795823904-234004dbbd84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V29vZGVuJTIwUGxhbnRlcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": ["Custom sizes", "Improved drainage", "Aesthetic enhancement"],
     "popular": true,
     "price": "$100 - $500",
@@ -3515,8 +3735,12 @@
     "description": "Arranging patio furniture and outdoor decor to create a comfortable outdoor space.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGF0aW8lMjBGdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D",
-    "features": ["Enhanced outdoor aesthetics", "Comfortable seating", "Functional arrangement"],
+    "image": "https://images.unsplash.com/photo-1600210492090-a159ffa3aeaf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8UGF0aW98ZW58MHx8MHx8fDA%3D",
+    "features": [
+      "Enhanced outdoor aesthetics",
+      "Comfortable seating",
+      "Functional arrangement"
+    ],
     "popular": false,
     "price": "$150 - $600",
     "timeEstimate": "4-10 hours"
@@ -3527,35 +3751,39 @@
     "description": "Setting up energy-efficient outdoor solar lights for pathway or patio illumination.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U29sYXIlMjBMaWdodHN8ZW58MHx8MHx8fDA%3D",
-    "features": ["Energy-efficient", "Weather-resistant", "Automatic dusk-to-dawn lighting"],
+    "image": "https://images.unsplash.com/photo-1558693836-83d8cf52c2ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U29sYXIlMjBsaWdodHxlbnwwfHwwfHx8MA%3D%3D",
+    "features": [
+      "Energy-efficient",
+      "Weather-resistant",
+      "Automatic dusk-to-dawn lighting"
+    ],
     "popular": true,
     "price": "$75 - $400",
     "timeEstimate": "2-6 hours"
   },
   {
-  "id": "landscaping-33",
-  "name": "Pressure Washing Patios, Decks, and Walkways",
-  "description": "Thoroughly cleaning patios, decks, and walkways using high-pressure washing to remove dirt, mold, and stains.",
-  "category": "Landscaping",
-  "subcategory": "outdoor-living-space-enhancements",
-  "image": "https://images.unsplash.com/photo-1623250318808-499964c61326?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UHJlc3N1cmUlMjBXYXNoaW5nfGVufDB8fDB8fHww",
-  "features": [
-    "Removes mold, mildew, and grime",
-    "Restores original appearance",
-    "Prepares surfaces for sealing or staining"
-  ],
-  "popular": true,
-  "price": "$150 - $600",
-  "timeEstimate": "3-8 hours"
-},
+    "id": "landscaping-33",
+    "name": "Pressure Washing Patios, Decks, and Walkways",
+    "description": "Thoroughly cleaning patios, decks, and walkways using high-pressure washing to remove dirt, mold, and stains.",
+    "category": "Landscaping",
+    "subcategory": "outdoor-living-space-enhancements",
+    "image": "https://images.unsplash.com/photo-1617850687395-620757feb1f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RGVja3xlbnwwfHwwfHx8MA%3D%3D",
+    "features": [
+      "Removes mold, mildew, and grime",
+      "Restores original appearance",
+      "Prepares surfaces for sealing or staining"
+    ],
+    "popular": true,
+    "price": "$150 - $600",
+    "timeEstimate": "3-8 hours"
+  },
   {
     "id": "home-security-01",
     "name": "Wired or Wireless Security Camera Installation",
     "description": "Installing wired or wireless security cameras such as Ring, Nest, or Arlo for enhanced home security.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/images/home-security/camera-install.jpg",
+    "image": "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFNlY3VyaXR5JTIwQ2FtZXJhfGVufDB8fDB8fHww",
     "features": [
       "Supports Ring, Nest, Arlo, and other brands",
       "Professional mounting and setup",
@@ -3571,7 +3799,7 @@
     "description": "Properly mounting and positioning security cameras for the best possible view and coverage.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/images/home-security/camera-mounting.jpg",
+    "image": "https://images.unsplash.com/photo-1589935447067-5531094415d1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8U2VjdXJpdHklMjBDYW1lcmF8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Strategic camera placement",
       "Mounting on walls, ceilings, and outdoor areas",
@@ -3587,7 +3815,7 @@
     "description": "Connecting and configuring smart security cameras with home networks for remote access.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/images/home-security/smart-camera-setup.jpg",
+    "image": "https://images.unsplash.com/photo-1549109926-58f039549485?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U2VjdXJpdHklMjBDYW1lcmF8ZW58MHx8MHx8fDA%3D",
     "features": [
       "WiFi configuration and cloud storage setup",
       "Integration with smart home systems",
@@ -3619,7 +3847,7 @@
     "description": "Installing video doorbells such as Ring, Google Nest, or Eufy to monitor front door activity.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/images/home-security/video-doorbell.jpg",
+    "image": "https://images.unsplash.com/photo-1633194883650-df448a10d554?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RG9vcmJlbGx8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Supports Ring, Google Nest, and Eufy",
       "Integration with smart home systems",
@@ -3635,7 +3863,7 @@
     "description": "Enhance home security with new or replacement deadbolt locks for doors.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/images/home-security/deadbolt-install.jpg",
+    "image": "https://images.unsplash.com/photo-1607710533910-d7cdffd9e593?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RG9vciUyMGhhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Secure deadbolt installation",
       "Upgrading to high-security locks",
@@ -3651,7 +3879,7 @@
     "description": "Upgrade your home security with modern keyless entry smart locks for convenient access.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/images/home-security/smart-lock.jpg",
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBMb2NrfGVufDB8fDB8fHww",
     "features": [
       "Supports WiFi and Bluetooth locks",
       "Integration with smart home systems",
@@ -3667,7 +3895,7 @@
     "description": "Strengthen door frames and strike plates for enhanced security against break-ins.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/images/home-security/door-reinforce.jpg",
+    "image": "https://images.unsplash.com/photo-1508404530815-6625db882a72?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RG9vciUyMEphbW1lcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Reinforced door strike plate installation",
       "Frame reinforcement for extra security",
@@ -3683,7 +3911,7 @@
     "description": "Add extra layers of protection with door jammers and security bars.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/images/home-security/door-bar.jpg",
+    "image": "https://images.unsplash.com/photo-1503898362-59e068e7f9d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RG9vciUyMEphbW1lcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Installation of high-strength security bars",
       "Adjustable door jammers for extra security",
@@ -3699,7 +3927,7 @@
     "description": "Increase home security by installing secure window locks and safety latches.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/images/home-security/window-locks.jpg",
+    "image": "https://images.unsplash.com/photo-1600267187764-a9da40dfa122?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFdpbmRvdyUyMExvY2t8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Window lock replacement and upgrades",
       "Enhanced safety latches for childproofing",
@@ -3715,7 +3943,7 @@
     "description": "Improve security with door peepholes or wide-angle viewers for front and side doors.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/images/home-security/peephole-install.jpg",
+    "image": "https://images.unsplash.com/photo-1567175693298-ab0c4166ad6d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGVlcGhvbGV8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Standard and wide-angle peephole installation",
       "Enhanced visibility for front door security",
@@ -3731,7 +3959,7 @@
     "description": "Enhance outdoor security with motion-activated sensor lighting.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/images/home-security/motion-lights.jpg",
+    "image": "https://images.unsplash.com/photo-1738045419183-79fd0707ffe5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fE1vdGlvbiUyMHNlbnNvcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Energy-efficient LED motion lights",
       "Increased night-time visibility",
@@ -3747,7 +3975,7 @@
     "description": "Improve security with floodlights featuring cameras and smart detection technology.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/images/home-security/floodlight-camera.jpg",
+    "image": "https://images.unsplash.com/photo-1598676222995-f43319aa23aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG91dGRvb3IlMjBsaWdodHN8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Smart motion-activated lighting",
       "High-lumen floodlights for maximum brightness",
@@ -3763,7 +3991,7 @@
     "description": "Set up automatic dusk-to-dawn security lighting to keep your property illuminated at night.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/images/home-security/dusk-dawn-light.jpg",
+    "image": "https://images.unsplash.com/photo-1672073311074-f60c4a5e7b92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFNlY3VyaXR5JTIwbGlnaHRpbmd8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Energy-efficient automatic lighting",
       "Enhances nighttime visibility",
@@ -3779,7 +4007,7 @@
     "description": "Install solar-powered security lights for environmentally friendly outdoor illumination.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/images/home-security/solar-lighting.jpg",
+    "image": "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U29sYXIlMjBQYW5lbHxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Eco-friendly solar security lighting",
       "Battery backup for night-time operation",
@@ -3795,7 +4023,7 @@
     "description": "Enhance security and aesthetics with pathway and landscape lighting solutions.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/images/home-security/pathway-lighting.jpg",
+    "image": "https://images.unsplash.com/photo-1508172466753-aa5687ae25b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8T3V0ZG9vciUyMGxpZ2h0aW5nfGVufDB8fDB8fHww",
     "features": [
       "Low-voltage and solar-powered options",
       "Enhances walkway visibility and curb appeal",
@@ -3811,7 +4039,7 @@
     "description": "Install and configure smart home security systems like SimpliSafe, Ring, and ADT DIY.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/images/home-security/smart-security-system.jpg",
+    "image": "https://images.unsplash.com/photo-1633194883650-df448a10d554?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RG9vcmJlbGx8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Supports major security brands",
       "Customizable settings and alerts",
@@ -3827,7 +4055,7 @@
     "description": "Secure your home by installing door and window alarm sensors.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/images/home-security/alarm-sensors.jpg",
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBBbGFybXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Instant alerts for unauthorized entry",
       "Wireless and wired options available",
@@ -3843,7 +4071,7 @@
     "description": "Upgrade to a smart garage door opener with mobile app control and remote access.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/images/home-security/smart-garage-door.jpg",
+    "image": "https://plus.unsplash.com/premium_photo-1661286705410-edb4c9bde72a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8R2FyYWdlJTIwRG9vcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "WiFi-enabled garage door control",
       "Compatible with Alexa, Google Assistant",
@@ -3859,7 +4087,7 @@
     "description": "Automate security with smart lights, locks, and alarm integration.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/images/home-security/smart-home-automation.jpg",
+    "image": "https://images.unsplash.com/photo-1728971975421-50f3dc9663a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBTZWN1cml0eXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Automate security lights and locks",
       "Control via mobile app or voice assistants",
@@ -3875,7 +4103,7 @@
     "description": "Reinforce garage security with high-strength security bars.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/images/home-security/garage-security-bars.jpg",
+    "image": "https://images.unsplash.com/photo-1609915395444-e9632e899ad9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8R2FyYWdlJTIwZG9vcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Durable metal construction",
       "Prevents forced entry",
@@ -3891,7 +4119,7 @@
     "description": "Secure garage and shed doors with traditional or smart lock systems.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/images/home-security/smart-lock-garage.jpg",
+    "image": "https://images.unsplash.com/photo-1541737949652-27149c8e786d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R2FyYWdlJTIwZG9vcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Keyless entry options available",
       "Heavy-duty deadbolts for added protection",
@@ -3907,7 +4135,7 @@
     "description": "Increase garage security with reinforced door panels to prevent break-ins.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/images/home-security/garage-panel-reinforcement.jpg",
+    "image": "https://images.unsplash.com/photo-1605146768851-eda79da39897?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2FyYWdlJTIwZG9vcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Heavy-duty reinforcements for extra security",
       "Protects against prying and forced entry",
@@ -3923,7 +4151,7 @@
     "description": "Enhance garage and shed security with motion-activated detectors.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/images/home-security/motion-detector.jpg",
+    "image": "https://images.unsplash.com/photo-1589574097341-acd57bd79fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8U2hlZHxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Detects movement inside and around garage",
       "Sends alerts to security system or mobile device",
@@ -3939,7 +4167,7 @@
     "description": "Secure entry points with door and window contact sensors.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/images/home-security/door-window-sensor.jpg",
+    "image": "https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V2luZG93c3xlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Wireless connectivity for easy installation",
       "Compatible with alarm systems",
@@ -3955,7 +4183,7 @@
     "description": "Detects glass-breaking sounds to trigger alarm systems.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/images/home-security/glass-break-sensor.jpg",
+    "image": "https://images.unsplash.com/photo-1496092607007-ca127e0b6a10?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2luZG93c3xlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Covers multiple windows in a room",
       "Compatible with most alarm systems",
@@ -3971,7 +4199,7 @@
     "description": "Install wireless keypads and sirens to enhance home security alerts.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/images/home-security/alarm-keypad.jpg",
+    "image": "https://images.unsplash.com/photo-1694174439282-ee8cdf0ec6ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2V5cGFkc3xlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Customizable alarm settings",
       "Easy wireless installation",
@@ -3987,7 +4215,7 @@
     "description": "Install panic buttons or emergency alert systems for immediate assistance in case of emergencies.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/images/home-security/panic-button.jpg",
+    "image": "https://images.unsplash.com/photo-1626546849705-f29e2f771df9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8UGFuaWMlMjBCdXR0b258ZW58MHx8MHx8fDA%3D",
     "features": [
       "Instant emergency response activation",
       "Discreet or wall-mounted options",
@@ -4003,7 +4231,7 @@
     "description": "Install and configure smart video doorbells such as Ring, Nest, and Arlo for enhanced home security.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/images/smart-home/smart-doorbell.jpg",
+    "image": "https://images.unsplash.com/photo-1633194883650-df448a10d554?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RG9vcmJlbGx8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Live video monitoring",
       "Two-way audio communication",
@@ -4019,7 +4247,7 @@
     "description": "Set up and install smart security cameras for indoor and outdoor surveillance.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/images/smart-home/smart-security-camera.jpg",
+    "image": "https://images.unsplash.com/photo-1549109926-58f039549485?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U2VjdXJpdHklMjBjYW1lcmF8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Wireless and wired options available",
       "Night vision and HD recording",
@@ -4035,7 +4263,7 @@
     "description": "Upgrade home security with keyless smart locks and access control features.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/images/smart-home/smart-locks.jpg",
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBMb2NrfGVufDB8fDB8fHww",
     "features": [
       "Remote locking and unlocking",
       "Fingerprint and keypad entry",
@@ -4051,7 +4279,7 @@
     "description": "Enhance security with motion sensors and entry detection for doors and windows.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/images/smart-home/motion-sensors.jpg",
+    "image": "https://images.unsplash.com/photo-1529490738614-4a83c19ed6b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RG9vciUyMHNlY3VyaXR5fGVufDB8fDB8fHww",
     "features": [
       "Detects movement and unauthorized access",
       "Triggers security alerts and alarms",
@@ -4067,7 +4295,7 @@
     "description": "Set up a central security hub to control smart home alarm systems and sensors.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/images/smart-home/security-hub.jpg",
+    "image": "https://images.unsplash.com/photo-1728971975421-50f3dc9663a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBTZWN1cml0eXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Connects to all smart security devices",
       "Remote control via smartphone",
@@ -4083,7 +4311,7 @@
     "description": "Installation and configuration of smart light bulbs and LED strips to enhance home lighting automation.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "https://source.unsplash.com/featured/?smartlighting,LED",
+    "image": "https://images.unsplash.com/photo-1728971825338-be9230fd4029?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBTd2l0Y2h8ZW58MHx8MHx8fDA%3DD",
     "features": [
       "Setup and configuration of smart LED bulbs",
       "Custom lighting schedules and automation",
@@ -4099,7 +4327,7 @@
     "description": "Professional installation of smart light switches and dimmers to provide customized lighting control.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "https://source.unsplash.com/featured/?smartswitch,dimmer",
+    "image": "https://images.unsplash.com/photo-1702390796625-6dd9b46b1c0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBTd2l0Y2h8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Installation of smart dimmers and light switches",
       "Wi-Fi and app connectivity setup",
@@ -4115,7 +4343,7 @@
     "description": "Installation of motion-activated and automated lighting solutions for energy efficiency and convenience.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "https://source.unsplash.com/featured/?motionlighting,automation",
+    "image": "https://images.unsplash.com/photo-1507494924047-60b8ee826ca9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8TGlnaHRpbmd8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Installation of motion sensors and automated lighting",
       "Customizable lighting schedules",
@@ -4131,7 +4359,7 @@
     "description": "Configure and integrate smart lighting systems with Alexa, Google Home, and other voice assistants.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "https://source.unsplash.com/featured/?voiceassistant,smarthome",
+    "image": "https://images.unsplash.com/photo-1608377205619-03a0b4c4e270?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U21hcnQlMjBMaWdodGluZ3xlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Connect lighting systems with Alexa or Google Home",
       "Hands-free voice control setup",
@@ -4147,7 +4375,7 @@
     "description": "Installation and configuration of smart thermostats to provide energy efficiency and remote control capabilities.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "https://source.unsplash.com/featured/?smartthermostat",
+    "image": "https://images.unsplash.com/photo-1619140099965-06d74aaf51fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U21hcnQlMjBUaGVybW9zdGF0fGVufDB8fDB8fHww",
     "features": [
       "Installation of Nest, Ecobee, Honeywell smart thermostats",
       "Wi-Fi and remote access setup",
@@ -4163,7 +4391,7 @@
     "description": "Connecting smart thermostats to Wi-Fi networks and integrating with smart home ecosystems.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "https://source.unsplash.com/featured/?thermostatintegration,smarthome",
+    "image": "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBUaGVybW9zdGF0fGVufDB8fDB8fHww",
     "features": [
       "Connect thermostat to Wi-Fi and mobile apps",
       "Integrate with Google Home, Alexa, and HomeKit",
@@ -4179,7 +4407,7 @@
     "description": "Setting up custom temperature schedules and automation to maximize energy savings.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "https://source.unsplash.com/featured/?smartclimate,automation",
+    "image": "https://images.unsplash.com/photo-1545259742-b4fd8fea67e4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBUaGVybW9zdGF0fGVufDB8fDB8fHww",
     "features": [
       "Custom temperature schedule programming",
       "Energy efficiency optimization",
@@ -4195,7 +4423,7 @@
     "description": "Installation and integration of smart ceiling fans with thermostats and voice assistants.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "https://source.unsplash.com/featured/?smartfan,ceilingfan",
+    "image": "https://images.unsplash.com/photo-1581153691064-8d0ec09725b9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q2VpbGluZyUyMEZhbnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Smart ceiling fan installation",
       "Integration with thermostat systems",
@@ -4211,7 +4439,7 @@
     "description": "Professional installation and setup of smart TVs, ensuring optimal positioning and configuration.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "https://source.unsplash.com/featured/?smarttv,mounting",
+    "image": "https://images.unsplash.com/photo-1521782462922-9318be1cfd04?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8SG9tZSUyMFRoZWF0ZXJ8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Secure mounting of smart TVs",
       "Wi-Fi and app setup",
@@ -4227,7 +4455,7 @@
     "description": "Installation and configuration of streaming devices like Roku, Apple TV, and Fire Stick for seamless entertainment.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "https://source.unsplash.com/featured/?streamingdevice,smarthome",
+    "image": "https://images.unsplash.com/photo-1461151304267-38535e780c79?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8SG9tZSUyMFRoZWF0ZXJ8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Setup of Roku, Apple TV, Fire Stick, and more",
       "Wi-Fi and app integration",
@@ -4243,7 +4471,7 @@
     "description": "Installation and configuration of smart sound systems including Sonos, Bose, and Echo speakers.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "https://source.unsplash.com/featured/?smartspeaker,soundbar",
+    "image": "https://images.unsplash.com/photo-1521782462922-9318be1cfd04?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8SG9tZSUyMFRoZWF0ZXJ8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Setup and placement of smart speakers",
       "Integration with home entertainment systems",
@@ -4259,7 +4487,7 @@
     "description": "Configuration of home theater systems with surround sound for an immersive entertainment experience.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "https://source.unsplash.com/featured/?hometheater,surroundsound",
+    "image": "https://images.unsplash.com/flagged/photo-1572609239482-d3a83f976aa0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SG9tZSUyMFRoZWF0ZXJ8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Home theater setup and optimization",
       "Surround sound calibration",
@@ -4275,7 +4503,7 @@
     "description": "Installation and setup of smart home hubs such as Amazon Echo, Google Nest Hub, and Samsung SmartThings.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "https://source.unsplash.com/featured/?smarthome,hub",
+    "image": "https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8U21hcnQlMjBIb21lfGVufDB8fDB8fHww",
     "features": [
       "Installation of smart home hubs",
       "Configuration with connected devices",
@@ -4291,7 +4519,7 @@
     "description": "Integrate smart devices with voice assistants such as Alexa, Google Assistant, and Siri for hands-free control.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "https://source.unsplash.com/featured/?voiceassistant,smarthome",
+    "image": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U21hcnQlMjBIb21lfGVufDB8fDB8fHww",
     "features": [
       "Setup and pairing with voice assistants",
       "Configuration for lighting, security, and climate",
@@ -4307,7 +4535,7 @@
     "description": "Create custom smart home automation routines to control lighting, security, and climate systems.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "https://source.unsplash.com/featured/?automation,smarthome",
+    "image": "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8U21hcnQlMjBIb21lfGVufDB8fDB8fHww",
     "features": [
       "Automation setup for lights, security, and climate",
       "Custom scheduling for daily routines",
@@ -4323,7 +4551,7 @@
     "description": "Installation of smart garage door openers for remote access and security monitoring.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "https://source.unsplash.com/featured/?garage,smarthome",
+    "image": "https://images.unsplash.com/photo-1587417663598-d769adb76af1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8R2FyYWdlJTIwRG9vcnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Installation of smart garage openers",
       "Remote access configuration",
@@ -4339,7 +4567,7 @@
     "description": "Setup of smart outdoor lighting and motion sensors for enhanced security and automation.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "https://source.unsplash.com/featured/?outdoorlighting,motionsensor",
+    "image": "https://images.unsplash.com/photo-1575174124376-1e1ee0ba742e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8T3V0ZG9vciUyMGxpZ2h0aW5nfGVufDB8fDB8fHww",
     "features": [
       "Installation of smart outdoor lighting",
       "Motion sensor integration",
@@ -4355,7 +4583,7 @@
     "description": "Installation and configuration of smart irrigation controllers for automated watering schedules.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "https://source.unsplash.com/featured/?irrigationsystem,smarthome",
+    "image": "https://plus.unsplash.com/premium_photo-1661964196891-3d3f378a97b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SXJyaWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Installation of smart irrigation controllers",
       "Automated watering schedule setup",
@@ -4371,7 +4599,7 @@
     "description": "Setup and integration of outdoor security cameras and smart doorbell cameras for enhanced home security.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "https://source.unsplash.com/featured/?securitycamera,doorbellcamera",
+    "image": "https://images.unsplash.com/flagged/photo-1566838616793-29a4102a5b0e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8R2FyYWdlfGVufDB8fDB8fHww",
     "features": [
       "Installation of outdoor security cameras",
       "Setup of smart doorbell cameras",
@@ -4387,7 +4615,7 @@
     "description": "Installation and configuration of smart refrigerators, ovens, and microwaves.",
     "category": "Smart Home",
     "subcategory": "smart-appliance-setup",
-    "image": "https://source.unsplash.com/featured/?smartkitchen,appliances",
+    "image": "https://images.unsplash.com/photo-1565183928294-7063f23ce0f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U21hcnQlMjBLaXRjaGVufGVufDB8fDB8fHww",
     "features": [
       "Setup of smart refrigerators, ovens, and microwaves",
       "Wi-Fi and app connectivity setup",
@@ -4403,7 +4631,7 @@
     "description": "Setup and configuration of smart washing machines and dryers for automated laundry care.",
     "category": "Smart Home",
     "subcategory": "smart-appliance-setup",
-    "image": "https://source.unsplash.com/featured/?smartlaundry,washingmachine",
+    "image": "https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2FzaGluZyUyMG1hY2hpbmV8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Installation of smart washers and dryers",
       "Wi-Fi and app setup for remote control",
@@ -4419,7 +4647,7 @@
     "description": "Configuration of small smart appliances such as coffee makers and robotic vacuums.",
     "category": "Smart Home",
     "subcategory": "smart-appliance-setup",
-    "image": "https://source.unsplash.com/featured/?smartappliance,coffeevacuum",
+    "image": "https://images.unsplash.com/photo-1546124404-9e7e3cac2ec1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fFdpZml8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Setup of smart coffee makers and vacuums",
       "Wi-Fi and app connectivity setup",
@@ -4435,7 +4663,7 @@
     "description": "Setting up and optimizing Wi-Fi networks for seamless smart home connectivity.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?wifi,networksetup",
+    "image": "https://images.unsplash.com/photo-1645725677294-ed0843b97d5c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fFdpZml8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Wi-Fi network setup and configuration",
       "Signal optimization and troubleshooting",
@@ -4451,7 +4679,7 @@
     "description": "Installation of Wi-Fi extenders and smart home bridges for improved network coverage.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?wifiextender,smarthome",
+    "image": "https://images.unsplash.com/photo-1551703599-2a53f65da7e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFdpZml8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Installation of Wi-Fi extenders and mesh systems",
       "Smart home bridge setup for expanded device support",
@@ -4467,7 +4695,7 @@
     "description": "Diagnosing and resolving connectivity issues with smart devices to ensure seamless operation.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?troubleshooting,smartdevice",
+    "image": "https://images.unsplash.com/photo-1603899123005-4b772bef4f09?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lmaXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Identify and resolve Wi-Fi connectivity issues",
       "Diagnose and fix smart device pairing problems",
@@ -4483,7 +4711,7 @@
     "description": "Setting up home networks for improved speed, security, and device connectivity.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?homenetwork,router",
+    "image": "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFdpZml8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Installation and configuration of home routers",
       "Secure Wi-Fi setup and device pairing",
@@ -4499,7 +4727,7 @@
     "description": "Installation and setup of home servers for data storage, streaming, and automation.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?homeserver,networking",
+    "image": "https://images.unsplash.com/photo-1516044734145-07ca8eef8731?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8V2lmaXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Configuration of home media and file servers",
       "Network-attached storage (NAS) setup",
@@ -4515,7 +4743,7 @@
     "description": "Professional installation of Cat 5 and Cat 6 Ethernet cables for high-speed wired networking.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?ethernet,wiring",
+    "image": "https://images.unsplash.com/photo-1583474884909-230dac058b63?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V2lmaXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Installation of Cat 5 and Cat 6 cables",
       "Wall jack and patch panel setup",
@@ -4531,7 +4759,7 @@
     "description": "Configuration of guest Wi-Fi networks and access points for secure and convenient internet access.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "https://source.unsplash.com/featured/?guestwifi,accesspoint",
+    "image": "https://images.unsplash.com/photo-1603899123005-4b772bef4f09?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V2lmaXxlbnwwfHwwfHx8MA%3D%3D",
     "features": [
       "Setup of dedicated guest Wi-Fi networks",
       "Secure access control and password management",
@@ -4547,7 +4775,7 @@
     "description": "Professional installation of deadbolt locks for enhanced home and business security.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "https://source.unsplash.com/featured/?deadbolt,lock",
+    "image": "https://images.unsplash.com/photo-1532550256335-c281a64ac9f6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fERvb3IlMjBMb2NrfGVufDB8fDB8fHww",
     "features": [
       "Installation of single and double-cylinder deadbolts",
       "Secure mounting for maximum protection",
@@ -4563,7 +4791,7 @@
     "description": "Replacement of outdated or damaged door locks with upgraded security models.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "https://source.unsplash.com/featured/?doorlock,security",
+    "image": "https://images.unsplash.com/photo-1585914641050-fa9883c4e21c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RG9vciUyMGxvY2t8ZW58MHx8MHx8fDA%3D",
     "features": [
       "Removal of existing door locks",
       "Installation of upgraded lock models",
@@ -5677,7 +5905,7 @@
     "price": "$100 - $350",
     "timeEstimate": "1-3 hours"
   },
-   {
+  {
     "id": "outdoor-furniture-assembly-01",
     "name": "Patio Dining Set & Chair Assembly",
     "description": "Assembling patio dining sets and chairs for comfortable outdoor dining experiences.",
@@ -6045,7 +6273,7 @@
     "price": "$80 - $300",
     "timeEstimate": "1-2 hours"
   },
-   {
+  {
     "id": "furniture-disassembly-reassembly-01",
     "name": "Bed, Table & Large Furniture Disassembly & Reassembly",
     "description": "Disassembling and reassembling beds, tables, and large furniture for safe and easy transport.",
