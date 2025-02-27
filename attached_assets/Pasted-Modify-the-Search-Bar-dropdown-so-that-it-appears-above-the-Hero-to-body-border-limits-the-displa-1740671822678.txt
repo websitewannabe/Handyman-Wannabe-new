@@ -1,0 +1,29 @@
+Modify the Search Bar dropdown so that it appears above the "Hero-to-body" border, limits the displayed results to the top three, and includes scroll functionality when there are more than three results.
+
+Additionally, copy the existing Service Popup but create a smaller version by removing the image at the top, reducing its overall size.
+
+⚠️ Do NOT modify, remove, or alter the "Hero-to-body" border in any way. It must remain exactly as it is. ⚠️
+
+Implementation Requirements:
+✅ Ensure Search Bar Dropdown Appears Above the "Hero-to-Body" Border:
+
+Apply absolute positioning (position: absolute;) so the dropdown is independent of surrounding elements.
+Set a high z-index value (z-index: 9999;) to ensure the dropdown appears above the "Hero-to-body" border and all other page elements.
+If necessary, adjust the parent container’s position to relative so the dropdown positions correctly.
+✅ Limit Search Bar Dropdown to Top Three Results with Scroll Functionality:
+
+Display only the top three search results at a time to prevent excessive dropdown height.
+Implement scroll functionality (overflow-y: auto; max-height: [appropriate px value];) to allow users to view additional results smoothly.
+Ensure the dropdown remains fully functional and does not interfere with other page elements.
+✅ Create a Smaller Version of the Existing Service Popup:
+
+Copy the existing Service Popup structure while keeping all functionality intact.
+Remove the image at the top to decrease its overall size.
+Adjust the modal height and padding to create a more compact and user-friendly design.
+Ensure this smaller popup replaces the full-sized popup when triggered from the Search Bar results.
+⚠️ Final Warning: The "Hero-to-body" border must remain completely untouched. Do NOT modify, remove, or hide it in any way. ⚠️
+
+Expected Outcome:
+The Search Bar dropdown will appear above the "Hero-to-body" border, limited to showing the top three results, with scroll functionality for additional entries.
+A smaller version of the Service Popup will be created by removing the image at the top, making it more compact and efficient.
+The "Hero-to-body" border remains exactly as it is, ensuring the original design stays intact.
