@@ -358,7 +358,7 @@ const ServiceDirectoryPage = () => {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="flex items-center text-primary mb-2">
                       <DollarSign className="w-5 h-5 mr-2" />
-                      <span className="font-bold">Price</span>
+                      <span className="font-bold">Price Estimate</span>
                     </div>
                     <p className="text-gray-700">{selectedService.price}</p>
                   </div>
