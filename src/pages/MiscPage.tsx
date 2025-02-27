@@ -102,106 +102,13 @@ const MiscPage = () => {
         </div>
       </section>
 
-      {/* Service Categories */}
+      {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Miscellaneous Services</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "Soundproofing",
-                description: "Reduce noise levels in homes, offices, and multi-unit buildings.",
-                services: [
-                  "Install acoustic panels and foam",
-                  "Seal air gaps in doors and windows",
-                  "Add soundproofing materials to walls",
-                  "Install sound-dampening insulation"
-                ],
-                bestFor: "Homeowners and renters wanting quiet, distraction-free spaces",
-                image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                icon: Volume2
-              },
-              {
-                title: "Pet Proofing",
-                description: "Ensure your home is safe and comfortable for pets.",
-                services: [
-                  "Install scratch-resistant door protectors",
-                  "Secure loose wires and cables",
-                  "Set up pet gates and safe areas",
-                  "Create pet-friendly spaces"
-                ],
-                bestFor: "Pet owners needing damage protection and safety enhancements",
-                image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                icon: Dog
-              },
-              {
-                title: "Baby Proofing",
-                description: "Child-proof your home to keep little ones safe.",
-                services: [
-                  "Install cabinet locks and outlet covers",
-                  "Secure furniture to prevent tipping",
-                  "Add soft edges to sharp corners",
-                  "Create safe play areas"
-                ],
-                bestFor: "Families with young children looking for peace of mind",
-                image: "https://images.unsplash.com/photo-1632852498383-a83e0d4e595b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                icon: Baby
-              },
-              {
-                title: "Pest Control (Non-Extermination)",
-                description: "Prevent unwanted pests with strategic home adjustments.",
-                services: [
-                  "Seal gaps and cracks where pests enter",
-                  "Install pest barriers and door sweeps",
-                  "Set up rodent-proof storage",
-                  "Implement preventive measures"
-                ],
-                bestFor: "Homeowners dealing with recurring pest issues that need prevention",
-                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-                icon: Bug
-              }
-            ].map((category, index) => (
-              <Link
-                key={index}
-                to={`/service-directory?category=${category.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="block"
-              >
-                <motion.div
-                  className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="relative h-48">
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
-                      {category.title}
-                    </h3>
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <p className="text-gray-600 mb-4">{category.description}</p>
-                    <ul className="space-y-2 mb-6 flex-grow">
-                      {category.services.map((service, serviceIndex) => (
-                        <li key={serviceIndex} className="flex items-start">
-                          <Star className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" />
-                          <span>{service}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="bg-primary/10 p-4 rounded-lg mt-auto">
-                      <p className="text-sm font-medium text-primary">Best For:</p>
-                      <p className="text-gray-700">{category.bestFor}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-primary">Our Services Coming Soon</h2>
+            </div>
           </div>
         </div>
       </section>
@@ -276,7 +183,7 @@ const MiscPage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-          
+
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
