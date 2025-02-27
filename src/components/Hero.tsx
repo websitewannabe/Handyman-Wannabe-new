@@ -83,9 +83,25 @@ const Hero = () => {
     e.preventDefault();
     if (searchQuery.trim() === '') return;
 
-    // Navigate to service directory with search query if no specific service selected
+    // Navigate to services page with search query
     navigate(`/services?search=${encodeURIComponent(searchQuery)}`);
   };
+
+  // Control body overflow when dropdown is visible
+  useEffect(() => {
+    if (isDropdownVisible) {
+      // Disable scrolling on body when dropdown is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable scrolling when dropdown is closed
+      document.body.style.overflow = 'auto';
+    }
+
+    // Cleanup function to ensure scrolling is re-enabled when component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isDropdownVisible]);
 
   const handleSelectService = (service: any) => {
     setSelectedService(service);
