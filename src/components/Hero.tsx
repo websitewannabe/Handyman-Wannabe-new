@@ -148,7 +148,7 @@ const Hero = () => {
             {isDropdownVisible && (
               <div className="absolute mt-2 w-full bg-white shadow-xl rounded-lg overflow-hidden search-dropdown">
                 <ul>
-                  {filteredServices.slice(0, filteredServices.length).map((service) => (
+                  {filteredServices.slice(0, 3).map((service) => (
                     <li 
                       key={service.id} 
                       className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-colors"

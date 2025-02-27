@@ -98,14 +98,14 @@
 .search-dropdown {
   z-index: 9999;
   animation: fadeIn 0.2s ease-in-out;
-  max-height: 160px; /* Decreased height */
+  max-height: 130px; /* Further decreased height */
   overflow-y: auto;
   position: absolute;
-  width: 110%; /* Increased width */
+  width: 120%; /* Further increased width */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
   top: 100%;
-  left: -5%; /* Centering the wider dropdown */
+  left: -10%; /* Adjusted centering for wider dropdown */
 }
 
 @keyframes fadeIn {
