@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare, X } from 'lucide-react';
+import { Search, Grid as GridIcon, List, Filter, Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import servicesData from "../data/services.json";
 
@@ -26,14 +26,9 @@ const ServiceDirectoryPage = () => {
 
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilters, setActiveFilters] = useState<{ [key: string]: string[] }>({
-    'Service Type': [],
-    'Popular Services': [],
-    'Price Range': []
-  });
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [expandedFilter, setExpandedFilter] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // Filter categories
   const filterCategories = {
@@ -42,8 +37,6 @@ const ServiceDirectoryPage = () => {
     'Price Range': ['Budget-Friendly', 'Mid-Range', 'Premium']
   };
 
-  const hasActiveFilters = Object.values(activeFilters).some(filters => filters.length > 0);
-
   // Filter services based on search, category, and filters
   const filteredServices = (servicesData as Service[]).filter(service => {
     const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -51,29 +44,19 @@ const ServiceDirectoryPage = () => {
 
     const matchesCategory = !category || service.subcategory === category;
 
-    const matchesFilters = Object.entries(activeFilters).every(([filterCategory, filters]) =>
-      filters.length === 0 || filters.some(filter => service.features.includes(filter))
-    );
+    const matchesFilters = activeFilters.length === 0 || 
+                          activeFilters.some(filter => service.features.includes(filter));
 
     return matchesSearch && matchesCategory && matchesFilters;
   });
 
-  const toggleFilter = (category: string, filter: string) => {
-    setActiveFilters(prev => ({
-      ...prev,
-      [category]: prev[category].includes(filter)
-        ? prev[category].filter(f => f !== filter)
-        : [...prev[category], filter]
-    }));
-  };
-
-  const resetFilters = () => {
-    setActiveFilters({
-      'Service Type': [],
-      'Popular Services': [],
-      'Price Range': []
-    });
-  };
+  const toggleFilter = (filter: string) => {
+    setActiveFilters((prev: string[]) => 
+        prev.includes(filter)
+            ? prev.filter(f => f !== filter)
+            : [...prev, filter]
+    );
+};
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -198,43 +181,28 @@ const ServiceDirectoryPage = () => {
                       onClick={() => setExpandedFilter(expandedFilter === category ? null : category)}
                     >
                       {category}
-                      <div className="flex items-center">
-                        {activeFilters[category].length > 0 && (
-                          <span className="text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5 mr-2">
-                            {activeFilters[category].length}
-                          </span>
-                        )}
-                        {expandedFilter === category ? (
-                          <ChevronUp className="w-4 h-4" />
-                        ) : (
-                          <ChevronDown className="w-4 h-4" />
-                        )}
-                      </div>
+                      {expandedFilter === category ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
 
-                    <AnimatePresence>
-                      {expandedFilter === category && (
-                        <motion.div 
-                          className="mt-2 space-y-1"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {filters.map(filter => (
-                            <label key={filter} className="flex items-center space-x-2">
-                              <input
-                                type="checkbox"
-                                checked={activeFilters[category].includes(filter)}
-                                onChange={() => toggleFilter(category, filter)}
-                                className="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300"
-                              />
-                              <span className="text-sm text-gray-700 select-none cursor-pointer">{filter}</span>
-                            </label>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    {expandedFilter === category && (
+                      <div className="space-y-2">
+                        {filters.map(filter => (
+                          <label key={filter} className="flex items-center space-x-2">
+                            <input
+                              type="checkbox"
+                              checked={activeFilters.includes(filter)}
+                              onChange={() => toggleFilter(filter)}
+                              className="rounded text-primary focus:ring-primary"
+                            />
+                            <span className="text-sm text-gray-700">{filter}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -431,94 +399,6 @@ const ServiceDirectoryPage = () => {
                   </button>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Filters */}
-      <div className="md:hidden">
-        <button 
-          onClick={() => setShowMobileFilters(true)}
-          className="flex items-center bg-white/80 backdrop-blur-sm rounded-lg px-3 py-2 shadow"
-        >
-          <Filter size={16} className="mr-2" />
-          <span>Filters</span>
-          {hasActiveFilters && (
-            <span className="ml-2 text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5">
-              {Object.values(activeFilters).flat().length}
-            </span>
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Filter Modal */}
-      <AnimatePresence>
-        {showMobileFilters && (
-          <motion.div 
-            className="fixed inset-0 bg-black/50 z-50 flex items-end md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setShowMobileFilters(false)}
-          >
-            <motion.div 
-              className="bg-white rounded-t-xl w-full p-4 max-h-[80vh] overflow-y-auto"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold">Filters</h3>
-                <div className="flex items-center">
-                  {hasActiveFilters && (
-                    <button 
-                      className="text-sm text-primary mr-4"
-                      onClick={resetFilters}
-                    >
-                      Reset all
-                    </button>
-                  )}
-                  <button onClick={() => setShowMobileFilters(false)}>
-                    <X size={20} />
-                  </button>
-                </div>
-              </div>
-
-              {Object.entries(filterCategories).map(([category, filters]) => (
-                <div key={category} className="mb-4">
-                  <div className="flex items-center">
-                    <h4 className="font-medium text-gray-700 mb-2">{category}</h4>
-                    {activeFilters[category].length > 0 && (
-                      <span className="ml-2 text-xs bg-primary/10 text-primary rounded-full px-2 py-0.5 mb-2">
-                        {activeFilters[category].length}
-                      </span>
-                    )}
-                  </div>
-                  <div className="space-y-2">
-                    {filters.map(filter => (
-                      <div key={filter} className="flex items-center">
-                        <input 
-                          type="checkbox" 
-                          id={`mobile-${filter}`} 
-                          checked={activeFilters[category].includes(filter)}
-                          onChange={() => toggleFilter(category, filter)}
-                          className="mr-2 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
-                        />
-                        <label htmlFor={`mobile-${filter}`} className="text-sm text-gray-600 select-none">{filter}</label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-              <button 
-                className="w-full bg-primary text-white font-medium py-3 rounded-lg mt-4"
-                onClick={() => setShowMobileFilters(false)}
-              >
-                Apply Filters ({Object.values(activeFilters).flat().length} selected)
-              </button>
             </motion.div>
           </motion.div>
         )}

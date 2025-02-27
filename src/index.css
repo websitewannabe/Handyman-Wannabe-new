@@ -104,44 +104,6 @@
   width: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
-
-/* Service Directory Filter Styles */
-.service-filter-checkbox {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  width: 1.15em;
-  height: 1.15em;
-  border: 1.5px solid #52b788;
-  border-radius: 0.15em;
-  display: grid;
-  place-content: center;
-  transition: all 0.2s ease;
-}
-
-.service-filter-checkbox:checked {
-  background-color: #52b788;
-}
-
-.service-filter-checkbox:checked::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  transform: scale(1);
-  transition: transform 0.1s ease-in-out;
-  box-shadow: inset 1em 1em white;
-  transform-origin: center;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-
-.filter-badge {
-  background-color: rgba(82, 183, 136, 0.1);
-  color: #52b788;
-  border-radius: 999px;
-  padding: 0.1rem 0.5rem;
-  font-size: 0.75rem;
-}
-
   top: 100%;
   left: 0;
 }
