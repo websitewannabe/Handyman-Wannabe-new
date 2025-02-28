@@ -31,7 +31,7 @@ import ServiceDirectoryPage from './pages/ServiceDirectoryPage';
 import ManagementCompaniesPage from './pages/ManagementCompaniesPage';
 import MiscPage from './pages/MiscPage';
 import BlogPage from './pages/BlogPage';
-import PackagesPage from './pages/PackagesPage'; // Added import
+import PackagesPage from './pages/PackagesPage';
 import Footer from './components/Footer';
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
           <Route path="/service-area" element={<ServiceAreaPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/packages" element={<PackagesPage />} /> {/* Added route */}
+          <Route path="/packages" element={<PackagesPage />} />
           <Route path="/services/carpentry" element={<CarpentryPage />} />
           <Route path="/services/garage-doors" element={<GarageDoorsPage />} />
           <Route path="/services/smart-homes" element={<SmartHomesPage />} />
