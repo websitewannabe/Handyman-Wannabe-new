@@ -262,37 +262,6 @@ const CareersPage = () => {
         </div>
       </section>
 
-      {/* Company Culture Images Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Life at Handyman Wannabe</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                When you join our team, you become part of a community that values quality workmanship, teamwork, and customer satisfaction.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <motion.div
-                  key={item}
-                  className="rounded-lg overflow-hidden h-64 bg-gray-200"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.1 * item, duration: 0.5 }}
-                >
-                  {/* Replace with actual team images */}
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    Team Photo {item}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
