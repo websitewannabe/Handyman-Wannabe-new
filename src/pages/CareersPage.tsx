@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Check, Star, Users, ChevronRight } from "lucide-react";
@@ -86,7 +85,7 @@ const CareersPage = () => {
   const openApplicationModal = (job: typeof jobs[0]) => {
     setSelectedJob(job);
     setIsModalOpen(true);
-    
+
     // Prevent scrolling on the body when modal is open
     document.body.style.overflow = "hidden";
   };
@@ -94,7 +93,7 @@ const CareersPage = () => {
   const closeApplicationModal = () => {
     setIsModalOpen(false);
     setSelectedJob(null);
-    
+
     // Re-enable scrolling when modal is closed
     document.body.style.overflow = "auto";
   };
@@ -195,34 +194,6 @@ const CareersPage = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Employee Benefits</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We take care of our team with comprehensive benefits designed to support your health, wealth, and personal growth.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => (
-                <motion.div 
-                  key={index}
-                  className="flex items-center p-4 bg-gray-50 rounded-lg"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * index, duration: 0.5 }}
-                >
-                  <Check className="text-primary w-6 h-6 mr-3 flex-shrink-0" />
-                  <span className="text-lg">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Open Positions Section */}
       <section id="open-positions" className="py-20 bg-gray-50">
@@ -267,11 +238,11 @@ const CareersPage = () => {
                         <ChevronRight className="w-5 h-5 ml-1" />
                       </button>
                     </div>
-                    
+
                     <p className="text-gray-600 mb-4">
                       {job.description}
                     </p>
-                    
+
                     <div>
                       <h4 className="font-semibold text-gray-800 mb-2">Key Qualifications:</h4>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
