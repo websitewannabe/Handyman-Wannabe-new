@@ -89,22 +89,6 @@ const Hero = () => {
     };
   }, []);
 
-  // Control body scroll when modal is open
-  useEffect(() => {
-    if (isModalOpen) {
-      // Disable scrolling
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Re-enable scrolling
-      document.body.style.overflow = '';
-    }
-    
-    // Cleanup on component unmount
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isModalOpen]);
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim() === "") return;
