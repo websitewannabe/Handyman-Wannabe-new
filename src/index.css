@@ -134,6 +134,11 @@
   animation: modalSlideIn 0.3s ease-in-out;
 }
 
+/* When body scroll is locked, prevent content jump */
+body.scroll-locked {
+  padding-right: var(--scrollbar-width, 0);
+}
+
 @keyframes modalFadeIn {
   from {
     opacity: 0;
