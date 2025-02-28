@@ -281,7 +281,7 @@ const Hero = () => {
       </div>
 
       {/* Wave transition section */}
-      <div className="absolute -bottom-1 left-0 right-0 z-20">
+      <div className="absolute -bottom-1 left-0 right-0 z-10">
         {/* Main colored wave */}
         <svg
           className="w-full relative"
@@ -297,7 +297,7 @@ const Hero = () => {
 
       {/* Background color section */}
       <div
-        className="absolute -bottom-32 left-0 right-0 h-32"
+        className="absolute -bottom-32 left-0 right-0 h-32 z-10"
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
     </div>
