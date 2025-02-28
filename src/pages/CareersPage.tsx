@@ -1,258 +1,350 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase, DollarSign, GraduationCap, TrendingUp, ClipboardCheck, UserCheck, Calendar, HandshakeIcon, Star, Phone, Mail, Award, Heart, Clock } from 'lucide-react';
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Briefcase, MapPin, Check, Star, Users, ChevronRight } from "lucide-react";
+import JobApplicationModal from "../components/JobApplicationModal";
 
-const openPositions = [
+// Sample job data - replace with your actual data
+const jobs = [
   {
-    title: "Master Plumber",
-    location: "Greater Metropolitan Area",
-    type: "Full-time",
-    description: "Seeking an experienced plumber to join our growing team. Must have 5+ years of experience and required certifications."
+    id: "handyman1",
+    title: "Senior Handyman",
+    description: "We are looking for an experienced Senior Handyman to join our growing team. In this role, you will lead projects, mentor junior handymen, and ensure high-quality service delivery to our customers.",
+    qualifications: [
+      "5+ years of professional handyman experience",
+      "Strong expertise in carpentry, plumbing, and electrical work",
+      "Problem-solving skills and ability to work independently",
+      "Excellent customer service and communication skills",
+      "Valid driver's license and reliable transportation"
+    ],
+    location: "Colorado Springs, CO",
+    workType: "Full-time",
+    department: "Field Services"
   },
   {
-    title: "Electrician",
-    location: "Greater Metropolitan Area",
-    type: "Full-time",
-    description: "Licensed electrician needed for residential and light commercial work. Experience with modern smart home systems a plus."
+    id: "handyman2",
+    title: "Junior Handyman",
+    description: "We're seeking entry-level handymen to join our team. This position is perfect for individuals who are passionate about home improvement and want to develop their skills under the guidance of experienced professionals.",
+    qualifications: [
+      "1+ year experience in home repair or related field",
+      "Basic knowledge of common household repairs",
+      "Willingness to learn and take direction",
+      "Customer-focused attitude",
+      "Valid driver's license required"
+    ],
+    location: "Colorado Springs, CO",
+    workType: "Full-time",
+    department: "Field Services"
   },
   {
-    title: "General Handyman",
-    location: "Greater Metropolitan Area",
-    type: "Full-time / Part-time",
-    description: "Multi-skilled handyman with experience in various home repair and maintenance tasks. Must have own tools and reliable transportation."
+    id: "customer-service",
+    title: "Customer Service Representative",
+    description: "Join our customer service team to help schedule appointments, answer customer inquiries, and ensure a smooth experience for our clients. You'll be the first point of contact for our customers and play a crucial role in our service delivery.",
+    qualifications: [
+      "Previous customer service experience preferred",
+      "Excellent communication and interpersonal skills",
+      "Ability to multitask in a fast-paced environment",
+      "Proficiency with scheduling software and CRM systems",
+      "Problem-solving attitude"
+    ],
+    location: "Colorado Springs, CO",
+    workType: "Full-time / Part-time",
+    department: "Customer Support"
   },
   {
-    title: "Carpenter",
-    location: "Greater Metropolitan Area",
-    type: "Full-time",
-    description: "Skilled carpenter needed for custom woodworking, cabinet installation, and general carpentry work. Portfolio required."
+    id: "office-manager",
+    title: "Office Manager",
+    description: "We're looking for an organized and efficient Office Manager to oversee our administrative operations. You'll ensure the smooth running of our office, manage supplies, coordinate with service teams, and handle general administrative tasks.",
+    qualifications: [
+      "3+ years of office management experience",
+      "Strong organizational and time management skills",
+      "Proficiency in Microsoft Office and project management tools",
+      "Experience in bookkeeping and financial reporting",
+      "Excellent communication and leadership abilities"
+    ],
+    location: "Colorado Springs, CO",
+    workType: "Full-time",
+    department: "Administration"
   }
 ];
 
-const employeeTestimonials = [
-  {
-    name: "David Martinez",
-    role: "Senior Plumber",
-    years: "4 years",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    quote: "The support and growth opportunities at Handyman Wannabe have been incredible. I've advanced my career while doing what I love."
-  },
-  {
-    name: "Rachel Thompson",
-    role: "Lead Electrician",
-    years: "3 years",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    quote: "The flexible scheduling and competitive pay make this the best company I've worked for. Plus, the team feels like family."
-  },
-  {
-    name: "Michael Chang",
-    role: "General Handyman",
-    years: "2 years",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-    quote: "I love the variety of work and the continuous learning opportunities. Every day brings new challenges and growth."
-  }
+const benefits = [
+  "Competitive pay with bonuses",
+  "Medical, dental, and vision insurance",
+  "401(k) retirement plan with company match",
+  "Paid time off and holidays",
+  "Professional development opportunities",
+  "Employee discounts",
+  "Flexible scheduling options",
+  "Career advancement pathways"
 ];
 
 const CareersPage = () => {
+  const [selectedJob, setSelectedJob] = useState<typeof jobs[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openApplicationModal = (job: typeof jobs[0]) => {
+    setSelectedJob(job);
+    setIsModalOpen(true);
+    
+    // Prevent scrolling on the body when modal is open
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeApplicationModal = () => {
+    setIsModalOpen(false);
+    setSelectedJob(null);
+    
+    // Re-enable scrolling when modal is closed
+    document.body.style.overflow = "auto";
+  };
+
   return (
     <div className="pt-28">
-      {/* Why Work With Us */}
-      <section className="py-20 bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-primary text-white py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl font-bold mb-6">Join Our Team</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join a company that values your skills, supports your growth, and rewards your dedication.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: DollarSign,
-                title: "Competitive Pay & Benefits",
-                description: "Industry-leading compensation and comprehensive benefits package"
-              },
-              {
-                icon: Clock,
-                title: "Flexible Scheduling",
-                description: "Work-life balance with flexible hours and scheduling options"
-              },
-              {
-                icon: GraduationCap,
-                title: "Training & Development",
-                description: "Continuous learning and skill development opportunities"
-              },
-              {
-                icon: TrendingUp,
-                title: "Career Growth",
-                description: "Clear path for advancement and professional development"
-              }
-            ].map((benefit, index) => (
-              <motion.div
-                key={index}
-                className="text-center p-6 bg-white rounded-lg shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                  <benefit.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
-              </motion.div>
-            ))}
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Join Our Team of Home Service Professionals
+            </motion.h1>
+            <motion.p 
+              className="text-xl mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              Build your career with a growing company that values skill, integrity, and customer service.
+            </motion.p>
+            <motion.a 
+              href="#open-positions"
+              className="inline-block bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              View Open Positions
+            </motion.a>
           </div>
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section className="py-20 bg-white">
+      {/* Why Join Us Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Open Positions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {openPositions.map((position, index) => (
-              <motion.div
-                key={index}
-                className="bg-gray-50 rounded-lg p-6 shadow-md"
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-4">Why Join Our Team?</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We believe in creating a supportive work environment where you can grow your skills, advance your career, and make a difference in our customers' homes.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <motion.div 
+                className="bg-white p-8 rounded-lg shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{position.title}</h3>
-                    <p className="text-gray-600 mb-1">{position.location}</p>
-                    <p className="text-gray-600">{position.type}</p>
-                  </div>
-                  <button className="btn-primary px-6 py-2">Apply Now</button>
+                <div className="bg-primary/10 p-4 rounded-full inline-block mb-6">
+                  <Star className="w-8 h-8 text-primary" />
                 </div>
-                <p className="text-gray-700">{position.description}</p>
+                <h3 className="text-xl font-bold mb-4">Skill Development</h3>
+                <p className="text-gray-600">
+                  Continuous training and learning opportunities to expand your technical skills and professional knowledge.
+                </p>
               </motion.div>
-            ))}
+
+              <motion.div 
+                className="bg-white p-8 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                <div className="bg-primary/10 p-4 rounded-full inline-block mb-6">
+                  <Users className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">Supportive Culture</h3>
+                <p className="text-gray-600">
+                  Work with a team that values collaboration, respect, and work-life balance while delivering exceptional service.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white p-8 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                <div className="bg-primary/10 p-4 rounded-full inline-block mb-6">
+                  <Briefcase className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">Career Growth</h3>
+                <p className="text-gray-600">
+                  Clear pathways for advancement with opportunities to move into senior roles, specializations, or management positions.
+                </p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Employee Testimonials */}
-      <section className="py-20 bg-gray-50">
+      {/* Benefits Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {employeeTestimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-16 h-16 rounded-full mr-4 object-cover"
-                    />
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-4">Employee Benefits</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We take care of our team with comprehensive benefits designed to support your health, wealth, and personal growth.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {benefits.map((benefit, index) => (
+                <motion.div 
+                  key={index}
+                  className="flex items-center p-4 bg-gray-50 rounded-lg"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * index, duration: 0.5 }}
+                >
+                  <Check className="text-primary w-6 h-6 mr-3 flex-shrink-0" />
+                  <span className="text-lg">{benefit}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Open Positions Section */}
+      <section id="open-positions" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-4">Open Positions</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Join our team of professionals and build your career with us. We're looking for dedicated individuals who share our values and passion for excellent service.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {jobs.map((job) => (
+                <motion.div 
+                  key={job.id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  <div className="p-6">
+                    <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold text-gray-800">{job.title}</h3>
+                        <div className="flex flex-wrap items-center gap-4 mt-2 text-gray-600">
+                          <div className="flex items-center">
+                            <Briefcase className="w-5 h-5 mr-2 text-primary" />
+                            <span>{job.department}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <MapPin className="w-5 h-5 mr-2 text-primary" />
+                            <span>{job.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => openApplicationModal(job)}
+                        className="bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center"
+                      >
+                        Apply Now
+                        <ChevronRight className="w-5 h-5 ml-1" />
+                      </button>
+                    </div>
+                    
+                    <p className="text-gray-600 mb-4">
+                      {job.description}
+                    </p>
+                    
                     <div>
-                      <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                      <p className="text-primary">{testimonial.role}</p>
-                      <p className="text-gray-600 text-sm">{testimonial.years} with us</p>
+                      <h4 className="font-semibold text-gray-800 mb-2">Key Qualifications:</h4>
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {job.qualifications.slice(0, 4).map((qualification, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-600">{qualification}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  <p className="text-gray-600 italic">{testimonial.quote}</p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Application Process */}
-      <section className="py-20 bg-white">
+      {/* Company Culture Images Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Application Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                icon: ClipboardCheck,
-                title: "Submit Application",
-                description: "Apply online in minutes with your resume and credentials"
-              },
-              {
-                icon: UserCheck,
-                title: "Initial Screening",
-                description: "Our hiring team reviews your qualifications"
-              },
-              {
-                icon: Calendar,
-                title: "Interview Process",
-                description: "Meet with our team to discuss the opportunity"
-              },
-              {
-                icon: HandshakeIcon,
-                title: "Onboarding",
-                description: "Get the tools and training to succeed"
-              }
-            ].map((step, index) => (
-              <motion.div
-                key={index}
-                className="text-center relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="absolute -top-4 -left-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
-                  {index + 1}
-                </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-                  <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                    <step.icon className="w-8 h-8 text-primary" />
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold mb-4">Life at Handyman Wannabe</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                When you join our team, you become part of a community that values quality workmanship, teamwork, and customer satisfaction.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((item) => (
+                <motion.div
+                  key={item}
+                  className="rounded-lg overflow-hidden h-64 bg-gray-200"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 * item, duration: 0.5 }}
+                >
+                  {/* Replace with actual team images */}
+                  <div className="w-full h-full flex items-center justify-center text-gray-500">
+                    Team Photo {item}
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Team?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            We're looking for talented individuals to help us deliver exceptional service to our customers. Apply today and become part of our growing team!
+          </p>
+          <a 
+            href="#open-positions"
+            className="inline-block bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
           >
-            <h2 className="text-4xl font-bold mb-6">Ready to Start Your Career?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join our team of skilled professionals and build a rewarding career.
-            </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              <button className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
-                View Open Positions
-              </button>
-              <div className="flex items-center">
-                <Mail className="w-6 h-6 mr-2" />
-                <span className="text-2xl font-bold">careers@handymanwannabe.com</span>
-              </div>
-            </div>
-          </motion.div>
+            View Open Positions
+          </a>
         </div>
       </section>
+
+      {/* Application Modal */}
+      {isModalOpen && selectedJob && (
+        <JobApplicationModal 
+          job={selectedJob} 
+          onClose={closeApplicationModal} 
+        />
+      )}
     </div>
   );
 };
