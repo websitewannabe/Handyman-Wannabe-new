@@ -428,7 +428,7 @@ import { motion } from "framer-motion";
 import { Star, X, Check, DollarSign, Clock } from "lucide-react";
 
 // Example package data - replace with your actual data
-const packages = [
+const packageData = [
   {
     id: "basic",
     name: "Basic Handyman Package",
