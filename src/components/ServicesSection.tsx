@@ -13,7 +13,7 @@
                   maintenance, and emergency service.
                 </p>
                 <a
-                  href="/management-companies"
+                  href="/services/management-companies"
                   className="flex items-center text-primary font-semibold"
                 >
                   Learn More
