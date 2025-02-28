@@ -188,7 +188,7 @@ const Hero = () => {
 
             {/* Service Modal */}
             {isModalOpen && selectedService && (
-              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
                 <div
                   ref={modalRef}
                   className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto"
@@ -281,7 +281,7 @@ const Hero = () => {
       </div>
 
       {/* Wave transition section */}
-      <div className="absolute -bottom-1 left-0 right-0 z-10">
+      <div className="absolute -bottom-1 left-0 right-0 z-0">
         {/* Main colored wave */}
         <svg
           className="w-full relative"
@@ -297,7 +297,7 @@ const Hero = () => {
 
       {/* Background color section */}
       <div
-        className="absolute -bottom-32 left-0 right-0 h-32 z-10"
+        className="absolute -bottom-32 left-0 right-0 h-32 z-0"
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
     </div>
