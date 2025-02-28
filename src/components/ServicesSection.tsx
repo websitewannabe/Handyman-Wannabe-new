@@ -1,4 +1,4 @@
-{/* Property Management Card */}
+{/* Third Party Moving Card */}
             <motion.div
               className="bg-white rounded-lg shadow-lg overflow-hidden"
               variants={cardVariants}
@@ -7,13 +7,13 @@
                 <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6">
                   <Home className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Property Management</h3>
+                <h3 className="text-xl font-bold mb-3">Third Party Moving</h3>
                 <p className="text-gray-600 mb-6">
                   Complete care for rental properties including repairs,
                   maintenance, and emergency service.
                 </p>
                 <a
-                  href="/services/management-companies"
+                  href="/services?category=third-party-moving"
                   className="flex items-center text-primary font-semibold"
                 >
                   Learn More
