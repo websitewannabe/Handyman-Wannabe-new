@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Star, X, Check, DollarSign, Clock } from "lucide-react";
 import PackageModal from "../components/PackageModal";
+import CustomQuoteModal from "../components/CustomQuoteModal"; // Added import for the custom quote modal
 
 // Example package data - replace with your actual data
 const packageData = [
@@ -61,6 +62,8 @@ const packageData = [
 const PackagesPage = () => {
   const [selectedPackage, setSelectedPackage] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false); // Added state for custom quote modal
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const openPackageModal = (pkg: any) => {
     setSelectedPackage(pkg);
@@ -69,6 +72,10 @@ const PackagesPage = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const closeQuoteModal = () => {
+    setIsQuoteModalOpen(false);
   };
 
   return (
@@ -158,7 +165,10 @@ const PackagesPage = () => {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             We can create a personalized service package tailored to your specific home improvement needs.
           </p>
-          <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">
+          <button
+            onClick={() => setIsQuoteModalOpen(true)} // Added onClick handler to open custom quote modal
+            className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"
+          >
             Request a Custom Quote
           </button>
         </motion.div>
@@ -172,6 +182,11 @@ const PackagesPage = () => {
           packageData={selectedPackage}
         />
       )}
+
+      {/* Custom Quote Modal */}
+      {isQuoteModalOpen && (
+        <CustomQuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />
+      )} {/* Added Custom Quote Modal */}
     </div>
   );
 };
