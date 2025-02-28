@@ -124,13 +124,6 @@ const Hero = () => {
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
-          <div className="flex justify-center mb-6">
-            <img 
-              src="/images/Handyman_Logo-eyes.png" 
-              alt="Handyman Logo Eyes" 
-              className="w-40 h-auto"
-            />
-          </div>
           <h1 className="mb-6">
             <span className="block mb-2">
               <span className="text-primary font-extrabold">Professional </span>
