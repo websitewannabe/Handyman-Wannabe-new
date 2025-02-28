@@ -13,7 +13,7 @@
                   maintenance, and emergency service.
                 </p>
                 <a
-                  href="/packages"
+                  href="/services?search=Property%20Management"
                   className="flex items-center text-primary font-semibold"
                 >
                   Learn More
