@@ -1,40 +1,52 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, ChevronDown, ChevronUp, MessageSquare } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ChevronDown,
+  ChevronUp,
+  MessageSquare,
+} from "lucide-react";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const faqs = [
   {
     question: "How soon can I book a handyman?",
-    answer: "We offer same-day and next-day service for many requests. For specific projects, we'll schedule based on your preferences and our earliest availability."
+    answer:
+      "We offer same-day and next-day service for many requests. For specific projects, we'll schedule based on your preferences and our earliest availability.",
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, debit cards, cash, and digital payments through services like Apple Pay and Google Pay."
+    answer:
+      "We accept all major credit cards, debit cards, cash, and digital payments through services like Apple Pay and Google Pay.",
   },
   {
     question: "Do you offer emergency services?",
-    answer: "Yes, we provide 24/7 emergency services for urgent repairs. Additional charges may apply for after-hours service."
+    answer:
+      "Yes, we provide 24/7 emergency services for urgent repairs. Additional charges may apply for after-hours service.",
   },
   {
     question: "Are your handymen licensed and insured?",
-    answer: "Yes, all our handymen are fully licensed, bonded, and insured for your peace of mind."
-  }
+    answer:
+      "Yes, all our handymen are fully licensed, bonded, and insured for your peace of mind.",
+  },
 ];
 
 const ContactPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: 'General Inquiry',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "General Inquiry",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -45,11 +57,15 @@ const ContactPage = () => {
     setTimeout(() => setSubmitted(false), 5000);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -75,23 +91,35 @@ const ContactPage = () => {
               >
                 <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
                 <div className="space-y-6">
-                  <a href="tel:7193156628" className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                  <a
+                    href="tel:7193156628"
+                    className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  >
                     <div className="bg-primary/10 p-4 rounded-full mr-6">
                       <Phone className="w-8 h-8 text-primary" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-600 mb-1">Phone Number</p>
-                      <p className="text-2xl font-bold text-dark">(719) 315-6628</p>
+                      <p className="text-2xl font-bold text-dark">
+                        (719) 315-6628
+                      </p>
                     </div>
                   </a>
 
-                  <a href="mailto:info@handymanwannabe.com" className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                  <a
+                    href="mailto:info@handymanwannabe.com"
+                    className="flex items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  >
                     <div className="bg-primary/10 p-4 rounded-full mr-6">
                       <Mail className="w-8 h-8 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 mb-1">Email Address</p>
-                      <p className="text-xl font-bold text-dark">info@handymanwannabe.com</p>
+                      <p className="text-sm text-gray-600 mb-1">
+                        Email Address
+                      </p>
+                      <p className="text-xl font-bold text-dark">
+                        info@handymanwannabe.com
+                      </p>
                     </div>
                   </a>
 
@@ -100,8 +128,12 @@ const ContactPage = () => {
                       <MapPin className="w-8 h-8 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 mb-1">Office Location</p>
-                      <p className="text-xl font-bold text-dark">123 Main Street</p>
+                      <p className="text-sm text-gray-600 mb-1">
+                        Office Location
+                      </p>
+                      <p className="text-xl font-bold text-dark">
+                        Colorado Springs, CO
+                      </p>
                       <p className="text-gray-600">Greater Metropolitan Area</p>
                     </div>
                   </div>
@@ -111,8 +143,12 @@ const ContactPage = () => {
                       <Clock className="w-8 h-8 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600 mb-1">Business Hours</p>
-                      <p className="text-lg font-bold text-dark">Monday - Saturday</p>
+                      <p className="text-sm text-gray-600 mb-1">
+                        Business Hours
+                      </p>
+                      <p className="text-lg font-bold text-dark">
+                        Monday - Saturday
+                      </p>
                       <p className="text-gray-600">8:00 AM - 6:00 PM</p>
                     </div>
                   </div>
@@ -129,7 +165,10 @@ const ContactPage = () => {
                 <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Name *
                     </label>
                     <input
@@ -145,7 +184,10 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -161,7 +203,10 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Phone Number (Optional)
                     </label>
                     <input
@@ -176,7 +221,10 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Subject *
                     </label>
                     <select
@@ -195,7 +243,10 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -233,7 +284,9 @@ const ContactPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Frequently Asked Questions
+            </h2>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <motion.div
@@ -245,7 +298,9 @@ const ContactPage = () => {
                 >
                   <button
                     className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50"
-                    onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                    onClick={() =>
+                      setActiveIndex(activeIndex === index ? null : index)
+                    }
                   >
                     <span className="font-bold text-lg">{faq.question}</span>
                     {activeIndex === index ? (
@@ -274,9 +329,12 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <h2 className="text-4xl font-bold mb-6">Need Assistance? We're Here to Help!</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              Need Assistance? We're Here to Help!
+            </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Our team is ready to assist you with any questions or service requests.
+              Our team is ready to assist you with any questions or service
+              requests.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <a

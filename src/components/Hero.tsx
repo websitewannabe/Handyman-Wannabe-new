@@ -1,22 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Search, Phone, X, DollarSign, Clock, Star } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import servicesData from '../data/services.json';
+import React, { useState, useEffect, useRef } from "react";
+import { Search, Phone, X, DollarSign, Clock, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import servicesData from "../data/services.json";
 
 const services = [
-  'Outlet Repair',
-  'Custom Shelving',
-  'Leak Repair',
-  'Door Installation',
-  'Ceiling Fan Mounting',
-  'Cabinet Repair',
-  'Drywall Patching',
-  'Furniture Assembly'
+  "Outlet Repair",
+  "Custom Shelving",
+  "Leak Repair",
+  "Door Installation",
+  "Ceiling Fan Mounting",
+  "Cabinet Repair",
+  "Drywall Patching",
+  "Furniture Assembly",
 ];
 
 const Hero = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchStatus, setSearchStatus] = useState<'idle' | 'available' | 'unavailable'>('idle');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchStatus, setSearchStatus] = useState<
+    "idle" | "available" | "unavailable"
+  >("idle");
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [selectedService, setSelectedService] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,19 +38,21 @@ const Hero = () => {
 
   useEffect(() => {
     // Filter services based on search query
-    if (searchQuery.trim() === '') {
+    if (searchQuery.trim() === "") {
       setFilteredServices([]);
       setIsDropdownVisible(false);
       return;
     }
 
-    const filtered = servicesData.filter(service =>
-      service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (service.features && service.features.some(feature => 
-        feature.toLowerCase().includes(searchQuery.toLowerCase())
-      ))
+    const filtered = servicesData.filter(
+      (service) =>
+        service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (service.features &&
+          service.features.some((feature) =>
+            feature.toLowerCase().includes(searchQuery.toLowerCase()),
+          )),
     );
 
     setFilteredServices(filtered);
@@ -58,30 +62,36 @@ const Hero = () => {
   useEffect(() => {
     // Close dropdown when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownVisible(false);
       }
     };
 
     // Close modal when clicking outside
     const handleModalClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         setIsModalOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('mousedown', handleModalClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleModalClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('mousedown', handleModalClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleModalClickOutside);
     };
   }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim() === '') return;
+    if (searchQuery.trim() === "") return;
 
     // Navigate to service directory with search query if no specific service selected
     navigate(`/services?search=${encodeURIComponent(searchQuery)}`);
@@ -90,7 +100,7 @@ const Hero = () => {
   const handleSelectService = (service: any) => {
     setSelectedService(service);
     setIsModalOpen(true);
-    setSearchQuery('');
+    setSearchQuery("");
     setIsDropdownVisible(false);
   };
 
@@ -102,12 +112,12 @@ const Hero = () => {
   return (
     <div className="relative">
       <div className="relative min-h-screen flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("https://as2.ftcdn.net/v2/jpg/02/68/88/15/1000_F_268881530_cBSYpYQtlhpzMAU5OCXPqSDkXQZz8yHb.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundImage: 'url("public/images/Handyman-Hero.jpeg")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
@@ -122,12 +132,13 @@ const Hero = () => {
             for Every Home Project
           </h1>
           <p className="text-xl mb-12 text-gray-200 max-w-2xl mx-auto">
-            Expert craftsmen ready to tackle any home improvement task with precision and care. Available 24/7 for your convenience.
+            Expert craftsmen ready to tackle any home improvement task with
+            precision and care. Available 24/7 for your convenience.
           </p>
 
-          <div 
+          <div
             className="max-w-md mx-auto mb-12 relative"
-            style={{ position: 'relative', zIndex: 9000 }}
+            style={{ position: "relative", zIndex: 9000 }}
             ref={searchRef}
           >
             <form onSubmit={handleSearch}>
@@ -137,7 +148,9 @@ const Hero = () => {
                   placeholder={`Search for... ${services[currentServiceIndex]}`}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  onFocus={() => setIsDropdownVisible(filteredServices.length > 0)}
+                  onFocus={() =>
+                    setIsDropdownVisible(filteredServices.length > 0)
+                  }
                   className="w-full px-6 py-4 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-primary text-lg"
                 />
                 <button
@@ -154,14 +167,18 @@ const Hero = () => {
               <div className="absolute mt-1 w-full bg-white shadow-md rounded-lg overflow-auto search-dropdown">
                 <ul className="py-1">
                   {filteredServices.map((service) => (
-                    <li 
-                      key={service.id} 
+                    <li
+                      key={service.id}
                       className="px-3 py-2 hover:bg-gray-100 cursor-pointer transition-colors"
                       onClick={() => handleSelectService(service)}
                     >
                       <div className="flex flex-col">
-                        <p className="font-medium text-gray-800 text-sm truncate">{service.name}</p>
-                        <p className="text-xs text-gray-500">{service.category}</p>
+                        <p className="font-medium text-gray-800 text-sm truncate">
+                          {service.name}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {service.category}
+                        </p>
                       </div>
                     </li>
                   ))}
@@ -172,13 +189,13 @@ const Hero = () => {
             {/* Service Modal */}
             {isModalOpen && selectedService && (
               <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-                <div 
+                <div
                   ref={modalRef}
                   className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="relative">
-                    <button 
+                    <button
                       onClick={closeModal}
                       className="absolute right-4 top-4 bg-white/80 rounded-full p-1 backdrop-blur-sm z-10 hover:bg-white transition-colors"
                     >
@@ -186,64 +203,72 @@ const Hero = () => {
                     </button>
 
                     <div className="p-5">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">{selectedService.name}</h2>
-                    <p className="text-gray-600 mb-6">{selectedService.description}</p>
+                      <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                        {selectedService.name}
+                      </h2>
+                      <p className="text-gray-600 mb-6">
+                        {selectedService.description}
+                      </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="flex items-center text-primary mb-2">
-                          <DollarSign className="w-5 h-5 mr-2" />
-                          <span className="font-bold">Price Estimate</span>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                          <div className="flex items-center text-primary mb-2">
+                            <DollarSign className="w-5 h-5 mr-2" />
+                            <span className="font-bold">Price Estimate</span>
+                          </div>
+                          <p className="text-gray-700">
+                            {selectedService.price}
+                          </p>
                         </div>
-                        <p className="text-gray-700">{selectedService.price}</p>
+
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                          <div className="flex items-center text-primary mb-2">
+                            <Clock className="w-5 h-5 mr-2" />
+                            <span className="font-bold">Estimated Time</span>
+                          </div>
+                          <p className="text-gray-700">
+                            {selectedService.timeEstimate}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="flex items-center text-primary mb-2">
-                          <Clock className="w-5 h-5 mr-2" />
-                          <span className="font-bold">Estimated Time</span>
-                        </div>
-                        <p className="text-gray-700">{selectedService.timeEstimate}</p>
+                      <div className="mb-6">
+                        <h3 className="text-lg font-semibold mb-3 text-gray-800">
+                          Features
+                        </h3>
+                        <ul className="space-y-2">
+                          {selectedService.features.map(
+                            (feature: string, index: number) => (
+                              <li key={index} className="flex text-gray-700">
+                                <Star className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
+                                <span>{feature}</span>
+                              </li>
+                            ),
+                          )}
+                        </ul>
                       </div>
-                    </div>
 
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold mb-3 text-gray-800">Features</h3>
-                      <ul className="space-y-2">
-                        {selectedService.features.map((feature: string, index: number) => (
-                          <li key={index} className="flex text-gray-700">
-                            <Star className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <button className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                        Book This Service
+                      </button>
                     </div>
-
-                    <button 
-                      className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
-                    >
-                      Book This Service
-                    </button>
-                  </div>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          {searchStatus !== 'idle' && (
+          {searchStatus !== "idle" && (
             <div
               className={`inline-flex items-center px-6 py-3 rounded-lg mb-12 ${
-                searchStatus === 'available' 
-                  ? 'bg-green-500/20 text-green-100' 
-                  : 'bg-red-500/20 text-red-100'
+                searchStatus === "available"
+                  ? "bg-green-500/20 text-green-100"
+                  : "bg-red-500/20 text-red-100"
               }`}
             >
-              {searchStatus === 'available' ? (
-                'Great! We offer this service. Request a quote now!'
-              ) : (
-                'Sorry, we don\'t currently offer this service. Please try another search.'
-              )}
+              {searchStatus === "available"
+                ? "Great! We offer this service. Request a quote now!"
+                : "Sorry, we don't currently offer this service. Please try another search."}
             </div>
           )}
 
@@ -260,7 +285,7 @@ const Hero = () => {
         {/* Main colored wave */}
         <svg
           className="w-full relative"
-          style={{ height: '120px', color: '#ebd5c1' }}
+          style={{ height: "120px", color: "#ebd5c1" }}
           preserveAspectRatio="none"
           viewBox="0 0 1200 120"
           xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +296,10 @@ const Hero = () => {
       </div>
 
       {/* Background color section */}
-      <div className="absolute -bottom-32 left-0 right-0 h-32" style={{ backgroundColor: '#ebd5c1' }}></div>
+      <div
+        className="absolute -bottom-32 left-0 right-0 h-32"
+        style={{ backgroundColor: "#ebd5c1" }}
+      ></div>
     </div>
   );
 };

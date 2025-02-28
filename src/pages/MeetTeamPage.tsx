@@ -36,7 +36,7 @@ const teamMembers = [
     name: "Chris Tierney",
     role: "Director of Operations",
     specialty: "management",
-    experience: "18+ years",
+    experience: "30+ years",
     image:
       "https://handymanwannabe.com/wp-content/uploads/2024/07/IMG_9996-scaled-e1722452280194-1536x1183.jpeg",
     bio: "Strategic operations director with a focus on efficiency, customer satisfaction, and business growth.",
