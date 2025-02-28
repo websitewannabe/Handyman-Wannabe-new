@@ -9,11 +9,11 @@
                 </div>
                 <h3 className="text-xl font-bold mb-3">Third Party Moving</h3>
                 <p className="text-gray-600 mb-6">
-                  Complete care for rental properties including repairs,
-                  maintenance, and emergency service.
+                  Professional moving services for your home or business including
+                  packing, loading, and transportation.
                 </p>
                 <a
-                  href="/services?category=third-party-moving"
+                  href="/third-party-moving"
                   className="flex items-center text-primary font-semibold"
                 >
                   Learn More
