@@ -423,3 +423,285 @@ const PackagesPage = () => {
 };
 
 export default PackagesPage;
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Star, X, Check, DollarSign, Clock } from "lucide-react";
+
+// Example package data - replace with your actual data
+const packages = [
+  {
+    id: "basic",
+    name: "Basic Handyman Package",
+    description: "Essential handyman services for small repairs and maintenance tasks",
+    price: "$99",
+    timeEstimate: "1-3 hours",
+    features: [
+      "Small repairs and fixes",
+      "Basic furniture assembly",
+      "Hang pictures and shelves",
+      "Replace light fixtures"
+    ],
+    popularServices: [
+      "Drywall patching",
+      "Leaky faucet repair",
+      "Door adjustments",
+      "Outlet replacement"
+    ],
+    details: "Our Basic Handyman Package is perfect for homeowners who need quick fixes and small repairs around the house. This package includes up to 3 hours of service time with one of our skilled technicians who can tackle multiple small projects in a single visit.",
+    bestFor: "Homeowners with a few small tasks that need professional attention",
+    limitations: "Limited to basic tools and materials. Any specialized equipment or materials would be an additional cost."
+  },
+  {
+    id: "standard",
+    name: "Standard Home Maintenance",
+    description: "Comprehensive home maintenance services for medium-sized projects",
+    price: "$199",
+    timeEstimate: "3-6 hours",
+    features: [
+      "All Basic package services",
+      "Light fixture installation",
+      "Ceiling fan mounting",
+      "Cabinet repairs and adjustments"
+    ],
+    popularServices: [
+      "Custom shelving",
+      "Hardware replacement",
+      "Smart home device installation",
+      "Door installation"
+    ],
+    details: "The Standard Home Maintenance package provides comprehensive handyman services for homeowners with multiple projects or medium-sized tasks. Our skilled technicians will bring professional tools and common materials to address your home's maintenance needs efficiently.",
+    bestFor: "Homeowners with multiple small projects or medium-sized tasks",
+    limitations: "Specialized materials not included. Projects requiring multiple days will need additional booking."
+  },
+  {
+    id: "premium",
+    name: "Premium Home Improvement",
+    description: "Full-service home improvement solutions for larger projects and renovations",
+    price: "$399",
+    timeEstimate: "6-8 hours",
+    features: [
+      "All Standard package services",
+      "Kitchen and bathroom upgrades",
+      "Flooring installation",
+      "Custom carpentry work"
+    ],
+    popularServices: [
+      "Built-in shelving",
+      "Backsplash installation",
+      "Deck repair",
+      "Closet organization systems"
+    ],
+    details: "Our Premium Home Improvement package is designed for comprehensive home projects and minor renovations. This full-day service includes our most experienced technicians equipped with professional tools and expertise to transform your home with lasting improvements.",
+    bestFor: "Homeowners planning multiple improvements or small renovation projects",
+    limitations: "Materials not included. Permits, if required, are the responsibility of the homeowner."
+  }
+];
+
+const PackagesPage = () => {
+  const [selectedPackage, setSelectedPackage] = useState<any | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Close modal when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setIsModalOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handlePackageSelect = (pkg: any) => {
+    setSelectedPackage(pkg);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div className="pt-28 pb-24 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-4xl font-bold mb-4">Service Packages</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose from our pre-designed service packages or customize one to fit your specific needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {packages.map((pkg, index) => (
+              <motion.div
+                key={pkg.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold mb-3">{pkg.name}</h2>
+                  <p className="text-gray-600 mb-4">{pkg.description}</p>
+                  
+                  <div className="flex justify-between items-center mb-6">
+                    <div className="flex items-center">
+                      <DollarSign className="w-5 h-5 text-primary mr-1" />
+                      <span className="text-2xl font-bold">{pkg.price}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="w-5 h-5 text-primary mr-1" />
+                      <span className="text-gray-600">{pkg.timeEstimate}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-6">
+                    <h3 className="font-semibold mb-2">Includes:</h3>
+                    <ul className="space-y-2">
+                      {pkg.features.slice(0, 3).map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                      {pkg.features.length > 3 && (
+                        <li className="text-primary font-medium">+ more features</li>
+                      )}
+                    </ul>
+                  </div>
+                  
+                  <button
+                    onClick={() => handlePackageSelect(pkg)}
+                    className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Custom Package Option */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 bg-gray-100 rounded-lg p-8 text-center"
+          >
+            <h2 className="text-2xl font-bold mb-3">Need a Custom Package?</h2>
+            <p className="text-gray-600 mb-6">
+              We can create a custom service package tailored to your specific needs
+            </p>
+            <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+              Contact Us for Custom Quote
+            </button>
+          </motion.div>
+        </div>
+      </div>
+      
+      {/* Package Detail Modal */}
+      {isModalOpen && selectedPackage && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
+          <div
+            ref={modalRef}
+            className="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative p-6">
+              <button
+                onClick={closeModal}
+                className="absolute right-4 top-4 bg-white/80 rounded-full p-1 backdrop-blur-sm z-10 hover:bg-white transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-800" />
+              </button>
+              
+              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                {selectedPackage.name}
+              </h2>
+              
+              <div className="flex items-center mb-6">
+                <div className="bg-primary/10 px-3 py-1 rounded-full text-primary font-semibold">
+                  {selectedPackage.price}
+                </div>
+                <div className="mx-3 text-gray-300">|</div>
+                <div className="flex items-center text-gray-600">
+                  <Clock className="w-5 h-5 mr-1" />
+                  {selectedPackage.timeEstimate}
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <p className="text-gray-700 leading-relaxed">
+                  {selectedPackage.details}
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Services Included</h3>
+                  <ul className="space-y-2">
+                    {selectedPackage.features.map((feature: string, idx: number) => (
+                      <li key={idx} className="flex items-start">
+                        <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">Popular Services</h3>
+                  <ul className="space-y-2">
+                    {selectedPackage.popularServices.map((service: string, idx: number) => (
+                      <li key={idx} className="flex items-start">
+                        <Star className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-3">Best For</h3>
+                <p className="text-gray-700 bg-green-50 p-3 rounded-lg">
+                  {selectedPackage.bestFor}
+                </p>
+              </div>
+              
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-3">Limitations</h3>
+                <p className="text-gray-700 bg-gray-50 p-3 rounded-lg">
+                  {selectedPackage.limitations}
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors">
+                  Book This Package
+                </button>
+                <button className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-lg transition-colors">
+                  Request Customization
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default PackagesPage;
