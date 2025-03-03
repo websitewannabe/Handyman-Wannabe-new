@@ -201,11 +201,15 @@ const WindowsDoorsPage = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <div className="relative h-48">
+                      <div className="relative h-48 bg-white flex items-center justify-center">
                         <img
                           src={services[0]?.image || "/images/living-Room.avif"}
                           alt={info.title}
-                          className="w-full h-full object-cover"
+                          className="max-w-full max-h-full object-contain p-4"
+                          onError={(e) => {
+                            e.currentTarget.src =
+                              "/images/Handyman_Wannabe.png";
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
