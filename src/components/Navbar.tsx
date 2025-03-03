@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Menu,
   X,
   ChevronDown,
+  ChevronUp,
   Phone,
   Zap,
   Droplet,
@@ -24,10 +25,10 @@ import {
   Brush,
   Building2,
   Package,
-  ChevronUp,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
+import MobileServicesPage from "./MobileServicesPage"; // Import the mobile services page
 
 interface NavItem {
   label: string;
@@ -101,6 +102,8 @@ const Navbar = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const [mobileServicesPageOpen, setMobileServicesPageOpen] = useState(false); // Added state for mobile services page
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -179,11 +182,12 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setMobileSubMenuOpen(null);
+    setMobileServicesPageOpen(false); //Close mobile services page on route change
   }, [location.pathname]);
 
   // Prevent body scrolling when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen || mobileServicesPageOpen) { //Prevent scrolling when mobile services page is open
       document.body.classList.add('menu-open');
     } else {
       document.body.classList.remove('menu-open');
@@ -192,7 +196,7 @@ const Navbar = () => {
     return () => {
       document.body.classList.remove('menu-open');
     };
-  }, [isOpen]);
+  }, [isOpen, mobileServicesPageOpen]); //Added mobileServicesPageOpen to dependency array
 
   const toggleMobileSubMenu = (label: string) => {
     setMobileSubMenuOpen(mobileSubMenuOpen === label ? null : label);
@@ -349,16 +353,22 @@ const Navbar = () => {
           <div className="lg:hidden bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <div key={item.label}>
+                <React.Fragment key={item.label}>
                   {item.dropdown ? (
-                    <div>
+                    <>
                       <button
-                        onClick={() => toggleMobileSubMenu(item.label)}
-                        className={`block px-3 py-3 w-full text-base font-medium rounded-md text-left ${
+                        className={`w-full text-left py-3 flex items-center justify-between ${
                           mobileSubMenuOpen === item.label
-                            ? "text-secondary bg-gray-100"
-                            : "text-dark hover:bg-gray-50 hover:text-secondary"
+                            ? "text-primary font-bold"
+                            : ""
                         }`}
+                        onClick={() =>
+                          setMobileSubMenuOpen(
+                            mobileSubMenuOpen === item.label
+                              ? null
+                              : item.label
+                          )
+                        }
                       >
                         {item.label}
                         {mobileSubMenuOpen === item.label ? (
@@ -369,33 +379,44 @@ const Navbar = () => {
                       </button>
                       {mobileSubMenuOpen === item.label && (
                         <div className="pl-4">
-                          {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                          {item.dropdown.map((dropdownItem) => (
                             <Link
-                              key={dropdownIndex}
+                              key={dropdownItem.label}
                               to={dropdownItem.href}
-                              className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-50"
+                              className="block py-2 text-gray-600 hover:text-primary"
                               onClick={() => setIsOpen(false)}
                             >
-                              <span>{dropdownItem.label}</span>
+                              {dropdownItem.label}
                             </Link>
                           ))}
                         </div>
                       )}
-                    </div>
+                    </>
+                  ) : item.megaMenu ? (
+                    <button
+                      className={`w-full text-left py-3 flex items-center justify-between ${
+                        mobileSubMenuOpen === item.label
+                          ? "text-primary font-bold"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        setIsOpen(false);
+                        setMobileServicesPageOpen(true);
+                      }}
+                    >
+                      {item.label}
+                      <ChevronDown className="ml-1 w-4 h-4" />
+                    </button>
                   ) : (
                     <Link
                       to={item.href}
-                      className={`block px-3 py-3 text-base font-medium rounded-md ${
-                        isActive(item.href)
-                          ? "text-secondary"
-                          : "text-dark hover:bg-gray-50 hover:text-secondary"
-                      }`}
+                      className="block py-3"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
                     </Link>
                   )}
-                </div>
+                </React.Fragment>
               ))}
 
               {/* Phone number in mobile menu */}
@@ -414,14 +435,45 @@ const Navbar = () => {
             </div>
           </div>
         )}
-        <PhoneCallModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        />{" "}
-        {/* Added modal rendering */}
+        {/* Phone Call Modal */}
+        {isModalOpen && (
+          <PhoneCallModal onClose={() => setIsModalOpen(false)} />
+        )}
+
+        {/* Mobile Services Page */}
+        {mobileServicesPageOpen && (
+          <MobileServicesPage onClose={() => setMobileServicesPageOpen(false)} />
+        )}
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+
+
+// Placeholder MobileServicesPage component
+const MobileServicesPage = ({ onClose }: { onClose: () => void }) => {
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <button onClick={onClose} className="absolute top-2 right-2">Close</button>
+        <h2 className="text-xl font-bold mb-4">Services</h2>
+        <div className="space-y-2">
+          {serviceCategories.map((category) => (
+            <div key={category.items[0].name}>
+              <h3 className="text-lg font-medium">{category.items[0].name}</h3>
+              {category.items.map((item) => (
+                <Link key={item.name} to={getServiceUrl(item.name)} className="block py-2 text-gray-600 hover:text-primary">
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MobileServicesPage;
