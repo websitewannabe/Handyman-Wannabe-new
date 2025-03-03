@@ -9,7 +9,7 @@ const blogPosts = [
     title: "10 Essential Home Maintenance Tips for Spring",
     excerpt:
       "Get your home ready for the warmer months with these crucial maintenance tasks that every homeowner should know.",
-    image: "public/images/home-Keys.avif",
+    image: "/images/home-Keys.avif",
     author: "David Martinez",
     date: "March 15, 2025",
     category: "Maintenance",
@@ -19,7 +19,7 @@ const blogPosts = [
     title: "Modern Kitchen Renovation Ideas on a Budget",
     excerpt:
       "Transform your kitchen without breaking the bank. Discover smart renovation tips and tricks from our experts.",
-    image: "public/images/kitchen.jpeg",
+    image: "/images/kitchen.jpeg",
     author: "Sarah Chen",
     date: "March 10, 2025",
     category: "Renovation",
@@ -29,7 +29,7 @@ const blogPosts = [
     title: "Smart Home Upgrades That Add Value",
     excerpt:
       "Learn which smart home improvements offer the best return on investment and enhance your daily life.",
-    image: "public/images/smart-Lock.avif",
+    image: "/images/smart-Lock.avif",
     author: "Mike Johnson",
     date: "March 5, 2025",
     category: "Smart Home",

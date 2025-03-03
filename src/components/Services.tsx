@@ -30,7 +30,7 @@ import { Link } from "react-router-dom";
 const services = [
   {
     category: "Interior",
-    image: "public/images/Wood-and-Drill.avif",
+    image: "/images/Wood-and-Drill.avif",
     items: [
       { name: "Electrical", time: "1-2 hours", icon: Zap },
       { name: "Plumbing", time: "30-60 mins", icon: Droplet },
@@ -44,7 +44,7 @@ const services = [
   },
   {
     category: "Exterior",
-    image: "public/images/Drill.avif",
+    image: "/images/Drill.avif",
     items: [
       { name: "Windows & Doors", time: "2-4 hours", icon: DoorOpen },
       { name: "Garage Doors", time: "3-4 hours", icon: Car },

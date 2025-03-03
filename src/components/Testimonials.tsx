@@ -7,28 +7,28 @@ const testimonials = [
     name: "Sarah Johnson",
     rating: 5,
     text: "Excellent service! The handyman was professional, on time, and did a fantastic job with our kitchen cabinet repairs.",
-    image: "public/images/sarah-Johnson.jpeg",
+    image: "/images/sarah-Johnson.jpeg",
     role: "Homeowner",
   },
   {
     name: "Michael Chen",
     rating: 5,
     text: "Very reliable and skilled. Fixed our deck issues quickly and efficiently. Highly recommend!",
-    image: "public/images/michael-Chen.avif",
+    image: "/images/michael-Chen.avif",
     role: "Business Owner",
   },
   {
     name: "Emily Rodriguez",
     rating: 5,
     text: "Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.",
-    image: "public/images/emily-Rodriguez.avif",
+    image: "/images/emily-Rodriguez.avif",
     role: "Interior Designer",
   },
   {
     name: "David Thompson",
     rating: 5,
     text: "From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.",
-    image: "public/images/david_Thompson.avif",
+    image: "/images/david_Thompson.avif",
     role: "Real Estate Agent",
   },
 ];
@@ -75,7 +75,7 @@ const Testimonials = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("public/images/construction-Worker.avif")',
+          backgroundImage: 'url("/images/construction-Worker.avif")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

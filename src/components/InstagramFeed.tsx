@@ -5,42 +5,42 @@ import { Instagram } from "lucide-react";
 const mockPosts = [
   {
     id: 1,
-    image: "public/images/cleaner.avif",
+    image: "/images/cleaner.avif",
     likes: 234,
     caption:
       "Another satisfied customer! Just finished this beautiful kitchen renovation. #HomeImprovement #HandymanLife",
   },
   {
     id: 2,
-    image: "public/images/kitchen2.avif",
+    image: "/images/kitchen2.avif",
     likes: 156,
     caption:
       "Transform your space with our expert painting services 🎨 #InteriorDesign #PaintingServices",
   },
   {
     id: 3,
-    image: "public/images/bathroom.avif",
+    image: "/images/bathroom.avif",
     likes: 342,
     caption:
       "Emergency plumbing? We've got you covered 24/7! 🔧 #PlumbingServices #EmergencyRepair",
   },
   {
     id: 4,
-    image: "public/images/construction-Worker2.jpeg",
+    image: "/images/construction-Worker2.jpeg",
     likes: 189,
     caption:
       "Deck maintenance and repair - perfect for summer entertaining! ☀️ #OutdoorLiving #DeckRepair",
   },
   {
     id: 5,
-    image: "public/images/kitchen3.avif",
+    image: "/images/kitchen3.avif",
     likes: 276,
     caption:
       "Smart home installation complete! Bringing homes into the future. 🏠 #SmartHome #Technology",
   },
   {
     id: 6,
-    image: "public/images/living-Room.avif",
+    image: "/images/living-Room.avif",
     likes: 198,
     caption:
       "Beautiful custom shelving installation for a happy client! 📚 #CustomWork #Carpentry",

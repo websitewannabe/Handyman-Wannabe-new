@@ -213,10 +213,7 @@ const CarpentryPage = () => {
                     >
                       <div className="relative h-48">
                         <img
-                          src={
-                            services[0]?.image ||
-                            "public/images/dining-Room.avif"
-                          }
+                          src={services[0]?.image || "/images/dining-Room.avif"}
                           alt={info.title}
                           className="w-full h-full object-cover"
                         />

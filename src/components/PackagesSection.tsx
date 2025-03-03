@@ -7,7 +7,7 @@ const packages = [
     name: "Holiday Lighting Package",
     price: "$299",
     description: "Professional holiday lighting installation and removal",
-    image: "public/images/holiday-Lighting.avif",
+    image: "images/holiday-Lighting.avif",
     features: [
       "Professional installation",
       "All materials included",
@@ -35,7 +35,7 @@ const packages = [
     name: "Move-In Ready Package",
     price: "$799",
     description: "Complete home setup service for new homeowners",
-    image: "public/images/home-Keys.avif",
+    image: "/images/home-Keys.avif",
     features: [
       "Deep cleaning",
       "Paint touch-ups",
@@ -53,7 +53,7 @@ const PackagesSection = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("public/images/construction-Worker2.jpeg")',
+          backgroundImage: 'url("/images/construction-Worker2.jpeg")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
