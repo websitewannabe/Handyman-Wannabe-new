@@ -33,8 +33,6 @@ import MiscPage from './pages/MiscPage';
 import BlogPage from './pages/BlogPage';
 import PackagesPage from './pages/PackagesPage';
 import Footer from './components/Footer';
-import MobileServicesPage from './components/MobileServicesPage'; // Added import
-
 
 function App() {
   return (
@@ -73,7 +71,6 @@ function App() {
           <Route path="/services/management-companies" element={<ManagementCompaniesPage />} />
           <Route path="/services/misc" element={<MiscPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />
-          <Route path="/mobile-services" element={<MobileServicesPage />} /> {/* Added mobile services route */}
         </Routes>
         <Footer />
       </div>
@@ -82,78 +79,3 @@ function App() {
 }
 
 export default App;
-
-
-//New Component: MobileServicesPage.tsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const serviceCategories = [
-  { name: 'Carpentry', icon: '🔨', link: '/services/carpentry' },
-  { name: 'Garage Doors', icon: '🚪', link: '/services/garage-doors' },
-  { name: 'Smart Homes', icon: '💡', link: '/services/smart-homes' },
-  { name: 'Locksmithing', icon: '🔑', link: '/services/locksmithing' },
-  { name: 'Furniture Assembly', icon: '🛋️', link: '/services/furniture-assembly' },
-  { name: 'Electrical', icon: '⚡', link: '/services/electrical' },
-  { name: 'Painting & Drywall', icon: '🖌️', link: '/services/painting-drywall' },
-  { name: 'Landscaping', icon: '🌿', link: '/services/landscaping' },
-  { name: 'Home Security', icon: '🛡️', link: '/services/home-security' },
-  { name: 'Powerwashing', icon: '💦', link: '/services/powerwashing' },
-  { name: 'Windows & Doors', icon: '🪟', link: '/services/windows-doors' },
-  { name: 'Holiday Lighting', icon: '🎄', link: '/services/holiday-lighting' },
-  { name: 'Plumbing', icon: '🚰', link: '/services/plumbing' },
-  { name: 'Pools & Spas', icon: '🏊', link: '/services/pools-spas' },
-  { name: 'Flooring', icon: '🧱', link: '/services/flooring' },
-  { name: 'Cleaning', icon: '🧹', link: '/services/cleaning' },
-  { name: 'Third-Party Moving', icon: '📦', link: '/services/third-party-moving' },
-  { name: 'Home Inspections', icon: '🔎', link: '/services/home-inspections' },
-  { name: 'Management Companies', icon: '🏢', link: '/services/management-companies' },
-  { name: 'Misc', icon: '🛠️', link: '/services/misc' },
-];
-
-const MobileServicesPage = () => {
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Services</h1>
-      <ul className="space-y-2">
-        {serviceCategories.map((category) => (
-          <li key={category.name} className="border p-2 rounded hover:bg-gray-100">
-            <Link to={category.link} className="flex items-center">
-              {category.icon} {category.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default MobileServicesPage;
-
-
-//Update Navbar.tsx (Illustrative - adapt to your existing Navbar structure)
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const Navbar = () => {
-  const isMobile = window.innerWidth < 768; // Adjust breakpoint as needed
-
-  return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        {/* ... other links ... */}
-        <li>
-          {isMobile ? (
-            <Link to="/mobile-services">Services</Link>
-          ) : (
-            <Link to="/services">Services</Link>
-          )}
-        </li>
-        {/* ... other links ... */}
-      </ul>
-    </nav>
-  );
-};
-
-export default Navbar;

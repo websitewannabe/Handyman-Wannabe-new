@@ -101,7 +101,6 @@ const Navbar = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const isMobile = window.innerWidth <= 768; // Detect mobile
 
   useEffect(() => {
     const handleScroll = () => {
@@ -208,20 +207,6 @@ const Navbar = () => {
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
-  const closeMobileMenu = () => setIsOpen(false); // Added function to close menu
-  const handleMenuOpen = (menu: string) => {
-    setActiveDropdown(menu);
-  };
-  const handleMenuClose = (menu: string) => {
-    setTimeout(() => {
-      setActiveDropdown(null);
-    }, 100);
-  };
-  const pathname = location.pathname;
-  const openMenu = activeDropdown;
-  const toggleMobileMenu = (menu: string) => {
-    setActiveDropdown(menu);
-  };
 
   return (
     <nav
@@ -440,31 +425,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//New Mobile Services Page Component
-const MobileServices = () => {
-  return (
-    <div className="p-4">
-      <Link to="/" className="text-primary mb-4">Back</Link>
-      <h1 className="text-2xl font-bold mb-4">Our Services</h1>
-      <div className="space-y-4">
-        {serviceCategories.map((category, index) => (
-          <div key={index} className="space-y-2">
-            {category.items.map((item) => (
-              <Link
-                key={item.name}
-                to={getServiceUrl(item.name)}
-                className="flex items-center p-2 rounded-lg hover:bg-gray-100"
-              >
-                <item.icon className="w-5 h-5 text-primary mr-3" />
-                <span>{item.name}</span>
-              </Link>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default MobileServices;
