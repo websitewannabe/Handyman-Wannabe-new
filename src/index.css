@@ -162,27 +162,60 @@
 /* Mobile menu animations */
 .mobile-menu-enter {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateX(-100%);
 }
 
 .mobile-menu-enter-active {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 200ms, transform 200ms;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms ease-in-out;
 }
 
 .mobile-menu-exit {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .mobile-menu-exit-active {
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 200ms, transform 200ms;
+  transform: translateX(-100%);
+  transition: opacity 300ms, transform 300ms ease-in-out;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-react {
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.hamburger-react:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-overlay {
+  backdrop-filter: blur(3px);
+}
+
+.mobile-menu-container {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile services accordion */
+.services-accordion {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.services-accordion.open {
+  max-height: 500px;
 }
 
 /* Prevent body scroll when mobile menu is open */
 body.menu-open {
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
