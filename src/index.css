@@ -8,7 +8,7 @@
   html {
     font-family: 'Montserrat', sans-serif;
   }
-
+  
   html, body {
     overflow-x: hidden;
     max-width: 100%;
@@ -194,7 +194,7 @@ body.menu-open {
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-
+  
   /* Larger tap targets for mobile */
   .navbar-mobile-menu a,
   .navbar-mobile-menu button {
@@ -202,7 +202,7 @@ body.menu-open {
     display: flex;
     align-items: center;
   }
-
+  
   /* Improved spacing for mobile menu items */
   .navbar-mobile-submenu {
     max-height: 250px;
@@ -210,73 +210,13 @@ body.menu-open {
     scrollbar-width: thin;
     scrollbar-color: rgba(0,0,0,0.2) transparent;
   }
-
+  
   .navbar-mobile-submenu::-webkit-scrollbar {
     width: 4px;
   }
-
+  
   .navbar-mobile-submenu::-webkit-scrollbar-thumb {
     background-color: rgba(0,0,0,0.2);
     border-radius: 4px;
   }
-}
-
-/* Burger Button Animation */
-.hamburger-menu {
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Mobile Services Page */
-@media (max-width: 767px) {
-  .mobile-services-page {
-    display: block;
-    padding: 20px;
-  }
-  .desktop-services-menu {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .mobile-services-page {
-    display: none;
-  }
-  .desktop-services-menu {
-    display: block;
-  }
-}
-
-.mobile-services-page {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-}
-
-.mobile-services-page h2 {
-    margin-bottom: 1rem;
-}
-
-.mobile-services-page ul {
-  list-style: none;
-  padding: 0;
-}
-
-.mobile-services-page li {
-  padding: 1rem 0;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  align-items: center;
-}
-
-.mobile-services-page li a {
-  flex-grow: 1;
-  text-decoration: none;
-  color: #333;
-}
-
-.mobile-services-page li svg {
-  margin-right: 1rem;
-  width: 24px;
-  height: 24px;
 }
