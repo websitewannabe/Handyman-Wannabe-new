@@ -8,6 +8,11 @@
   html {
     font-family: 'Montserrat', sans-serif;
   }
+  
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
 
   h1 {
     @apply text-4xl font-bold md:text-5xl;
