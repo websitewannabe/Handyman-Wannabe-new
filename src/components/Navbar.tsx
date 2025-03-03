@@ -172,7 +172,7 @@ const Navbar = () => {
             aria-label="Handyman Wannabe - Home"
           >
             <img
-              src="public/images/Handyman_Logo.png"
+              src="/images/Handyman_Logo.png"
               alt="Handyman Wannabe"
               className="h-16 w-auto"
             />

@@ -1,7 +1,24 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Star, Box, Shield, ThumbsUp, Phone, MessageSquare, ChevronDown, ChevronUp, ClipboardList, UserCheck, Calendar, ChevronRight, Volume2, Dog, Baby, Bug } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Star,
+  Box,
+  Shield,
+  ThumbsUp,
+  Phone,
+  MessageSquare,
+  ChevronDown,
+  ChevronUp,
+  ClipboardList,
+  UserCheck,
+  Calendar,
+  ChevronRight,
+  Volume2,
+  Dog,
+  Baby,
+  Bug,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const MiscPage = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
@@ -14,32 +31,34 @@ const MiscPage = () => {
     <div className="relative">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1581141849291-1125c7b692b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundImage: 'url("/images/construction-Worker.avif")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <div className="absolute inset-0 bg-[#1B4332]/80"></div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Miscellaneous Services
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl mb-6 text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Not sure where your project fits? Our miscellaneous handyman services cover a wide range of unique tasks, from soundproofing to safety improvements.
+            Not sure where your project fits? Our miscellaneous handyman
+            services cover a wide range of unique tasks, from soundproofing to
+            safety improvements.
           </motion.p>
           <motion.button
             className="bg-primary text-white font-bold text-lg md:text-xl px-8 md:px-12 py-3 md:py-4 rounded-lg hover:bg-primary/90 transition-colors"
@@ -55,7 +74,7 @@ const MiscPage = () => {
         <div className="absolute -bottom-1 left-0 right-0 z-20">
           <svg
             className="w-full relative"
-            style={{ height: '120px', color: '#ebd5c1' }}
+            style={{ height: "120px", color: "#ebd5c1" }}
             preserveAspectRatio="none"
             viewBox="0 0 1200 120"
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +86,7 @@ const MiscPage = () => {
       </section>
 
       {/* Overview Section */}
-      <section className="py-20" style={{ backgroundColor: '#ebd5c1' }}>
+      <section className="py-20" style={{ backgroundColor: "#ebd5c1" }}>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -89,12 +108,18 @@ const MiscPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <h2 className="text-3xl font-bold mb-6 text-[#1B4332]">Expert Miscellaneous Services</h2>
+                <h2 className="text-3xl font-bold mb-6 text-[#1B4332]">
+                  Expert Miscellaneous Services
+                </h2>
                 <p className="text-xl text-gray-800 mb-6">
-                  Handyman Wannabe offers a variety of handyman services for specialized home needs. Whether it's making your home safer, quieter, or more comfortable, our professionals are here to help.
+                  Handyman Wannabe offers a variety of handyman services for
+                  specialized home needs. Whether it's making your home safer,
+                  quieter, or more comfortable, our professionals are here to
+                  help.
                 </p>
                 <p className="text-lg text-gray-700">
-                  With experienced professionals and attention to detail, we ensure your unique needs are met with quality solutions.
+                  With experienced professionals and attention to detail, we
+                  ensure your unique needs are met with quality solutions.
                 </p>
               </motion.div>
             </div>
@@ -107,7 +132,9 @@ const MiscPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-primary">Our Services Coming Soon</h2>
+              <h2 className="text-3xl font-bold text-primary">
+                Our Services Coming Soon
+              </h2>
             </div>
           </div>
         </div>
@@ -123,7 +150,8 @@ const MiscPage = () => {
           >
             <h2 className="text-4xl font-bold mb-4 text-white">How It Works</h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Get your project done in just a few simple steps. Professional service, guaranteed satisfaction.
+              Get your project done in just a few simple steps. Professional
+              service, guaranteed satisfaction.
             </p>
           </motion.div>
 
@@ -132,23 +160,26 @@ const MiscPage = () => {
               {
                 icon: ClipboardList,
                 title: "Request a Quote",
-                description: "Describe your project and get a detailed estimate."
+                description:
+                  "Describe your project and get a detailed estimate.",
               },
               {
                 icon: UserCheck,
                 title: "Get Matched",
-                description: "Connect with a professional handyman for your needs."
+                description:
+                  "Connect with a professional handyman for your needs.",
               },
               {
                 icon: Calendar,
                 title: "Schedule & Complete",
-                description: "Pick a convenient time and get the job done right."
+                description:
+                  "Pick a convenient time and get the job done right.",
               },
               {
                 icon: Star,
                 title: "Review & Repeat",
-                description: "Share your experience and book again with ease."
-              }
+                description: "Share your experience and book again with ease.",
+              },
             ].map((step, index, array) => (
               <React.Fragment key={index}>
                 <motion.div
@@ -163,7 +194,9 @@ const MiscPage = () => {
                   <div className="mb-4 text-white">
                     <step.icon className="w-12 h-12" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-white">
+                    {step.title}
+                  </h3>
                   <p className="text-white/80">{step.description}</p>
 
                   {/* Add arrow after each step except the last one */}
@@ -182,30 +215,39 @@ const MiscPage = () => {
       {/* FAQs */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Frequently Asked Questions
+          </h2>
 
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
                 question: "What types of small repairs do you handle?",
-                answer: "We handle minor fixes like door adjustments, tile replacements, and wall patching."
+                answer:
+                  "We handle minor fixes like door adjustments, tile replacements, and wall patching.",
               },
               {
-                question: "Can you help with installing shelves and mounting TVs?",
-                answer: "Yes, we offer TV mounting, shelving installation, and other wall-mounted setups."
+                question:
+                  "Can you help with installing shelves and mounting TVs?",
+                answer:
+                  "Yes, we offer TV mounting, shelving installation, and other wall-mounted setups.",
               },
               {
                 question: "Do you do minor plumbing or electrical work?",
-                answer: "We can handle simple plumbing and electrical fixes, but major work requires a licensed specialist."
+                answer:
+                  "We can handle simple plumbing and electrical fixes, but major work requires a licensed specialist.",
               },
               {
                 question: "Is there a minimum job size?",
-                answer: "No job is too small! We're happy to help with even the smallest tasks."
+                answer:
+                  "No job is too small! We're happy to help with even the smallest tasks.",
               },
               {
-                question: "How do I book a handyman for miscellaneous services?",
-                answer: "Simply click 'Get an Instant Quote' and provide details about your project."
-              }
+                question:
+                  "How do I book a handyman for miscellaneous services?",
+                answer:
+                  "Simply click 'Get an Instant Quote' and provide details about your project.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -241,7 +283,8 @@ const MiscPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Need Help with a Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get expert help from our skilled professionals. Contact us today for a free quote!
+            Get expert help from our skilled professionals. Contact us today for
+            a free quote!
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <button className="bg-white text-primary font-bold text-xl px-12 py-4 rounded-lg hover:bg-gray-100 transition-colors">

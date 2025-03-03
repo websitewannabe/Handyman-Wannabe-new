@@ -90,7 +90,7 @@ const CarpentryPage = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("public/images/dining-Room.avif")',
+            backgroundImage: 'url("/images/dining-Room.avif")',
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

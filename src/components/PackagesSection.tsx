@@ -21,7 +21,7 @@ const packages = [
     name: "Home Maintenance Bundle",
     price: "$499/quarter",
     description: "Quarterly maintenance to keep your home in top condition",
-    image: "public/images/cleaner.avif",
+    image: "/images/cleaner.avif",
     features: [
       "HVAC filter replacement",
       "Gutter cleaning",

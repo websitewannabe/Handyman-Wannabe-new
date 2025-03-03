@@ -1,22 +1,46 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Star, Paintbrush, Shield, ThumbsUp, Phone, MessageSquare, ChevronDown, ChevronUp, ClipboardList, UserCheck, Calendar, ChevronRight, Brush, Ruler, Palette, Eraser, Wallpaper, Droplet } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Star,
+  Paintbrush,
+  Shield,
+  ThumbsUp,
+  Phone,
+  MessageSquare,
+  ChevronDown,
+  ChevronUp,
+  ClipboardList,
+  UserCheck,
+  Calendar,
+  ChevronRight,
+  Brush,
+  Ruler,
+  Palette,
+  Eraser,
+  Wallpaper,
+  Droplet,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Import services data
-import servicesData from '../data/services.json';
+import servicesData from "../data/services.json";
 
 // Filter painting and drywall services
-const paintingDrywallServices = servicesData.filter(service => service.category === 'Painting & Drywall');
+const paintingDrywallServices = servicesData.filter(
+  (service) => service.category === "Painting & Drywall",
+);
 
 // Group services by subcategory
-const groupedServices = paintingDrywallServices.reduce((acc, service) => {
-  if (!acc[service.subcategory]) {
-    acc[service.subcategory] = [];
-  }
-  acc[service.subcategory].push(service);
-  return acc;
-}, {} as Record<string, typeof paintingDrywallServices>);
+const groupedServices = paintingDrywallServices.reduce(
+  (acc, service) => {
+    if (!acc[service.subcategory]) {
+      acc[service.subcategory] = [];
+    }
+    acc[service.subcategory].push(service);
+    return acc;
+  },
+  {} as Record<string, typeof paintingDrywallServices>,
+);
 
 const PaintingDrywallPage = () => {
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
@@ -27,63 +51,71 @@ const PaintingDrywallPage = () => {
 
   // Map subcategories to display names and icons
   const subcategoryInfo = {
-    'interior-painting': {
-      title: 'Interior Painting',
-      description: 'Professional interior painting services for a fresh, new look.',
-      icon: Paintbrush
+    "interior-painting": {
+      title: "Interior Painting",
+      description:
+        "Professional interior painting services for a fresh, new look.",
+      icon: Paintbrush,
     },
-    'exterior-painting-touchups': {
-      title: 'Exterior Painting & Touch-Ups',
-      description: 'Enhance your home\'s curb appeal with expert exterior painting.',
-      icon: Brush
+    "exterior-painting-touchups": {
+      title: "Exterior Painting & Touch-Ups",
+      description:
+        "Enhance your home's curb appeal with expert exterior painting.",
+      icon: Brush,
     },
-    'surface-prep-repairs': {
-      title: 'Surface Preparation & Minor Repairs',
-      description: 'Ensure smooth, long-lasting paint jobs with proper preparation.',
-      icon: Eraser
+    "surface-prep-repairs": {
+      title: "Surface Preparation & Minor Repairs",
+      description:
+        "Ensure smooth, long-lasting paint jobs with proper preparation.",
+      icon: Eraser,
     },
-    'specialty-painting': {
-      title: 'Specialty Painting Services',
-      description: 'Add unique finishes and specialty coatings to elevate your space.',
-      icon: Palette
+    "specialty-painting": {
+      title: "Specialty Painting Services",
+      description:
+        "Add unique finishes and specialty coatings to elevate your space.",
+      icon: Palette,
     },
-    'drywall-repair-installation': {
-      title: 'Drywall Repair & Installation',
-      description: 'Expert drywall repairs and installations for a flawless finish.',
-      icon: Ruler
-    }
+    "drywall-repair-installation": {
+      title: "Drywall Repair & Installation",
+      description:
+        "Expert drywall repairs and installations for a flawless finish.",
+      icon: Ruler,
+    },
   };
 
   return (
     <div className="relative">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundImage: 'url("/images/wood-worker.avif")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <div className="absolute inset-0 bg-[#1B4332]/80"></div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Painting & Drywall Services
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl mb-6 text-white/90"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Expert painting and drywall services for homes and businesses. Whether you need a fresh coat of paint, wall repairs, or complete drywall installation, our skilled professionals deliver smooth and flawless results.
+            Expert painting and drywall services for homes and businesses.
+            Whether you need a fresh coat of paint, wall repairs, or complete
+            drywall installation, our skilled professionals deliver smooth and
+            flawless results.
           </motion.p>
           <motion.button
             className="bg-primary text-white font-bold text-lg md:text-xl px-8 md:px-12 py-3 md:py-4 rounded-lg hover:bg-primary/90 transition-colors"
@@ -99,7 +131,7 @@ const PaintingDrywallPage = () => {
         <div className="absolute -bottom-1 left-0 right-0 z-20">
           <svg
             className="w-full relative"
-            style={{ height: '120px', color: '#ebd5c1' }}
+            style={{ height: "120px", color: "#ebd5c1" }}
             preserveAspectRatio="none"
             viewBox="0 0 1200 120"
             xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +143,7 @@ const PaintingDrywallPage = () => {
       </section>
 
       {/* Overview Section */}
-      <section className="py-20" style={{ backgroundColor: '#ebd5c1' }}>
+      <section className="py-20" style={{ backgroundColor: "#ebd5c1" }}>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -133,12 +165,19 @@ const PaintingDrywallPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <h2 className="text-3xl font-bold mb-6 text-[#1B4332]">Expert Painting & Drywall Services</h2>
+                <h2 className="text-3xl font-bold mb-6 text-[#1B4332]">
+                  Expert Painting & Drywall Services
+                </h2>
                 <p className="text-xl text-gray-800 mb-6">
-                  Handyman Wannabe provides professional painting and drywall services to refresh, repair, and enhance your space. From detailed wall prep to expert finishing touches, our team ensures top-quality results with attention to detail.
+                  Handyman Wannabe provides professional painting and drywall
+                  services to refresh, repair, and enhance your space. From
+                  detailed wall prep to expert finishing touches, our team
+                  ensures top-quality results with attention to detail.
                 </p>
                 <p className="text-lg text-gray-700">
-                  With skilled professionals and premium materials, we deliver lasting results that transform your space with precision and care.
+                  With skilled professionals and premium materials, we deliver
+                  lasting results that transform your space with precision and
+                  care.
                 </p>
               </motion.div>
             </div>
@@ -149,55 +188,67 @@ const PaintingDrywallPage = () => {
       {/* Service Categories */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Painting & Drywall Services</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {Object.entries(groupedServices).map(([subcategory, services], index) => {
-              const info = subcategoryInfo[subcategory as keyof typeof subcategoryInfo];
-              if (!info) return null;
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Our Painting & Drywall Services
+          </h2>
 
-              return (
-                <Link
-                  key={subcategory}
-                  to={`/service-directory?category=${subcategory}`}
-                  className="block"
-                >
-                  <motion.div
-                    className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {Object.entries(groupedServices).map(
+              ([subcategory, services], index) => {
+                const info =
+                  subcategoryInfo[subcategory as keyof typeof subcategoryInfo];
+                if (!info) return null;
+
+                return (
+                  <Link
+                    key={subcategory}
+                    to={`/service-directory?category=${subcategory}`}
+                    className="block"
                   >
-                    <div className="relative h-48">
-                      <img
-                        src={services[0]?.image || "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"}
-                        alt={info.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
-                        {info.title}
-                      </h3>
-                    </div>
-                    <div className="p-6 flex flex-col flex-grow">
-                      <p className="text-gray-600 mb-4">{info.description}</p>
-                      <ul className="space-y-2 mb-6 flex-grow">
-                        {services.slice(0, 4).map((service, serviceIndex) => (
-                          <li key={serviceIndex} className="flex items-start">
-                            <Star className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" />
-                            <span>{service.features[0]}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="bg-primary/10 p-4 rounded-lg mt-auto">
-                        <p className="text-sm font-medium text-primary">Available Services:</p>
-                        <p className="text-gray-700">{services.length} services in this category</p>
+                    <motion.div
+                      className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div className="relative h-48">
+                        <img
+                          src={
+                            services[0]?.image ||
+                            "public/images/wood-worker.avif"
+                          }
+                          alt={info.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
+                          {info.title}
+                        </h3>
                       </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              );
-            })}
+                      <div className="p-6 flex flex-col flex-grow">
+                        <p className="text-gray-600 mb-4">{info.description}</p>
+                        <ul className="space-y-2 mb-6 flex-grow">
+                          {services.slice(0, 4).map((service, serviceIndex) => (
+                            <li key={serviceIndex} className="flex items-start">
+                              <Star className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" />
+                              <span>{service.features[0]}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="bg-primary/10 p-4 rounded-lg mt-auto">
+                          <p className="text-sm font-medium text-primary">
+                            Available Services:
+                          </p>
+                          <p className="text-gray-700">
+                            {services.length} services in this category
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Link>
+                );
+              },
+            )}
           </div>
         </div>
       </section>
@@ -212,7 +263,8 @@ const PaintingDrywallPage = () => {
           >
             <h2 className="text-4xl font-bold mb-4 text-white">How It Works</h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Get your painting and drywall projects done in just a few simple steps. Professional service, guaranteed satisfaction.
+              Get your painting and drywall projects done in just a few simple
+              steps. Professional service, guaranteed satisfaction.
             </p>
           </motion.div>
 
@@ -221,23 +273,26 @@ const PaintingDrywallPage = () => {
               {
                 icon: ClipboardList,
                 title: "Request a Quote",
-                description: "Describe your project and get a detailed estimate."
+                description:
+                  "Describe your project and get a detailed estimate.",
               },
               {
                 icon: UserCheck,
                 title: "Get Matched",
-                description: "Connect with a professional handyman for your needs."
+                description:
+                  "Connect with a professional handyman for your needs.",
               },
               {
                 icon: Calendar,
                 title: "Schedule & Complete",
-                description: "Pick a convenient time and get the job done right."
+                description:
+                  "Pick a convenient time and get the job done right.",
               },
               {
                 icon: Star,
                 title: "Review & Repeat",
-                description: "Share your experience and book again with ease."
-              }
+                description: "Share your experience and book again with ease.",
+              },
             ].map((step, index, array) => (
               <React.Fragment key={index}>
                 <motion.div
@@ -252,7 +307,9 @@ const PaintingDrywallPage = () => {
                   <div className="mb-4 text-white">
                     <step.icon className="w-12 h-12" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-white">
+                    {step.title}
+                  </h3>
                   <p className="text-white/80">{step.description}</p>
 
                   {/* Add arrow after each step except the last one */}
@@ -271,30 +328,38 @@ const PaintingDrywallPage = () => {
       {/* FAQs */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-          
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Frequently Asked Questions
+          </h2>
+
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
                 question: "Do I need to move furniture before painting?",
-                answer: "We recommend moving small items, but we can cover and protect large furniture during painting. Our team will ensure all surfaces are properly protected before beginning work."
+                answer:
+                  "We recommend moving small items, but we can cover and protect large furniture during painting. Our team will ensure all surfaces are properly protected before beginning work.",
               },
               {
                 question: "How long does interior paint take to dry?",
-                answer: "Most paints dry to the touch in 2-4 hours, but full curing may take up to 30 days. We'll provide specific guidance based on the type of paint used and environmental conditions."
+                answer:
+                  "Most paints dry to the touch in 2-4 hours, but full curing may take up to 30 days. We'll provide specific guidance based on the type of paint used and environmental conditions.",
               },
               {
                 question: "Can you match my existing paint color?",
-                answer: "Yes, we can match most existing colors with professional color-matching techniques. We use advanced color-matching technology to ensure an accurate match."
+                answer:
+                  "Yes, we can match most existing colors with professional color-matching techniques. We use advanced color-matching technology to ensure an accurate match.",
               },
               {
-                question: "How do I know if my drywall needs repair or replacement?",
-                answer: "Minor dents and cracks can be patched, but large holes or water-damaged drywall may need replacement. We'll assess the damage and recommend the most cost-effective solution."
+                question:
+                  "How do I know if my drywall needs repair or replacement?",
+                answer:
+                  "Minor dents and cracks can be patched, but large holes or water-damaged drywall may need replacement. We'll assess the damage and recommend the most cost-effective solution.",
               },
               {
                 question: "Do you offer exterior painting during all seasons?",
-                answer: "We recommend painting in mild weather, avoiding extreme heat, cold, or rain for the best results. Our team will help schedule your project during optimal conditions."
-              }
+                answer:
+                  "We recommend painting in mild weather, avoiding extreme heat, cold, or rain for the best results. Our team will help schedule your project during optimal conditions.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -328,9 +393,12 @@ const PaintingDrywallPage = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Space?</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Transform Your Space?
+          </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get expert painting and drywall services from our skilled professionals. Contact us today for a free quote!
+            Get expert painting and drywall services from our skilled
+            professionals. Contact us today for a free quote!
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <button className="bg-white text-primary font-bold text-xl px-12 py-4 rounded-lg hover:bg-gray-100 transition-colors">
