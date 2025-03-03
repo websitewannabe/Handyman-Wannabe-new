@@ -1,44 +1,50 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Instagram } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Instagram } from "lucide-react";
 
 const mockPosts = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "public/images/cleaner.avif",
     likes: 234,
-    caption: "Another satisfied customer! Just finished this beautiful kitchen renovation. #HomeImprovement #HandymanLife"
+    caption:
+      "Another satisfied customer! Just finished this beautiful kitchen renovation. #HomeImprovement #HandymanLife",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "public/images/kitchen2.avif",
     likes: 156,
-    caption: "Transform your space with our expert painting services 🎨 #InteriorDesign #PaintingServices"
+    caption:
+      "Transform your space with our expert painting services 🎨 #InteriorDesign #PaintingServices",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "public/images/bathroom.avif",
     likes: 342,
-    caption: "Emergency plumbing? We've got you covered 24/7! 🔧 #PlumbingServices #EmergencyRepair"
+    caption:
+      "Emergency plumbing? We've got you covered 24/7! 🔧 #PlumbingServices #EmergencyRepair",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "public/images/construction-Worker2.jpeg",
     likes: 189,
-    caption: "Deck maintenance and repair - perfect for summer entertaining! ☀️ #OutdoorLiving #DeckRepair"
+    caption:
+      "Deck maintenance and repair - perfect for summer entertaining! ☀️ #OutdoorLiving #DeckRepair",
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "public/images/kitchen3.avif",
     likes: 276,
-    caption: "Smart home installation complete! Bringing homes into the future. 🏠 #SmartHome #Technology"
+    caption:
+      "Smart home installation complete! Bringing homes into the future. 🏠 #SmartHome #Technology",
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+    image: "public/images/living-Room.avif",
     likes: 198,
-    caption: "Beautiful custom shelving installation for a happy client! 📚 #CustomWork #Carpentry"
-  }
+    caption:
+      "Beautiful custom shelving installation for a happy client! 📚 #CustomWork #Carpentry",
+  },
 ];
 
 const InstagramFeed = () => {
@@ -54,7 +60,7 @@ const InstagramFeed = () => {
             <Instagram className="w-6 h-6 text-primary" />
             <span className="text-primary font-bold">@handymanwannabe</span>
           </motion.div>
-          
+
           <motion.h2
             className="text-4xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +69,7 @@ const InstagramFeed = () => {
           >
             Follow Us on Instagram
           </motion.h2>
-          
+
           <motion.p
             className="text-xl text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}

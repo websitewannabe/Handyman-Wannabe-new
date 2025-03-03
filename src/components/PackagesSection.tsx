@@ -1,64 +1,67 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Check, Star, Gift } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Check, Star, Gift } from "lucide-react";
 
 const packages = [
   {
     name: "Holiday Lighting Package",
     price: "$299",
     description: "Professional holiday lighting installation and removal",
-    image: "https://images.unsplash.com/photo-1576692155415-95f820a2c4c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "public/images/holiday-Lighting.avif",
     features: [
       "Professional installation",
       "All materials included",
       "Timer setup",
       "Post-season removal",
-      "Storage solution"
+      "Storage solution",
     ],
-    popular: true
+    popular: true,
   },
   {
     name: "Home Maintenance Bundle",
     price: "$499/quarter",
     description: "Quarterly maintenance to keep your home in top condition",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "public/images/cleaner.avif",
     features: [
       "HVAC filter replacement",
       "Gutter cleaning",
       "Plumbing inspection",
       "Electrical safety check",
-      "Weather stripping check"
+      "Weather stripping check",
     ],
-    popular: false
+    popular: false,
   },
   {
     name: "Move-In Ready Package",
     price: "$799",
     description: "Complete home setup service for new homeowners",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "public/images/home-Keys.avif",
     features: [
       "Deep cleaning",
       "Paint touch-ups",
       "Hardware installation",
       "Smart home setup",
-      "Safety inspection"
+      "Safety inspection",
     ],
-    popular: false
-  }
+    popular: false,
+  },
 ];
 
 const PackagesSection = () => {
   return (
     <section className="py-20 relative">
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage: 'url("public/images/construction-Worker2.jpeg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(235, 213, 193, 0.9)' }}></div>
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: "rgba(235, 213, 193, 0.9)" }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -84,7 +87,8 @@ const PackagesSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Choose from our carefully curated service packages designed to meet your needs
+            Choose from our carefully curated service packages designed to meet
+            your needs
           </motion.p>
         </div>
 
@@ -93,7 +97,7 @@ const PackagesSection = () => {
             <motion.div
               key={index}
               className={`relative bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 ${
-                pkg.popular ? 'ring-2 ring-primary' : ''
+                pkg.popular ? "ring-2 ring-primary" : ""
               }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -117,15 +121,17 @@ const PackagesSection = () => {
                   <p className="text-white/90">{pkg.description}</p>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
                   <div>
-                    <span className="text-3xl font-bold text-primary">{pkg.price}</span>
+                    <span className="text-3xl font-bold text-primary">
+                      {pkg.price}
+                    </span>
                   </div>
                   <Gift className="w-6 h-6 text-primary" />
                 </div>
-                
+
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-gray-600">
@@ -134,7 +140,7 @@ const PackagesSection = () => {
                     </li>
                   ))}
                 </ul>
-                
+
                 <button className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors">
                   Choose Package
                 </button>

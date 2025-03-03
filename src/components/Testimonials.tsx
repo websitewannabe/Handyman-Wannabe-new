@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
+    name: "Sarah Johnson",
     rating: 5,
-    text: 'Excellent service! The handyman was professional, on time, and did a fantastic job with our kitchen cabinet repairs.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Homeowner'
+    text: "Excellent service! The handyman was professional, on time, and did a fantastic job with our kitchen cabinet repairs.",
+    image: "public/images/sarah-Johnson.jpeg",
+    role: "Homeowner",
   },
   {
-    name: 'Michael Chen',
+    name: "Michael Chen",
     rating: 5,
-    text: 'Very reliable and skilled. Fixed our deck issues quickly and efficiently. Highly recommend!',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Business Owner'
+    text: "Very reliable and skilled. Fixed our deck issues quickly and efficiently. Highly recommend!",
+    image: "public/images/michael-Chen.avif",
+    role: "Business Owner",
   },
   {
-    name: 'Emily Rodriguez',
+    name: "Emily Rodriguez",
     rating: 5,
-    text: 'Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Interior Designer'
+    text: "Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.",
+    image: "public/images/emily-Rodriguez.avif",
+    role: "Interior Designer",
   },
   {
-    name: 'David Thompson',
+    name: "David Thompson",
     rating: 5,
-    text: 'From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Real Estate Agent'
-  }
+    text: "From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.",
+    image: "public/images/david_Thompson.avif",
+    role: "Real Estate Agent",
+  },
 ];
 
 const Testimonials = () => {
@@ -40,18 +40,18 @@ const Testimonials = () => {
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    })
+      opacity: 0,
+    }),
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -72,22 +72,27 @@ const Testimonials = () => {
   return (
     <section className="relative py-20">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1581141849291-1125c7b692b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage: 'url("public/images/construction-Worker.avif")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(240, 90, 39, 0.9)' }}></div>
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: "rgba(240, 90, 39, 0.9)" }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-white">What Our Customers Say</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            What Our Customers Say
+          </h2>
         </div>
-        
+
         <div className="relative max-w-4xl mx-auto">
           {/* Navigation Buttons */}
           <button
@@ -114,7 +119,7 @@ const Testimonials = () => {
                 exit="exit"
                 transition={{
                   x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
+                  opacity: { duration: 0.2 },
                 }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
@@ -138,15 +143,24 @@ const Testimonials = () => {
                       className="w-24 h-24 rounded-full mb-6 object-cover border-4 border-white shadow-lg"
                     />
                     <div className="flex mb-4">
-                      {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-                      ))}
+                      {[...Array(testimonials[currentIndex].rating)].map(
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            className="w-6 h-6 text-yellow-400 fill-current"
+                          />
+                        ),
+                      )}
                     </div>
                     <p className="text-xl text-gray-600 italic mb-6">
                       "{testimonials[currentIndex].text}"
                     </p>
-                    <h3 className="text-2xl font-bold mb-1">{testimonials[currentIndex].name}</h3>
-                    <p className="text-primary font-medium">{testimonials[currentIndex].role}</p>
+                    <h3 className="text-2xl font-bold mb-1">
+                      {testimonials[currentIndex].name}
+                    </h3>
+                    <p className="text-primary font-medium">
+                      {testimonials[currentIndex].role}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -163,7 +177,9 @@ const Testimonials = () => {
                     setCurrentIndex(index);
                   }}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                    index === currentIndex
+                      ? "bg-white scale-125"
+                      : "bg-white/50 hover:bg-white/75"
                   }`}
                 />
               ))}

@@ -1,53 +1,80 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight, Wrench, Paintbrush, Zap, Droplet, Hammer, Ruler, Scissors, Shovel, Lightbulb, Power, Plug, Fan, BookOpen, DoorOpen, PenTool as Tool, Sofa, Lock, Home, Shield, Waves, Car } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronDown,
+  ArrowRight,
+  Wrench,
+  Paintbrush,
+  Zap,
+  Droplet,
+  Hammer,
+  Ruler,
+  Scissors,
+  Shovel,
+  Lightbulb,
+  Power,
+  Plug,
+  Fan,
+  BookOpen,
+  DoorOpen,
+  PenTool as Tool,
+  Sofa,
+  Lock,
+  Home,
+  Shield,
+  Waves,
+  Car,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
-    category: 'Interior',
-    image: 'https://images.unsplash.com/photo-1619112560488-67c2f954a4df?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    category: "Interior",
+    image: "public/images/Wood-and-Drill.avif",
     items: [
-      { name: 'Electrical', time: '1-2 hours', icon: Zap },
-      { name: 'Plumbing', time: '30-60 mins', icon: Droplet },
-      { name: 'Carpentry', time: '4-6 hours', icon: Hammer },
-      { name: 'Smart Home', time: '2-3 hours', icon: Home },
-      { name: 'Painting & Drywall', time: '1-2 hours', icon: Paintbrush },
-      { name: 'Flooring', time: '1-2 hours', icon: Ruler },
-      { name: 'Home Security', time: '1-3 hours', icon: Shield },
-      { name: 'Furniture Assembly', time: '2-4 hours', icon: Sofa }
-    ]
+      { name: "Electrical", time: "1-2 hours", icon: Zap },
+      { name: "Plumbing", time: "30-60 mins", icon: Droplet },
+      { name: "Carpentry", time: "4-6 hours", icon: Hammer },
+      { name: "Smart Home", time: "2-3 hours", icon: Home },
+      { name: "Painting & Drywall", time: "1-2 hours", icon: Paintbrush },
+      { name: "Flooring", time: "1-2 hours", icon: Ruler },
+      { name: "Home Security", time: "1-3 hours", icon: Shield },
+      { name: "Furniture Assembly", time: "2-4 hours", icon: Sofa },
+    ],
   },
   {
-    category: 'Exterior',
-    image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+    category: "Exterior",
+    image: "public/images/Drill.avif",
     items: [
-      { name: 'Windows & Doors', time: '2-4 hours', icon: DoorOpen },
-      { name: 'Garage Doors', time: '3-4 hours', icon: Car },
-      { name: 'Landscaping', time: '1-3 hours', icon: Shovel },
-      { name: 'Powerwashing', time: '1-2 hours', icon: Waves },
-      { name: 'Pools & Spas', time: '2-3 hours', icon: Droplet },
-      { name: 'Holiday Lighting', time: '4-6 hours', icon: Lightbulb },
-      { name: 'Locksmithing', time: '3-4 hours', icon: Lock },
-      { name: 'Property Management', time: '1-2 hours', icon: Tool }
-    ]
-  }
+      { name: "Windows & Doors", time: "2-4 hours", icon: DoorOpen },
+      { name: "Garage Doors", time: "3-4 hours", icon: Car },
+      { name: "Landscaping", time: "1-3 hours", icon: Shovel },
+      { name: "Powerwashing", time: "1-2 hours", icon: Waves },
+      { name: "Pools & Spas", time: "2-3 hours", icon: Droplet },
+      { name: "Holiday Lighting", time: "4-6 hours", icon: Lightbulb },
+      { name: "Locksmithing", time: "3-4 hours", icon: Lock },
+      { name: "Property Management", time: "1-2 hours", icon: Tool },
+    ],
+  },
 ];
 
 const getServiceUrl = (name: string) => {
   // Convert service name to URL-friendly format
-  const slug = name.toLowerCase().replace(/\s+&\s+|-/g, '-').replace(/\s+/g, '-');
+  const slug = name
+    .toLowerCase()
+    .replace(/\s+&\s+|-/g, "-")
+    .replace(/\s+/g, "-");
   return `/services/${slug}`;
 };
 
 const Services = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('Interior');
+  const [selectedCategory, setSelectedCategory] = useState<string>("Interior");
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   return (
     <section id="services" className="py-20 bg-gray-50">
       <h2 className="text-center mb-12">Our Services</h2>
-      
+
       <div className="flex flex-wrap">
         {services.map((service) => (
           <div
@@ -72,9 +99,9 @@ const Services = () => {
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                 <div className="flex items-center justify-between">
                   <h3 className="text-2xl font-bold">{service.category}</h3>
-                  <ChevronDown 
+                  <ChevronDown
                     className={`w-6 h-6 transition-transform duration-300 ${
-                      selectedCategory === service.category ? 'rotate-180' : ''
+                      selectedCategory === service.category ? "rotate-180" : ""
                     }`}
                   />
                 </div>
@@ -84,7 +111,9 @@ const Services = () => {
               <motion.div
                 className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
-                animate={{ opacity: hoveredService === service.category ? 1 : 0 }}
+                animate={{
+                  opacity: hoveredService === service.category ? 1 : 0,
+                }}
               />
             </div>
           </div>
@@ -96,7 +125,7 @@ const Services = () => {
         {selectedCategory && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
@@ -114,7 +143,7 @@ const Services = () => {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services
-                      .find(s => s.category === selectedCategory)
+                      .find((s) => s.category === selectedCategory)
                       ?.items.map((item, index) => (
                         <motion.div
                           key={item.name}
