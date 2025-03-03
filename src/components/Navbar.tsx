@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
+  Menu,
+  X,
+  ChevronDown,
+  Phone,
   Zap,
   Droplet,
   Paintbrush,
   Ruler,
   Hammer,
   DoorOpen,
-  GarageDoor,
+  Car as GarageDoor,
   Waves,
   Flower2,
   ClipboardCheck,
   Shield,
-  SmartHome,
+  Home as SmartHome,
   Lock,
   Bath,
   Lightbulb,
@@ -21,14 +24,9 @@ import {
   Brush,
   Building2,
   Package,
-  User,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
-import { Phone } from "lucide-react";
-import { Twirl } from "hamburger-react";
-import servicesData from "../data/services.json";
-import PhoneCallModal from "./PhoneCallModal";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
 
 interface NavItem {
   label: string;
@@ -205,7 +203,7 @@ const Navbar = () => {
     >
       <div className="max-w-[1920px] mx-auto">
         {/* Combined Navigation Bar */}
-        <div className="flex items-center justify-between h-28 px-4 md:px-8">
+        <div className="flex items-center justify-between h-28 px-8">
           {/* Logo */}
           <Link
             to="/"
@@ -316,133 +314,85 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden z-50">
-            <div className="text-gray-600 hover:text-primary focus:outline-none">
-              <Twirl 
-                size={24}
-                toggled={isOpen}
-                toggle={setIsOpen}
-                duration={0.3}
-                color={isScrolled ? "#374151" : "#1B4332"}
-                label="Show menu"
-              />
-            </div>
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`${isScrolled || shouldUseBlackText ? "text-dark" : "text-white"} hover:text-secondary p-2`}
+              aria-expanded={isOpen}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
-        {/* Mobile menu - overlay */}
+        {/* Mobile menu */}
         {isOpen && (
-          <div 
-            className="lg:hidden fixed inset-0 z-40 bg-black bg-opacity-50"
-            onClick={() => setIsOpen(false)}
-          >
-            {/* Mobile menu - content */}
-            <div 
-              className="bg-white h-full w-full max-w-sm overflow-y-auto transition-transform duration-300 transform translate-x-0"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-6">
-                  <Link to="/" onClick={() => setIsOpen(false)}>
-                    <img
-                      src="/images/Handyman_Logo.png"
-                      alt="Handyman Wannabe"
-                      className="h-12 w-auto"
-                    />
-                  </Link>
-                  <button
-                    className="text-gray-500 hover:text-gray-700 p-2"
-                    onClick={() => setIsOpen(false)}
-                    aria-label="Close menu"
+          <div className="lg:hidden bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    to={item.href}
+                    className={`block px-3 py-2 text-base font-medium rounded-md ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : "text-dark hover:bg-gray-50 hover:text-secondary"
+                    }`}
                   >
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-
-                <div className="overflow-y-auto max-h-[70vh] pb-20">
-                  {navItems.map((item) => (
-                    <div key={item.label} className="border-b border-gray-100 py-1">
-                      {item.dropdown || item.megaMenu ? (
-                        <div>
-                          <button
-                            className="w-full text-left text-lg font-semibold py-3 flex justify-between items-center"
-                            onClick={() =>
-                              setActiveMobileSubmenu(
-                                activeMobileSubmenu === item.label
-                                  ? null
-                                  : item.label,
-                              )
-                            }
-                          >
-                            {item.label}
-                            {activeMobileSubmenu === item.label ? (
-                              <ChevronUp className="w-5 h-5" />
-                            ) : (
-                              <ChevronDown className="w-5 h-5" />
-                            )}
-                          </button>
-
-                          {/* Services Menu Special Case */}
-                          {item.label === "SERVICES" && activeMobileSubmenu === item.label && (
-                            <div className="pl-2 pt-2 pb-2 space-y-1 max-h-[50vh] overflow-y-auto">
-                              {serviceCategories.map((category, catIndex) => (
-                                <div key={catIndex} className="mb-2">
-                                  {category.items.map((service) => (
-                                    <Link
-                                      key={service.name}
-                                      to={`/${service.name.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}-page`}
-                                      className="flex items-center py-2 px-2 hover:bg-gray-50 rounded-md"
-                                      onClick={() => setIsOpen(false)}
-                                    >
-                                      <service.icon className="w-5 h-5 mr-3 text-primary" />
-                                      <span>{service.name}</span>
-                                    </Link>
-                                  ))}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-
-                          {/* Other dropdown menus */}
-                          {item.label !== "SERVICES" && activeMobileSubmenu === item.label && (
-                            <div className="pl-4 pt-2 pb-2 space-y-2">
-                              {item.dropdown?.map((subItem) => (
-                                <Link
-                                  key={subItem.label}
-                                  to={subItem.href}
-                                  className="block py-2"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  {subItem.label}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
+                    {item.label}
+                  </Link>
+                  {item.dropdown && (
+                    <div className="pl-4">
+                      {item.dropdown.map((dropdownItem) => (
                         <Link
-                          to={item.href}
-                          className="block text-lg font-semibold py-3"
-                          onClick={() => setIsOpen(false)}
+                          key={dropdownItem.label}
+                          to={dropdownItem.href}
+                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-secondary rounded-md"
                         >
-                          {item.label}
+                          {dropdownItem.label}
                         </Link>
-                      )}
+                      ))}
                     </div>
-                  ))}
+                  )}
+                  {item.megaMenu && (
+                    <div className="pl-4">
+                      {item.megaMenu.map((category, index) => (
+                        <div key={index}>
+                          <div className="space-y-1">
+                            {category.items.map((service) => (
+                              <Link
+                                key={service.name}
+                                to={getServiceUrl(service.name)}
+                                className="block px-3 py-2 text-sm text-secondary hover:bg-gray-50 hover:text-primary rounded-md flex items-center"
+                              >
+                                <service.icon className="w-4 h-4 mr-2" />
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
+              ))}
+
+              {/* Phone number in mobile menu */}
+              <div className="py-4 flex flex-col items-center mt-2">
+                <a
+                  href="tel:7193156628"
+                  className="flex items-center text-xl font-bold text-primary hover:text-secondary transition-colors py-2"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  (719) 315-6628
+                </a>
+                <button className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors">
+                  Get a Quote
+                </button>
               </div>
             </div>
           </div>
