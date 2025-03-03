@@ -8,7 +8,7 @@
   html {
     font-family: 'Montserrat', sans-serif;
   }
-  
+
   html, body {
     overflow-x: hidden;
     max-width: 100%;
@@ -194,7 +194,7 @@ body.menu-open {
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-  
+
   /* Larger tap targets for mobile */
   .navbar-mobile-menu a,
   .navbar-mobile-menu button {
@@ -202,7 +202,7 @@ body.menu-open {
     display: flex;
     align-items: center;
   }
-  
+
   /* Improved spacing for mobile menu items */
   .navbar-mobile-submenu {
     max-height: 250px;
@@ -210,13 +210,82 @@ body.menu-open {
     scrollbar-width: thin;
     scrollbar-color: rgba(0,0,0,0.2) transparent;
   }
-  
+
   .navbar-mobile-submenu::-webkit-scrollbar {
     width: 4px;
   }
-  
+
   .navbar-mobile-submenu::-webkit-scrollbar-thumb {
     background-color: rgba(0,0,0,0.2);
     border-radius: 4px;
   }
+}
+
+/* Custom Scrollbar for Search Dropdown */
+.search-dropdown {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #dfdfdf transparent;
+}
+
+/* Mobile Services Page */
+.mobile-services-page {
+  display: none;
+  padding: 1rem; /* Added padding for better spacing */
+}
+
+@media (max-width: 768px) {
+  .mobile-services-page {
+    display: block;
+  }
+}
+
+.mobile-services-page {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-services-page li button {
+  touch-action: manipulation;
+  min-height: 48px;
+  width: 100%; /* Make buttons fill the width */
+  box-sizing: border-box; /* Include padding and border in the width */
+  text-align: left; /* Align text to the left */
+  padding: 0.5rem 1rem; /* Add padding for better spacing */
+  border: none;
+  background-color: transparent;
+}
+
+
+/* Sample Navbar and MobileServicesPage components (replace with your actual components) */
+
+/* Assuming you have a Navbar component that conditionally renders */
+/* based on screen size (e.g. using a state variable). */
+
+/* This is a placeholder - replace with your actual service categories */
+const serviceCategories = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
+
+
+function MobileServicesPage() {
+  return (
+    <ul className="mobile-services-page">
+      {serviceCategories.map((category, index) => (
+        <li key={index}>
+          <button>{category}</button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// Example Navbar modification (replace with your actual Navbar)
+function Navbar() {
+  const isMobile = window.innerWidth <= 768; // Adjust breakpoint as needed
+  return (
+    <nav>
+      {/* Rest of your Navbar content */}
+      {isMobile && <MobileServicesPage />}
+    </nav>
+  );
 }

@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
+import MobileServicesPage from "./MobileServicesPage"; // Added import for the mobile services page
 
 interface NavItem {
   label: string;
@@ -101,6 +102,7 @@ const Navbar = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const [showMobileServicesPage, setShowMobileServicesPage] = useState(false); // Added state for mobile services page
 
   useEffect(() => {
     const handleScroll = () => {
@@ -179,6 +181,7 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setMobileSubMenuOpen(null);
+    setShowMobileServicesPage(false); // Close mobile services page on route change
   }, [location.pathname]);
 
   // Prevent body scrolling when mobile menu is open
@@ -398,6 +401,20 @@ const Navbar = () => {
                 </div>
               ))}
 
+              {/* Mobile Services Link */}
+              <div className="flex flex-col border-t border-gray-200 py-3 px-4">
+                <button
+                  className="flex items-center justify-between py-2 text-gray-700 hover:text-primary text-left w-full"
+                  onClick={() => {
+                    setShowMobileServicesPage(true);
+                    setIsOpen(false); // Close mobile menu after opening services page
+                  }}
+                >
+                  <span>Services</span>
+                  <ChevronDown className="w-5 h-5" />
+                </button>
+              </div>
+
               {/* Phone number in mobile menu */}
               <div className="py-4 flex flex-col items-center mt-2">
                 <a
@@ -421,6 +438,11 @@ const Navbar = () => {
         {/* Added modal rendering */}
       </div>
     </nav>
+
+    {/* Mobile Services Page */}
+    {showMobileServicesPage && (
+      <MobileServicesPage onClose={() => setShowMobileServicesPage(false)} />
+    )}
   );
 };
 
