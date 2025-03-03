@@ -186,3 +186,37 @@
 body.menu-open {
   overflow: hidden;
 }
+
+/* Mobile menu styles */
+@media (max-width: 767px) {
+  .navbar-mobile-menu {
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  
+  /* Larger tap targets for mobile */
+  .navbar-mobile-menu a,
+  .navbar-mobile-menu button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Improved spacing for mobile menu items */
+  .navbar-mobile-submenu {
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.2) transparent;
+  }
+  
+  .navbar-mobile-submenu::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .navbar-mobile-submenu::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 4px;
+  }
+}

@@ -93,7 +93,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
@@ -115,7 +115,9 @@ const Navbar = () => {
   };
 
   const handleDropdownLeave = () => {
-    setActiveDropdown(null);
+    setTimeout(() => {
+      setActiveDropdown(null);
+    }, 100);
   };
 
   const isActive = (href: string) => {
@@ -175,7 +177,7 @@ const Navbar = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
-    setActiveMobileSubmenu(null);
+    setMobileSubMenuOpen(null);
   }, [location.pathname]);
 
   // Prevent body scrolling when mobile menu is open
@@ -190,6 +192,18 @@ const Navbar = () => {
       document.body.classList.remove('menu-open');
     };
   }, [isOpen]);
+
+  const toggleMobileSubMenu = (label: string) => {
+    setMobileSubMenuOpen(mobileSubMenuOpen === label ? null : label);
+  };
+
+  // Helper function to convert strings to kebab-case
+  const kebabCase = (str: string) => {
+    return str
+      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .replace(/[\s_]+/g, '-')
+      .toLowerCase();
+  };
 
   const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
 
@@ -335,48 +349,45 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <div key={item.label}>
-                  <Link
-                    to={item.href}
-                    className={`block px-3 py-2 text-base font-medium rounded-md ${
-                      isActive(item.href)
-                        ? "text-secondary"
-                        : "text-dark hover:bg-gray-50 hover:text-secondary"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                  {item.dropdown && (
-                    <div className="pl-4">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.label}
-                          to={dropdownItem.href}
-                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-secondary rounded-md"
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                  {item.megaMenu && (
-                    <div className="pl-4">
-                      {item.megaMenu.map((category, index) => (
-                        <div key={index}>
-                          <div className="space-y-1">
-                            {category.items.map((service) => (
-                              <Link
-                                key={service.name}
-                                to={getServiceUrl(service.name)}
-                                className="block px-3 py-2 text-sm text-secondary hover:bg-gray-50 hover:text-primary rounded-md flex items-center"
-                              >
-                                <service.icon className="w-4 h-4 mr-2" />
-                                {service.name}
-                              </Link>
-                            ))}
-                          </div>
+                  {item.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => toggleMobileSubMenu(item.label)}
+                        className={`block px-3 py-3 w-full text-base font-medium rounded-md text-left ${
+                          mobileSubMenuOpen === item.label
+                            ? "text-secondary bg-gray-100"
+                            : "text-dark hover:bg-gray-50 hover:text-secondary"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                      {mobileSubMenuOpen === item.label && (
+                        <div className="pl-4">
+                          {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                            <Link
+                              key={dropdownIndex}
+                              to={dropdownItem.href}
+                              className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-50"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              <span>{dropdownItem.label}</span>
+                            </Link>
+                          ))}
                         </div>
-                      ))}
+                      )}
                     </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className={`block px-3 py-3 text-base font-medium rounded-md ${
+                        isActive(item.href)
+                          ? "text-secondary"
+                          : "text-dark hover:bg-gray-50 hover:text-secondary"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
                   )}
                 </div>
               ))}
