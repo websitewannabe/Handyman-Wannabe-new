@@ -206,12 +206,13 @@ const WindowsDoorsPage = () => {
                           src={services[0]?.image || "/images/living-Room.avif"}
                           alt={info.title}
                           className="max-w-full max-h-full object-contain p-4"
+                          style={{ maxHeight: "80%" }}
                           onError={(e) => {
                             e.currentTarget.src =
                               "/images/Handyman_Wannabe.png";
                           }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-50"></div>
                         <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
                           {info.title}
                         </h3>
