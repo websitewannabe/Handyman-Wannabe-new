@@ -349,21 +349,27 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <div key={item.label}>
-                  {item.dropdown ? (
+                  {item.dropdown || item.megaMenu ? (
                     <div>
                       <button
                         onClick={() => toggleMobileSubMenu(item.label)}
-                        className={`block px-3 py-3 w-full text-base font-medium rounded-md text-left ${
+                        className={`block px-3 py-3 w-full text-base font-medium rounded-md text-left flex items-center justify-between ${
                           mobileSubMenuOpen === item.label
                             ? "text-secondary bg-gray-100"
                             : "text-dark hover:bg-gray-50 hover:text-secondary"
                         }`}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        {mobileSubMenuOpen === item.label ? (
+                          <ChevronUp className="w-5 h-5" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5" />
+                        )}
                       </button>
+                      
                       {mobileSubMenuOpen === item.label && (
-                        <div className="pl-4">
-                          {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                        <div className="pl-4 navbar-mobile-submenu">
+                          {item.dropdown && item.dropdown.map((dropdownItem, dropdownIndex) => (
                             <Link
                               key={dropdownIndex}
                               to={dropdownItem.href}
@@ -372,6 +378,22 @@ const Navbar = () => {
                             >
                               <span>{dropdownItem.label}</span>
                             </Link>
+                          ))}
+                          
+                          {item.megaMenu && item.megaMenu.map((category, categoryIndex) => (
+                            <div key={categoryIndex} className="py-1">
+                              {category.items.map((service, serviceIndex) => (
+                                <Link
+                                  key={serviceIndex}
+                                  to={getServiceUrl(service.name)}
+                                  className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-50"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  <service.icon className="w-4 h-4 mr-2" />
+                                  <span>{service.name}</span>
+                                </Link>
+                              ))}
+                            </div>
                           ))}
                         </div>
                       )}

@@ -205,10 +205,13 @@ body.menu-open {
   
   /* Improved spacing for mobile menu items */
   .navbar-mobile-submenu {
-    max-height: 250px;
+    max-height: 300px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(0,0,0,0.2) transparent;
+    margin-bottom: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
   
   .navbar-mobile-submenu::-webkit-scrollbar {
