@@ -34,7 +34,7 @@ import {
   Package,
   User,
 } from "lucide-react";
-import { Twirl as Hamburger } from "hamburger-react";
+import { Twirl } from "hamburger-react";
 import servicesData from "../data/services.json";
 
 interface NavItem {
