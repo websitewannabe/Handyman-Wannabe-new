@@ -1,29 +1,21 @@
-
-import React, { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import React, { useState, useEffect, useRef } from "react";
 import {
-  X,
-  Search,
   Menu,
-  Home,
+  X,
   ChevronDown,
-  ChevronUp,
   Phone,
-  Facebook,
-  Instagram,
   Zap,
   Droplet,
   Paintbrush,
   Ruler,
   Hammer,
   DoorOpen,
-  GarageDoor,
+  Car as GarageDoor,
   Waves,
   Flower2,
   ClipboardCheck,
   Shield,
-  SmartHome,
+  Home as SmartHome,
   Lock,
   Bath,
   Lightbulb,
@@ -32,10 +24,9 @@ import {
   Brush,
   Building2,
   Package,
-  User,
 } from "lucide-react";
-import { Twirl } from "hamburger-react";
-import servicesData from "../data/services.json";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
 
 interface NavItem {
   label: string;
@@ -75,415 +66,344 @@ const serviceCategories = [
   },
 ];
 
-const Navbar: React.FC = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+const navItems: NavItem[] = [
+  { label: "HOME", href: "/" },
+  {
+    label: "SERVICES",
+    href: "#services",
+    megaMenu: serviceCategories,
+  },
+  { label: "PROCESS", href: "/how-it-works" },
+  { label: "PACKAGES", href: "/packages" },
+  { label: "SERVICE AREA", href: "/service-area" },
+  {
+    label: "MORE",
+    href: "#more",
+    dropdown: [
+      { label: "About Us", href: "/about-us" },
+      { label: "Careers", href: "/careers" },
+      { label: "Meet Our Team", href: "/meet-the-team" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [servicesExpanded, setServicesExpanded] = useState(false);
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const mobileSearchInputRef = useRef<HTMLInputElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
+  const searchRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // Close dropdowns when navigating
   useEffect(() => {
-    setIsServicesOpen(false);
-    setIsSearchOpen(false);
-    setIsMobileMenuOpen(false);
-    setServicesExpanded(false);
-  }, [location]);
-
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        navRef.current &&
-        !navRef.current.contains(event.target as Node) &&
-        !(event.target as Element).closest(".mobile-menu")
-      ) {
-        setIsServicesOpen(false);
-        setIsSearchOpen(false);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
     };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleDropdownEnter = (label: string) => {
+    setActiveDropdown(label);
+  };
+
+  const handleDropdownLeave = () => {
+    setActiveDropdown(null);
+  };
+
+  const isActive = (href: string) => {
+    return location.pathname === href;
+  };
+
+  const getServiceUrl = (service: string) => {
+    // Special cases for services with different URL patterns
+    if (service === "Smart Home") {
+      return "/services/smart-homes";
+    }
+    if (service === "Property Management") {
+      return "/services/management-companies";
+    }
+    if (service === "Third Party Moving") {
+      return "/services/third-party-moving";
+    }
+    if (service === "Home Inspections") {
+      return "/services/home-inspections";
+    }
+    if (service === "Misc.") {
+      return "/services/misc";
+    }
+
+    // Handle other services
+    const slug = service
+      .toLowerCase()
+      .replace(/\s+&\s+|-/g, "-")
+      .replace(/\s+/g, "-");
+    return `/services/${slug}`;
+  };
+
+  const shouldUseBlackText =
+    location.pathname === "/how-it-works" ||
+    location.pathname === "/service-area" ||
+    location.pathname === "/about-us" ||
+    location.pathname === "/careers" ||
+    location.pathname === "/meet-the-team" ||
+    location.pathname === "/faq" ||
+    location.pathname === "/contact" ||
+    location.pathname === "/blog" ||
+    location.pathname === "/packages";
+
+  useEffect(() => {
+    // Close dropdown when clicking outside
+    function handleClickOutside(event: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+    }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
-  // Handle body overflow when mobile menu is open
+  // Close mobile menu on route change
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.classList.add("menu-open");
+    setIsOpen(false);
+    setActiveMobileSubmenu(null);
+  }, [location.pathname]);
+
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
     } else {
-      document.body.classList.remove("menu-open");
+      document.body.classList.remove('menu-open');
     }
 
     return () => {
-      document.body.classList.remove("menu-open");
+      document.body.classList.remove('menu-open');
     };
-  }, [isMobileMenuOpen]);
+  }, [isOpen]);
 
-  // Handle search functionality
-  useEffect(() => {
-    if (searchQuery.length > 1) {
-      const results = servicesData.filter((service) =>
-        service.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setSearchResults(results.slice(0, 10));
-    } else {
-      setSearchResults([]);
-    }
-  }, [searchQuery]);
-
-  // Focus search input when opened
-  useEffect(() => {
-    if (isSearchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [isSearchOpen]);
-
-  const toggleServicesDropdown = () => {
-    setIsServicesOpen(!isServicesOpen);
-    setIsSearchOpen(false);
-  };
-
-  const toggleSearchDropdown = () => {
-    setIsSearchOpen(!isSearchOpen);
-    setIsServicesOpen(false);
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const toggleServicesAccordion = () => {
-    setServicesExpanded(!servicesExpanded);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-      <div className="container mx-auto px-4">
-        <div ref={navRef} className="flex items-center justify-between py-3">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/75 backdrop-blur-sm shadow-lg" : "bg-transparent"
+      }`}
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div className="max-w-[1920px] mx-auto">
+        {/* Combined Navigation Bar */}
+        <div className="flex items-center justify-between h-28 px-8">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link
+            to="/"
+            className="flex-shrink-0"
+            aria-label="Handyman Wannabe - Home"
+          >
             <img
-              src="/images/handyman-wannabe-logo.png"
+              src="/images/Handyman_Logo.png"
               alt="Handyman Wannabe"
-              className="h-12 md:h-14"
+              className="h-16 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-            <div className="relative">
-              <button
-                className={`nav-link flex items-center ${
-                  isServicesOpen ? "text-primary" : ""
-                }`}
-                onClick={toggleServicesDropdown}
-              >
-                Services
-                {isServicesOpen ? (
-                  <ChevronUp className="ml-1 w-4 h-4" />
-                ) : (
-                  <ChevronDown className="ml-1 w-4 h-4" />
-                )}
-              </button>
+          <div className="hidden lg:flex items-center space-x-12">
+            {/* Main Navigation Items */}
+            <div className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="relative group"
+                  onMouseEnter={() => handleDropdownEnter(item.label)}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <Link
+                    to={item.href.startsWith("#") ? item.href : item.href}
+                    className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : isScrolled || shouldUseBlackText
+                          ? "text-dark hover:bg-gray-50"
+                          : "text-white hover:bg-white/10"
+                    }`}
+                    aria-expanded={activeDropdown === item.label}
+                    aria-haspopup={
+                      item.dropdown || item.megaMenu ? "true" : "false"
+                    }
+                  >
+                    {item.label}
+                    {(item.dropdown || item.megaMenu) && (
+                      <ChevronDown className="ml-1 w-4 h-4" />
+                    )}
+                  </Link>
 
-              {/* Services Mega Menu */}
-              <CSSTransition
-                in={isServicesOpen}
-                timeout={200}
-                classNames="dropdown"
-                unmountOnExit
-              >
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-4 mt-2 w-screen max-w-4xl">
-                  <div className="grid grid-cols-2 gap-6">
-                    {serviceCategories.map((category, index) => (
-                      <div key={index}>
-                        <div className="grid grid-cols-2 gap-3">
-                          {category.items.map((item, itemIndex) => (
-                            <Link
-                              key={itemIndex}
-                              to={`/${item.name
-                                .toLowerCase()
-                                .replace(/\s+/g, "-")
-                                .replace(/&/g, "and")}`}
-                              className="flex items-center p-2 rounded-lg hover:bg-gray-100"
-                            >
-                              <item.icon className="w-5 h-5 text-primary mr-2" />
-                              <span>{item.name}</span>
-                            </Link>
-                          ))}
-                        </div>
+                  {/* Mega Menu */}
+                  {item.megaMenu && activeDropdown === item.label && (
+                    <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50">
+                      <div className="grid grid-cols-2 gap-4 p-4">
+                        {item.megaMenu.map((category, index) => (
+                          <div key={index} className="grid gap-1">
+                            {category.items.map((service) => (
+                              <Link
+                                key={service.name}
+                                to={getServiceUrl(service.name)}
+                                className="px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded text-secondary hover:text-primary flex items-center"
+                              >
+                                <service.icon className="w-4 h-4 mr-2" />
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </CSSTransition>
-            </div>
-            <Link to="/about" className="nav-link">
-              About
-            </Link>
-            <Link to="/pricing" className="nav-link">
-              Pricing
-            </Link>
-            <Link to="/blog" className="nav-link">
-              Blog
-            </Link>
-            <Link to="/contact" className="nav-link">
-              Contact
-            </Link>
-          </nav>
-
-          {/* Search and Call Buttons (Desktop) */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="relative">
-              <button
-                onClick={toggleSearchDropdown}
-                className="p-2 rounded-full hover:bg-gray-100"
-              >
-                <Search className="w-5 h-5 text-gray-600" />
-              </button>
-
-              {/* Search Dropdown */}
-              <CSSTransition
-                in={isSearchOpen}
-                timeout={200}
-                classNames="dropdown"
-                unmountOnExit
-              >
-                <div className="absolute right-0 mt-2 w-72 bg-white shadow-lg rounded-lg overflow-hidden">
-                  <div className="p-2 border-b">
-                    <div className="relative">
-                      <input
-                        ref={searchInputRef}
-                        type="text"
-                        placeholder="Search for services..."
-                        className="w-full pl-8 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-primary"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                      />
-                      <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                     </div>
-                  </div>
+                  )}
 
-                  {searchResults.length > 0 && (
-                    <ul className="max-h-60 overflow-y-auto">
-                      {searchResults.map((result, index) => (
-                        <li key={index}>
-                          <Link
-                            to={`/service/${result.id}`}
-                            className="block px-4 py-2 hover:bg-gray-100"
-                          >
-                            {result.name}
-                          </Link>
-                        </li>
+                  {/* Regular Dropdown Menu */}
+                  {item.dropdown && activeDropdown === item.label && (
+                    <div
+                      className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50"
+                      role="menu"
+                    >
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.label}
+                          to={dropdownItem.href}
+                          className="block px-4 py-3 text-sm text-dark hover:bg-gray-50 hover:text-secondary transition-colors"
+                          role="menuitem"
+                        >
+                          {dropdownItem.label}
+                        </Link>
                       ))}
-                    </ul>
+                    </div>
                   )}
                 </div>
-              </CSSTransition>
+              ))}
             </div>
 
-            <a
-              href="tel:7193156628"
-              className="flex items-center text-primary font-bold"
-            >
-              <Phone className="w-5 h-5 mr-1" />
-              (719) 315-6628
-            </a>
-
-            <Link
-              to="/get-quote"
-              className="btn-primary whitespace-nowrap py-2 px-4 text-sm"
-            >
-              Get a Quote
-            </Link>
+            {/* Phone Number and CTA */}
+            <div className="flex flex-col items-center space-y-2">
+              <div className="flex items-center">
+                <Phone
+                  className={`w-5 h-5 ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"} mr-2`}
+                />
+                <span
+                  className={`text-base font-medium ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"}`}
+                >
+                  (719) 315-6628
+                </span>
+              </div>
+              <button
+                onClick={() => setIsModalOpen(true)} // Open modal on click
+                className="bg-primary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+              >
+                Have Our AI Call You
+              </button>
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden">
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
             <button
-              onClick={toggleMobileMenu}
-              className="p-2 rounded-full text-gray-600"
-              aria-label="Toggle mobile menu"
+              onClick={() => setIsOpen(!isOpen)}
+              className={`${isScrolled || shouldUseBlackText ? "text-dark" : "text-white"} hover:text-secondary p-2`}
+              aria-expanded={isOpen}
+              aria-label="Toggle menu"
             >
-              <Hamburger
-                toggled={isMobileMenuOpen}
-                size={20}
-                direction="right"
-                duration={0.3}
-                easing="ease-in-out"
-              />
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <CSSTransition
-        in={isMobileMenuOpen}
-        timeout={300}
-        classNames="mobile-menu"
-        unmountOnExit
-      >
-        <div className="lg:hidden mobile-menu fixed top-[68px] left-0 right-0 bottom-0 bg-white z-50 overflow-hidden flex flex-col">
-          {/* Search Bar */}
-          <div className="p-4 border-b">
-            <div className="relative">
-              <input
-                ref={mobileSearchInputRef}
-                type="text"
-                placeholder="Search for services..."
-                className="w-full pl-8 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-primary"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-            </div>
-
-            {searchResults.length > 0 && (
-              <ul className="mt-2 bg-white rounded-lg shadow-lg max-h-40 overflow-y-auto">
-                {searchResults.map((result, index) => (
-                  <li key={index}>
-                    <Link
-                      to={`/service/${result.id}`}
-                      className="block px-4 py-2 hover:bg-gray-100"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {result.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          {/* Navigation Links with Scrollable Area */}
-          <div className="flex-1 overflow-y-auto pb-20">
-            <Link
-              to="/"
-              className="block px-4 py-3 text-lg border-b hover:bg-gray-50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center">
-                <Home className="w-5 h-5 mr-2 text-primary" />
-                HOME
-              </div>
-            </Link>
-
-            {/* Services Accordion */}
-            <div className="border-b">
-              <button
-                className="w-full px-4 py-3 text-lg flex items-center justify-between hover:bg-gray-50"
-                onClick={toggleServicesAccordion}
-              >
-                <span className="font-medium">SERVICES</span>
-                {servicesExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-primary" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-primary" />
-                )}
-              </button>
-
-              {/* Services List - Scrollable */}
-              {servicesExpanded && (
-                <div className="max-h-[60vh] overflow-y-auto">
-                  {serviceCategories.flatMap((category) =>
-                    category.items.map((item, index) => (
-                      <Link
-                        key={index}
-                        to={`/${item.name
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")
-                          .replace(/&/g, "and")}`}
-                        className="block pl-6 pr-4 py-3 border-t border-gray-100 hover:bg-gray-50"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        <div className="flex items-center">
-                          <item.icon className="w-5 h-5 mr-2 text-primary" />
-                          {item.name}
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="lg:hidden bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    to={item.href}
+                    className={`block px-3 py-2 text-base font-medium rounded-md ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : "text-dark hover:bg-gray-50 hover:text-secondary"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.dropdown && (
+                    <div className="pl-4">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.label}
+                          to={dropdownItem.href}
+                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-secondary rounded-md"
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  {item.megaMenu && (
+                    <div className="pl-4">
+                      {item.megaMenu.map((category, index) => (
+                        <div key={index}>
+                          <div className="space-y-1">
+                            {category.items.map((service) => (
+                              <Link
+                                key={service.name}
+                                to={getServiceUrl(service.name)}
+                                className="block px-3 py-2 text-sm text-secondary hover:bg-gray-50 hover:text-primary rounded-md flex items-center"
+                              >
+                                <service.icon className="w-4 h-4 mr-2" />
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </Link>
-                    ))
+                      ))}
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
+              ))}
 
-            <Link
-              to="/about"
-              className="block px-4 py-3 text-lg border-b hover:bg-gray-50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center">
-                <User className="w-5 h-5 mr-2 text-primary" />
-                ABOUT
+              {/* Phone number in mobile menu */}
+              <div className="py-4 flex flex-col items-center mt-2">
+                <a
+                  href="tel:7193156628"
+                  className="flex items-center text-xl font-bold text-primary hover:text-secondary transition-colors py-2"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  (719) 315-6628
+                </a>
+                <button className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors">
+                  Get a Quote
+                </button>
               </div>
-            </Link>
-            <Link
-              to="/pricing"
-              className="block px-4 py-3 text-lg border-b hover:bg-gray-50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center">
-                <DoorOpen className="w-5 h-5 mr-2 text-primary" />
-                PRICING
-              </div>
-            </Link>
-            <Link
-              to="/blog"
-              className="block px-4 py-3 text-lg border-b hover:bg-gray-50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center">
-                <ClipboardCheck className="w-5 h-5 mr-2 text-primary" />
-                BLOG
-              </div>
-            </Link>
-            <Link
-              to="/contact"
-              className="block px-4 py-3 text-lg border-b hover:bg-gray-50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <div className="flex items-center">
-                <Phone className="w-5 h-5 mr-2 text-primary" />
-                CONTACT
-              </div>
-            </Link>
-          </div>
-
-          {/* Sticky Bottom CTA */}
-          <div className="sticky bottom-0 border-t bg-white p-4 shadow-inner">
-            <div className="grid grid-cols-2 gap-3">
-              <a
-                href="tel:7193156628"
-                className="flex items-center justify-center bg-white border border-primary text-primary font-bold py-3 px-4 rounded-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Phone className="w-5 h-5 mr-1" />
-                Call Now
-              </a>
-              <Link
-                to="/get-quote"
-                className="btn-primary py-3 px-4 text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get a Quote
-              </Link>
             </div>
           </div>
-        </div>
-      </CSSTransition>
-    </header>
+        )}
+        <PhoneCallModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />{" "}
+        {/* Added modal rendering */}
+      </div>
+    </nav>
   );
 };
 

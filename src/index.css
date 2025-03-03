@@ -186,29 +186,3 @@
 body.menu-open {
   overflow: hidden;
 }
-
-/* Mobile accordion menu styles */
-.mobile-menu {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 68px);
-}
-
-.mobile-menu .overflow-y-auto {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-}
-
-.mobile-menu .overflow-y-auto::-webkit-scrollbar {
-  width: 4px;
-}
-
-.mobile-menu .overflow-y-auto::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.mobile-menu .overflow-y-auto::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
