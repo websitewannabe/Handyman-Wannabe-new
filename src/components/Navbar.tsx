@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Menu,
   X,
@@ -25,7 +25,7 @@ import {
   Building2,
   Package,
 } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
 
 interface NavItem {
@@ -90,11 +90,16 @@ const navItems: NavItem[] = [
 ];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
+  const searchRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,6 +158,40 @@ const Navbar = () => {
     location.pathname === "/contact" ||
     location.pathname === "/blog" ||
     location.pathname === "/packages";
+
+  useEffect(() => {
+    // Close dropdown when clicking outside
+    function handleClickOutside(event: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveMobileSubmenu(null);
+  }, [location.pathname]);
+
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isOpen]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
 
   return (
     <nav
@@ -341,20 +380,18 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              <div className="mt-4 px-3">
-                <div className="flex flex-col items-center mb-4">
-                  <div className="flex items-center">
-                    <Phone className="w-5 h-5 text-[#00274D] mr-2" />
-                    <span className="text-xl font-bold text-[#00274D]">
-                      (719) 315-6628
-                    </span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setIsModalOpen(true)} // Open modal on click
-                  className="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-lg"
+
+              {/* Phone number in mobile menu */}
+              <div className="py-4 flex flex-col items-center mt-2">
+                <a
+                  href="tel:7193156628"
+                  className="flex items-center text-xl font-bold text-primary hover:text-secondary transition-colors py-2"
                 >
-                  Have Our AI Call You
+                  <Phone className="w-5 h-5 mr-2" />
+                  (719) 315-6628
+                </a>
+                <button className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors">
+                  Get a Quote
                 </button>
               </div>
             </div>
