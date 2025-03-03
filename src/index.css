@@ -220,3 +220,28 @@ body.menu-open {
     border-radius: 4px;
   }
 }
+
+/* Mobile Services Page styles */
+@media (max-width: 767px) {
+  .mobile-services-page-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  
+  .mobile-services-page-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .mobile-services-page-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .mobile-services-page-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 300ms, transform 300ms;
+  }
+}
