@@ -135,14 +135,14 @@ const WindowsDoorsPage = () => {
       <section className="py-20" style={{ backgroundColor: "#ebd5c1" }}>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  items-center mb-16">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="aspect-video rounded-xl overflow-hidden shadow-2xl"
+                className="aspect-video bg-white items-center rounded-xl overflow-hidden shadow-2xl"
               >
                 <iframe
-                  className="w-full h-full"
+                  className="w-full h-full items-cente"
                   src="/images/Handyman_Wannabe.png"
                   title="Windows & Doors Services Overview"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
