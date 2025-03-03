@@ -143,7 +143,7 @@ const WindowsDoorsPage = () => {
               >
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1&rel=0"
+                  src="/images/Handyman_Wannabe.png"
                   title="Windows & Doors Services Overview"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
