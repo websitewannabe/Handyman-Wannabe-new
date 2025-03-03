@@ -148,7 +148,7 @@ const CleaningPage = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/images/cleaner.avif")',
+            backgroundImage: 'url("/cleaner.avif")',
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
