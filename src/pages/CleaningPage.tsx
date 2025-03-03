@@ -270,9 +270,12 @@ const CleaningPage = () => {
                     >
                       <div className="relative h-48">
                         <img
-                          src= "public/images/cleaner.avif"
+                          src={services[0]?.image || "/images/cleaning.avif"}
                           alt={info.title}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = "/images/cleaner.avif";
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
