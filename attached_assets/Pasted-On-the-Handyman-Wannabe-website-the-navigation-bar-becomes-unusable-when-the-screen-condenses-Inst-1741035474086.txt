@@ -1,0 +1,24 @@
+On the Handyman Wannabe website, the navigation bar becomes unusable when the screen condenses. Instead of implementing a hamburger menu, apply the following adaptive solutions to maintain usability across all screen sizes.
+
+1. Convert to a Horizontal Scrollable Navigation Bar on Smaller Screens
+When the screen width is below 1024px, adjust the navigation bar to a horizontal scroll layout instead of collapsing it.
+Allow users to swipe left/right or scroll horizontally to access all menu options.
+Add left and right arrow buttons (on either side of the nav bar) for users who prefer to click rather than swipe.
+2. Enable Multi-Column Layout for the Services Menu
+Instead of a long single-column list, break the services menu into two or three columns when the screen shrinks.
+This ensures the navigation remains compact but readable without taking up excessive vertical space.
+3. Prioritize Important Links & Collapse Less Essential Items
+Display high-priority categories (e.g., Electrical, Plumbing, Flooring) upfront.
+Move less frequently used links (e.g., Furniture Assembly, Holiday Lighting) into a “More” dropdown that expands when clicked.
+4. Make the Navigation Section Sticky with Overflow Handling
+Ensure the navigation bar remains sticky at the top of the screen so users can always access it.
+Implement an adaptive font size that adjusts dynamically to fit more text in smaller spaces.
+Prevent text wrapping issues by using ellipsis truncation ("...") where necessary.
+5. Ensure Full Clickability & Touch Optimization
+Fix any touch input issues that make selecting menu items difficult on mobile and tablet devices.
+Increase the touch target size of each menu item for better usability.
+6. Test & Validate on Multiple Screen Sizes
+Ensure smooth functionality on mobile devices, tablets, and smaller laptop screens.
+Test in Chrome, Safari, Firefox, and Edge to confirm consistency across browsers.
+Expected Outcome:
+After implementing these changes, the navigation bar will remain fully functional across all screen sizes, allowing users to access all menu items without frustration or usability issues.
