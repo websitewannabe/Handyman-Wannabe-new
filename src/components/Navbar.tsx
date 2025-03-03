@@ -3,7 +3,6 @@ import {
   Menu,
   X,
   ChevronDown,
-  ChevronUp,
   Phone,
   Zap,
   Droplet,
@@ -25,7 +24,6 @@ import {
   Brush,
   Building2,
   Package,
-  Search
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
@@ -100,7 +98,6 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
   const searchRef = useRef<HTMLDivElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -220,115 +217,79 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Main Navigation - Desktop */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-            {navItems.map(({ label, href, dropdown, megaMenu }) => (
-              <div
-                key={label}
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter(label)}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <Link
-                  to={href.startsWith("#") ? href : href}
-                  className={`text-sm font-semibold px-4 py-2 rounded-lg ${
-                    isActive(href)
-                      ? "text-primary bg-primary/10"
-                      : isScrolled
-                        ? "text-gray-700 hover:text-primary"
-                        : "text-white hover:text-primary"
-                  } transition-colors`}
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-12">
+            {/* Main Navigation Items */}
+            <div className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="relative group"
+                  onMouseEnter={() => handleDropdownEnter(item.label)}
+                  onMouseLeave={handleDropdownLeave}
                 >
-                  {label}
-                </Link>
-
-                {/* Dropdown menu */}
-                {dropdown && activeDropdown === label && (
-                  <div className="absolute z-20 w-48 mt-1 rounded-lg shadow-lg py-1 bg-white border border-gray-100">
-                    {dropdown.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-
-                {/* Mega menu for Services */}
-                {megaMenu && activeDropdown === label && (
-                  <div className="absolute z-20 mt-1 w-[600px] bg-white rounded-lg shadow-lg flex p-4 border border-gray-100 left-1/2 -translate-x-1/2">
-                    {megaMenu.map((column, index) => (
-                      <div key={index} className="flex-1 px-2">
-                        <ul className="space-y-3">
-                          {column.items.map((item) => (
-                            <li key={item.name}>
-                              <Link
-                                to={`/${item.name
-                                  .toLowerCase()
-                                  .replace(/\s+/g, "-")}`}
-                                className="flex items-center text-gray-700 hover:text-primary"
-                              >
-                                <item.icon className="w-5 h-5 mr-2" />
-                                <span>{item.name}</span>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Right side items */}
-          <div className="flex items-center space-x-2 md:space-x-4">
-            {/* Search */}
-            <div
-              className="relative"
-              ref={searchRef}
-              onBlur={() => {
-                setTimeout(() => {
-                  if (!searchRef.current?.contains(document.activeElement)) {
-                    setIsSearchFocused(false);
-                  }
-                }, 100);
-              }}
-            >
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search services..."
-                  className={`${
-                    isScrolled ? "bg-gray-100" : "bg-white/10 text-white"
-                  } pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 w-40 md:w-64 transition-all`}
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    // Simple search functionality (to be replaced with actual search)
-                    if (e.target.value.length > 0) {
-                      const filtered = serviceCategories.flat().filter((service) =>
-                        service.name
-                          .toLowerCase()
-                          .includes(e.target.value.toLowerCase()),
-                      );
-                      setSearchResults(filtered.slice(0, 5));
-                    } else {
-                      setSearchResults([]);
+                  <Link
+                    to={item.href.startsWith("#") ? item.href : item.href}
+                    className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : isScrolled || shouldUseBlackText
+                          ? "text-dark hover:bg-gray-50"
+                          : "text-white hover:bg-white/10"
+                    }`}
+                    aria-expanded={activeDropdown === item.label}
+                    aria-haspopup={
+                      item.dropdown || item.megaMenu ? "true" : "false"
                     }
-                  }}
-                  onFocus={() => setIsSearchFocused(true)}
-                />
-                <Search
-                  className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 ${
-                    isScrolled ? "text-gray-400" : "text-white/80"
-                  }`}
-                />
-              </div>
+                  >
+                    {item.label}
+                    {(item.dropdown || item.megaMenu) && (
+                      <ChevronDown className="ml-1 w-4 h-4" />
+                    )}
+                  </Link>
+
+                  {/* Mega Menu */}
+                  {item.megaMenu && activeDropdown === item.label && (
+                    <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50">
+                      <div className="grid grid-cols-2 gap-4 p-4">
+                        {item.megaMenu.map((category, index) => (
+                          <div key={index} className="grid gap-1">
+                            {category.items.map((service) => (
+                              <Link
+                                key={service.name}
+                                to={getServiceUrl(service.name)}
+                                className="px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded text-secondary hover:text-primary flex items-center"
+                              >
+                                <service.icon className="w-4 h-4 mr-2" />
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Regular Dropdown Menu */}
+                  {item.dropdown && activeDropdown === item.label && (
+                    <div
+                      className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50"
+                      role="menu"
+                    >
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.label}
+                          to={dropdownItem.href}
+                          className="block px-4 py-3 text-sm text-dark hover:bg-gray-50 hover:text-secondary transition-colors"
+                          role="menuitem"
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
 
             {/* Phone Number and CTA */}
@@ -368,130 +329,73 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        <div 
-          ref={mobileMenuRef}
-          className={`md:hidden fixed top-28 left-0 h-[calc(100vh-7rem)] w-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 overflow-y-auto ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-          <div className="px-4 py-6 space-y-4 max-h-full">
-            {/* Mobile Navigation Items */}
-            <div className="space-y-2">
-              {navItems.map(({ label, href, dropdown, megaMenu }) => (
-                <div key={label} className="border-b border-gray-200 pb-2">
-                  {/* If it has dropdown or megamenu, make it toggleable */}
-                  {(dropdown || megaMenu) ? (
-                    <div>
-                      <button
-                        className={`flex items-center justify-between w-full py-3 px-4 rounded-lg text-left text-base font-semibold ${
-                          activeMobileSubmenu === label
-                            ? "bg-primary/10 text-primary"
-                            : "text-gray-700"
-                        }`}
-                        onClick={() => setActiveMobileSubmenu(activeMobileSubmenu === label ? null : label)}
-                        aria-expanded={activeMobileSubmenu === label}
-                      >
-                        <span>{label}</span>
-                        {activeMobileSubmenu === label ? (
-                          <ChevronUp className="w-5 h-5" />
-                        ) : (
-                          <ChevronDown className="w-5 h-5" />
-                        )}
-                      </button>
-
-                      {/* Services Accordion Menu */}
-                      {activeMobileSubmenu === label && megaMenu && (
-                        <div className="mt-2 mb-4 pl-4 space-y-3 max-h-[60vh] overflow-y-auto mobile-services-menu pb-4">
-                          {megaMenu.flatMap((column) => 
-                            column.items.map((item) => (
-                              <Link
-                                key={item.name}
-                                to={`/${item.name.toLowerCase().replace(/\s+/g, "-")}`}
-                                className={`flex items-center py-2 px-4 text-base rounded-lg ${
-                                  location.pathname === `/${item.name.toLowerCase().replace(/\s+/g, "-")}`
-                                    ? "bg-primary/10 text-primary"
-                                    : "text-gray-700 hover:bg-gray-100"
-                                }`}
-                                onClick={() => setIsOpen(false)}
-                              >
-                                <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                                <span>{item.name}</span>
-                              </Link>
-                            ))
-                          )}
-                        </div>
-                      )}
-
-                      {/* Dropdown Menu */}
-                      {activeMobileSubmenu === label && dropdown && (
-                        <div className="mt-2 pl-4 space-y-1">
-                          {dropdown.map((item) => (
-                            <Link
-                              key={item.label}
-                              to={item.href}
-                              className={`block py-2 px-4 text-base rounded-lg ${
-                                location.pathname === item.href
-                                  ? "bg-primary/10 text-primary"
-                                  : "text-gray-700 hover:bg-gray-100"
-                              }`}
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="lg:hidden bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    to={item.href}
+                    className={`block px-3 py-2 text-base font-medium rounded-md ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : "text-dark hover:bg-gray-50 hover:text-secondary"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.dropdown && (
+                    <div className="pl-4">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.label}
+                          to={dropdownItem.href}
+                          className="block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-secondary rounded-md"
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
                     </div>
-                  ) : (
-                    // Regular link without dropdown
-                    <Link
-                      to={href}
-                      className={`block py-3 px-4 text-base font-semibold rounded-lg ${
-                        isActive(href)
-                          ? "bg-primary/10 text-primary"
-                          : "text-gray-700 hover:bg-gray-100"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {label}
-                    </Link>
+                  )}
+                  {item.megaMenu && (
+                    <div className="pl-4">
+                      {item.megaMenu.map((category, index) => (
+                        <div key={index}>
+                          <div className="space-y-1">
+                            {category.items.map((service) => (
+                              <Link
+                                key={service.name}
+                                to={getServiceUrl(service.name)}
+                                className="block px-3 py-2 text-sm text-secondary hover:bg-gray-50 hover:text-primary rounded-md flex items-center"
+                              >
+                                <service.icon className="w-4 h-4 mr-2" />
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </div>
               ))}
-            </div>
 
-            {/* Mobile Contact and CTA */}
-            <div className="pt-4 space-y-4">
-              <a
-                href="tel:7193156628"
-                className="flex items-center justify-center w-full py-3 px-4 bg-secondary text-white rounded-lg font-bold text-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                (719) 315-6628
-              </a>
-
-              <button 
-                className="w-full py-3 px-4 bg-primary text-white rounded-lg font-bold text-lg"
-                onClick={() => {
-                  navigate('/get-quote');
-                  setIsOpen(false);
-                }}
-              >
-                Get a Quote
-              </button>
+              {/* Phone number in mobile menu */}
+              <div className="py-4 flex flex-col items-center mt-2">
+                <a
+                  href="tel:7193156628"
+                  className="flex items-center text-xl font-bold text-primary hover:text-secondary transition-colors py-2"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  (719) 315-6628
+                </a>
+                <button className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors">
+                  Get a Quote
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isOpen && (
-          <div 
-            className="md:hidden fixed inset-0 bg-black/50 z-40" 
-            onClick={() => setIsOpen(false)}
-          />
         )}
         <PhoneCallModal
           isOpen={isModalOpen}
