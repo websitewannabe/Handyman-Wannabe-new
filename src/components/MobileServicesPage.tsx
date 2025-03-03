@@ -20,7 +20,11 @@ import {
   Truck
 } from "lucide-react";
 
-const MobileServicesPage = () => {
+interface MobileServicesPageProps {
+  onClose?: () => void;
+}
+
+const MobileServicesPage = ({ onClose }: MobileServicesPageProps) => {
   const navigate = useNavigate();
 
   const serviceCategories = [
@@ -121,7 +125,7 @@ const MobileServicesPage = () => {
       {/* Header with back button */}
       <div className="sticky top-0 bg-primary text-white px-4 py-3 flex items-center z-10">
         <button 
-          onClick={() => navigate(-1)} 
+          onClick={onClose || (() => navigate(-1))} 
           className="mr-4 p-1 rounded-full hover:bg-primary-dark transition-colors"
         >
           <ArrowLeft className="w-6 h-6" />
@@ -138,7 +142,10 @@ const MobileServicesPage = () => {
               className={`border-b border-gray-200 ${index === serviceCategories.length - 1 ? 'border-b-0' : ''}`}
             >
               <button
-                onClick={() => navigate(category.path)}
+                onClick={() => {
+                  navigate(category.path);
+                  if (onClose) onClose();
+                }}
                 className="w-full text-left px-4 py-5 flex items-center justify-between hover:bg-gray-100 transition-colors"
               >
                 <div className="flex items-center">
