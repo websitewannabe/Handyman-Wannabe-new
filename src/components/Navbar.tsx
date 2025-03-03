@@ -24,6 +24,7 @@ import {
   Brush,
   Building2,
   Package,
+  ChevronUp,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
@@ -360,6 +361,11 @@ const Navbar = () => {
                         }`}
                       >
                         {item.label}
+                        {mobileSubMenuOpen === item.label ? (
+                          <ChevronUp className="ml-1 w-4 h-4" />
+                        ) : (
+                          <ChevronDown className="ml-1 w-4 h-4" />
+                        )}
                       </button>
                       {mobileSubMenuOpen === item.label && (
                         <div className="pl-4">
