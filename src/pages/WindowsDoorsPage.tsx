@@ -202,17 +202,14 @@ const WindowsDoorsPage = () => {
                       transition={{ delay: index * 0.1 }}
                     >
                       <div className="relative h-48 bg-white flex items-center justify-center">
-                        <img
-                          src={services[0]?.image || "/images/living-Room.avif"}
-                          alt={info.title}
-                          className="max-w-full max-h-full object-contain p-4"
-                          style={{ maxHeight: "80%" }}
-                          onError={(e) => {
-                            e.currentTarget.src =
-                              "/images/Handyman_Wannabe.png";
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-white flex items-center justify-center">
+                          <img
+                            src="/images/Handyman_Wannabe.png"
+                            alt={info.title}
+                            className="max-w-[80%] max-h-[80%] object-contain"
+                          />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0"></div>
                         <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
                           {info.title}
                         </h3>
