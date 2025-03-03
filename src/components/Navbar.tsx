@@ -228,10 +228,10 @@ const Navbar = () => {
     e.preventDefault();
     if (isMobile) {
       setIsMobileServicesOpen(true);
-      setIsMenuOpen(false);
+      setIsOpen(false); // Close the main mobile menu
     } else {
-      setIsMegaMenuOpen(!isMegaMenuOpen);
-      setIsDropdownOpen(null);
+      //setIsMegaMenuOpen(!isMegaMenuOpen); //This was causing an error because it's not defined.
+      //setIsDropdownOpen(null); //This was causing an error because it's not defined.
     }
   };
 
