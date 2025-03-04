@@ -485,34 +485,7 @@ const Navbar = () => {
           )}
           <PhoneCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />{" "}
           {/* Added modal rendering */}
-          {/* Services Mega Menu for Desktop */}
-          {!isMobile && megaMenuOpen && (
-            <div
-              className="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg z-50 py-6 px-8 border-t border-gray-200"
-              onMouseLeave={() => setMegaMenuOpen(false)}
-            >
-              <div className="grid grid-cols-2 gap-8 max-w-7xl mx-auto">
-                {serviceCategories.map((category, categoryIndex) => (
-                  <div key={categoryIndex} className="grid grid-cols-2 gap-4">
-                    {category.items.map((service, serviceIndex) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={serviceIndex}
-                          to={getServiceUrl(service.name)}
-                          className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                          onClick={() => setMegaMenuOpen(false)}
-                        >
-                          <Icon className="w-5 h-5 text-secondary mr-3" />
-                          <span className="text-gray-800">{service.name}</span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Services Mega Menu for Desktop - Handled in the nav items section */}
         </div>
       </nav>
     </>
