@@ -14,7 +14,7 @@ const testimonials = [
     name: "Bruce W.",
     rating: 5,
     text: "They did a very good job replacing my mailbox post. I would recommend them to anyone.",
-    image: "/images/michael-Chen.avif",
+    image: "/images/david_Thompson.avif",
     role: "Homeowner",
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Oscar G.",
     rating: 5,
     text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
-    image: "/images/david_Thompson.avif",
+    image: "/images/michael-Chen.avif",
     role: "Homeowner",
   },
 ];
