@@ -182,9 +182,19 @@
   transition: opacity 200ms, transform 200ms;
 }
 
-/* Prevent body scroll when mobile menu is open */
-body.menu-open {
-  overflow: hidden;
+/* Prevent body scroll when mobile menu or modal is open */
+body.menu-open,
+body {
+  &:has(.service-modal-overlay) {
+    overflow: hidden;
+  }
+}
+
+/* Fix modal positioning */
+.service-modal {
+  animation: modalSlideIn 0.3s ease forwards;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 /* Mobile menu styles */

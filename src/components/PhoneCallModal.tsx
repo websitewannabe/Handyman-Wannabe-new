@@ -39,6 +39,20 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
     }, 3000);
   };
 
+  // Prevent scrolling when modal is open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Cleanup function to restore scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+  
   if (!isOpen) return null;
 
   return (
