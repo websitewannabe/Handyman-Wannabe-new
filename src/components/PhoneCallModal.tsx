@@ -48,7 +48,7 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 service-modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 relative service-modal" style={{ position: 'fixed', maxHeight: '90vh', overflow: 'auto' }}>
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 relative service-modal" style={{ position: 'fixed', maxHeight: '90vh', overflow: 'auto', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
         <button 
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
