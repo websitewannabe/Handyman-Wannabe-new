@@ -24,8 +24,7 @@ const teamMembers = [
     role: "Field Manager",
     specialty: "general",
     experience: "15+ years",
-    image:
-      "https://handymanwannabe.com/wp-content/uploads/2023/09/2023-09-20_10-27-49-1-e1695818312193.png",
+    image: "/images/Dennis-Tierney.png",
     bio: "Experienced field manager overseeing all on-site operations and ensuring quality workmanship on every project.",
     funFact: "Can troubleshoot any home issue within minutes of inspection",
     icon: Wrench,
@@ -37,8 +36,7 @@ const teamMembers = [
     role: "Director of Operations",
     specialty: "management",
     experience: "30+ years",
-    image:
-      "https://handymanwannabe.com/wp-content/uploads/2024/07/IMG_9996-scaled-e1722452280194-1536x1183.jpeg",
+    image: "/images/Chris-Tierney.jpg",
     bio: "Strategic operations director with a focus on efficiency, customer satisfaction, and business growth.",
     funFact:
       "Transformed our scheduling system to reduce response times by 45%",
