@@ -4,9 +4,9 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Oscar G.",
+    name: "Bonnie J.",
     rating: 5,
-    text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
+    text: " I will define be calling them again!Thank you for a great job! Great service, excellent quality and good value!.",
     image: "/images/sarah-Johnson.jpeg",
     role: "Homeowner",
   },
@@ -15,21 +15,21 @@ const testimonials = [
     rating: 5,
     text: "They did a very good job replacing my mailbox post. I would recommend them to anyone.",
     image: "/images/michael-Chen.avif",
-    role: "Business Owner",
+    role: "Homeowner",
   },
   {
     name: "Kathleen B.",
     rating: 5,
-    text: "Assembly of desk with small hutch with many pieces and hardware. Dennis did an excellent job even though partial assembly was incorrect. Their price was also reasonable. I would highly recommend Handyman Wannabe. Thank you so very much. May Our Lord Jesus Christ bless you.",
+    text: "Assembly of desk with small hutch with many pieces and hardware. Dennis did an excellent job even though partial assembly was incorrect. Their price was also reasonable. I would highly recommend Handyman Wannabe. Thank you so much.",
     image: "/images/emily-Rodriguez.avif",
-    role: "Interior Designer",
+    role: "Homeowner",
   },
   {
-    name: "Sue Lynn S.",
+    name: "Oscar G.",
     rating: 5,
-    text: "Wow! Wow! Wow! I am so impressed with this company. They were very thorough, confirmed the appointment, came on time! That Dennis is a working machine. Got a huge list of my requests done, fixed errors of previous contractor. I just can't say enough.",
+    text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
     image: "/images/david_Thompson.avif",
-    role: "Real Estate Agent",
+    role: "Homeowner",
   },
 ];
 
