@@ -33,6 +33,7 @@ import MiscPage from './pages/MiscPage';
 import BlogPage from './pages/BlogPage';
 import PackagesPage from './pages/PackagesPage';
 import Footer from './components/Footer';
+import MobileServicesPage from "./components/MobileServicesPage"; // Added import
 
 function App() {
   return (
@@ -71,6 +72,9 @@ function App() {
           <Route path="/services/management-companies" element={<ManagementCompaniesPage />} />
           <Route path="/services/misc" element={<MiscPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />
+          <Route path="/services" element={
+            window.innerWidth <= 768 ? <MobileServicesPage /> : <ServiceDirectoryPage/> // Modified route for services
+          } />
         </Routes>
         <Footer />
       </div>
