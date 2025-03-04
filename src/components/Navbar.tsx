@@ -103,8 +103,10 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 
 
   useEffect(() => {
@@ -113,8 +115,8 @@ const Navbar = () => {
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth >= 1024) {
         setIsMobileServicesOpen(false);
       }
     };
@@ -230,8 +232,7 @@ const Navbar = () => {
       setIsMobileServicesOpen(true);
       setIsOpen(false); // Close the main mobile menu
     } else {
-      //setIsMegaMenuOpen(!isMegaMenuOpen); //This was causing an error because it's not defined.
-      //setIsDropdownOpen(null); //This was causing an error because it's not defined.
+      setMegaMenuOpen(!megaMenuOpen);
     }
   };
 
@@ -291,29 +292,48 @@ const Navbar = () => {
                     onMouseEnter={() => handleDropdownEnter(item.label)}
                     onMouseLeave={handleDropdownLeave}
                   >
-                    <Link
-                      to={item.href.startsWith("#") ? item.href : item.href}
-                      className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
-                        isActive(item.href)
-                          ? "text-secondary"
-                          : isScrolled || shouldUseBlackText
-                            ? "text-dark hover:bg-gray-50"
-                            : "text-white hover:bg-white/10"
-                      }`}
-                      aria-expanded={activeDropdown === item.label}
-                      aria-haspopup={
-                        item.dropdown || item.megaMenu ? "true" : "false"
-                      }
-                      onClick={item.label === "SERVICES" ? handleServiceClick : null} //added onClick handler for services
-                    >
-                      {item.label}
-                      {(item.dropdown || item.megaMenu) && (
-                        <ChevronDown className="ml-1 w-4 h-4" />
+                    <div>
+                      {item.label === "SERVICES" ? (
+                        <button
+                          onClick={handleServiceClick}
+                          className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
+                            isActive(item.href)
+                              ? "text-secondary"
+                              : isScrolled || shouldUseBlackText
+                                ? "text-dark hover:bg-gray-50"
+                                : "text-white hover:bg-white/10"
+                          }`}
+                          aria-expanded={megaMenuOpen ? "true" : "false"}
+                          aria-haspopup="true"
+                        >
+                          {item.label}
+                          <ChevronDown className="ml-1 w-4 h-4" />
+                        </button>
+                      ) : (
+                        <Link
+                          to={item.href.startsWith("#") ? item.href : item.href}
+                          className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
+                            isActive(item.href)
+                              ? "text-secondary"
+                              : isScrolled || shouldUseBlackText
+                                ? "text-dark hover:bg-gray-50"
+                                : "text-white hover:bg-white/10"
+                          }`}
+                          aria-expanded={activeDropdown === item.label}
+                          aria-haspopup={
+                            item.dropdown || item.megaMenu ? "true" : "false"
+                          }
+                        >
+                          {item.label}
+                          {(item.dropdown || item.megaMenu) && (
+                            <ChevronDown className="ml-1 w-4 h-4" />
+                          )}
+                        </Link>
                       )}
-                    </Link>
+                    </div>
 
                     {/* Mega Menu */}
-                    {item.megaMenu && activeDropdown === item.label && (
+                    {item.megaMenu && megaMenuOpen && item.label === "SERVICES" && (
                       <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50">
                         <div className="grid grid-cols-2 gap-4 p-4">
                           {item.megaMenu.map((category, index) => (
@@ -463,11 +483,36 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          <PhoneCallModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-          />{" "}
+          <PhoneCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />{" "}
           {/* Added modal rendering */}
+          {/* Services Mega Menu for Desktop */}
+          {!isMobile && megaMenuOpen && (
+            <div
+              className="absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg z-50 py-6 px-8 border-t border-gray-200"
+              onMouseLeave={() => setMegaMenuOpen(false)}
+            >
+              <div className="grid grid-cols-2 gap-8 max-w-7xl mx-auto">
+                {serviceCategories.map((category, categoryIndex) => (
+                  <div key={categoryIndex} className="grid grid-cols-2 gap-4">
+                    {category.items.map((service, serviceIndex) => {
+                      const Icon = service.icon;
+                      return (
+                        <Link
+                          key={serviceIndex}
+                          to={`/services/${service.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                          onClick={() => setMegaMenuOpen(false)}
+                        >
+                          <Icon className="w-5 h-5 text-secondary mr-3" />
+                          <span className="text-gray-800">{service.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
     </>
