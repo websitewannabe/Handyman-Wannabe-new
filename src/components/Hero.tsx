@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Search, Phone, X, DollarSign, Clock, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../data/services.json";
+import PhoneCallModal from "./PhoneCallModal"; // Added import
 
 const services = [
   "Outlet Repair",
@@ -21,7 +22,8 @@ const Hero = () => {
   >("idle");
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [selectedService, setSelectedService] = useState<any | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Added modal state
+  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false); // Added phone modal state
   const [filteredServices, setFilteredServices] = useState<any[]>([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -108,6 +110,15 @@ const Hero = () => {
     setIsModalOpen(false);
     setSelectedService(null);
   };
+
+  const openPhoneModal = () => {
+    setIsPhoneModalOpen(true);
+  };
+
+  const closePhoneModal = () => {
+    setIsPhoneModalOpen(false);
+  };
+
 
   return (
     <div className="relative">
@@ -276,7 +287,11 @@ const Hero = () => {
             <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
             </button>
+            <button onClick={openPhoneModal} className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
+              Have our AI Call You
+            </button> {/* Moved button */}
           </div>
+          <PhoneCallModal isOpen={isPhoneModalOpen} onClose={closePhoneModal} /> {/* Added modal */}
         </div>
       </div>
 
