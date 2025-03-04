@@ -195,19 +195,6 @@ body {
   animation: modalSlideIn 0.3s ease forwards;
   max-height: 90vh;
   overflow-y: auto;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-}
-
-.service-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 /* Mobile menu styles */
