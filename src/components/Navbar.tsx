@@ -408,15 +408,23 @@ const Navbar = () => {
               </div>
 
               {/* Phone Number and CTA */}
-              <div className="flex items-center">
-                <Phone
-                  className={`w-5 h-5 ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"} mr-2`}
-                />
-                <span
-                  className={`text-base font-medium ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"}`}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <Phone
+                    className={`w-5 h-5 ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"} mr-2`}
+                  />
+                  <span
+                    className={`text-base font-medium ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"}`}
+                  >
+                    (719) 315-6628
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsModalOpen(true)} // Open modal on click
+                  className="bg-primary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
                 >
-                  (719) 315-6628
-                </span>
+                  Have Our AI Call You
+                </button>
               </div>
             </div>
 
