@@ -1,63 +1,54 @@
 
-import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { X } from "lucide-react";
 
-interface PhoneCallModalProps {
+type PhoneCallModalProps = {
   isOpen: boolean;
   onClose: () => void;
-}
+};
 
 const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic phone validation
-    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if (!phoneRegex.test(phoneNumber)) {
-      setError('Please enter a valid phone number');
-      return;
-    }
-    
-    // Clear error if valid
-    setError('');
-    
-    // Handle submission - in a real app, you would send this to your backend
-    console.log('Phone number submitted:', phoneNumber);
-    
-    // Show thank you message
-    setIsSubmitted(true);
-    
-    // Reset after 3 seconds and close
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setPhoneNumber('');
-      onClose();
-    }, 3000);
-  };
-
-  // Prevent scrolling when modal is open
-  React.useEffect(() => {
+  useEffect(() => {
+    // Prevent scrolling when modal is open
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
     
     // Cleanup function to restore scrolling when component unmounts
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isOpen]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simple validation
+    if (!phoneNumber.trim()) {
+      setError("Please enter a valid phone number");
+      return;
+    }
+    setError("");
+    // Simulate API call
+    setIsSubmitted(true);
+    // Auto close after 3 seconds
+    setTimeout(() => {
+      onClose();
+      setIsSubmitted(false);
+      setPhoneNumber("");
+    }, 3000);
+  };
   
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 service-modal-overlay">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 relative service-modal">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 service-modal-overlay" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 relative service-modal" style={{ position: 'fixed', maxHeight: '90vh', overflow: 'auto' }}>
         <button 
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
@@ -87,22 +78,27 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
                     placeholder="(123) 456-7890"
                     required
                   />
-                  {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
+                  {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
                 </div>
                 
-                <button 
+                <button
                   type="submit"
-                  className="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors"
+                  className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-primary/90 transition-colors"
                 >
                   Call Me
                 </button>
               </form>
             </>
           ) : (
-            <div className="py-8 text-center">
-              <h3 className="text-xl font-bold mb-2 text-primary">Thank You!</h3>
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Call Requested!</h3>
               <p className="text-gray-600">
-                Our AI will call you soon at {phoneNumber}.
+                Our AI assistant will call you shortly at {phoneNumber}.
               </p>
             </div>
           )}
