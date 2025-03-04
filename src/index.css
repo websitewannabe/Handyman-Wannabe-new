@@ -97,6 +97,42 @@
       animation: none;
     }
   }
+
+/* PhoneCallModal isolation styles */
+.phone-call-modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  isolation: isolate;
+  contain: layout style size;
+}
+
+/* Prevent modal styles from being affected by other components */
+.phone-call-modal-content {
+  contain: content;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ensure modal maintains proper stacking regardless of navigation bar */
+body:has(.phone-call-modal-container) {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Modal always gets proper viewport positioning */
+@media (max-width: 767px) {
+  .phone-call-modal-container {
+    align-items: flex-end;
+  }
+  
+  .phone-call-modal-content {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 80vh;
+  }
+}
+
 }
 
 /* Search dropdown styles */

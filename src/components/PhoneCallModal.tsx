@@ -27,18 +27,38 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
       }
     };
 
+    // Prevent body resize from affecting modal position
+    const bodyScrollPos = window.scrollY;
+    
     if (isOpen) {
       document.addEventListener("keydown", handleEscapeKey);
       document.addEventListener("mousedown", handleClickOutside);
-      // Disable scrolling on the body when modal is open
+      
+      // Apply modal-specific body styling
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${bodyScrollPos}px`;
+      document.body.style.width = "100%";
+      
+      // Add class for CSS context
+      document.body.classList.add("modal-open");
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscapeKey);
       document.removeEventListener("mousedown", handleClickOutside);
-      // Re-enable scrolling when modal is closed
+      
+      // Restore body styling
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      
+      // Remove class
+      document.body.classList.remove("modal-open");
+      
+      // Restore scroll position
+      window.scrollTo(0, bodyScrollPos);
     };
   }, [isOpen, onClose]);
 
@@ -64,19 +84,32 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4"
+      className="phone-call-modal-container fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        bottom: 0, 
+        zIndex: 9999,
+        isolation: 'isolate'
+      }}
     >
       <motion.div
         ref={modalRef}
-        className="bg-white rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto"
+        className="phone-call-modal-content bg-white rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto"
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        style={{ position: 'relative', zIndex: 999 }}
+        style={{ 
+          position: 'relative',
+          zIndex: 1,
+          margin: '0 auto',
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
+        }}
       >
         <div className="relative p-6">
           <button
