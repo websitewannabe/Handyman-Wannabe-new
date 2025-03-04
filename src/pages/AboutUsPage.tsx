@@ -22,15 +22,13 @@ const teamMembers = [
   {
     name: "Dennis Tierney",
     role: "Field Manager",
-    image:
-      "https://handymanwannabe.com/wp-content/uploads/2023/09/2023-09-20_10-27-49-1-e1695818312193.png", // Placeholder image
+    image: "/images/Dennis-Tierney.png", 
     bio: "Experienced Field Manager",
   },
   {
     name: "Chris Tierney",
     role: "Director of Operations",
-    image:
-      "https://handymanwannabe.com/wp-content/uploads/2024/07/IMG_9996-scaled-e1722452280194-1536x1183.jpeg", // Placeholder image
+    image: "/images/Chris-Tierney.jpg",
     bio: "Director of Operations",
   },
 ];
