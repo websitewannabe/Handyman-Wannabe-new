@@ -64,10 +64,11 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <motion.div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[1000] p-4"
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[999] p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       <motion.div
         ref={modalRef}
@@ -75,6 +76,7 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        style={{ position: 'relative', zIndex: 999 }}
       >
         <div className="relative p-6">
           <button
