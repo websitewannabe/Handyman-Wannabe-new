@@ -74,7 +74,7 @@ const MeetTeamPage = () => {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className={`w-full h-80 object-cover ${member.name === "Dennis Tierney" ? "object-top" : "object-center"}`}
+                      className={`w-full h-80 object-cover object-center`}
                     />
                     <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-primary">
                       {member.experience}
