@@ -499,7 +499,7 @@ const Navbar = () => {
                       return (
                         <Link
                           key={serviceIndex}
-                          to={`/services/${service.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          to={getServiceUrl(service.name)}
                           className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors"
                           onClick={() => setMegaMenuOpen(false)}
                         >
