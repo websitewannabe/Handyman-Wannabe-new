@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, Star, Gift } from "lucide-react";
+import PackageModal from "./PackageModal";
 
 const packages = [
   {
@@ -48,6 +49,17 @@ const packages = [
 ];
 
 const PackagesSection = () => {
+  const [selectedPackage, setSelectedPackage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openPackageModal = (pkg) => {
+    setSelectedPackage(pkg);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <section className="py-20 relative">
       <div
@@ -141,7 +153,10 @@ const PackagesSection = () => {
                   ))}
                 </ul>
 
-                <button className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                <button 
+                  onClick={() => openPackageModal(pkg)}
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                >
                   Choose Package
                 </button>
               </div>
@@ -149,6 +164,15 @@ const PackagesSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Package Modal */}
+      {selectedPackage && (
+        <PackageModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          packageData={selectedPackage}
+        />
+      )}
     </section>
   );
 };
