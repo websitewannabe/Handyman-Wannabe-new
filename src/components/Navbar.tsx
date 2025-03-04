@@ -249,6 +249,36 @@ const Navbar = () => {
     };
   }, [isMobileServicesOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+      // Check if mega menu is open
+      if (megaMenuOpen) {
+        // Get the mega menu element
+        const megaMenu = document.querySelector('.mega-menu-container');
+
+        // If we found the mega menu and the click is outside it and not on the services nav item
+        if (megaMenu && 
+            !megaMenu.contains(event.target) && 
+            !event.target.closest('[data-menu-trigger="SERVICES"]')) {
+          setMegaMenuOpen(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [megaMenuOpen]);
+
   return (
     <>
       {/* Mobile Services Page */}
@@ -305,6 +335,7 @@ const Navbar = () => {
                           }`}
                           aria-expanded={megaMenuOpen ? "true" : "false"}
                           aria-haspopup="true"
+                          data-menu-trigger="SERVICES" // Added data attribute
                         >
                           {item.label}
                           <ChevronDown className="ml-1 w-4 h-4" />
@@ -334,7 +365,7 @@ const Navbar = () => {
 
                     {/* Mega Menu */}
                     {item.megaMenu && megaMenuOpen && item.label === "SERVICES" && (
-                      <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50">
+                      <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 mega-menu-container"> {/* Added class for selection */}
                         <div className="grid grid-cols-2 gap-4 p-4">
                           {item.megaMenu.map((category, index) => (
                             <div key={index} className="grid gap-1">
