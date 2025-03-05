@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -35,6 +36,12 @@ const teamMembers = [
 
 const AboutUsPage = () => {
   return (
+    <>
+      <SEO 
+        title="About Us" 
+        description="Learn about Handyman Wannabe, our mission, values, and commitment to providing top-quality handyman services for your home improvement needs." 
+        canonicalUrl="https://yourdomain.com/about-us"
+      />
     <div className="pt-28">
       {/* Mission & Values */}
       <section className="py-20 bg-gray-50">
@@ -200,6 +207,7 @@ const AboutUsPage = () => {
         </div>
       </section>
     </div>
+  </>
   );
 };
 
