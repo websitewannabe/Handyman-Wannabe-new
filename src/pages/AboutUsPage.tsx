@@ -113,7 +113,7 @@ const AboutUsPage = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className={`w-full h-64 object-cover ${member.name === "Dennis Tierney" ? "object-top" : ""}`}
+                  className={`w-full h-64 object-cover ${member.name === "Dennis Tierney" ? "object-center" : ""}`}
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
