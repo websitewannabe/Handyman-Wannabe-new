@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import HowItWorksPage from './pages/HowItWorksPage';
@@ -37,9 +38,10 @@ import MobileServicesPage from "./components/MobileServicesPage"; // Added impor
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen">
-        <Navbar />
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen">
+          <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
@@ -78,7 +80,8 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </Router>
+      </Router>
+    </HelmetProvider>
   );
 }
 
