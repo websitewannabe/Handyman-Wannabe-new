@@ -95,7 +95,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(null);
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(
+    null,
+  );
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
@@ -107,7 +109,6 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -184,7 +185,10 @@ const Navbar = () => {
   useEffect(() => {
     // Close dropdown when clicking outside
     function handleClickOutside(event: MouseEvent) {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
         setIsSearchFocused(false);
       }
     }
@@ -203,13 +207,13 @@ const Navbar = () => {
   // Prevent body scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('menu-open');
+      document.body.classList.add("menu-open");
     } else {
-      document.body.classList.remove('menu-open');
+      document.body.classList.remove("menu-open");
     }
 
     return () => {
-      document.body.classList.remove('menu-open');
+      document.body.classList.remove("menu-open");
     };
   }, [isOpen]);
 
@@ -220,11 +224,10 @@ const Navbar = () => {
   // Helper function to convert strings to kebab-case
   const kebabCase = (str: string) => {
     return str
-      .replace(/([a-z])([A-Z])/g, '$1-$2')
-      .replace(/[\s_]+/g, '-')
+      .replace(/([a-z])([A-Z])/g, "$1-$2")
+      .replace(/[\s_]+/g, "-")
       .toLowerCase();
   };
-
 
   const handleServiceClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -239,13 +242,13 @@ const Navbar = () => {
   // Add/remove body class to prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileServicesOpen) {
-      document.body.classList.add('mobile-menu-open');
+      document.body.classList.add("mobile-menu-open");
     } else {
-      document.body.classList.remove('mobile-menu-open');
+      document.body.classList.remove("mobile-menu-open");
     }
 
     return () => {
-      document.body.classList.remove('mobile-menu-open');
+      document.body.classList.remove("mobile-menu-open");
     };
   }, [isMobileServicesOpen]);
 
@@ -259,12 +262,14 @@ const Navbar = () => {
       // Check if mega menu is open
       if (megaMenuOpen) {
         // Get the mega menu element
-        const megaMenu = document.querySelector('.mega-menu-container');
+        const megaMenu = document.querySelector(".mega-menu-container");
 
         // If we found the mega menu and the click is outside it and not on the services nav item
-        if (megaMenu && 
-            !megaMenu.contains(event.target) && 
-            !event.target.closest('[data-menu-trigger="SERVICES"]')) {
+        if (
+          megaMenu &&
+          !megaMenu.contains(event.target) &&
+          !event.target.closest('[data-menu-trigger="SERVICES"]')
+        ) {
           setMegaMenuOpen(false);
         }
       }
@@ -290,7 +295,9 @@ const Navbar = () => {
 
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/75 backdrop-blur-sm shadow-lg" : "bg-transparent"
+          isScrolled
+            ? "bg-white/75 backdrop-blur-sm shadow-lg"
+            : "bg-transparent"
         }`}
         role="navigation"
         aria-label="Main navigation"
@@ -364,26 +371,30 @@ const Navbar = () => {
                     </div>
 
                     {/* Mega Menu */}
-                    {item.megaMenu && megaMenuOpen && item.label === "SERVICES" && (
-                      <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 mega-menu-container"> {/* Added class for selection */}
-                        <div className="grid grid-cols-2 gap-4 p-4">
-                          {item.megaMenu.map((category, index) => (
-                            <div key={index} className="grid gap-1">
-                              {category.items.map((service) => (
-                                <Link
-                                  key={service.name}
-                                  to={getServiceUrl(service.name)}
-                                  className="px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded text-secondary hover:text-primary flex items-center"
-                                >
-                                  <service.icon className="w-4 h-4 mr-2" />
-                                  {service.name}
-                                </Link>
-                              ))}
-                            </div>
-                          ))}
+                    {item.megaMenu &&
+                      megaMenuOpen &&
+                      item.label === "SERVICES" && (
+                        <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 mega-menu-container">
+                          {" "}
+                          {/* Added class for selection */}
+                          <div className="grid grid-cols-2 gap-4 p-4">
+                            {item.megaMenu.map((category, index) => (
+                              <div key={index} className="grid gap-1">
+                                {category.items.map((service) => (
+                                  <Link
+                                    key={service.name}
+                                    to={getServiceUrl(service.name)}
+                                    className="px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded text-secondary hover:text-primary flex items-center"
+                                  >
+                                    <service.icon className="w-4 h-4 mr-2" />
+                                    {service.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
                     {/* Regular Dropdown Menu */}
                     {item.dropdown && activeDropdown === item.label && (
@@ -469,16 +480,18 @@ const Navbar = () => {
                         </button>
                         {mobileSubMenuOpen === item.label && (
                           <div className="pl-4">
-                            {item.dropdown.map((dropdownItem, dropdownIndex) => (
-                              <Link
-                                key={dropdownIndex}
-                                to={dropdownItem.href}
-                                className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-50"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                <span>{dropdownItem.label}</span>
-                              </Link>
-                            ))}
+                            {item.dropdown.map(
+                              (dropdownItem, dropdownIndex) => (
+                                <Link
+                                  key={dropdownIndex}
+                                  to={dropdownItem.href}
+                                  className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-50"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  <span>{dropdownItem.label}</span>
+                                </Link>
+                              ),
+                            )}
                           </div>
                         )}
                       </div>
@@ -514,7 +527,10 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          <PhoneCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />{" "}
+          <PhoneCallModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />{" "}
           {/* Added modal rendering */}
           {/* Services Mega Menu for Desktop - Handled in the nav items section */}
         </div>
