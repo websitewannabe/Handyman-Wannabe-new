@@ -11,6 +11,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from '../components/SEO'; // Added import for SEO component
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -36,6 +37,7 @@ const teamMembers = [
 const AboutUsPage = () => {
   return (
     <div className="pt-28">
+      <SEO title="About Us - Handyman Wannabe" description="Learn more about our mission, values, and team." /> {/* Added SEO component */}
       {/* Mission & Values */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
