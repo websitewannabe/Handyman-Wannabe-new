@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Handyman Wannabe</title>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Zapier Chatbot Script -->
+    <script
+      async
+      type="module"
+      src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"
+    ></script>
+
+    <!-- Chatbot Embed -->
+    <zapier-interfaces-chatbot-embed
+      is-popup="true"
+      chatbot-id="cm7p74cv7000w9a6m7lj6xhmj"
+    ></zapier-interfaces-chatbot-embed>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
