@@ -33,16 +33,9 @@ const teamMembers = [
   },
 ];
 
-import SEO from "../components/SEO";
-
 const AboutUsPage = () => {
   return (
     <div className="pt-28">
-      <SEO 
-        title="About Us | Handyman Wannabe"
-        description="Learn about our mission to make home repairs stress-free by connecting customers with trusted, skilled handymen who deliver exceptional results."
-        keywords="about handyman wannabe, handyman mission, home repair professionals, trusted handymen"
-      />
       {/* Mission & Values */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
