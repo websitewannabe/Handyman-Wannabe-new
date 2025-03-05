@@ -12,7 +12,10 @@ export default defineConfig({
     hmr: {
       clientPort: 443
     },
-    // Allow all hosts
-    allowedHosts: 'all'
+    // Allow all hosts explicitly including the Replit domain
+    cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   }
 })
