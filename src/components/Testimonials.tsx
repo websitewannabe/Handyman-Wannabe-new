@@ -4,32 +4,32 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Bonnie J.",
+    name: "Sarah Johnson",
     rating: 5,
-    text: " I will define be calling them again!Thank you for a great job! Great service, excellent quality and good value!.",
+    text: "Excellent service! The handyman was professional, on time, and did a fantastic job with our kitchen cabinet repairs.",
     image: "/images/sarah-Johnson.jpeg",
     role: "Homeowner",
   },
   {
-    name: "Bruce W.",
+    name: "Michael Chen",
     rating: 5,
-    text: "They did a very good job replacing my mailbox post. I would recommend them to anyone.",
-    image: "/images/david_Thompson.avif",
-    role: "Homeowner",
-  },
-  {
-    name: "Kathleen B.",
-    rating: 5,
-    text: "Assembly of desk with small hutch with many pieces and hardware. Dennis did an excellent job even though partial assembly was incorrect. Their price was also reasonable. I would highly recommend Handyman Wannabe. Thank you so much.",
-    image: "/images/emily-Rodriguez.avif",
-    role: "Homeowner",
-  },
-  {
-    name: "Oscar G.",
-    rating: 5,
-    text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
+    text: "Very reliable and skilled. Fixed our deck issues quickly and efficiently. Highly recommend!",
     image: "/images/michael-Chen.avif",
-    role: "Homeowner",
+    role: "Business Owner",
+  },
+  {
+    name: "Emily Rodriguez",
+    rating: 5,
+    text: "Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.",
+    image: "/images/emily-Rodriguez.avif",
+    role: "Interior Designer",
+  },
+  {
+    name: "David Thompson",
+    rating: 5,
+    text: "From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.",
+    image: "/images/david_Thompson.avif",
+    role: "Real Estate Agent",
   },
 ];
 

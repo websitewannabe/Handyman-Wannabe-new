@@ -118,12 +118,9 @@ const Hero = () => {
             backgroundImage: 'url("images/Handyman-Hero.jpeg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transition: "opacity 0.3s ease-in-out",
           }}
         >
           <div className="absolute inset-0 bg-black/50"></div>
-          {/* Add a preloader image */}
-          <link rel="preload" as="image" href="images/Handyman-Hero.jpeg" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
