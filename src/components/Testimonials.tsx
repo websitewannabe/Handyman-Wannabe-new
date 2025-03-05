@@ -4,32 +4,32 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Bonnie J.",
     rating: 5,
-    text: "Excellent service! The handyman was professional, on time, and did a fantastic job with our kitchen cabinet repairs.",
+    text: " I will define be calling them again!Thank you for a great job! Great service, excellent quality and good value!.",
     image: "/images/sarah-Johnson.jpeg",
     role: "Homeowner",
   },
   {
-    name: "Michael Chen",
+    name: "Bruce W.",
     rating: 5,
-    text: "Very reliable and skilled. Fixed our deck issues quickly and efficiently. Highly recommend!",
-    image: "/images/michael-Chen.avif",
-    role: "Business Owner",
-  },
-  {
-    name: "Emily Rodriguez",
-    rating: 5,
-    text: "Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.",
-    image: "/images/emily-Rodriguez.avif",
-    role: "Interior Designer",
-  },
-  {
-    name: "David Thompson",
-    rating: 5,
-    text: "From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.",
+    text: "They did a very good job replacing my mailbox post. I would recommend them to anyone.",
     image: "/images/david_Thompson.avif",
-    role: "Real Estate Agent",
+    role: "Homeowner",
+  },
+  {
+    name: "Kathleen B.",
+    rating: 5,
+    text: "Assembly of desk with small hutch with many pieces and hardware. Dennis did an excellent job even though partial assembly was incorrect. Their price was also reasonable. I would highly recommend Handyman Wannabe. Thank you so much.",
+    image: "/images/emily-Rodriguez.avif",
+    role: "Homeowner",
+  },
+  {
+    name: "Oscar G.",
+    rating: 5,
+    text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
+    image: "/images/michael-Chen.avif",
+    role: "Homeowner",
   },
 ];
 
