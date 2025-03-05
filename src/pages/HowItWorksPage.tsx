@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ClipboardList, UserCheck, Calendar, Star, Shield, Clock, ThumbsUp, Phone, ArrowRight, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
+import SEO from '../components/SEO';
+import { pageSEOData, getCanonicalUrl } from '../utils/seoHelpers';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -40,6 +42,15 @@ const testimonials = [
 ];
 
 const HowItWorksPage = () => {
+  // Get SEO data for this page, or create custom data if not in our helper
+  const seoData = pageSEOData.howItWorks || {
+    title: 'How It Works - Handyman Wannabe',
+    description: 'Learn how our handyman services work, from requesting a quote to completing your home improvement project.',
+    keywords: 'handyman process, how handyman works, home repair process, handyman booking',
+    featuredImage: '/images/how-it-works-featured.jpg',
+    path: '/how-it-works'
+  };
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -77,6 +88,14 @@ const HowItWorksPage = () => {
 
   return (
     <div className="pt-28">
+      <SEO 
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        featuredImage={seoData.featuredImage}
+        ogImage={seoData.featuredImage}
+        canonicalUrl={getCanonicalUrl(seoData.path)}
+      />
       {/* Process Steps */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -192,7 +211,7 @@ const HowItWorksPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">Service Area Information</h2>
-            
+
             <div className="space-y-6">
               {[
                 {

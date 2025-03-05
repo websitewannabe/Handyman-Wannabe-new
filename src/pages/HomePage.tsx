@@ -34,6 +34,8 @@ const HomePage: React.FC = () => {
         title="Handyman Wannabe - Professional Home Services & Repairs"
         description="Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs."
         keywords="handyman services, home repairs, home maintenance, professional handyman, home improvement"
+        featuredImage="/images/Handyman-Hero.jpeg"
+        ogImage="/images/Handyman-Hero.jpeg"
       />
       <Hero />
       <ServiceAreas />

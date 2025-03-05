@@ -9,6 +9,7 @@ interface SEOProps {
   ogImage?: string;
   ogUrl?: string;
   canonicalUrl?: string;
+  featuredImage?: string; // Add featured image support
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -16,12 +17,14 @@ const SEO: React.FC<SEOProps> = ({
   description = 'Handyman Wannabe provides professional and reliable handyman services for all your home maintenance and improvement needs.',
   keywords = 'handyman, home repair, home maintenance, professional handyman, home improvement',
   ogImage = '/images/handyman-wannabe-og.jpg',
+  featuredImage = '/images/handyman-wannabe-og.jpg', // Default featured image
   ogUrl,
   canonicalUrl,
 }) => {
   const siteUrl = 'https://www.handymanwannabe.com'; // Replace with your actual domain
   const pageUrl = ogUrl || canonicalUrl || siteUrl;
   const imageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+  const featuredImageUrl = featuredImage.startsWith('http') ? featuredImage : `${siteUrl}${featuredImage}`;
 
   return (
     <Helmet>
@@ -32,6 +35,9 @@ const SEO: React.FC<SEOProps> = ({
       
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      
+      {/* Featured Image */}
+      <link rel="image_src" href={featuredImageUrl} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -46,6 +52,18 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+      
+      {/* Schema.org structured data for featured image */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": title,
+          "description": description,
+          "url": pageUrl,
+          "image": featuredImageUrl
+        })}
+      </script>
     </Helmet>
   );
 };

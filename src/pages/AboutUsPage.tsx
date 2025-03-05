@@ -37,7 +37,13 @@ const teamMembers = [
 const AboutUsPage = () => {
   return (
     <div className="pt-28">
-      <SEO title="About Us - Handyman Wannabe" description="Learn more about our mission, values, and team." /> {/* Added SEO component */}
+      <SEO 
+        title="About Us - Handyman Wannabe" 
+        description="Learn more about our mission, values, and team at Handyman Wannabe. Discover our commitment to quality service and customer satisfaction."
+        keywords="about handyman wannabe, handyman team, professional handyman services, home repair experts" 
+        featuredImage="/images/about-us-featured.jpg"
+        ogImage="/images/about-us-featured.jpg"
+      />
       {/* Mission & Values */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
