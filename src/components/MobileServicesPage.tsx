@@ -1,30 +1,23 @@
 
-import React, { useState } from "react";
+import React from "react";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import {
-  Zap,
-  Droplet,
-  Paintbrush,
-  Ruler,
-  Hammer,
-  DoorOpen,
-  Car as GarageDoor,
-  Waves,
-  Flower2,
-  ClipboardCheck,
-  Shield,
-  Home as SmartHome,
-  Lock,
-  Bath,
-  Lightbulb,
-  Sofa,
-  Truck,
-  Brush,
-  Building2,
-  Package,
-  ArrowLeft,
-  ChevronRight
+
+// Import icons used in the services mega menu
+import { 
+  Bath, 
+  Lightbulb, 
+  Wrench, 
+  PaintBucket, 
+  Tv, 
+  Home, 
+  Lock, 
+  Flower2, 
+  Wind,
+  Droplets,
+  SquareAsterisk,
+  CalendarClock,
+  Truck
 } from "lucide-react";
 
 interface MobileServicesPageProps {
@@ -33,179 +26,153 @@ interface MobileServicesPageProps {
 
 const MobileServicesPage = ({ onClose }: MobileServicesPageProps) => {
   const navigate = useNavigate();
-  
+
   const serviceCategories = [
     {
-      name: "Electrical",
-      icon: <Zap className="w-6 h-6" />,
-      path: "/services/electrical",
-      description: "Lighting installations, outlet repairs, and more",
+      title: "Plumbing",
+      icon: Bath,
+      path: "/plumbing",
+      description: "Leak repairs, fixture installations, and drain cleaning"
     },
     {
-      name: "Plumbing",
-      icon: <Droplet className="w-6 h-6" />,
-      path: "/services/plumbing",
-      description: "Fixture replacements, leak repairs, and drain cleaning",
+      title: "Electrical",
+      icon: Lightbulb,
+      path: "/electrical",
+      description: "Wiring, lighting, and electrical repairs"
     },
     {
-      name: "Painting & Drywall",
-      icon: <Paintbrush className="w-6 h-6" />,
-      path: "/services/painting-drywall",
-      description: "Interior painting, drywall repair, and texturing",
+      title: "General Repairs",
+      icon: Wrench,
+      path: "/general-repairs",
+      description: "Handyman services for various home repairs"
     },
     {
-      name: "Carpentry",
-      icon: <Ruler className="w-6 h-6" />,
-      path: "/services/carpentry",
-      description: "Custom shelving, trim work, and furniture assembly",
+      title: "Painting & Drywall",
+      icon: PaintBucket,
+      path: "/painting-drywall",
+      description: "Interior and exterior painting, drywall repair"
     },
     {
-      name: "Handyman",
-      icon: <Hammer className="w-6 h-6" />,
-      path: "/services/handyman",
-      description: "General repairs, mounting, and maintenance tasks",
+      title: "Smart Homes",
+      icon: Tv,
+      path: "/smart-homes",
+      description: "Smart device installation and configuration"
     },
     {
-      name: "Windows & Doors",
-      icon: <DoorOpen className="w-6 h-6" />,
-      path: "/services/windows-doors",
-      description: "Installation, repair, and weatherproofing",
+      title: "Windows & Doors",
+      icon: Home,
+      path: "/windows-doors",
+      description: "Window and door installation and repair"
     },
     {
-      name: "Garage Doors",
-      icon: <GarageDoor className="w-6 h-6" />,
-      path: "/services/garage-doors",
-      description: "Opener installation, track repair, and maintenance",
+      title: "Locksmithing",
+      icon: Lock,
+      path: "/locksmithing",
+      description: "Lock installation, repair, and key duplication"
     },
     {
-      name: "Power Washing",
-      icon: <Waves className="w-6 h-6" />,
-      path: "/services/powerwashing",
-      description: "Exterior cleaning for siding, decks, and driveways",
+      title: "Landscaping",
+      icon: Flower2,
+      path: "/landscaping",
+      description: "Lawn care, garden maintenance, and landscaping"
     },
     {
-      name: "Lawn & Garden",
-      icon: <Flower2 className="w-6 h-6" />,
-      path: "/services/lawn-garden",
-      description: "Landscaping, lawn care, and garden maintenance",
+      title: "HVAC",
+      icon: Wind,
+      path: "/hvac",
+      description: "Heating, ventilation, and air conditioning services"
     },
     {
-      name: "Home Inspections",
-      icon: <ClipboardCheck className="w-6 h-6" />,
-      path: "/services/home-inspections",
-      description: "Thorough evaluations of home systems and structure",
+      title: "Powerwashing",
+      icon: Droplets,
+      path: "/powerwashing",
+      description: "Surface cleaning for decks, driveways, and exteriors"
     },
     {
-      name: "Holiday Lighting",
-      icon: <Lightbulb className="w-6 h-6" />,
-      path: "/services/holiday-lighting",
-      description: "Professional holiday light installation and removal",
+      title: "Holiday Lighting",
+      icon: SquareAsterisk,
+      path: "/holiday-lighting",
+      description: "Holiday light installation and removal"
     },
     {
-      name: "Flooring",
-      icon: <Sofa className="w-6 h-6" />,
-      path: "/services/flooring",
-      description: "Installation and repair for various flooring types",
+      title: "Cleaning",
+      icon: Droplets,
+      path: "/cleaning",
+      description: "Deep cleaning, sanitizing, and organization services"
     },
     {
-      name: "Third Party Moving",
-      icon: <Truck className="w-6 h-6" />,
-      path: "/services/third-party-moving",
-      description: "Furniture delivery, moving assistance, and more",
+      title: "Third Party Moving",
+      icon: Truck,
+      path: "/third-party-moving",
+      description: "Professional packing, loading, and moving services"
     },
     {
-      name: "Cleaning",
-      icon: <Brush className="w-6 h-6" />,
-      path: "/services/cleaning",
-      description: "Deep cleaning, move-in/out services, and maintenance",
+      title: "Home Security",
+      icon: Lock,
+      path: "/home-security",
+      description: "Security system installation and maintenance"
     },
     {
-      name: "Management Companies",
-      icon: <Building2 className="w-6 h-6" />,
-      path: "/services/management-companies",
-      description: "Property management and maintenance solutions",
-    },
-    {
-      name: "Misc Services",
-      icon: <Package className="w-6 h-6" />,
-      path: "/services/misc",
-      description: "Additional services not covered in other categories",
-    },
+      title: "Special Events",
+      icon: CalendarClock,
+      path: "/special-events",
+      description: "Setup and decoration for special occasions"
+    }
   ];
 
-  const handleNavigate = (path: string) => {
-    navigate(path);
-    if (onClose) onClose();
-  };
-
-  // Add class to body to prevent scrolling
-  React.useEffect(() => {
-    document.body.classList.add('mobile-menu-open');
-    return () => {
-      document.body.classList.remove('mobile-menu-open');
-    };
-  }, []);
-
   return (
-    <motion.div
-      className="fixed inset-0 bg-white z-50 overflow-y-auto"
-      initial={{ x: "100%" }}
-      animate={{ x: 0 }}
-      exit={{ x: "100%" }}
-      transition={{ type: "tween", duration: 0.3 }}
-    >
-      <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-4 border-b">
-        <button
-          onClick={onClose}
-          className="flex items-center text-gray-700 font-medium"
+    <div className="bg-white min-h-screen">
+      {/* Header with back button */}
+      <div className="sticky top-0 bg-primary text-white px-4 py-3 flex items-center z-10">
+        <button 
+          onClick={onClose || (() => navigate(-1))} 
+          className="mr-4 p-1 rounded-full hover:bg-primary-dark transition-colors"
         >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back
+          <ArrowLeft className="w-6 h-6" />
         </button>
-        <h1 className="text-xl font-bold text-center">Our Services</h1>
-        <div className="w-5"></div> {/* Empty div for spacing */}
+        <h1 className="text-xl font-bold">Services</h1>
       </div>
-      
-      <div className="container mx-auto px-4 py-6">
-        <p className="text-gray-600 mb-6 text-center">
-          Select a service category to explore our offerings
-        </p>
-        
-        <div className="divide-y">
+
+      {/* Service categories list */}
+      <div className="py-4 px-3">
+        <div className="bg-gray-50 rounded-lg overflow-hidden shadow-sm">
           {serviceCategories.map((category, index) => (
-            <button
+            <div 
               key={index}
-              className="w-full py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
-              onClick={() => handleNavigate(category.path)}
+              className={`border-b border-gray-200 ${index === serviceCategories.length - 1 ? 'border-b-0' : ''}`}
             >
-              <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4">
-                  {category.icon}
+              <button
+                onClick={() => {
+                  navigate(category.path);
+                  if (onClose) onClose();
+                }}
+                className="w-full text-left px-4 py-5 flex items-center justify-between hover:bg-gray-100 transition-colors"
+              >
+                <div className="flex items-center">
+                  <div className="bg-primary/10 p-2 rounded-lg mr-4">
+                    <category.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800">{category.title}</h3>
+                    <p className="text-sm text-gray-600">{category.description}</p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <h3 className="font-medium text-gray-900">{category.name}</h3>
-                  <p className="text-sm text-gray-500">{category.description}</p>
-                </div>
-              </div>
-              <ChevronRight className="w-5 h-5 text-gray-400" />
-            </button>
+                <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
+              </button>
+            </div>
           ))}
         </div>
         
-        <div className="mt-8 bg-gray-50 p-4 rounded-lg">
-          <h3 className="font-bold text-center mb-2">Need help deciding?</h3>
-          <p className="text-center text-gray-600 mb-3">
-            Not sure which service you need? Contact us for a consultation.
-          </p>
-          <button 
-            className="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-            onClick={() => navigate('/contact')}
-          >
-            Get In Touch
+        {/* Contact section */}
+        <div className="mt-8 bg-gray-50 rounded-lg p-4 text-center shadow-sm">
+          <h3 className="font-bold text-gray-800 mb-2">Need Help?</h3>
+          <p className="text-gray-600 mb-4">Contact our specialists for custom service solutions</p>
+          <button className="bg-secondary text-white py-2 px-6 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
+            Get a Quote
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
