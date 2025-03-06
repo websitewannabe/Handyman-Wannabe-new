@@ -1,72 +1,110 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const SitemapPage: React.FC = () => {
-  const routes = [
-    { path: "/", name: "Home" },
-    { path: "/how-it-works", name: "How It Works" },
-    { path: "/about-us", name: "About Us" },
-    { path: "/careers", name: "Careers" },
-    { path: "/meet-the-team", name: "Meet The Team" },
-    { path: "/contact", name: "Contact" },
-    { path: "/service-area", name: "Service Area" },
-    { path: "/faq", name: "FAQ" },
-    { path: "/blog", name: "Blog" },
-    { path: "/packages", name: "Packages" },
-    { path: "/service-directory", name: "Service Directory" },
-    { path: "/services/carpentry", name: "Carpentry" },
-    { path: "/services/garage-doors", name: "Garage Doors" },
-    { path: "/services/smart-homes", name: "Smart Homes" },
-    { path: "/services/locksmithing", name: "Locksmithing" },
-    { path: "/services/furniture-assembly", name: "Furniture Assembly" },
-    { path: "/services/electrical", name: "Electrical" },
-    { path: "/services/painting-drywall", name: "Painting & Drywall" },
-    { path: "/services/landscaping", name: "Landscaping" },
-    { path: "/services/home-security", name: "Home Security" },
-    { path: "/services/powerwashing", name: "Power Washing" },
-    { path: "/services/windows-doors", name: "Windows & Doors" },
-    { path: "/services/holiday-lighting", name: "Holiday Lighting" },
-    { path: "/services/plumbing", name: "Plumbing" },
-    { path: "/services/pools-spas", name: "Pools & Spas" },
-    { path: "/services/flooring", name: "Flooring" },
-    { path: "/services/cleaning", name: "Cleaning" },
-    { path: "/services/third-party-moving", name: "Third Party Moving" },
-    { path: "/services/home-inspections", name: "Home Inspections" },
-    { path: "/services/management-companies", name: "Management Companies" },
-    { path: "/services/misc", name: "Miscellaneous Services" },
+  // Site structure data
+  const siteStructure = [
+    {
+      title: "Main Pages",
+      links: [
+        { name: "Home", url: "/" },
+        { name: "Process", url: "/how-it-works" },
+        { name: "Packages", url: "/packages" },
+        { name: "Service Area", url: "/service-area" },
+        { name: "Blog", url: "/blog" },
+        { name: "Service Directory", url: "/service-directory" },
+      ],
+    },
+    {
+      title: "About",
+      links: [
+        { name: "About Us", url: "/about-us" },
+        { name: "Meet the Team", url: "/meet-the-team" },
+        { name: "Careers", url: "/careers" },
+        { name: "FAQ", url: "/faq" },
+        { name: "Contact", url: "/contact" },
+      ],
+    },
+    {
+      title: "Home Improvement",
+      links: [
+        { name: "Carpentry", url: "/services/carpentry" },
+        { name: "Furniture Assembly", url: "/services/furniture-assembly" },
+        { name: "Windows & Doors", url: "/services/windows-doors" },
+        { name: "Painting & Drywall", url: "/services/painting-drywall" },
+        { name: "Flooring", url: "/services/flooring" },
+      ],
+    },
+    {
+      title: "Outdoor Services",
+      links: [
+        { name: "Landscaping", url: "/services/landscaping" },
+        { name: "Powerwashing", url: "/services/powerwashing" },
+        { name: "Holiday Lighting", url: "/services/holiday-lighting" },
+        { name: "Pools & Spas", url: "/services/pools-spas" },
+      ],
+    },
+    {
+      title: "Technical Services",
+      links: [
+        { name: "Electrical", url: "/services/electrical" },
+        { name: "Plumbing", url: "/services/plumbing" },
+        { name: "Smart Homes", url: "/services/smart-homes" },
+        { name: "Home Security", url: "/services/home-security" },
+        { name: "Garage Doors", url: "/services/garage-doors" },
+        { name: "Locksmithing", url: "/services/locksmithing" },
+      ],
+    },
+    {
+      title: "Additional Services",
+      links: [
+        { name: "Cleaning", url: "/services/cleaning" },
+        { name: "Third-Party Moving", url: "/services/third-party-moving" },
+        { name: "Home Inspections", url: "/services/home-inspections" },
+        { name: "Management Companies", url: "/services/management-companies" },
+        { name: "Misc Services", url: "/services/misc" },
+      ],
+    },
   ];
 
   return (
-    <>
+    <div className="container mx-auto px-4 py-12">
       <Helmet>
-        <title>Sitemap | Handyman Wannabe</title>
-        <meta name="description" content="Browse all pages on Handyman Wannabe's website through our sitemap." />
+        <title>Sitemap - Handyman Wannabe</title>
+        <meta name="description" content="Complete site structure and navigation guide for Handyman Wannabe services." />
       </Helmet>
-
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-center mb-8">Sitemap</h1>
-
-        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
-          <p className="mb-6 text-gray-600">
-            Below you'll find a complete list of all pages on our website. For a machine-readable version, see our <a href="/sitemap.xml" className="text-orange-500 hover:underline" target="_blank" rel="noopener noreferrer">XML sitemap</a>.
-          </p>
-
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {routes.map((route) => (
-              <li key={route.path}>
-                <Link 
-                  to={route.path} 
-                  className="block p-2 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded transition-colors"
-                >
-                  {route.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      
+      <h1 className="text-3xl font-bold text-center mb-10">Sitemap</h1>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {siteStructure.map((section, index) => (
+          <div key={index} className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-semibold text-secondary mb-4">{section.title}</h2>
+            <ul className="space-y-2">
+              {section.links.map((link, linkIndex) => (
+                <li key={linkIndex} className="hover:text-primary transition-colors">
+                  <Link to={link.url} className="flex items-center">
+                    <span className="mr-2">›</span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-    </>
+      
+      <div className="mt-16 text-center">
+        <p className="text-gray-600">
+          Can't find what you're looking for? 
+          <Link to="/contact" className="text-primary ml-1 hover:underline">
+            Contact Us
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 };
 
