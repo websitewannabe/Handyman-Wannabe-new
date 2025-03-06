@@ -1,0 +1,27 @@
+
+User-agent: *
+Allow: /
+
+# Block access to admin areas
+Disallow: /admin/
+
+# Allow all bots to access the sitemap
+Sitemap: https://www.handymanwannabe.com/sitemap.xml
+
+# Set crawl delay for some bots
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+# Optimize for images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Provide specific instructions for social media crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
