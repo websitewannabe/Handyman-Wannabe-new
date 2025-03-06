@@ -75,7 +75,7 @@ function App() {
           <Route path="/services/misc" element={<MiscPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />
           <Route path="/services" element={
-            window.innerWidth <= 768 ? <MobileServicesPage /> : <ServiceDirectoryPage/> // Modified route for services
+            window.innerWidth <= 768 ? <MobileServicesPage onClose={() => window.history.back()} /> : <ServiceDirectoryPage/> 
           } />
         </Routes>
         <Footer />

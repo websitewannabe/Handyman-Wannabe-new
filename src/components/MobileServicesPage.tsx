@@ -177,3 +177,118 @@ const MobileServicesPage = ({ onClose }: MobileServicesPageProps) => {
 };
 
 export default MobileServicesPage;
+import React from "react";
+import { Link } from "react-router-dom";
+import { X } from "lucide-react";
+import {
+  Hammer,
+  Brush,
+  Zap,
+  Ruler,
+  Sofa,
+  GarageDoor,
+  Lightbulb,
+  ClipboardCheck,
+  Shield,
+  Flower2,
+  Lock,
+  Package,
+  Paintbrush,
+  Droplet,
+  Bath,
+  Waves,
+  Building2,
+  SmartHome,
+  Truck,
+  DoorOpen,
+} from "lucide-react";
+
+// Service categories data structure matching the Navbar's
+const serviceCategories = [
+  {
+    items: [
+      { name: "Carpentry", icon: Hammer, path: "/services/carpentry" },
+      { name: "Cleaning", icon: Brush, path: "/services/cleaning" },
+      { name: "Electrical", icon: Zap, path: "/services/electrical" },
+      { name: "Flooring", icon: Ruler, path: "/services/flooring" },
+      { name: "Furniture Assembly", icon: Sofa, path: "/services/furniture-assembly" },
+      { name: "Garage Doors", icon: GarageDoor, path: "/services/garage-doors" },
+      { name: "Holiday Lighting", icon: Lightbulb, path: "/services/holiday-lighting" },
+      { name: "Home Inspections", icon: ClipboardCheck, path: "/services/home-inspections" },
+      { name: "Home Security", icon: Shield, path: "/services/home-security" },
+      { name: "Landscaping", icon: Flower2, path: "/services/landscaping" },
+    ],
+  },
+  {
+    items: [
+      { name: "Locksmithing", icon: Lock, path: "/services/locksmithing" },
+      { name: "Misc.", icon: Package, path: "/services/misc" },
+      { name: "Painting & Drywall", icon: Paintbrush, path: "/services/painting-drywall" },
+      { name: "Plumbing", icon: Droplet, path: "/services/plumbing" },
+      { name: "Pools & Spas", icon: Bath, path: "/services/pools-spas" },
+      { name: "Powerwashing", icon: Waves, path: "/services/powerwashing" },
+      { name: "Property Management", icon: Building2, path: "/services/management-companies" },
+      { name: "Smart Home", icon: SmartHome, path: "/services/smart-homes" },
+      { name: "Third Party Moving", icon: Truck, path: "/services/third-party-moving" },
+      { name: "Windows & Doors", icon: DoorOpen, path: "/services/windows-doors" },
+    ],
+  },
+];
+
+interface MobileServicesPageProps {
+  onClose: () => void;
+}
+
+const MobileServicesPage: React.FC<MobileServicesPageProps> = ({ onClose }) => {
+  return (
+    <div className="fixed inset-0 bg-white z-50 overflow-y-auto">
+      <div className="sticky top-0 flex items-center justify-between p-4 border-b border-gray-200 bg-white z-10">
+        <h1 className="text-xl font-bold">Services</h1>
+        <button
+          onClick={onClose}
+          className="p-2 rounded-full hover:bg-gray-100"
+          aria-label="Close services page"
+        >
+          <X className="h-6 w-6" />
+        </button>
+      </div>
+
+      <div className="p-4">
+        {serviceCategories.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="mb-8">
+            <div className="grid grid-cols-2 gap-4">
+              {category.items.map((service, serviceIndex) => {
+                const Icon = service.icon;
+                return (
+                  <Link
+                    key={serviceIndex}
+                    to={service.path}
+                    className="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all"
+                    onClick={onClose}
+                  >
+                    <div className="w-12 h-12 mb-2 flex items-center justify-center text-primary">
+                      <Icon className="w-8 h-8" />
+                    </div>
+                    <span className="text-center text-sm font-medium">{service.name}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+        
+        <div className="mt-8 mb-16">
+          <Link
+            to="/service-directory"
+            className="block w-full py-3 text-center bg-primary text-white font-bold rounded-lg"
+            onClick={onClose}
+          >
+            View All Services
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MobileServicesPage;

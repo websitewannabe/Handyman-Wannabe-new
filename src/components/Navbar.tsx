@@ -460,55 +460,79 @@ const Navbar = () => {
             <div className="lg:hidden bg-white">
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {navItems.map((item) => (
-                  <div key={item.label}>
-                    {item.dropdown ? (
-                      <div>
-                        <button
-                          onClick={() => toggleMobileSubMenu(item.label)}
-                          className={`block px-3 py-3 w-full text-base font-medium rounded-md text-left ${
-                            mobileSubMenuOpen === item.label
-                              ? "text-secondary bg-gray-100"
-                              : "text-dark hover:bg-gray-50 hover:text-secondary"
+                  <li key={item.label} className="w-full">
+                    {/* First level item */}
+                    {item.dropdown || item.megaMenu ? (
+                      // Items with dropdown - special handling for SERVICES on mobile
+                      item.label === "SERVICES" ? (
+                        <Link
+                          to="/mobileservicespage" // Updated link for Services
+                          className={`block py-3 text-lg font-medium ${
+                            isActive("/mobileservicespage")
+                              ? "text-primary"
+                              : isScrolled
+                              ? "text-dark"
+                              : shouldUseBlackText
+                              ? "text-dark"
+                              : "text-dark"
                           }`}
+                          onClick={() => {
+                            setIsOpen(false); // Close the mobile menu after click
+                            setActiveDropdown(null);
+                          }}
                         >
                           {item.label}
-                          {mobileSubMenuOpen === item.label ? (
-                            <ChevronUp className="ml-1 w-4 h-4" />
-                          ) : (
-                            <ChevronDown className="ml-1 w-4 h-4" />
-                          )}
+                        </Link>
+                      ) : (
+                        // Other dropdown items
+                        <button
+                          onClick={() => {
+                            setActiveDropdown(
+                              activeDropdown === item.label ? null : item.label,
+                            );
+                          }}
+                          className={`group flex items-center justify-between w-full py-3 text-lg font-medium ${
+                            activeDropdown === item.label
+                              ? "text-primary"
+                              : isScrolled
+                              ? "text-dark"
+                              : shouldUseBlackText
+                              ? "text-dark"
+                              : "text-dark"
+                          }`}
+                          aria-expanded={activeDropdown === item.label}
+                          data-menu-trigger={item.label}
+                        >
+                          {item.label}
+                          <ChevronDown
+                            className={`w-5 h-5 transition-transform ${
+                              activeDropdown === item.label ? "rotate-180" : ""
+                            }`}
+                          />
                         </button>
-                        {mobileSubMenuOpen === item.label && (
-                          <div className="pl-4">
-                            {item.dropdown.map(
-                              (dropdownItem, dropdownIndex) => (
-                                <Link
-                                  key={dropdownIndex}
-                                  to={dropdownItem.href}
-                                  className="flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-50"
-                                  onClick={() => setIsOpen(false)}
-                                >
-                                  <span>{dropdownItem.label}</span>
-                                </Link>
-                              ),
-                            )}
-                          </div>
-                        )}
-                      </div>
+                      )
                     ) : (
+                      // Regular links
                       <Link
                         to={item.href}
-                        className={`block px-3 py-3 text-base font-medium rounded-md ${
+                        className={`block py-3 text-lg font-medium ${
                           isActive(item.href)
-                            ? "text-secondary"
-                            : "text-dark hover:bg-gray-50 hover:text-secondary"
+                            ? "text-primary"
+                            : isScrolled
+                            ? "text-dark"
+                            : shouldUseBlackText
+                            ? "text-dark"
+                            : "text-dark"
                         }`}
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          setIsOpen(false); // Close mobile menu after link click
+                          setActiveDropdown(null);
+                        }}
                       >
                         {item.label}
                       </Link>
                     )}
-                  </div>
+                  </li>
                 ))}
 
                 {/* Phone number in mobile menu */}
