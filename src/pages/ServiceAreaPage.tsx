@@ -70,11 +70,43 @@ const ServiceAreaPage = () => {
 
   // List of ZIP codes we service
   const servicedZipCodes = [
-    "80817", "80118", "80132", "80133", "80921", "80831", "80902", "80903", 
-    "80904", "80905", "80906", "80907", "80908", "80909", "80910", "80911", 
-    "80913", "80915", "80916", "80917", "80918", "80919", "80920", "80922", 
-    "80923", "80924", "80925", "80926", "80927", "80928", "80929", "80930", 
-    "80938", "80939", "80951", "80829", "80819"
+    "80817",
+    "80118",
+    "80132",
+    "80133",
+    "80921",
+    "80831",
+    "80902",
+    "80903",
+    "80904",
+    "80905",
+    "80906",
+    "80907",
+    "80908",
+    "80909",
+    "80910",
+    "80911",
+    "80913",
+    "80915",
+    "80916",
+    "80917",
+    "80918",
+    "80919",
+    "80920",
+    "80922",
+    "80923",
+    "80924",
+    "80925",
+    "80926",
+    "80927",
+    "80928",
+    "80929",
+    "80930",
+    "80938",
+    "80939",
+    "80951",
+    "80829",
+    "80819",
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -85,7 +117,7 @@ const ServiceAreaPage = () => {
       alert("Please enter a valid 5-digit ZIP code");
       return;
     }
-    
+
     // Check if ZIP code is in our service area
     const isServicedArea = servicedZipCodes.includes(searchQuery);
     setSearchStatus(isServicedArea ? "available" : "unavailable");
@@ -124,18 +156,31 @@ const ServiceAreaPage = () => {
             </form>
 
             {searchStatus !== "idle" && (
-              <div className={`max-w-md mx-auto p-4 rounded-lg mb-8 ${
-                searchStatus === "available" 
-                  ? "bg-green-100 text-green-800 border border-green-200" 
-                  : "bg-red-100 text-red-800 border border-red-200"
-              }`}>
+              <div
+                className={`max-w-md mx-auto p-4 rounded-lg mb-8 ${
+                  searchStatus === "available"
+                    ? "bg-green-100 text-green-800 border border-green-200"
+                    : "bg-red-100 text-red-800 border border-red-200"
+                }`}
+              >
                 {searchStatus === "available" ? (
                   <div className="flex flex-col">
                     <div className="flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        ></path>
                       </svg>
-                      <p className="font-medium">Great news! We service your area. Request service now!</p>
+                      <p className="font-medium">
+                        Great news! We service your area. Request service now!
+                      </p>
                     </div>
                     <button className="mt-3 bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors">
                       Request Service Now
@@ -143,10 +188,22 @@ const ServiceAreaPage = () => {
                   </div>
                 ) : (
                   <div className="flex items-center">
-                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd"></path>
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      ></path>
                     </svg>
-                    <p className="font-medium">Sorry, we don't currently service your area. Please contact us for options.</p>
+                    <p className="font-medium">
+                      Sorry, we don't currently service your area. Please
+                      contact us for options.
+                    </p>
                   </div>
                 )}
               </div>
@@ -180,7 +237,7 @@ const ServiceAreaPage = () => {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-8">
                 <iframe
-                  src="https://www.google.com/maps/embed?AIzaSyCOzVv_UNAmpazz8SI-GcPy0Kh4BT989wA"
+                  src="https://www.google.com/maps/embed?AIzaSyAn2XGZbCF5AUUP0nxpCBc-euzIwkTDhLc"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}
