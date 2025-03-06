@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Grid as GridIcon, List,  Star, ChevronDown, ChevronUp, Clock, DollarSign, MessageSquare } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Search,
+  Grid as GridIcon,
+  List,
+  Star,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  DollarSign,
+  MessageSquare,
+} from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import servicesData from "../data/services.json";
 
 const services: Service[] = servicesData;
@@ -22,17 +32,17 @@ interface Service {
 
 const ServiceDirectoryPage = () => {
   const [searchParams] = useSearchParams();
-  const category = searchParams.get('category');
+  const category = searchParams.get("category");
 
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
-
   // Filter services based on search and category
-  const filteredServices = (servicesData as Service[]).filter(service => {
-    const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         service.description.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredServices = (servicesData as Service[]).filter((service) => {
+    const matchesSearch =
+      service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      service.description.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesCategory = !category || service.subcategory === category;
 
@@ -43,35 +53,41 @@ const ServiceDirectoryPage = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1617104551722-3b2d51366400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundImage: 'url("images/Handyman-Hero.jpeg")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(240, 90, 39, 0.4)' }}></div>
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: "rgba(240, 90, 39, 0.4)" }}
+          ></div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             Service Directory
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            {category 
-              ? `Browse our selection of ${category.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Services`
-              : 'Explore our comprehensive range of professional services tailored to your home needs'
-            }
+            {category
+              ? `Browse our selection of ${category
+                  .replace(/-/g, " ")
+                  .split(" ")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")} Services`
+              : "Explore our comprehensive range of professional services tailored to your home needs"}
           </motion.p>
 
           {/* Search Bar */}
@@ -89,9 +105,7 @@ const ServiceDirectoryPage = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-6 py-4 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-primary text-lg"
               />
-              <button
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
-              >
+              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
                 <Search className="w-5 h-5" />
               </button>
             </div>
@@ -102,7 +116,7 @@ const ServiceDirectoryPage = () => {
         <div className="absolute -bottom-1 left-0 right-0 z-20">
           <svg
             className="w-full relative"
-            style={{ height: '120px', color: '#ebd5c1' }}
+            style={{ height: "120px", color: "#ebd5c1" }}
             preserveAspectRatio="none"
             viewBox="0 0 1200 120"
             xmlns="http://www.w3.org/2000/svg"
@@ -114,15 +128,20 @@ const ServiceDirectoryPage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20" style={{ backgroundColor: '#ebd5c1' }}>
+      <section className="py-20" style={{ backgroundColor: "#ebd5c1" }}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
             <div>
               <h2 className="text-2xl font-bold text-[#1B4332] mb-2">
-                {category 
-                  ? `${category.replace(/-/g, ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Services`
-                  : 'All Services'
-                }
+                {category
+                  ? `${category
+                      .replace(/-/g, " ")
+                      .split(" ")
+                      .map(
+                        (word) => word.charAt(0).toUpperCase() + word.slice(1),
+                      )
+                      .join(" ")} Services`
+                  : "All Services"}
               </h2>
               <p className="text-gray-700">
                 {filteredServices.length} services available
@@ -132,14 +151,14 @@ const ServiceDirectoryPage = () => {
             {/* View Toggle */}
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-1">
               <button
-                onClick={() => setViewMode('grid')}
-                className={`p-2 rounded ${viewMode === 'grid' ? 'bg-white shadow text-primary' : 'text-[#1B4332] hover:bg-white/50'}`}
+                onClick={() => setViewMode("grid")}
+                className={`p-2 rounded ${viewMode === "grid" ? "bg-white shadow text-primary" : "text-[#1B4332] hover:bg-white/50"}`}
               >
                 <GridIcon className="w-5 h-5" />
               </button>
               <button
-                onClick={() => setViewMode('list')}
-                className={`p-2 rounded ${viewMode === 'list' ? 'bg-white shadow text-primary' : 'text-[#1B4332] hover:bg-white/50'}`}
+                onClick={() => setViewMode("list")}
+                className={`p-2 rounded ${viewMode === "list" ? "bg-white shadow text-primary" : "text-[#1B4332] hover:bg-white/50"}`}
               >
                 <List className="w-5 h-5" />
               </button>
@@ -147,18 +166,20 @@ const ServiceDirectoryPage = () => {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8">
-
             {/* Services Grid/List */}
             <div className="flex-grow">
-              {viewMode === 'grid' ? (
+              {viewMode === "grid" ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filteredServices.map(service => (
+                  {filteredServices.map((service) => (
                     <motion.div
                       key={service.id}
                       className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col h-full"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
+                      whileHover={{
+                        y: -5,
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                      }}
                       onClick={() => setSelectedService(service)}
                     >
                       <div className="relative h-48">
@@ -176,15 +197,24 @@ const ServiceDirectoryPage = () => {
                       </div>
                       <div className="p-6 flex flex-col h-full">
                         <div className="flex-grow">
-                          <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
-                          <p className="text-gray-600 mb-4">{service.description}</p>
+                          <h3 className="text-xl font-bold mb-2 text-[#1B4332]">
+                            {service.name}
+                          </h3>
+                          <p className="text-gray-600 mb-4">
+                            {service.description}
+                          </p>
                           <ul className="space-y-2 mb-6">
-                            {service.features.slice(0, 2).map((feature, index) => (
-                              <li key={index} className="flex items-center text-sm text-gray-600">
-                                <Star className="w-4 h-4 text-primary mr-2" />
-                                {feature}
-                              </li>
-                            ))}
+                            {service.features
+                              .slice(0, 2)
+                              .map((feature, index) => (
+                                <li
+                                  key={index}
+                                  className="flex items-center text-sm text-gray-600"
+                                >
+                                  <Star className="w-4 h-4 text-primary mr-2" />
+                                  {feature}
+                                </li>
+                              ))}
                           </ul>
                         </div>
                         <div className="mt-auto pt-2">
@@ -198,7 +228,7 @@ const ServiceDirectoryPage = () => {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {filteredServices.map(service => (
+                  {filteredServices.map((service) => (
                     <motion.div
                       key={service.id}
                       className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
@@ -217,8 +247,12 @@ const ServiceDirectoryPage = () => {
                         <div className="flex-grow">
                           <div className="flex justify-between items-start">
                             <div>
-                              <h3 className="text-xl font-bold mb-2 text-[#1B4332]">{service.name}</h3>
-                              <p className="text-gray-600 mb-4">{service.description}</p>
+                              <h3 className="text-xl font-bold mb-2 text-[#1B4332]">
+                                {service.name}
+                              </h3>
+                              <p className="text-gray-600 mb-4">
+                                {service.description}
+                              </p>
                             </div>
                             {service.popular && (
                               <div className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
@@ -229,7 +263,10 @@ const ServiceDirectoryPage = () => {
                           </div>
                           <ul className="space-y-2 mb-4">
                             {service.features.map((feature, index) => (
-                              <li key={index} className="flex items-center text-sm text-gray-600">
+                              <li
+                                key={index}
+                                className="flex items-center text-sm text-gray-600"
+                              >
                                 <Star className="w-4 h-4 text-primary mr-2" />
                                 {feature}
                               </li>
@@ -264,7 +301,7 @@ const ServiceDirectoryPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               className="bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
               <div className="relative h-64">
@@ -312,7 +349,9 @@ const ServiceDirectoryPage = () => {
                       <Clock className="w-5 h-5 mr-2" />
                       <span className="font-bold">Duration</span>
                     </div>
-                    <p className="text-gray-700">{selectedService.timeEstimate}</p>
+                    <p className="text-gray-700">
+                      {selectedService.timeEstimate}
+                    </p>
                   </div>
                 </div>
 
@@ -321,7 +360,10 @@ const ServiceDirectoryPage = () => {
                   <h4 className="text-lg font-bold mb-4">What's Included</h4>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {selectedService.features.map((feature, index) => (
-                      <li key={index} className="flex items-start bg-gray-50 p-4 rounded-lg">
+                      <li
+                        key={index}
+                        className="flex items-start bg-gray-50 p-4 rounded-lg"
+                      >
                         <Star className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
                       </li>
