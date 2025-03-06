@@ -486,7 +486,8 @@ const Navbar = () => {
                       ) : (
                         // Other dropdown items
                         <button
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.stopPropagation(); // Stop event propagation
                             setActiveDropdown(
                               activeDropdown === item.label ? null : item.label,
                             );
@@ -524,13 +525,33 @@ const Navbar = () => {
                             ? "text-dark"
                             : "text-dark"
                         }`}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation(); // Stop event propagation
                           setIsOpen(false); // Close mobile menu after link click
                           setActiveDropdown(null);
                         }}
                       >
                         {item.label}
                       </Link>
+                    )}
+                    {/* For mobile submenu */}
+                    {mobileSubMenuOpen === item.label && (
+                      <div className="pl-4 pr-2 py-2 space-y-1">
+                        {item.dropdown?.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            to={subItem.href}
+                            className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
+                            onClick={(e) => {
+                              e.stopPropagation(); // Stop event propagation
+                              setIsOpen(false); // Close mobile menu
+                              setMobileSubMenuOpen(null); // Close submenu
+                            }}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
                     )}
                   </div>
                 ))}
