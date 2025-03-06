@@ -465,9 +465,8 @@ const Navbar = () => {
                     {item.dropdown || item.megaMenu ? (
                       // Items with dropdown - special handling for SERVICES on mobile
                       item.label === "SERVICES" ? (
-                        <Link
-                          to="/mobileservicespage" // Updated link for Services
-                          className={`block py-3 text-lg font-medium ${
+                        <div
+                          className={`block py-3 text-lg font-medium flex items-center ${
                             isActive("/mobileservicespage")
                               ? "text-primary"
                               : isScrolled
@@ -482,7 +481,8 @@ const Navbar = () => {
                           }}
                         >
                           {item.label}
-                        </Link>
+                          <ChevronDown size={18} className="ml-1" />
+                        </div>
                       ) : (
                         // Other dropdown items
                         <button
