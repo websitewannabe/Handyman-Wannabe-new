@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { XCircle } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface MobileServicesPageProps {
   onClose: () => void;
 }
 
 const MobileServicesPage: React.FC<MobileServicesPageProps> = ({ onClose }) => {
+  const navigate = useNavigate();
   const serviceCategories = [
     {
       title: "Home Improvement",
@@ -76,7 +77,7 @@ const MobileServicesPage: React.FC<MobileServicesPageProps> = ({ onClose }) => {
                   key={serviceIndex}
                   to={service.link}
                   className="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg"
-                  onClick={onClose}
+                  onClick={() => navigate(service.link)}
                 >
                   <span className="text-gray-800">{service.name}</span>
                 </Link>
