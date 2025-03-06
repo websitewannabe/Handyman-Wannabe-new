@@ -1,25 +1,42 @@
-
 User-agent: *
 Allow: /
 
-# Block access to admin areas
+# Block access to sensitive areas
 Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+Disallow: /server-status
+Disallow: /cgi-bin/
+Disallow: /backend/
+
+# Prevent common WordPress attack paths (if WP was previously used)
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
 
 # Allow all bots to access the sitemap
 Sitemap: https://www.handymanwannabe.com/sitemap.xml
 
-# Set crawl delay for some bots
+# Set crawl delay for some bots (adjust if needed)
 User-agent: Googlebot
 Crawl-delay: 1
 
 User-agent: Bingbot
 Crawl-delay: 2
 
-# Optimize for images
+# Optimize for image indexing
 User-agent: Googlebot-Image
 Allow: /images/
 
-# Provide specific instructions for social media crawlers
+# Prevent AI scrapers (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Allow social media crawlers
 User-agent: Twitterbot
 Allow: /
 
