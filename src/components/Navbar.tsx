@@ -458,9 +458,9 @@ const Navbar = () => {
           {/* Mobile menu */}
           {isOpen && (
             <div className="lg:hidden bg-white">
-              <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-2 pt-2 pb-3 space-y-1 list-none">
                 {navItems.map((item) => (
-                  <li key={item.label} className="w-full">
+                  <div key={item.label} className="w-full">
                     {/* First level item */}
                     {item.dropdown || item.megaMenu ? (
                       // Items with dropdown - special handling for SERVICES on mobile
@@ -532,7 +532,7 @@ const Navbar = () => {
                         {item.label}
                       </Link>
                     )}
-                  </li>
+                  </div>
                 ))}
 
                 {/* Phone number in mobile menu */}
