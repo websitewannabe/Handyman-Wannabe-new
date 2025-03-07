@@ -43,8 +43,8 @@ const ServiceAreas = () => {
             >
               <div className="w-full max-w-2xl">
                 <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8">
-                  <img 
-                    src="/images/logo.png" 
+                  <img
+                    src="/images/Handyman_Logo.png"
                     alt="Handyman Wannabe Logo"
                     className="max-w-full max-h-full object-contain"
                   />
