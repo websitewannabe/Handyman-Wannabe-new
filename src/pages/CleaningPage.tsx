@@ -148,7 +148,7 @@ const CleaningPage = () => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url("/cleaner.avif")',
+            backgroundImage: 'url("/images/cleaner.avif")',
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -209,8 +209,8 @@ const CleaningPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8"
               >
-                <img 
-                  src="/images/Handyman_Logo.png" 
+                <img
+                  src="/images/Handyman_Logo.png"
                   alt="Handyman Wannabe Logo"
                   className="max-w-full max-h-full object-contain"
                 />
