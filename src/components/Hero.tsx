@@ -127,7 +127,7 @@ const Hero = () => {
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="block mb-2">
               <span className="text-primary font-extrabold">Professional </span>
               <span className="text-primary font-extrabold">Handymen</span>

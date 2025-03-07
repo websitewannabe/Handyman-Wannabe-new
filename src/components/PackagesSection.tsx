@@ -129,7 +129,7 @@ const PackagesSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl font-bold mb-1">{pkg.name}</h3>
+                  <h2 className="text-2xl font-bold mb-1">{pkg.name}</h2> {/* Changed to h2 */}
                   <p className="text-white/90">{pkg.description}</p>
                 </div>
               </div>
