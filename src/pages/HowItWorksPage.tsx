@@ -1,54 +1,74 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ClipboardList, UserCheck, Calendar, Star, Shield, Clock, ThumbsUp, Phone, ArrowRight, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from 'lucide-react';
-import SEO from '../components/SEO';
-import { pageSEOData, getCanonicalUrl } from '../utils/seoHelpers';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ClipboardList,
+  UserCheck,
+  Calendar,
+  Star,
+  Shield,
+  Clock,
+  ThumbsUp,
+  Phone,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react";
+import SEO from "../components/SEO";
+import { pageSEOData, getCanonicalUrl } from "../utils/seoHelpers";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
+    name: "Sarah Johnson",
     rating: 5,
-    text: 'The booking process was incredibly smooth, and the handyman did an excellent job with our kitchen cabinet repairs.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Homeowner'
+    text: "The booking process was incredibly smooth, and the handyman did an excellent job with our kitchen cabinet repairs.",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    role: "Homeowner",
   },
   {
-    name: 'Michael Chen',
+    name: "Michael Chen",
     rating: 5,
-    text: 'Professional, punctual, and skilled. The online booking system made scheduling super convenient.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Business Owner'
+    text: "Professional, punctual, and skilled. The online booking system made scheduling super convenient.",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    role: "Business Owner",
   },
   {
-    name: 'Emily Rodriguez',
+    name: "Emily Rodriguez",
     rating: 5,
-    text: 'Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Interior Designer'
+    text: "Outstanding attention to detail on our bathroom renovation. The team was courteous and professional throughout.",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    role: "Interior Designer",
   },
   {
-    name: 'David Thompson',
+    name: "David Thompson",
     rating: 5,
-    text: 'From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
-    role: 'Real Estate Agent'
-  }
+    text: "From start to finish, the experience was fantastic. They helped transform our outdated kitchen into a modern masterpiece.",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80",
+    role: "Real Estate Agent",
+  },
 ];
 
 const HowItWorksPage = () => {
   // Get SEO data for this page, or create custom data if not in our helper
   const seoData = pageSEOData.howItWorks || {
-    title: 'How It Works - Handyman Wannabe',
-    description: 'Learn how our handyman services work, from requesting a quote to completing your home improvement project.',
-    keywords: 'handyman process, how handyman works, home repair process, handyman booking',
-    featuredImage: '/images/how-it-works-featured.jpg',
-    path: '/how-it-works'
+    title: "How It Works - Handyman Wannabe",
+    description:
+      "Learn how our handyman services work, from requesting a quote to completing your home improvement project.",
+    keywords:
+      "handyman process, how handyman works, home repair process, handyman booking",
+    featuredImage: "/images/how-it-works-featured.jpg",
+    path: "/how-it-works",
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,18 +77,18 @@ const HowItWorksPage = () => {
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    })
+      opacity: 0,
+    }),
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -88,7 +108,7 @@ const HowItWorksPage = () => {
 
   return (
     <div className="pt-28">
-      <SEO 
+      <SEO
         title={seoData.title}
         description={seoData.description}
         keywords={seoData.keywords}
@@ -106,7 +126,8 @@ const HowItWorksPage = () => {
           >
             <h1 className="text-4xl font-bold mb-4">Our Process</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Get your home projects done in just a few simple steps. Professional service, guaranteed satisfaction.
+              Get your home projects done in just a few simple steps.
+              Professional service, guaranteed satisfaction.
             </p>
           </motion.div>
 
@@ -115,23 +136,26 @@ const HowItWorksPage = () => {
               {
                 icon: ClipboardList,
                 title: "Request a Quote",
-                description: "Describe your project and get a detailed estimate."
+                description:
+                  "Describe your project and get a detailed estimate.",
               },
               {
                 icon: UserCheck,
                 title: "Get Matched",
-                description: "Connect with a professional handyman for your needs."
+                description:
+                  "Connect with a professional handyman for your needs.",
               },
               {
                 icon: Calendar,
                 title: "Schedule & Complete",
-                description: "Pick a convenient time and get the job done right."
+                description:
+                  "Pick a convenient time and get the job done right.",
               },
               {
                 icon: Star,
                 title: "Review & Repeat",
-                description: "Share your experience and book again with ease."
-              }
+                description: "Share your experience and book again with ease.",
+              },
             ].map((step, index, array) => (
               <React.Fragment key={index}>
                 <motion.div
@@ -171,25 +195,25 @@ const HowItWorksPage = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">See How It Works</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">
+                See How It Works
+              </h2>
               <p className="text-xl text-white/90">
-                Watch our quick video guide to learn more about our service process
+                Watch our quick video guide to learn more about our service
+                process
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="relative aspect-video rounded-xl overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8"
             >
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1&rel=0"
-                title="How It Works"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <img
+                src="/images/Handyman_Logo.png"
+                alt="Handyman Wannabe Logo"
+                className="max-w-full max-h-full object-contain"
+              />
             </motion.div>
 
             <motion.div
@@ -210,22 +234,30 @@ const HowItWorksPage = () => {
       <section className="py-20 bg-primary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Service Area Information</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Service Area Information
+            </h2>
 
             <div className="space-y-6">
               {[
                 {
-                  question: "Do you charge extra for areas outside the main service region?",
-                  answer: "A small travel fee may apply for locations outside our primary service area. The exact fee will be calculated and disclosed before scheduling your service."
+                  question:
+                    "Do you charge extra for areas outside the main service region?",
+                  answer:
+                    "A small travel fee may apply for locations outside our primary service area. The exact fee will be calculated and disclosed before scheduling your service.",
                 },
                 {
-                  question: "How can I request service if I'm not in a listed area?",
-                  answer: "Please contact our customer service team directly. We evaluate out-of-area requests on a case-by-case basis and may be able to accommodate your needs."
+                  question:
+                    "How can I request service if I'm not in a listed area?",
+                  answer:
+                    "Please contact our customer service team directly. We evaluate out-of-area requests on a case-by-case basis and may be able to accommodate your needs.",
                 },
                 {
-                  question: "What is your service radius from your main location?",
-                  answer: "We typically service within a 50-mile radius of our main office. However, we can often accommodate requests beyond this range for larger projects."
-                }
+                  question:
+                    "What is your service radius from your main location?",
+                  answer:
+                    "We typically service within a 50-mile radius of our main office. However, we can often accommodate requests beyond this range for larger projects.",
+                },
               ].map((faq, index) => (
                 <motion.div
                   key={index}
@@ -236,7 +268,9 @@ const HowItWorksPage = () => {
                 >
                   <button
                     className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/20 transition-colors"
-                    onClick={() => setCurrentIndex(currentIndex === index ? null : index)}
+                    onClick={() =>
+                      setCurrentIndex(currentIndex === index ? null : index)
+                    }
                   >
                     <span className="font-bold text-lg">{faq.question}</span>
                     {currentIndex === index ? (
