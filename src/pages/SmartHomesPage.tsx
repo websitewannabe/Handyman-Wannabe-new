@@ -44,7 +44,19 @@ const groupedServices = smartHomeServices.reduce(
   {} as Record<string, typeof smartHomeServices>,
 );
 
+import SEO from "../components/SEO";
+import { pageSEOData, getCanonicalUrl } from "../utils/seoHelpers";
+
 const SmartHomesPage = () => {
+  // SEO data for Smart Homes page
+  const seoData = {
+    title: 'Smart Home Services - Professional Installation & Setup',
+    description: 'Professional smart home installation services including security systems, lighting automation, and home theaters. Expert setup and integration for all your smart devices.',
+    keywords: 'smart home services, smart home installation, home automation, smart security, smart lighting',
+    featuredImage: '/images/smart-Lock.avif',
+    path: '/services/smart-homes'
+  };
+
   const [expandedFaq, setExpandedFaq] = React.useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -102,6 +114,14 @@ const SmartHomesPage = () => {
 
   return (
     <div className="relative">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        featuredImage={seoData.featuredImage}
+        ogImage={seoData.featuredImage}
+        canonicalUrl={getCanonicalUrl ? getCanonicalUrl(seoData.path) : `https://www.handymanwannabe.com${seoData.path}`}
+      />
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center">
         <div
@@ -378,7 +398,7 @@ const SmartHomesPage = () => {
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100"
                   onClick={() => toggleFaq(index)}
                 >
-                  <span className="font-bold text-lg">{faq.question}</span>
+                  <h3 className="font-bold text-lg">{faq.question}</h3>
                   {expandedFaq === index ? (
                     <ChevronUp className="w-5 h-5 text-primary" />
                   ) : (
