@@ -16,8 +16,8 @@ const SEO: React.FC<SEOProps> = ({
   title = 'Handyman Wannabe - Professional Handyman Services',
   description = 'Handyman Wannabe provides professional and reliable handyman services for all your home maintenance and improvement needs.',
   keywords = 'handyman, home repair, home maintenance, professional handyman, home improvement',
-  ogImage = '/images/Handyman_Logo.png',
-  featuredImage = '/images/Handyman_Logo.png', // Default featured image
+  ogImage = '/images/Handyman-Hero.jpeg',
+  featuredImage = '/images/Handyman-Hero.jpeg', // Default featured image
   ogUrl,
   canonicalUrl,
 }) => {
