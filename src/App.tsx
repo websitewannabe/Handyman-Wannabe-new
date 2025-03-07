@@ -33,6 +33,7 @@ import ManagementCompaniesPage from './pages/ManagementCompaniesPage';
 import MiscPage from './pages/MiscPage';
 import BlogPage from './pages/BlogPage';
 import PackagesPage from './pages/PackagesPage';
+import SitemapPage from './pages/SitemapPage';
 import Footer from './components/Footer';
 import MobileServicesPage from "./components/MobileServicesPage"; // Added import
 
@@ -43,40 +44,41 @@ function App() {
         <div className="min-h-screen">
           <Navbar />
           <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/how-it-works" element={<HowItWorksPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/meet-the-team" element={<MeetTeamPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/service-area" element={<ServiceAreaPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/packages" element={<PackagesPage />} />
-          <Route path="/services/carpentry" element={<CarpentryPage />} />
-          <Route path="/services/garage-doors" element={<GarageDoorsPage />} />
-          <Route path="/services/smart-homes" element={<SmartHomesPage />} />
-          <Route path="/services/locksmithing" element={<LocksmithingPage />} />
-          <Route path="/services/furniture-assembly" element={<FurnitureAssemblyPage />} />
-          <Route path="/services/electrical" element={<ElectricalPage />} />
-          <Route path="/services/painting-drywall" element={<PaintingDrywallPage />} />
-          <Route path="/services/landscaping" element={<LandscapingPage />} />
-          <Route path="/services/home-security" element={<HomeSecurityPage />} />
-          <Route path="/services/powerwashing" element={<PowerwashingPage />} />
-          <Route path="/services/windows-doors" element={<WindowsDoorsPage />} />
-          <Route path="/services/holiday-lighting" element={<HolidayLightingPage />} />
-          <Route path="/services/plumbing" element={<PlumbingPage />} />
-          <Route path="/services/pools-spas" element={<PoolsSpasPage />} />
-          <Route path="/services/flooring" element={<FlooringPage />} />
-          <Route path="/services/cleaning" element={<CleaningPage />} />
-          <Route path="/services/third-party-moving" element={<ThirdPartyMovingPage />} />
-          <Route path="/services/home-inspections" element={<HomeInspectionsPage />} />
-          <Route path="/services/management-companies" element={<ManagementCompaniesPage />} />
-          <Route path="/services/misc" element={<MiscPage />} />
-          <Route path="/service-directory" element={<ServiceDirectoryPage />} />
-          <Route path="/services" element={<ServiceDirectoryPage />} />
-          <Route path="/mobileservicespage" element={<MobileServicesPage onClose={() => window.history.back()} />} />
-        </Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/meet-the-team" element={<MeetTeamPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/service-area" element={<ServiceAreaPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/packages" element={<PackagesPage />} />
+            <Route path="/services/carpentry" element={<CarpentryPage />} />
+            <Route path="/services/garage-doors" element={<GarageDoorsPage />} />
+            <Route path="/services/smart-homes" element={<SmartHomesPage />} />
+            <Route path="/services/locksmithing" element={<LocksmithingPage />} />
+            <Route path="/services/furniture-assembly" element={<FurnitureAssemblyPage />} />
+            <Route path="/services/electrical" element={<ElectricalPage />} />
+            <Route path="/services/painting-drywall" element={<PaintingDrywallPage />} />
+            <Route path="/services/landscaping" element={<LandscapingPage />} />
+            <Route path="/services/home-security" element={<HomeSecurityPage />} />
+            <Route path="/services/powerwashing" element={<PowerwashingPage />} />
+            <Route path="/services/windows-doors" element={<WindowsDoorsPage />} />
+            <Route path="/services/holiday-lighting" element={<HolidayLightingPage />} />
+            <Route path="/services/plumbing" element={<PlumbingPage />} />
+            <Route path="/services/pools-spas" element={<PoolsSpasPage />} />
+            <Route path="/services/flooring" element={<FlooringPage />} />
+            <Route path="/services/cleaning" element={<CleaningPage />} />
+            <Route path="/services/third-party-moving" element={<ThirdPartyMovingPage />} />
+            <Route path="/services/home-inspections" element={<HomeInspectionsPage />} />
+            <Route path="/services/management-companies" element={<ManagementCompaniesPage />} />
+            <Route path="/services/misc" element={<MiscPage />} />
+            <Route path="/service-directory" element={<ServiceDirectoryPage />} />
+            <Route path="/services" element={<ServiceDirectoryPage />} />
+            <Route path="/sitemap" element={<SitemapPage />} />
+            <Route path="/mobileservicespage" element={<MobileServicesPage onClose={() => window.history.back()} />} />
+          </Routes>
         <Footer />
       </div>
     </Router>
