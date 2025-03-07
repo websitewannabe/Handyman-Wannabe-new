@@ -33,7 +33,6 @@ import ManagementCompaniesPage from './pages/ManagementCompaniesPage';
 import MiscPage from './pages/MiscPage';
 import BlogPage from './pages/BlogPage';
 import PackagesPage from './pages/PackagesPage';
-import SitemapPage from './pages/SitemapPage';
 import Footer from './components/Footer';
 import MobileServicesPage from "./components/MobileServicesPage"; // Added import
 
@@ -76,7 +75,6 @@ function App() {
           <Route path="/services/misc" element={<MiscPage />} />
           <Route path="/service-directory" element={<ServiceDirectoryPage />} />
           <Route path="/services" element={<ServiceDirectoryPage />} />
-          <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/mobileservicespage" element={<MobileServicesPage onClose={() => window.history.back()} />} />
         </Routes>
         <Footer />

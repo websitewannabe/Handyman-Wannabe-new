@@ -29,9 +29,6 @@ Crawl-delay: 2
 User-agent: Googlebot-Image
 Allow: /images/
 
-User-agent: Screaming Frog SEO Spider
-Allow: *
-
 # Prevent AI scrapers (optional)
 User-agent: GPTBot
 Disallow: /
