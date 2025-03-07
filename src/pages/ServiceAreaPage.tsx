@@ -237,7 +237,7 @@ const ServiceAreaPage = () => {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-8">
                 <iframe
-                  src="https://www.google.com/maps/embed?AIzaSyAn2XGZbCF5AUUP0nxpCBc-euzIwkTDhLc"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207019.11336308766!2d-104.9200903957284!3d38.87345444651031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8713412ea1e6d22b%3A0x418eeb92f5e86b13!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1666123456789!5m2!1sen!2sus"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}
