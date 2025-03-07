@@ -1,116 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
-  MapPin,
-  Phone,
   Search,
-  AlertCircle,
-  CheckCircle2,
-  XCircle,
+  Phone,
   ChevronDown,
   ChevronUp,
   MessageSquare,
+  MapPin,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
+import { pageSEOData, getCanonicalUrl } from "../utils/seoHelpers";
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
+// Memoized service area zip codes to avoid re-creation on each render
+const servicedZipCodes = [
+  "80817", "80118", "80132", "80133", "80921", "80831", "80902",
+  "80903", "80904", "80905", "80906", "80907", "80908", "80909",
+  "80910", "80911", "80913", "80915", "80916", "80917", "80918",
+  "80919", "80920", "80922", "80923", "80924", "80925", "80926",
+  "80927", "80928", "80929", "80930", "80938", "80939", "80951",
+  "80829", "80819",
+];
 
+// Pre-defined regions for display
 const regions = [
   {
     name: "El Paso County",
-    areas: [
-      "Fountain, CO",
-      "Monument, CO",
-      "Falcon, 80831, CO",
-      "Peyton, 80831, CO",
-      "Colorado Springs, CO",
-    ],
-    coverage: "Full Service",
+    description: "Serving all major areas including Colorado Springs, Monument, Fountain, and more.",
+    areas: ["Colorado Springs", "Monument", "Fountain", "Falcon", "Peyton"],
   },
   {
     name: "Douglas County",
-    areas: ["Larkspur, 80118, CO"],
-    coverage: "Full Service",
+    description: "Limited service in select areas of Douglas County.",
+    areas: ["Larkspur"],
   },
   {
     name: "Teller County",
-    areas: ["Green Mountain Falls, CO", "Manitou Springs, 80829, CO"],
-    coverage: "Full Service",
+    description: "Serving select areas in Teller County.",
+    areas: ["Green Mountain Falls", "Manitou Springs"],
   },
 ];
 
-const faqs = [
+// FAQ data
+const faqData = [
   {
-    question: "Do you charge extra for areas outside the main service region?",
-    answer:
-      "A small travel fee may apply for locations outside our primary service area. The exact fee will be calculated and disclosed before scheduling your service.",
+    question: "Do you charge extra for travel outside of Colorado Springs?",
+    answer: "For locations within our service area but outside Colorado Springs, a small travel fee may apply. This fee is calculated based on distance and will be disclosed before scheduling your service.",
   },
   {
-    question: "How can I request service if I'm not in a listed area?",
-    answer:
-      "Please contact our customer service team directly. We evaluate out-of-area requests on a case-by-case basis and may be able to accommodate your needs.",
+    question: "How quickly can you respond to service requests?",
+    answer: "Our standard response time is 24-48 hours for most service requests. For emergency services, we offer expedited scheduling with same-day service when available.",
   },
   {
-    question: "What is your service radius from your main location?",
-    answer:
-      "We typically service within a 50-mile radius of our main office. However, we can often accommodate requests beyond this range for larger projects.",
+    question: "Do you serve commercial properties?",
+    answer: "Yes, we provide services for both residential and commercial properties throughout our service area. Commercial clients receive the same high-quality service with specialized scheduling options.",
+  },
+  {
+    question: "What if my area isn't listed in your service regions?",
+    answer: "We may still be able to accommodate your request. Please contact us directly to discuss your specific location, and we'll let you know if service is available.",
   },
 ];
 
 const ServiceAreaPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchStatus, setSearchStatus] = useState<
-    "idle" | "available" | "unavailable"
-  >("idle");
+  const [searchStatus, setSearchStatus] = useState<"idle" | "available" | "unavailable">("idle");
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  // List of ZIP codes we service
-  const servicedZipCodes = [
-    "80817",
-    "80118",
-    "80132",
-    "80133",
-    "80921",
-    "80831",
-    "80902",
-    "80903",
-    "80904",
-    "80905",
-    "80906",
-    "80907",
-    "80908",
-    "80909",
-    "80910",
-    "80911",
-    "80913",
-    "80915",
-    "80916",
-    "80917",
-    "80918",
-    "80919",
-    "80920",
-    "80922",
-    "80923",
-    "80924",
-    "80925",
-    "80926",
-    "80927",
-    "80928",
-    "80929",
-    "80930",
-    "80938",
-    "80939",
-    "80951",
-    "80829",
-    "80819",
-  ];
+  // SEO data
+  const seoData = useMemo(() => pageSEOData.serviceArea || {
+    title: "Service Areas - Handyman Wannabe",
+    description: "Find out if Handyman Wannabe serves your area. We provide professional handyman services throughout Colorado Springs and surrounding areas.",
+    keywords: "handyman service area, Colorado Springs handyman, El Paso County services, local handyman",
+    featuredImage: "/images/service-area-map.jpg",
+    path: "/service-area",
+  }, []);
 
-  const handleSearch = (e: React.FormEvent) => {
+  // Memoized toggle functions to prevent recreating on every render
+  const toggleRegion = useCallback((region: string) => {
+    setActiveRegion(activeRegion === region ? null : region);
+  }, [activeRegion]);
+
+  const toggleFaq = useCallback((index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  }, [activeFaq]);
+
+  // Handle ZIP code search with proper validation
+  const handleSearch = useCallback((e: React.FormEvent) => {
     e.preventDefault();
+
     // Validate ZIP code format
     const isValidZip = /^\d{5}$/.test(searchQuery);
     if (!isValidZip) {
@@ -121,10 +99,59 @@ const ServiceAreaPage = () => {
     // Check if ZIP code is in our service area
     const isServicedArea = servicedZipCodes.includes(searchQuery);
     setSearchStatus(isServicedArea ? "available" : "unavailable");
-  };
+  }, [searchQuery, servicedZipCodes]);
+
+  // Memoized search results to prevent unnecessary recalculations
+  const searchResults = useMemo(() => {
+    if (searchStatus === "idle") return null;
+
+    return (
+      <div className="mt-6 p-4 rounded-lg text-center">
+        {searchStatus === "available" ? (
+          <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
+            <p className="text-green-800 font-bold text-lg mb-2">
+              Good news! We serve your area.
+            </p>
+            <p className="text-green-700">
+              ZIP code {searchQuery} is within our service area. You can schedule service with us!
+            </p>
+            <button className="mt-4 bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-primary/90 transition-colors">
+              Schedule Service Now
+            </button>
+          </div>
+        ) : (
+          <div className="bg-amber-50 border border-amber-200 p-4 rounded-lg">
+            <p className="text-amber-800 font-bold text-lg mb-2">
+              We don't currently serve your area.
+            </p>
+            <p className="text-amber-700">
+              Unfortunately, ZIP code {searchQuery} is outside our current service area.
+            </p>
+            <p className="mt-2 text-amber-700">
+              Please contact us to see if we can make accommodations or to be notified when we expand to your area.
+            </p>
+            <a
+              href="tel:7193156628"
+              className="mt-4 inline-block bg-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+        )}
+      </div>
+    );
+  }, [searchQuery, searchStatus]);
 
   return (
     <div className="pt-28">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        featuredImage={seoData.featuredImage}
+        canonicalUrl={getCanonicalUrl(seoData.path)}
+      />
+
       {/* Map Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -155,84 +182,7 @@ const ServiceAreaPage = () => {
               </div>
             </form>
 
-            {searchStatus !== "idle" && (
-              <div
-                className={`max-w-md mx-auto p-4 rounded-lg mb-8 ${
-                  searchStatus === "available"
-                    ? "bg-green-100 text-green-800 border border-green-200"
-                    : "bg-red-100 text-red-800 border border-red-200"
-                }`}
-              >
-                {searchStatus === "available" ? (
-                  <div className="flex flex-col">
-                    <div className="flex items-center">
-                      <svg
-                        className="w-5 h-5 mr-2"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                      <p className="font-medium">
-                        Great news! We service your area. Request service now!
-                      </p>
-                    </div>
-                    <button className="mt-3 bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors">
-                      Request Service Now
-                    </button>
-                  </div>
-                ) : (
-                  <div className="flex items-center">
-                    <svg
-                      className="w-5 h-5 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    <p className="font-medium">
-                      Sorry, we don't currently service your area. Please
-                      contact us for options.
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {searchStatus !== "idle" && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`text-center mb-12 inline-flex items-center px-6 py-3 rounded-lg ${
-                  searchStatus === "available"
-                    ? "bg-green-500/20 text-green-700"
-                    : "bg-red-500/20 text-red-700"
-                }`}
-              >
-                {searchStatus === "available" ? (
-                  <>
-                    <CheckCircle2 className="w-6 h-6 mr-2" />
-                    Great news! We service your area. Request service now!
-                  </>
-                ) : (
-                  <>
-                    <XCircle className="w-6 h-6 mr-2" />
-                    Sorry, we don't currently service your area. Please contact
-                    us for options.
-                  </>
-                )}
-              </motion.div>
-            )}
+            {searchResults}
 
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-8">
@@ -248,53 +198,42 @@ const ServiceAreaPage = () => {
                 ></iframe>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="space-y-4">
                 {regions.map((region) => (
                   <motion.div
                     key={region.name}
-                    className="bg-gray-50 rounded-lg overflow-hidden"
+                    className="border border-gray-200 rounded-lg overflow-hidden"
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                   >
                     <button
-                      className="w-full px-6 py-4 flex justify-between items-center hover:bg-gray-100 transition-colors"
-                      onClick={() =>
-                        setActiveRegion(
-                          activeRegion === region.name ? null : region.name,
-                        )
-                      }
+                      className="w-full px-6 py-4 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
+                      onClick={() => toggleRegion(region.name)}
                     >
                       <div className="flex items-center">
                         <MapPin className="w-5 h-5 text-primary mr-2" />
-                        <span className="font-bold">{region.name}</span>
+                        <span className="font-bold text-lg">{region.name}</span>
                       </div>
                       {activeRegion === region.name ? (
-                        <ChevronUp className="w-5 h-5 text-gray-400" />
+                        <ChevronUp className="w-5 h-5 text-gray-500" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-400" />
+                        <ChevronDown className="w-5 h-5 text-gray-500" />
                       )}
                     </button>
                     {activeRegion === region.name && (
                       <div className="px-6 py-4 bg-white">
-                        <div className="mb-2">
-                          <span className="text-sm font-medium text-gray-500">
-                            Coverage:
-                          </span>
-                          <span className="ml-2 text-primary font-medium">
-                            {region.coverage}
-                          </span>
-                        </div>
-                        <ul className="space-y-2">
+                        <p className="text-gray-700 mb-4">{region.description}</p>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                           {region.areas.map((area) => (
-                            <li
+                            <div
                               key={area}
-                              className="text-gray-600 flex items-center"
+                              className="bg-gray-50 rounded-md px-3 py-2 text-sm font-medium text-gray-700"
                             >
-                              <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
                               {area}
-                            </li>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                       </div>
                     )}
                   </motion.div>
@@ -306,40 +245,37 @@ const ServiceAreaPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8">
               Frequently Asked Questions
             </h2>
 
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
+            <div className="space-y-4">
+              {faqData.map((faq, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-50 rounded-lg shadow-md overflow-hidden"
+                  className="border border-gray-200 rounded-lg overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <button
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors"
-                    onClick={() =>
-                      setActiveFaq(activeFaq === index ? null : index)
-                    }
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50"
+                    onClick={() => toggleFaq(index)}
                   >
-                    <span className="font-bold text-lg text-gray-900">
-                      {faq.question}
-                    </span>
+                    <span className="font-bold text-lg">{faq.question}</span>
                     {activeFaq === index ? (
-                      <ChevronUp className="w-5 h-5 text-gray-400" />
+                      <ChevronUp className="w-5 h-5 text-primary" />
                     ) : (
                       <ChevronDown className="w-5 h-5 text-gray-400" />
                     )}
                   </button>
                   {activeFaq === index && (
-                    <div className="px-6 py-4 bg-white">
-                      <p className="text-gray-600">{faq.answer}</p>
+                    <div className="px-6 py-4 bg-gray-50">
+                      <p className="text-gray-700">{faq.answer}</p>
                     </div>
                   )}
                 </motion.div>
@@ -354,8 +290,8 @@ const ServiceAreaPage = () => {
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -386,4 +322,4 @@ const ServiceAreaPage = () => {
   );
 };
 
-export default ServiceAreaPage;
+export default React.memo(ServiceAreaPage);
