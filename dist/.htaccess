@@ -1,0 +1,14 @@
+
+# Redirect all 404 errors to index.html to let React Router handle them
+ErrorDocument 404 /index.html
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite everything else to index.html to allow SPA routing
+RewriteRule ^ index.html [L]
