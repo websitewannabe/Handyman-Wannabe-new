@@ -124,7 +124,7 @@ const HowItWorksPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-4">Our Process</h1>
+            <h1 className="text-4xl font-bold mb-4">Professional Handyman Service Process</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Get your home projects done in just a few simple steps.
               Professional service, guaranteed satisfaction.
@@ -170,7 +170,7 @@ const HowItWorksPage = () => {
                   <div className="mb-4 text-primary">
                     <step.icon className="w-12 h-12" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                  <h2 className="text-xl font-bold mb-2">{step.title}</h2>
                   <p className="text-gray-600">{step.description}</p>
 
                   {/* Add arrow after each step except the last one */}
@@ -196,7 +196,7 @@ const HowItWorksPage = () => {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold text-white mb-4">
-                See How It Works
+                See How Our Service Process Works
               </h2>
               <p className="text-xl text-white/90">
                 Watch our quick video guide to learn more about our service
@@ -235,7 +235,7 @@ const HowItWorksPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">
-              Service Area Information
+              Service Area Coverage Details
             </h2>
 
             <div className="space-y-6">
@@ -272,7 +272,7 @@ const HowItWorksPage = () => {
                       setCurrentIndex(currentIndex === index ? null : index)
                     }
                   >
-                    <span className="font-bold text-lg">{faq.question}</span>
+                    <h3 className="font-bold text-lg">{faq.question}</h3>
                     {currentIndex === index ? (
                       <ChevronUp className="w-5 h-5 text-white" />
                     ) : (
