@@ -22,8 +22,8 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
   const siteUrl = 'https://www.handymanwannabe.com'; // Replace with your actual domain
   const pageUrl = ogUrl || canonicalUrl || siteUrl;
-  const imageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
-  const featuredImageUrl = featuredImage.startsWith('http') ? featuredImage : `${siteUrl}${featuredImage}`;
+  const imageUrl = ogImage.startsWith('http') ? ogImage : `${window.location.origin}${ogImage}`;
+  const featuredImageUrl = featuredImage.startsWith('http') ? featuredImage : `${window.location.origin}${featuredImage}`;
 
   return (
     <Helmet>

@@ -2,6 +2,11 @@
 # Enable URL rewriting
 RewriteEngine On
 
+# Specific rule for images directory
+RewriteCond %{REQUEST_URI} ^/images/(.*)$
+RewriteCond %{DOCUMENT_ROOT}/images/%1 -f
+RewriteRule ^images/(.*)$ images/$1 [L]
+
 # Handle frontend routes in a SPA (Single Page Application)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

@@ -27,13 +27,13 @@ const SEO = memo(
       {/* Add Open Graph tags for better social sharing */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${window.location.origin}/images/Handyman-Hero.jpeg`} />
+      <meta property="og:image" content={`https://www.handymanwannabe.com/images/Handyman-Hero.jpeg`} />
       <meta property="og:type" content="website" />
       {/* Add Twitter Card data */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${window.location.origin}/images/Handyman-Hero.jpeg`} />
+      <meta name="twitter:image" content={`https://www.handymanwannabe.com/images/Handyman-Hero.jpeg`} />
       {/* Preload critical assets */}
       <link rel="preload" href="/images/Handyman-Hero.jpeg" as="image" />
     </Helmet>
