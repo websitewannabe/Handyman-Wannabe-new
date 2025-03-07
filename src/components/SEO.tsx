@@ -52,7 +52,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${window.location.origin}${ogImage}`} />
 
-      {/* Schema.org structured data for featured image */}
+      {/* Schema.org structured data - comprehensive markup */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

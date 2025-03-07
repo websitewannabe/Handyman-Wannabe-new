@@ -15,10 +15,16 @@ const SEO = memo(
     title,
     description,
     keywords,
+    featuredImage,
+    ogImage,
+    canonicalUrl
   }: {
     title: string;
     description: string;
     keywords: string;
+    featuredImage?: string;
+    ogImage?: string;
+    canonicalUrl?: string;
   }) => (
     <Helmet>
       <title>{title}</title>
@@ -27,15 +33,15 @@ const SEO = memo(
       {/* Add Open Graph tags for better social sharing */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`https://www.handymanwannabe.com/images/Handyman-Hero.jpeg`} />
+      {featuredImage && <meta property="og:image" content={featuredImage} />}
       <meta property="og:type" content="website" />
       {/* Add Twitter Card data */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`https://www.handymanwannabe.com/images/Handyman-Hero.jpeg`} />
+      {ogImage && <meta name="twitter:image" content={ogImage} />}
       {/* Preload critical assets */}
-      <link rel="preload" href="/images/Handyman-Hero.jpeg" as="image" />
+      {featuredImage && <link rel="preload" href={featuredImage} as="image" />}
     </Helmet>
   ),
 );
@@ -51,18 +57,96 @@ const MemoizedCallToAction = memo(CallToAction);
 
 // Main HomePage component
 const HomePage: React.FC = () => {
-  // SEO content constants to avoid re-creating on each render
-  const seoProps = {
-    title: "Handyman Wannabe - Professional Home Services & Repairs",
-    description:
-      "Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.",
-    keywords:
-      "handyman services, home repairs, home maintenance, professional handyman, home improvement",
+  // Placeholder data - Replace with actual data fetching mechanism
+  const pageSEOData = {
+    home: {
+      title: 'Handyman Wannabe - Professional Home Services & Repairs',
+      description: 'Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.',
+      keywords: 'handyman services, home repairs, home maintenance, professional handyman, home improvement',
+      featuredImage: '/images/Handyman-Hero.jpeg',
+      path: '/'
+    }
+  };
+
+  const businessSchemaData = {
+    "@context": "https://schema.org/",
+    "@type": "LocalBusiness",
+    "name": "Handyman Wannabe",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Main St",
+      "addressLocality": "Anytown",
+      "addressRegion": "CA",
+      "postalCode": "90210",
+      "addressCountry": "US"
+    },
+    "telephone": "+15551234567",
+    "priceRange": "$$$",
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "url": "https://www.example.com"
+  };
+
+  const faqSchemaData = [
+    {
+      "@type": "Question",
+      "name": "What services do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer a wide range of handyman services, including carpentry, painting, plumbing, and electrical work."
+      }
+    }
+  ];
+
+  const breadcrumbSchemaData = {
+    "@context": "https://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.example.com"
+      }
+    ]
+  };
+
+  const getCanonicalUrl = (path: string) => `https://www.example.com${path}`;
+
+  // Get SEO data for this page from our helper
+  const seoData = pageSEOData.home || {
+    title: 'Handyman Wannabe - Professional Home Services & Repairs',
+    description: 'Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.',
+    keywords: 'handyman services, home repairs, home maintenance, professional handyman, home improvement',
+    featuredImage: '/images/Handyman-Hero.jpeg',
+    path: '/'
   };
 
   return (
     <>
-      <SEO {...seoProps} />
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        featuredImage={seoData.featuredImage}
+        ogImage={seoData.featuredImage}
+        canonicalUrl={getCanonicalUrl(seoData.path)}
+      />
+      <Helmet>
+        {/* Business Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(businessSchemaData)}
+        </script>
+
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchemaData)}
+        </script>
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchemaData)}
+        </script>
+      </Helmet>
 
       {/* Core page content */}
       <Hero />
