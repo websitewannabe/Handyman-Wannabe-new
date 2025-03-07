@@ -1,10 +1,8 @@
-
-import React, { useState, useCallback, useMemo } from "react";
+import React from "react";
 import { MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-// Pre-defined service areas to avoid recreation on each render
 const serviceAreas = [
   {
     region: "El Paso County",
@@ -26,94 +24,32 @@ const serviceAreas = [
   },
 ];
 
-// Animation variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const ServiceAreas = () => {
-  const [activeRegion, setActiveRegion] = useState<string | null>(null);
-
-  // Memoized toggle function to prevent recreation on each render
-  const toggleRegion = useCallback((region: string) => {
-    setActiveRegion(prev => prev === region ? null : region);
-  }, []);
-
-  // Rendered areas section memoized to prevent unnecessary re-renders
-  const renderedAreas = useMemo(() => (
-    <div className="space-y-6 flex-grow">
-      {serviceAreas.map((region, index) => (
-        <motion.div
-          key={region.region}
-          className={`bg-white/10 rounded-lg p-6 transition-all hover:bg-white/20 cursor-pointer ${
-            activeRegion === region.region ? "bg-white/20" : ""
-          }`}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => toggleRegion(region.region)}
-        >
-          <div className="flex items-center mb-3">
-            <MapPin className="w-5 h-5 text-[#5d4037] mr-2" />
-            <h3 className="text-xl font-bold text-[#5d4037]">
-              {region.region}
-            </h3>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {region.areas.map((area, areaIndex) => (
-              <motion.span
-                key={areaIndex}
-                className="inline-block bg-white/20 rounded-full px-3 py-1 text-sm"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 + areaIndex * 0.05 }}
-              >
-                {area}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  ), [activeRegion, toggleRegion]);
-
   return (
     <>
-      {/* Service Areas Section */}
-      <section 
-        className="py-20" 
-        style={{ 
-          backgroundColor: "#ebd5c1",
-          backgroundImage: "url('/images/texture-bg.webp')",
-          backgroundBlendMode: "overlay",
-          backgroundSize: "cover" 
-        }}
+      <section
+        className="relative pt-32 pb-20"
+        style={{ backgroundColor: "#ebd5c1" }}
       >
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Map Column */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Video Column */}
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              className="flex items-center justify-center"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              variants={fadeInUp}
               transition={{ duration: 0.6 }}
-              className="bg-white p-4 rounded-lg shadow-lg overflow-hidden"
             >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207019.11336308766!2d-104.9200903957284!3d38.87345444651031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8713412ea1e6d22b%3A0x418eeb92f5e86b13!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1666123456789!5m2!1sen!2sus"
-                width="100%"
-                height="350"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Service Area Map"
-              ></iframe>
+              <div className="w-full max-w-2xl">
+                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8">
+                  <img
+                    src="/images/Handyman_Logo.png"
+                    alt="Handyman Wannabe Logo"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
             </motion.div>
 
             {/* Service Areas Column */}
@@ -127,9 +63,46 @@ const ServiceAreas = () => {
               >
                 Service Areas
               </motion.h2>
-              
-              {renderedAreas}
-              
+              <div className="space-y-6 flex-grow">
+                {serviceAreas.map((region, index) => (
+                  <motion.div
+                    key={region.region}
+                    className="bg-white/10 rounded-lg p-6 transition-all hover:bg-white/20 cursor-pointer"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="flex items-center mb-3">
+                      <MapPin className="w-5 h-5 text-[#5d4037] mr-2" />
+                      <h3 className="text-xl font-bold text-[#5d4037]">
+                        {region.region}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {region.areas.map((area, areaIndex) => (
+                        <motion.span
+                          key={area}
+                          className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium text-[#5d4037]"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.4,
+                            delay: index * 0.2 + areaIndex * 0.1,
+                          }}
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          {area}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -167,6 +140,30 @@ const ServiceAreas = () => {
             </p>
           </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { value: "★ ★ ★ ★ ★", label: "Google Reviews" },
+              { value: "100+", label: "Services Listed" },
+              { value: "7 Years", label: "of Reliable Service" },
+              { value: "30+", label: "Years of Trade Experience" },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="text-4xl font-bold text-white block mb-2">
+                  {stat.value}
+                </span>
+                <span className="text-lg text-white/90">{stat.label}</span>
+              </motion.div>
+            ))}
+          </div>
+
           <motion.div
             className="mt-12 text-center max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -186,4 +183,4 @@ const ServiceAreas = () => {
   );
 };
 
-export default React.memo(ServiceAreas);
+export default ServiceAreas;
