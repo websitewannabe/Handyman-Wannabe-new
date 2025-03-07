@@ -72,7 +72,7 @@ const PackageCard = React.memo(({ pkg, openModal }) => {
   
   return (
     <motion.div
-      className={`bg-white rounded-xl shadow-xl overflow-hidden ${
+      className={`bg-white rounded-xl shadow-xl overflow-hidden flex flex-col h-full ${
         popular ? "border-2 border-primary" : ""
       }`}
       {...fadeInVariants}
@@ -83,14 +83,14 @@ const PackageCard = React.memo(({ pkg, openModal }) => {
           <span className="text-sm font-bold">MOST POPULAR</span>
         </div>
       )}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-bold mb-2">{name}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
         <div className="flex items-baseline mb-6">
           <span className="text-3xl font-bold text-primary">{price}</span>
           <span className="text-gray-500 ml-2">/ {duration}</span>
         </div>
-        <ul className="space-y-2 mb-6">
+        <ul className="space-y-2 mb-6 flex-grow">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
               <span className="text-primary mr-2">✓</span>
@@ -100,7 +100,7 @@ const PackageCard = React.memo(({ pkg, openModal }) => {
         </ul>
         <button 
           onClick={() => openModal(pkg)}
-          className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+          className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors mt-auto"
         >
           View Details
         </button>
