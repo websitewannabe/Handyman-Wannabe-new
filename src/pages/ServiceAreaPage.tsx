@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
@@ -96,7 +95,7 @@ const ServiceAreaPage = () => {
   // Optimize search handler with useCallback to prevent recreation on each render
   const handleSearch = useCallback((e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validate ZIP code format
     const isValidZip = /^\d{5}$/.test(searchQuery);
     if (!isValidZip) {
@@ -303,7 +302,7 @@ const ServiceAreaPage = () => {
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100"
                   onClick={() => toggleFaq(index)}
                 >
-                  <span className="font-bold">{faq.question}</span>
+                  <h3 className="font-bold text-lg">{faq.question}</h3>
                   {activeFaq === index ? (
                     <ChevronUp className="w-5 h-5 text-primary" />
                   ) : (
