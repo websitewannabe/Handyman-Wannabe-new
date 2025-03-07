@@ -42,13 +42,11 @@ const ServiceAreas = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="w-full max-w-2xl">
-                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Service Area Video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8">
+                  <img 
+                    src="/images/logo.png" 
+                    alt="Handyman Wannabe Logo"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
               </div>
