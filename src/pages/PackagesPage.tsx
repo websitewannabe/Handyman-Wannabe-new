@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Star, X, Check, DollarSign, Clock } from "lucide-react";
-import PackageModal from "../components/PackageModal";
-import CustomQuoteModal from "../components/CustomQuoteModal"; // Added import for the custom quote modal
 
-// Example package data - replace with your actual data
+import React, { useState, useRef, useCallback, useMemo } from "react";
+import { motion } from "framer-motion";
+import PackageModal from "../components/PackageModal";
+import CustomQuoteModal from "../components/CustomQuoteModal";
+
+// Package data - moved to top level to prevent re-creation on renders
 const packageData = [
   {
     id: "basic",
@@ -59,32 +59,95 @@ const packageData = [
   }
 ];
 
-const PackagesPage = () => {
-  const [selectedPackage, setSelectedPackage] = useState<any | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false); // Added state for custom quote modal
-  const modalRef = useRef<HTMLDivElement>(null);
+// Animation variants - defined outside component to prevent recreating on each render
+const fadeInVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
 
-  const openPackageModal = (pkg: any) => {
+// Extracted PackageCard component for better reusability and memoization
+const PackageCard = React.memo(({ pkg, openModal }) => {
+  const { id, name, description, price, duration, features, popular } = pkg;
+  
+  return (
+    <motion.div
+      className={`bg-white rounded-xl shadow-xl overflow-hidden ${
+        popular ? "border-2 border-primary" : ""
+      }`}
+      {...fadeInVariants}
+      transition={{ duration: 0.5, delay: id === "standard" ? 0.2 : id === "premium" ? 0.4 : 0 }}
+    >
+      {popular && (
+        <div className="bg-primary text-white py-1 px-4 text-center">
+          <span className="text-sm font-bold">MOST POPULAR</span>
+        </div>
+      )}
+      <div className="p-6">
+        <h3 className="text-2xl font-bold mb-2">{name}</h3>
+        <p className="text-gray-600 mb-4">{description}</p>
+        <div className="flex items-baseline mb-6">
+          <span className="text-3xl font-bold text-primary">{price}</span>
+          <span className="text-gray-500 ml-2">/ {duration}</span>
+        </div>
+        <ul className="space-y-2 mb-6">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <span className="text-primary mr-2">✓</span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <button 
+          onClick={() => openModal(pkg)}
+          className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+        >
+          View Details
+        </button>
+      </div>
+    </motion.div>
+  );
+});
+
+const PackagesPage = () => {
+  const [selectedPackage, setSelectedPackage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  
+  // Using useCallback to memoize functions
+  const openPackageModal = useCallback((pkg) => {
     setSelectedPackage(pkg);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
-  };
+  }, []);
 
-  const closeQuoteModal = () => {
+  const closeQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(false);
-  };
+  }, []);
+  
+  const openQuoteModal = useCallback(() => {
+    setIsQuoteModalOpen(true);
+  }, []);
+
+  // Memoize the package cards to prevent unnecessary re-renders
+  const packageCards = useMemo(() => {
+    return packageData.map((pkg) => (
+      <PackageCard 
+        key={pkg.id} 
+        pkg={pkg} 
+        openModal={openPackageModal}
+      />
+    ));
+  }, [openPackageModal]);
 
   return (
     <div className="pt-28 pb-20">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          {...fadeInVariants}
           className="text-center mb-12"
         >
           <h1 className="text-4xl font-bold mb-4">Service Packages</h1>
@@ -93,71 +156,12 @@ const PackagesPage = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {packageData.map((pkg, index) => (
-            <motion.div
-              key={pkg.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
-              onClick={() => openPackageModal(pkg)}
-            >
-              {pkg.popular && (
-                <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-                  POPULAR
-                </div>
-              )}
-
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                  {pkg.name}
-                </h2>
-                <p className="text-gray-600 mb-6 h-20">{pkg.description}</p>
-
-                <div className="flex justify-between items-center mb-6">
-                  <div className="flex items-center">
-                    <DollarSign className="w-5 h-5 text-primary mr-1" />
-                    <span className="text-2xl font-bold text-gray-800">
-                      {pkg.price}
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-gray-600 mr-1" />
-                    <span className="text-gray-600">{pkg.duration}</span>
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-3 text-gray-800">
-                    Includes:
-                  </h3>
-                  <ul className="space-y-2">
-                    {pkg.features.slice(0, 3).map((feature, i) => (
-                      <li key={i} className="flex text-gray-700">
-                        <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                    {pkg.features.length > 3 && (
-                      <li className="text-primary font-medium pt-1">
-                        +{pkg.features.length - 3} more features
-                      </li>
-                    )}
-                  </ul>
-                </div>
-
-                <button className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors">
-                  View Details
-                </button>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {packageCards}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...fadeInVariants}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-16"
         >
@@ -166,7 +170,7 @@ const PackagesPage = () => {
             We can create a personalized service package tailored to your specific home improvement needs.
           </p>
           <button
-            onClick={() => setIsQuoteModalOpen(true)} // Added onClick handler to open custom quote modal
+            onClick={openQuoteModal}
             className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg"
           >
             Request a Custom Quote
@@ -174,8 +178,8 @@ const PackagesPage = () => {
         </motion.div>
       </div>
 
-      {/* Package Modal */}
-      {selectedPackage && (
+      {/* Package Modal - Only render when needed */}
+      {isModalOpen && selectedPackage && (
         <PackageModal
           isOpen={isModalOpen}
           onClose={closeModal}
@@ -183,12 +187,15 @@ const PackagesPage = () => {
         />
       )}
 
-      {/* Custom Quote Modal */}
+      {/* Custom Quote Modal - Only render when needed */}
       {isQuoteModalOpen && (
-        <CustomQuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />
-      )} {/* Added Custom Quote Modal */}
+        <CustomQuoteModal 
+          isOpen={isQuoteModalOpen} 
+          onClose={closeQuoteModal} 
+        />
+      )}
     </div>
   );
 };
 
-export default PackagesPage;
+export default React.memo(PackagesPage);
