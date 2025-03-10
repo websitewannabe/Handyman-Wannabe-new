@@ -243,6 +243,7 @@ const SmartHomesPage = () => {
                     key={subcategory}
                     to={`/service-directory?category=${subcategory}`}
                     className="block"
+                    aria-label={`Browse ${info.title} smart home services and details`}
                   >
                     <motion.div
                       className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"

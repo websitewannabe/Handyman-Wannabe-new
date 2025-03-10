@@ -207,6 +207,7 @@ const PlumbingPage = () => {
                     key={subcategory}
                     to={`/service-directory?category=${subcategory}`}
                     className="block"
+                    aria-label={`View all ${info.title} plumbing services and details`}
                   >
                     <motion.div
                       className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"

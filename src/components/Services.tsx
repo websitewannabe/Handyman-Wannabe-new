@@ -166,8 +166,9 @@ const Services = () => {
                           <Link
                             to={getServiceUrl(item.name)}
                             className="w-full bg-white border-2 border-primary text-primary font-medium py-2 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 group-hover:shadow-md block text-center"
+                            aria-label={`Learn more about ${item.name} services`}
                           >
-                            Learn More
+                            Learn more about {item.name}
                           </Link>
                         </motion.div>
                       ))}

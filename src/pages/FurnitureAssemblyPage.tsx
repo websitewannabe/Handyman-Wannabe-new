@@ -204,6 +204,7 @@ const FurnitureAssemblyPage = () => {
                     key={subcategory}
                     to={`/service-directory?category=${subcategory}`}
                     className="block"
+                    aria-label={`Learn more about ${info.title}`} //Added aria-label
                   >
                     <motion.div
                       className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"

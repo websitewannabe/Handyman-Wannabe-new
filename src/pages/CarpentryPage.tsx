@@ -390,8 +390,9 @@ const CarpentryPage = () => {
             Contact us today for a free quote!
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <button className="bg-white text-primary font-bold text-xl px-12 py-4 rounded-lg hover:bg-gray-100 transition-colors">
-              Get an Instant Quote
+            <button className="bg-white text-primary font-bold text-xl px-12 py-4 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Request a quote for carpentry services">
+              Get a Carpentry Service Quote
             </button>
             <a
               href="tel:7193156628"

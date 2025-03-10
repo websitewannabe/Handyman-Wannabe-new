@@ -203,6 +203,7 @@ const HomeSecurityPage = () => {
                     key={subcategory}
                     to={`/service-directory?category=${subcategory}`}
                     className="block"
+                    aria-label={`Learn more about ${info.title}`}
                   >
                     <motion.div
                       className="bg-gray-50 rounded-xl overflow-hidden shadow-lg flex flex-col h-full hover:shadow-xl transition-shadow"
@@ -405,6 +406,7 @@ const HomeSecurityPage = () => {
             <a
               href="tel:7193156628"
               className="flex items-center text-2xl font-bold hover:text-white/90 transition-colors"
+              aria-label="Call us to discuss your home security needs"
             >
               <Phone className="w-6 h-6 mr-2" />
               (719) 315-6628
