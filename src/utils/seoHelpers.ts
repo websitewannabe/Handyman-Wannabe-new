@@ -45,8 +45,8 @@ export const pageSEOData: Record<string, PageSEOData> = {
 };
 
 // Base domain for canonical URLs and absolute image paths
-const domain = "https://www.handymanwannabe.com";
-
+// Domain is now defined only once
+ 
 // Helper function to get canonical URL
 export const getCanonicalUrl = (path: string): string => {
   // Remove any query parameters from the path
