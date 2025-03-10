@@ -46,6 +46,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${window.location.origin}${ogImage}`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Professional Handyman Services" />
       <meta property="og:site_name" content="Handyman Wannabe" />
 
       {/* Twitter */}

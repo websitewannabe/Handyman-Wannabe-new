@@ -113,17 +113,25 @@ const Hero = () => {
     <div className="relative">
       <div className="relative min-h-screen flex items-center justify-center">
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 overflow-hidden"
           style={{
-            backgroundImage: 'url("images/Handyman-Hero.jpeg")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
             transition: "opacity 0.3s ease-in-out",
           }}
         >
+          <img 
+            src="/images/Handyman-Hero.jpeg"
+            alt="Professional Handyman Services"
+            className="w-full h-full object-cover object-center"
+            loading="lazy"
+            fetchpriority="high"
+            style={{
+              maxWidth: '100%',
+              height: '100%',
+            }}
+          />
           <div className="absolute inset-0 bg-black/50"></div>
           {/* Add a preloader image */}
-          <link rel="preload" as="image" href="images/Handyman-Hero.jpeg" />
+          <link rel="preload" as="image" href="/images/Handyman-Hero.jpeg" />
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
