@@ -73,19 +73,34 @@
 
     <div id="root"></div>
 
-    <!-- Zapier Chatbot Script -->
-    <script
-      async
-      type="module"
-      src="https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js"
-    ></script>
-
-    <!-- Chatbot Embed -->
-    <zapier-interfaces-chatbot-embed
-      is-popup="true"
-      chatbot-id="cm7p74cv7000w9a6m7lj6xhmj"
-    ></zapier-interfaces-chatbot-embed>
-
+    <!-- Main application script - load first -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Conditionally load Zapier chat based on page need -->
+    <script>
+      // Delay Zapier chatbot loading for better initial page performance
+      document.addEventListener('DOMContentLoaded', () => {
+        // Wait until user has been on the page for a few seconds
+        setTimeout(() => {
+          // Only load on service pages or contact pages where chat would be useful
+          const path = window.location.pathname;
+          if (path.includes('/services') || path === '/contact' || path === '/') {
+            const chatScript = document.createElement('script');
+            chatScript.setAttribute('async', '');
+            chatScript.setAttribute('type', 'module');
+            chatScript.setAttribute('src', 'https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js');
+            document.body.appendChild(chatScript);
+            
+            // Add the chatbot embed element once script is loaded
+            chatScript.onload = () => {
+              const chatEmbed = document.createElement('zapier-interfaces-chatbot-embed');
+              chatEmbed.setAttribute('is-popup', 'true');
+              chatEmbed.setAttribute('chatbot-id', 'cm7p74cv7000w9a6m7lj6xhmj');
+              document.body.appendChild(chatEmbed);
+            };
+          }
+        }, 3000); // Load after 3 seconds
+      });
+    </script>
   </body>
 </html>

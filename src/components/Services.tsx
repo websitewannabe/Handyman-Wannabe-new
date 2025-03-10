@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
@@ -67,16 +67,17 @@ const getServiceUrl = (name: string) => {
   return `/services/${slug}`;
 };
 
-const Services = () => {
+const Services = memo(() => {
+  const serviceCategories = useMemo(() => services, []); // Memoize services array
   const [selectedCategory, setSelectedCategory] = useState<string>("Interior");
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-16 bg-gray-50">
       <h2 className="text-center mb-12">Our Services</h2>
 
       <div className="flex flex-wrap">
-        {services.map((service) => (
+        {serviceCategories.map((service) => (
           <div
             key={service.category}
             className="w-full md:w-1/2 relative cursor-pointer group"
@@ -142,7 +143,7 @@ const Services = () => {
                     {selectedCategory} Services
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {services
+                    {serviceCategories
                       .find((s) => s.category === selectedCategory)
                       ?.items.map((item, index) => (
                         <motion.div
@@ -181,6 +182,6 @@ const Services = () => {
       </AnimatePresence>
     </section>
   );
-};
+});
 
 export default Services;

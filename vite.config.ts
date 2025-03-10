@@ -23,4 +23,31 @@ export default defineConfig({
       "Access-Control-Allow-Origin": "*",
     },
   },
+  build: {
+    // Enable gzip compression
+    reportCompressedSize: true,
+    // Optimize chunk size
+    chunkSizeWarningLimit: 800,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        // Customize chunk naming
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-framework': ['framer-motion', 'lucide-react'],
+          'utils': ['react-helmet-async', 'react-select'],
+        },
+        // Split chunks properly
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+      },
+    },
+  },
 });
