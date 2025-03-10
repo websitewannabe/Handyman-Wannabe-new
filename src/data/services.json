@@ -5,7 +5,7 @@
     "description": "Professional installation of baseboards and decorative trim.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install new baseboards and trim",
       "Replace damaged baseboards",
@@ -22,7 +22,7 @@
     "description": "Expert installation of crown molding and ceiling trim.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install crown molding",
       "Repair existing molding",
@@ -39,7 +39,7 @@
     "description": "Professional repair and installation of interior doors.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install new interior doors",
       "Repair damaged doors",
@@ -56,7 +56,7 @@
     "description": "Expert installation of door knobs, handles, and locks.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install new door hardware",
       "Replace broken handles",
@@ -73,7 +73,7 @@
     "description": "Custom installation of decorative wall panels.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install wainscoting panels",
       "Add beadboard accents",
@@ -90,7 +90,7 @@
     "description": "Custom built-in shelving solutions for any room.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Design custom shelving",
       "Install built-in units",
@@ -107,7 +107,7 @@
     "description": "Professional installation of handrails and banisters.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install new handrails",
       "Replace damaged banisters",
@@ -124,7 +124,7 @@
     "description": "Secure installation of coat racks, hooks, and organizers.",
     "category": "Carpentry",
     "subcategory": "general-carpentry",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install coat racks",
       "Mount organization systems",
@@ -141,7 +141,7 @@
     "description": "Expert repair and installation of cabinet doors.",
     "category": "Carpentry",
     "subcategory": "cabinet-furniture-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Fix loose or damaged cabinet doors",
       "Replace broken hinges and hardware",
@@ -158,7 +158,7 @@
     "description": "Professional adjustment and replacement of cabinet hinges.",
     "category": "Carpentry",
     "subcategory": "cabinet-furniture-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Replace worn or broken hinges",
       "Adjust hinge tension",
@@ -175,7 +175,7 @@
     "description": "Custom installation of floating shelves and bookcases.",
     "category": "Carpentry",
     "subcategory": "cabinet-furniture-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install floating shelves",
       "Mount bookcases securely",
@@ -192,7 +192,7 @@
     "description": "Expert furniture repair and restoration services.",
     "category": "Carpentry",
     "subcategory": "cabinet-furniture-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Fix wobbly furniture",
       "Repair broken joints",
@@ -209,7 +209,7 @@
     "description": "Custom modifications to existing cabinets.",
     "category": "Carpentry",
     "subcategory": "cabinet-furniture-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Resize cabinet openings",
       "Add or remove shelves",
@@ -226,7 +226,7 @@
     "description": "Professional installation of cabinet lighting systems.",
     "category": "Carpentry",
     "subcategory": "cabinet-furniture-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Install LED strips",
       "Mount puck lights",
@@ -243,7 +243,7 @@
     "description": "Repairing small sections of damaged drywall (including cutting and replacing)",
     "category": "Carpentry",
     "subcategory": "framing-drywall-related",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Cutting & Replacing Drywall",
       "Seamless Patching",
@@ -259,7 +259,7 @@
     "description": "Framing a small closet or pantry space",
     "category": "Carpentry",
     "subcategory": "framing-drywall-related",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom Fit & Design",
       "Structural Stability",
@@ -275,7 +275,7 @@
     "description": "Installing or repairing attic access panels",
     "category": "Carpentry",
     "subcategory": "framing-drywall-related",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless Integration",
       "Improved Accessibility",
@@ -291,7 +291,7 @@
     "description": "Repairing or replacing damaged or worn deck boards to restore safety and aesthetics.",
     "category": "Carpentry",
     "subcategory": "deck-exterior-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable & Weatherproof Materials",
       "Seamless Board Integration",
@@ -307,7 +307,7 @@
     "description": "Secure and enhance your outdoor space by repairing or installing wooden railings on decks and porches.",
     "category": "Carpentry",
     "subcategory": "deck-exterior-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sturdy & Secure Installation",
       "Custom Railing Designs",
@@ -323,7 +323,7 @@
     "description": "Installing or replacing wooden stair treads on outdoor steps to enhance safety and durability.",
     "category": "Carpentry",
     "subcategory": "deck-exterior-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Slip-Resistant Finishing",
       "Precision-Cut Stair Treads",
@@ -339,7 +339,7 @@
     "description": "Fixing loose, damaged, or broken wooden fencing and gates for enhanced security and curb appeal.",
     "category": "Carpentry",
     "subcategory": "deck-exterior-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable Reinforcement",
       "Custom Wood Matching",
@@ -355,7 +355,7 @@
     "description": "Installing or replacing lattice skirting around decks to improve aesthetics and conceal under-deck storage.",
     "category": "Carpentry",
     "subcategory": "deck-exterior-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced Deck Aesthetics",
       "Custom Lattice Designs",
@@ -371,7 +371,7 @@
     "description": "Enhance door aesthetics with new trim installation or replacement.",
     "category": "Carpentry",
     "subcategory": "door-window-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom Trim Designs",
       "Precision Cutting & Installation",
@@ -387,7 +387,7 @@
     "description": "Improve insulation and energy efficiency with new weather stripping or door thresholds.",
     "category": "Carpentry",
     "subcategory": "door-window-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Improved Energy Efficiency",
       "Seals Against Drafts & Moisture",
@@ -403,7 +403,7 @@
     "description": "Ensure smooth door operation by fixing sticking or misaligned doors.",
     "category": "Carpentry",
     "subcategory": "door-window-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Proper Door Alignment",
       "Smoother Opening & Closing",
@@ -419,7 +419,7 @@
     "description": "Give your furry friend easy access with a professionally installed pet door.",
     "category": "Carpentry",
     "subcategory": "door-window-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom Door Sizing",
       "Weatherproof Sealing",
@@ -435,7 +435,7 @@
     "description": "Upgrade or repair window sills and casings for better insulation and aesthetics.",
     "category": "Carpentry",
     "subcategory": "door-window-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless Window Integration",
       "Improved Energy Efficiency",
@@ -451,7 +451,7 @@
     "description": "Safely access your attic with professionally installed or replaced attic ladders.",
     "category": "Carpentry",
     "subcategory": "small-carpentry-jobs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure & Sturdy Installation",
       "Space-Saving Foldable Design",
@@ -467,7 +467,7 @@
     "description": "Strengthen and restore wooden furniture legs for durability and stability.",
     "category": "Carpentry",
     "subcategory": "small-carpentry-jobs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reinforced Structural Support",
       "Matching Wood Stains & Finishes",
@@ -483,7 +483,7 @@
     "description": "Maximize storage space with custom closet organizer installation or modifications.",
     "category": "Carpentry",
     "subcategory": "small-carpentry-jobs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom Storage Solutions",
       "Efficient Space Utilization",
@@ -499,7 +499,7 @@
     "description": "Enhance your home with stylish wooden accent walls, including shiplap and board & batten.",
     "category": "Carpentry",
     "subcategory": "small-carpentry-jobs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Customizable Wood Panel Designs",
       "Professional Seamless Installation",
@@ -515,7 +515,7 @@
     "description": "Replace broken or worn wooden slats in bed frames and furniture for improved support.",
     "category": "Carpentry",
     "subcategory": "small-carpentry-jobs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reinforced Frame Support",
       "Custom Fit & Precision Installation",
@@ -531,7 +531,7 @@
     "description": "Installing or replacing ceiling light fixtures to brighten up your space with improved lighting solutions.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Modern & Energy-Efficient Fixtures",
       "Professional & Safe Installation",
@@ -547,7 +547,7 @@
     "description": "Installing or replacing chandeliers to enhance the elegance and ambiance of any room.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure & Safe Installation",
       "Modern & Classic Designs",
@@ -563,7 +563,7 @@
     "description": "Installing or replacing pendant lights to add style and focused lighting to any space.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Customizable Heights & Placement",
       "Energy-Efficient LED Options",
@@ -579,7 +579,7 @@
     "description": "Installing or replacing recessed lighting for a sleek, modern, and space-saving lighting solution.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Limited-Space Friendly",
       "Dimmable & Energy-Efficient",
@@ -595,7 +595,7 @@
     "description": "Repairing or replacing faulty light switches to restore proper lighting control in your home.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Quick & Safe Repairs",
       "Smart Switch Upgrade Options",
@@ -611,7 +611,7 @@
     "description": "Installing dimmer switches to allow adjustable lighting levels for different moods and settings.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Customizable Light Levels",
       "Compatible with LED & Smart Bulbs",
@@ -627,7 +627,7 @@
     "description": "Installing or replacing outdoor security lights to enhance safety and visibility around your property.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Motion Sensor Activation",
       "Weather-Resistant Fixtures",
@@ -643,7 +643,7 @@
     "description": "Installing motion sensor lights for automatic illumination and enhanced security.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Hands-Free Lighting",
       "Energy-Saving Features",
@@ -659,7 +659,7 @@
     "description": "Installing or replacing under-cabinet lighting for improved kitchen ambiance and functionality.",
     "category": "Electrical",
     "subcategory": "lighting-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Soft & Focused Lighting",
       "LED & Energy-Efficient Options",
@@ -675,7 +675,7 @@
     "description": "Replace or install standard electrical outlets for reliable power access.",
     "category": "Electrical",
     "subcategory": "outlet-switch-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe & Code-Compliant Wiring",
       "Seamless Integration",
@@ -691,7 +691,7 @@
     "description": "Install or upgrade GFCI outlets in kitchens, bathrooms, and garages for enhanced safety.",
     "category": "Electrical",
     "subcategory": "outlet-switch-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced Shock Protection",
       "Code-Compliant Safety Upgrade",
@@ -707,7 +707,7 @@
     "description": "Upgrade your home with USB charging outlets for convenient device charging.",
     "category": "Electrical",
     "subcategory": "outlet-switch-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Fast & Efficient Charging",
       "Universal Compatibility",
@@ -723,7 +723,7 @@
     "description": "Upgrade to smart switches and outlets for remote control and automation.",
     "category": "Electrical",
     "subcategory": "outlet-switch-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Remote & Voice Control",
       "Energy Monitoring",
@@ -739,7 +739,7 @@
     "description": "Professional installation of ceiling fans, with or without light kits, to improve air circulation and lighting.",
     "category": "Electrical",
     "subcategory": "ceiling-fan-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Expert Installation",
       "Compatible with Various Styles",
@@ -755,7 +755,7 @@
     "description": "Upgrade or replace old and malfunctioning ceiling fans with newer, more efficient models.",
     "category": "Electrical",
     "subcategory": "ceiling-fan-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless Replacement",
       "Enhanced Cooling & Ventilation",
@@ -771,7 +771,7 @@
     "description": "Fix wobbly or noisy ceiling fans to ensure safe and stable operation.",
     "category": "Electrical",
     "subcategory": "ceiling-fan-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Noise Reduction",
       "Improved Fan Stability",
@@ -787,7 +787,7 @@
     "description": "Install modern ceiling fans with remote control functionality for added convenience.",
     "category": "Electrical",
     "subcategory": "ceiling-fan-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Wireless Remote Functionality",
       "Smart Home Integration Available",
@@ -803,7 +803,7 @@
     "description": "Expert installation or replacement of hardwired dishwashers for seamless kitchen functionality.",
     "category": "Electrical",
     "subcategory": "appliance-wiring-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure Hardwired Connection",
       "Leak-Free Installation",
@@ -819,7 +819,7 @@
     "description": "Installing or replacing over-the-range microwaves with proper ventilation and wiring.",
     "category": "Electrical",
     "subcategory": "appliance-wiring-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless Cabinet Mounting",
       "Proper Ventilation Setup",
@@ -835,7 +835,7 @@
     "description": "Installation and wiring of garbage disposals for efficient kitchen waste management.",
     "category": "Electrical",
     "subcategory": "appliance-wiring-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Leak-Proof Connection",
       "Powerful & Efficient Performance",
@@ -851,7 +851,7 @@
     "description": "Wiring and setup of electric dryers, including plug replacement and outlet checks.",
     "category": "Electrical",
     "subcategory": "appliance-wiring-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Proper Vent & Electrical Setup",
       "Outlet Compatibility Check",
@@ -867,7 +867,7 @@
     "description": "Ensure small home appliances are safely connected to power with proper wiring and setup.",
     "category": "Electrical",
     "subcategory": "appliance-wiring-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe Electrical Wiring",
       "Outlet & Power Optimization",
@@ -883,7 +883,7 @@
     "description": "Diagnosing and fixing minor electrical issues to ensure safety and efficiency.",
     "category": "Electrical",
     "subcategory": "electrical-safety-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Quick Electrical Diagnostics",
       "Minor Fixes & Adjustments",
@@ -899,7 +899,7 @@
     "description": "Identifying and replacing damaged wiring to restore safe electrical connections.",
     "category": "Electrical",
     "subcategory": "electrical-safety-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe Wiring Replacement",
       "Up-to-Code Electrical Standards",
@@ -915,7 +915,7 @@
     "description": "Replacing or repairing circuit breakers for small electrical jobs (no panel replacements).",
     "category": "Electrical",
     "subcategory": "electrical-safety-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Efficient Breaker Replacement",
       "Prevent Electrical Overloads",
@@ -931,7 +931,7 @@
     "description": "Testing, replacing, and installing smoke detectors and carbon monoxide alarms for home safety.",
     "category": "Electrical",
     "subcategory": "electrical-safety-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Early Fire & Gas Detection",
       "Professional Alarm Placement",
@@ -947,7 +947,7 @@
     "description": "Installing childproof outlet covers and tamper-resistant outlets to enhance home safety.",
     "category": "Electrical",
     "subcategory": "electrical-safety-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Tamper-Resistant Outlets",
       "Safe & Secure Installation",
@@ -963,7 +963,7 @@
     "description": "Installing smart thermostats like Nest, Ecobee, and others for energy-efficient climate control.",
     "category": "Electrical",
     "subcategory": "smart-home-low-voltage",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Programmable & Remote Access",
       "Energy Efficiency Optimization",
@@ -979,7 +979,7 @@
     "description": "Setting up smart doorbells like Ring, Google Nest, and others for enhanced security and convenience.",
     "category": "Electrical",
     "subcategory": "smart-home-low-voltage",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Live Video & Motion Detection",
       "Two-Way Audio Communication",
@@ -995,7 +995,7 @@
     "description": "Installing smart security cameras for real-time surveillance and home monitoring.",
     "category": "Electrical",
     "subcategory": "smart-home-low-voltage",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "24/7 Home Monitoring",
       "Night Vision & Motion Alerts",
@@ -1011,7 +1011,7 @@
     "description": "Installing or replacing doorbell systems for improved visitor notifications.",
     "category": "Electrical",
     "subcategory": "smart-home-low-voltage",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Hardwired & Wireless Options",
       "Custom Chime Settings",
@@ -1027,7 +1027,7 @@
     "description": "Installing smart light switches and dimmers for convenient lighting control and automation.",
     "category": "Electrical",
     "subcategory": "smart-home-low-voltage",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Voice & App-Controlled Lighting",
       "Customizable Dimming Settings",
@@ -1043,7 +1043,7 @@
     "description": "Installing or replacing weatherproof exterior outlets for safe and reliable outdoor power access.",
     "category": "Electrical",
     "subcategory": "outdoor-garage-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Weather-Resistant Outlet Covers",
       "GFCI Protection for Safety",
@@ -1059,7 +1059,7 @@
     "description": "Installing motion-sensor security lighting for enhanced safety and property illumination.",
     "category": "Electrical",
     "subcategory": "outdoor-garage-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Adjustable Motion Sensitivity",
       "Energy-Efficient LED Lighting",
@@ -1075,7 +1075,7 @@
     "description": "Installing or replacing landscape lighting to improve outdoor aesthetics and safety.",
     "category": "Electrical",
     "subcategory": "outdoor-garage-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Low-Voltage & Solar Options",
       "Custom Placement for Optimal Illumination",
@@ -1091,7 +1091,7 @@
     "description": "Providing small-scale power solutions for sheds and detached garages.",
     "category": "Electrical",
     "subcategory": "outdoor-garage-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe Underground Wiring",
       "Dedicated Circuit Installation",
@@ -1107,7 +1107,7 @@
     "description": "Replacing or installing new kitchen and bathroom faucets for improved functionality and style.",
     "category": "Plumbing",
     "subcategory": "faucet-sink-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Leak-Free Installation",
       "Stylish & Modern Designs",
@@ -1123,7 +1123,7 @@
     "description": "Fixing leaks by replacing washers, cartridges, or other components in faucets.",
     "category": "Plumbing",
     "subcategory": "faucet-sink-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Fix Dripping Faucets",
       "Washer & Cartridge Replacement",
@@ -1139,7 +1139,7 @@
     "description": "Installing or replacing sinks, including drop-in and pedestal options.",
     "category": "Plumbing",
     "subcategory": "faucet-sink-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom Sink Fit",
       "Seamless Integration",
@@ -1155,7 +1155,7 @@
     "description": "Fixing leaks under sinks by replacing P-traps or supply lines.",
     "category": "Plumbing",
     "subcategory": "faucet-sink-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Identify & Fix Leaks",
       "P-Trap & Supply Line Replacement",
@@ -1171,7 +1171,7 @@
     "description": "Installing or replacing garbage disposals for efficient kitchen waste management.",
     "category": "Plumbing",
     "subcategory": "faucet-sink-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Leak-Proof Connection",
       "Powerful & Efficient Performance",
@@ -1187,7 +1187,7 @@
     "description": "Installing or replacing toilets with secure, leak-free fittings.",
     "category": "Plumbing",
     "subcategory": "toilet-repairs-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Professional & Secure Installation",
       "Leak-Free Fittings",
@@ -1203,7 +1203,7 @@
     "description": "Replacing faulty toilet fill valves, flappers, and flush mechanisms for proper water flow.",
     "category": "Plumbing",
     "subcategory": "toilet-repairs-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Fix Weak or Constantly Running Flush",
       "Water-Efficient Flush Mechanisms",
@@ -1219,7 +1219,7 @@
     "description": "Fixing running or constantly flushing toilets to prevent water waste and high bills.",
     "category": "Plumbing",
     "subcategory": "toilet-repairs-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Diagnose & Repair Running Toilets",
       "Water-Saving Adjustments",
@@ -1235,7 +1235,7 @@
     "description": "Replacing wax rings to stop toilet leaks and prevent water damage.",
     "category": "Plumbing",
     "subcategory": "toilet-repairs-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Leak Prevention & Water Damage Protection",
       "Secure & Tight Seals",
@@ -1251,7 +1251,7 @@
     "description": "Installing bidet attachments or seats for enhanced hygiene and comfort.",
     "category": "Plumbing",
     "subcategory": "toilet-repairs-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Modern & Adjustable Bidet Options",
       "Comfort-Enhancing Features",
@@ -1267,7 +1267,7 @@
     "description": "Installing or replacing showerheads for better water flow and efficiency.",
     "category": "Plumbing",
     "subcategory": "shower-bathtub-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Modern & Water-Efficient Showerheads",
       "Adjustable Spray Patterns",
@@ -1283,7 +1283,7 @@
     "description": "Replacing bathtub and shower faucet fixtures for improved functionality and aesthetics.",
     "category": "Plumbing",
     "subcategory": "shower-bathtub-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable & Stylish Fixture Options",
       "Improved Water Pressure",
@@ -1299,7 +1299,7 @@
     "description": "Caulking and resealing bathtubs and showers to prevent leaks and mold buildup.",
     "category": "Plumbing",
     "subcategory": "shower-bathtub-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Waterproof & Mold-Resistant Sealant",
       "Professional Application",
@@ -1315,7 +1315,7 @@
     "description": "Unclogging slow-draining bathtubs and sinks with minor drain cleaning.",
     "category": "Plumbing",
     "subcategory": "shower-bathtub-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Clears Minor Clogs & Slow Drainage",
       "Safe & Effective Cleaning Methods",
@@ -1331,7 +1331,7 @@
     "description": "Fixing minor pipe leaks by tightening connections and replacing fittings.",
     "category": "Plumbing",
     "subcategory": "pipe-drain-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Leak-Free Connections",
       "Professional Pipe Fitting",
@@ -1347,7 +1347,7 @@
     "description": "Replacing or repairing P-traps and drain pipes under sinks to prevent leaks and improve drainage.",
     "category": "Plumbing",
     "subcategory": "pipe-drain-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Stops Water Backup",
       "Long-Lasting, Durable Piping",
@@ -1363,7 +1363,7 @@
     "description": "Unclogging sinks, toilets, and tubs using plungers or drain snakes.",
     "category": "Plumbing",
     "subcategory": "pipe-drain-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes Stubborn Clogs",
       "Safe & Effective Drain Cleaning",
@@ -1379,7 +1379,7 @@
     "description": "Repairing or replacing outdoor hose bibs to prevent leaks and ensure proper water flow.",
     "category": "Plumbing",
     "subcategory": "pipe-drain-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Leak-Free Outdoor Faucets",
       "Durable & Weatherproof Materials",
@@ -1395,7 +1395,7 @@
     "description": "Flushing sediment from tank-style water heaters to improve efficiency and longevity.",
     "category": "Plumbing",
     "subcategory": "water-heater-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes Built-Up Sediment",
       "Improves Heating Efficiency",
@@ -1411,7 +1411,7 @@
     "description": "Replacing heating elements or thermostats in water heaters to restore proper heating functionality.",
     "category": "Plumbing",
     "subcategory": "water-heater-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores Proper Heating",
       "Energy-Efficient Upgrades",
@@ -1427,7 +1427,7 @@
     "description": "Adjusting water heater temperature settings for optimal performance and energy savings.",
     "category": "Plumbing",
     "subcategory": "water-heater-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Optimized Temperature Settings",
       "Prevents Scalding & Overheating",
@@ -1443,7 +1443,7 @@
     "description": "Replacing anode rods to extend the lifespan of water heaters and prevent corrosion.",
     "category": "Plumbing",
     "subcategory": "water-heater-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prevents Tank Corrosion",
       "Extends Water Heater Life",
@@ -1459,7 +1459,7 @@
     "description": "Replacing old or leaking washing machine hoses to prevent flooding and improve water flow.",
     "category": "Plumbing",
     "subcategory": "laundry-appliance-plumbing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prevents Water Leaks & Flooding",
       "Durable & Flexible Hose Options",
@@ -1475,7 +1475,7 @@
     "description": "Installing new water and drainage connections for washing machines and dishwashers.",
     "category": "Plumbing",
     "subcategory": "laundry-appliance-plumbing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Ensures Secure Water Connections",
       "Compatible with All Major Brands",
@@ -1491,7 +1491,7 @@
     "description": "Installing or replacing water lines for refrigerators to enable ice maker and water dispenser functionality.",
     "category": "Plumbing",
     "subcategory": "laundry-appliance-plumbing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe & Secure Water Connection",
       "Works with Ice Makers & Dispensers",
@@ -1507,7 +1507,7 @@
     "description": "Installing or replacing under-sink water filters to improve water quality and remove contaminants.",
     "category": "Plumbing",
     "subcategory": "minor-plumbing-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Improves Water Quality",
       "Reduces Contaminants & Odors",
@@ -1523,7 +1523,7 @@
     "description": "Installing utility sinks in laundry rooms, garages, and basements for convenient water access.",
     "category": "Plumbing",
     "subcategory": "minor-plumbing-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Ideal for Garages, Basements & Laundry Rooms",
       "Deep Basin for Heavy-Duty Cleaning",
@@ -1539,7 +1539,7 @@
     "description": "Installing or replacing shut-off valves for sinks and toilets to prevent leaks and allow easy repairs.",
     "category": "Plumbing",
     "subcategory": "minor-plumbing-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prevents Water Leaks",
       "Allows Easy Plumbing Maintenance",
@@ -1555,7 +1555,7 @@
     "description": "Painting walls and ceilings for single rooms with professional finishes.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Full wall and ceiling coverage",
       "Premium paint options",
@@ -1571,7 +1571,7 @@
     "description": "Quick touch-up painting for scuff marks and small areas.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Small area paint repairs",
       "Seamless color matching",
@@ -1587,7 +1587,7 @@
     "description": "Repainting doors and door frames for a fresh new look.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Includes sanding and priming",
       "Wide selection of colors",
@@ -1603,7 +1603,7 @@
     "description": "Painting or refinishing trim, baseboards, and crown molding for a refined appearance.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Precision painting for detailed trim",
       "Smooth and even finish",
@@ -1619,7 +1619,7 @@
     "description": "Adding an accent wall to enhance your space with bold colors or unique designs.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom color selection",
       "Professional-grade finish",
@@ -1635,7 +1635,7 @@
     "description": "Painting small cabinet projects such as bathroom vanities and kitchen cabinets.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smooth and durable finish",
       "Wide selection of paint colors",
@@ -1651,7 +1651,7 @@
     "description": "Painting or staining stair railings and banisters to match your interior.",
     "category": "Painting & Drywall",
     "subcategory": "interior-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom stain or paint options",
       "Smooth and even application",
@@ -1667,7 +1667,7 @@
     "description": "Repainting front doors, garage doors, and shutters for a fresh and polished look.",
     "category": "Painting & Drywall",
     "subcategory": "exterior-painting-touchups",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Weather-resistant paint",
       "Wide color selection",
@@ -1683,7 +1683,7 @@
     "description": "Painting or staining fences and gates to improve curb appeal and protection.",
     "category": "Painting & Drywall",
     "subcategory": "exterior-painting-touchups",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sealing for weather protection",
       "Color-matching available",
@@ -1699,7 +1699,7 @@
     "description": "Minor touch-up painting for peeling or chipped exterior paint areas.",
     "category": "Painting & Drywall",
     "subcategory": "exterior-painting-touchups",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Small area repair",
       "Blends seamlessly with existing paint",
@@ -1715,7 +1715,7 @@
     "description": "Painting or staining decks and porches for enhanced durability and aesthetics.",
     "category": "Painting & Drywall",
     "subcategory": "exterior-painting-touchups",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Protective stain or paint finish",
       "Slip-resistant coating available",
@@ -1731,7 +1731,7 @@
     "description": "Applying fresh paint or stain to pergolas and patio covers for an updated look.",
     "category": "Painting & Drywall",
     "subcategory": "exterior-painting-touchups",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "UV and moisture-resistant coating",
       "Smooth and even application",
@@ -1747,7 +1747,7 @@
     "description": "Small-scale exterior home painting for select areas needing improvement.",
     "category": "Painting & Drywall",
     "subcategory": "exterior-painting-touchups",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Spot painting for touch-ups",
       "Weatherproof and durable",
@@ -1763,7 +1763,7 @@
     "description": "Patching small holes and cracks in drywall before painting for a smooth finish.",
     "category": "Painting & Drywall",
     "subcategory": "surface-prep-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smooth and seamless repairs",
       "Blends perfectly with existing drywall",
@@ -1779,7 +1779,7 @@
     "description": "Caulking gaps in trim and baseboards to prevent moisture damage and improve appearance.",
     "category": "Painting & Drywall",
     "subcategory": "surface-prep-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seals gaps and cracks",
       "Improves insulation and durability",
@@ -1795,7 +1795,7 @@
     "description": "Applying stain and sealant to protect and enhance the appearance of wooden fences and decks.",
     "category": "Painting & Drywall",
     "subcategory": "specialty-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "UV and weather protection",
       "Long-lasting stain options",
@@ -1811,7 +1811,7 @@
     "description": "Applying specialty paint to create chalkboard or magnetic surfaces on walls.",
     "category": "Painting & Drywall",
     "subcategory": "specialty-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Customizable surface",
       "Safe and durable finish",
@@ -1827,7 +1827,7 @@
     "description": "Protecting outdoor wooden structures with high-quality waterproof sealant.",
     "category": "Painting & Drywall",
     "subcategory": "specialty-painting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Weatherproof finish",
       "Prevents wood rot and decay",
@@ -1843,7 +1843,7 @@
     "description": "Repairing minor drywall imperfections for a smooth, paint-ready surface.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smooth, seamless finish",
       "Blends perfectly with existing drywall",
@@ -1859,7 +1859,7 @@
     "description": "Fixing protruding nails and minor damage to drywall for a flawless appearance.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secures drywall properly",
       "Smooth surface ready for painting",
@@ -1875,7 +1875,7 @@
     "description": "Removing damaged drywall sections and blending with existing wall texture.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless repair",
       "Perfect texture matching",
@@ -1891,7 +1891,7 @@
     "description": "Creating a smooth and professional drywall finish using taping, mudding, and sanding techniques.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smooth, even application",
       "Eliminates wall imperfections",
@@ -1907,7 +1907,7 @@
     "description": "Professional installation of drywall panels in small areas like closets and alcoves.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Precise and secure installation",
       "Smooth seams and edges",
@@ -1923,7 +1923,7 @@
     "description": "Applying texture to drywall to match existing finishes like knockdown, orange peel, or popcorn.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Matches existing wall texture",
       "Professional-grade finish",
@@ -1939,7 +1939,7 @@
     "description": "Applying a thin layer of joint compound to walls for a perfectly smooth surface.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Flawless finish",
       "Eliminates texture imperfections",
@@ -1955,7 +1955,7 @@
     "description": "Safely removing outdated popcorn ceilings for a modern, smooth finish.",
     "category": "Painting & Drywall",
     "subcategory": "drywall-repair-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Dust-free removal process",
       "Smooth, clean finish",
@@ -1971,7 +1971,7 @@
     "description": "Professional installation of click-lock or floating laminate flooring for a seamless look.",
     "category": "Flooring",
     "subcategory": "hardwood-laminate-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable and stylish finish",
       "Easy maintenance",
@@ -1987,7 +1987,7 @@
     "description": "Precision installation of engineered hardwood using the floating method.",
     "category": "Flooring",
     "subcategory": "hardwood-laminate-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "High-quality wood finish",
       "Floating installation method",
@@ -2003,7 +2003,7 @@
     "description": "Removing and replacing damaged or warped floorboards to restore flooring integrity.",
     "category": "Flooring",
     "subcategory": "hardwood-laminate-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless repair",
       "Matches existing flooring",
@@ -2019,7 +2019,7 @@
     "description": "Fixing minor scratches and dents to maintain the pristine look of hardwood flooring.",
     "category": "Flooring",
     "subcategory": "hardwood-laminate-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Scratch and dent removal",
       "Blends with existing floor color",
@@ -2035,7 +2035,7 @@
     "description": "Refreshing worn hardwood flooring by applying touch-up stain or sealant.",
     "category": "Flooring",
     "subcategory": "hardwood-laminate-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores wood color",
       "Protects against wear and moisture",
@@ -2051,7 +2051,7 @@
     "description": "Installing or replacing quarter round and transition strips for a clean floor finish.",
     "category": "Flooring",
     "subcategory": "hardwood-laminate-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seamless flooring transitions",
       "Matches existing flooring",
@@ -2067,7 +2067,7 @@
     "description": "Quick and easy installation of peel-and-stick vinyl tiles or planks for a cost-effective flooring solution.",
     "category": "Flooring",
     "subcategory": "vinyl-tile-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "No adhesive required",
       "Fast and easy to install",
@@ -2083,7 +2083,7 @@
     "description": "Durable and water-resistant click-lock vinyl plank flooring installation for residential and commercial spaces.",
     "category": "Flooring",
     "subcategory": "vinyl-tile-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Water-resistant and durable",
       "Interlocking design for seamless finish",
@@ -2099,7 +2099,7 @@
     "description": "Repair or replace broken or loose tiles to restore the beauty and functionality of your floors.",
     "category": "Flooring",
     "subcategory": "vinyl-tile-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Precise tile matching",
       "Durable and seamless repair",
@@ -2115,7 +2115,7 @@
     "description": "Improve the look and longevity of tile floors by replacing old or cracked grout.",
     "category": "Flooring",
     "subcategory": "vinyl-tile-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores grout color",
       "Prevents water damage",
@@ -2131,7 +2131,7 @@
     "description": "Professional deep cleaning and sealing of tile grout to prevent stains and moisture penetration.",
     "category": "Flooring",
     "subcategory": "vinyl-tile-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Deep cleaning of grout",
       "Protects against moisture and mold",
@@ -2147,7 +2147,7 @@
     "description": "Installation of durable vinyl or rubber baseboards to provide a seamless flooring transition.",
     "category": "Flooring",
     "subcategory": "vinyl-tile-flooring",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable and moisture-resistant",
       "Enhances the room’s aesthetics",
@@ -2163,7 +2163,7 @@
     "description": "Professional installation of modular carpet tiles for small spaces or high-traffic areas.",
     "category": "Flooring",
     "subcategory": "carpet-area-rug-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Quick and easy installation",
       "Customizable layout",
@@ -2179,7 +2179,7 @@
     "description": "Restoring loose or wrinkled carpets by re-stretching and securing them for a smooth finish.",
     "category": "Flooring",
     "subcategory": "carpet-area-rug-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Eliminates wrinkles and bumps",
       "Extends carpet lifespan",
@@ -2195,7 +2195,7 @@
     "description": "Installing durable carpet transition strips to create smooth flooring transitions between rooms.",
     "category": "Flooring",
     "subcategory": "carpet-area-rug-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Ensures smooth flooring transitions",
       "Prevents fraying and damage",
@@ -2211,7 +2211,7 @@
     "description": "Removing and replacing old carpet padding to restore comfort and support.",
     "category": "Flooring",
     "subcategory": "carpet-area-rug-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores carpet comfort",
       "Improves insulation and noise reduction",
@@ -2227,7 +2227,7 @@
     "description": "Professional installation of stair runners to enhance safety and aesthetics.",
     "category": "Flooring",
     "subcategory": "carpet-area-rug-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Provides extra traction on stairs",
       "Enhances staircase aesthetics",
@@ -2243,7 +2243,7 @@
     "description": "Secure and stabilize subflooring to eliminate creaky or squeaky floors.",
     "category": "Flooring",
     "subcategory": "floor-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reduces floor noise",
       "Prevents long-term structural issues",
@@ -2259,7 +2259,7 @@
     "description": "Patch and reinforce minor subfloor damage to provide a solid foundation for flooring.",
     "category": "Flooring",
     "subcategory": "floor-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Improves floor stability",
       "Prevents future cracks and sinking",
@@ -2275,7 +2275,7 @@
     "description": "Seamlessly fill gaps between floorboards to enhance appearance and durability.",
     "category": "Flooring",
     "subcategory": "floor-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Matches existing floor color and texture",
       "Prevents moisture buildup",
@@ -2291,7 +2291,7 @@
     "description": "Smooth and level uneven flooring surfaces before installing new materials.",
     "category": "Flooring",
     "subcategory": "floor-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prepares surface for new flooring",
       "Prevents premature wear and tear",
@@ -2307,7 +2307,7 @@
     "description": "Add underlayment for improved flooring durability, comfort, and noise reduction.",
     "category": "Flooring",
     "subcategory": "floor-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reduces noise and increases insulation",
       "Enhances flooring longevity",
@@ -2323,7 +2323,7 @@
     "description": "Install new stair treads and risers for enhanced durability and aesthetics.",
     "category": "Flooring",
     "subcategory": "stair-baseboard-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "High-quality wood and composite options",
       "Increases stair durability",
@@ -2339,7 +2339,7 @@
     "description": "Refinish worn-out wooden stairs for a refreshed look and added protection.",
     "category": "Flooring",
     "subcategory": "stair-baseboard-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores natural wood beauty",
       "Protects against scratches and wear",
@@ -2355,7 +2355,7 @@
     "description": "Upgrade baseboards and shoe molding for a polished and seamless room finish.",
     "category": "Flooring",
     "subcategory": "stair-baseboard-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhances room aesthetics",
       "Protects walls and flooring edges",
@@ -2371,7 +2371,7 @@
     "description": "Replacing broken or cracked window glass (single-pane or small sections).",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Glass replacement",
       "Small section repairs",
@@ -2387,7 +2387,7 @@
     "description": "Installing or replacing window screens for better ventilation and protection.",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Screen installation", "Mesh replacements", "Bug prevention"],
     "popular": false,
     "price": "Varies",
@@ -2399,7 +2399,7 @@
     "description": "Repairing or replacing window locks and latches for improved security.",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Lock replacement",
       "Latch adjustments",
@@ -2415,7 +2415,7 @@
     "description": "Sealing and weatherproofing windows with caulking and weather stripping.",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Weather stripping", "Energy efficiency", "Caulking"],
     "popular": true,
     "price": "Varies",
@@ -2427,7 +2427,7 @@
     "description": "Installing or replacing window blinds, shades, or curtains for better light control.",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Blinds installation",
       "Curtain rod mounting",
@@ -2443,7 +2443,7 @@
     "description": "Cleaning and lubricating window tracks for smooth operation.",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Track cleaning", "Smooth operation", "Prevent sticking"],
     "popular": false,
     "price": "Varies",
@@ -2455,7 +2455,7 @@
     "description": "Replacing or repairing window trim and sills to maintain aesthetics and durability.",
     "category": "Windows & Doors",
     "subcategory": "window-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Trim replacement",
       "Aesthetic improvement",
@@ -2471,7 +2471,7 @@
     "description": "Installing or replacing interior doors for bedrooms, bathrooms, and closets.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Door replacement",
       "Bedroom & bathroom doors",
@@ -2487,7 +2487,7 @@
     "description": "Installing or replacing exterior doors, including front, back, and side doors.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Front door replacement",
       "Side door installation",
@@ -2503,7 +2503,7 @@
     "description": "Adjusting and rehanging misaligned or sticking doors for smooth operation.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Rehanging doors", "Alignment fixes", "Smooth opening"],
     "popular": false,
     "price": "Varies",
@@ -2515,7 +2515,7 @@
     "description": "Installing or replacing storm doors and screen doors for added security and ventilation.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Screen door installation",
       "Storm door replacement",
@@ -2531,7 +2531,7 @@
     "description": "Replacing or upgrading door handles, knobs, and locks for improved security and aesthetics.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Knob replacement", "Security locks", "Handle upgrades"],
     "popular": false,
     "price": "Varies",
@@ -2543,7 +2543,7 @@
     "description": "Installing or replacing smart locks and keyless entry systems for enhanced security.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smart lock setup",
       "Keyless entry installation",
@@ -2559,7 +2559,7 @@
     "description": "Repairing or replacing damaged door frames and casings for structural integrity.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Frame replacement", "Casing repair", "Aesthetic improvement"],
     "popular": false,
     "price": "Varies",
@@ -2571,7 +2571,7 @@
     "description": "Sealing and weatherproofing exterior doors with caulking and weather stripping.",
     "category": "Windows & Doors",
     "subcategory": "door-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Caulking", "Weather stripping", "Energy efficiency"],
     "popular": false,
     "price": "Varies",
@@ -2583,7 +2583,7 @@
     "description": "Ensure smooth operation of your sliding glass doors by repairing or replacing worn-out tracks and rollers.",
     "category": "Windows & Doors",
     "subcategory": "sliding-french-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Track realignment",
       "Roller replacement",
@@ -2599,7 +2599,7 @@
     "description": "Enhance the security of your sliding doors by replacing or adjusting faulty locks and handles.",
     "category": "Windows & Doors",
     "subcategory": "sliding-french-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Lock replacement", "Handle adjustment", "Improved security"],
     "popular": false,
     "price": "Depends on lock type",
@@ -2611,7 +2611,7 @@
     "description": "Upgrade your home’s entrance with new patio or French doors, professionally installed for durability.",
     "category": "Windows & Doors",
     "subcategory": "sliding-french-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["New door installation", "Old door removal", "Secure fitting"],
     "popular": true,
     "price": "Varies by door type",
@@ -2623,7 +2623,7 @@
     "description": "Protect your home from drafts and moisture by sealing and weatherproofing sliding and French doors.",
     "category": "Windows & Doors",
     "subcategory": "sliding-french-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Weather stripping application",
       "Draft reduction",
@@ -2639,7 +2639,7 @@
     "description": "Secure and convenient garage side entry doors professionally installed or replaced.",
     "category": "Windows & Doors",
     "subcategory": "garage-shed-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable door installation",
       "Weatherproofing",
@@ -2655,7 +2655,7 @@
     "description": "Strengthen and secure your shed doors with expert repairs and reinforcements.",
     "category": "Windows & Doors",
     "subcategory": "garage-shed-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Lock repair", "Door reinforcement", "Weatherproofing"],
     "popular": false,
     "price": "Depends on repair scope",
@@ -2667,7 +2667,7 @@
     "description": "Improve insulation and protect your garage by replacing worn-out weather stripping.",
     "category": "Windows & Doors",
     "subcategory": "garage-shed-doors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Weather stripping installation",
       "Energy efficiency",
@@ -2683,7 +2683,7 @@
     "description": "Ensure smooth operation by adjusting misaligned garage doors.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smooth operation",
       "Prevents further damage",
@@ -2699,7 +2699,7 @@
     "description": "Improve insulation and protection by replacing worn-out weather stripping.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced insulation",
       "Energy efficiency",
@@ -2715,7 +2715,7 @@
     "description": "Re-align and repair off-track garage doors to restore functionality.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Proper alignment", "Safety ensured", "Long-term durability"],
     "popular": true,
     "price": "$100 - $250",
@@ -2727,7 +2727,7 @@
     "description": "Reduce noise and friction with professional lubrication.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Quiet operation", "Extends lifespan", "Prevents wear"],
     "popular": false,
     "price": "$50 - $75",
@@ -2739,7 +2739,7 @@
     "description": "Secure garage door components for improved stability and safety.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced safety",
       "Prevents breakdowns",
@@ -2755,7 +2755,7 @@
     "description": "Upgrade to new rollers for smoother and quieter garage door operation.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Reduced noise", "Improved door movement", "Longer lifespan"],
     "popular": true,
     "price": "$100 - $200",
@@ -2767,7 +2767,7 @@
     "description": "Minor adjustments to balance the garage door for safe operation.",
     "category": "Garage Doors",
     "subcategory": "garage-door-repairs-adjustments",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safer operation",
       "Prevents sudden movements",
@@ -2783,7 +2783,7 @@
     "description": "Install new garage door openers, including belt, chain, or screw-drive models.",
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Belt drive", "Chain drive", "Screw drive"],
     "popular": true,
     "price": "$150 - $400",
@@ -2795,7 +2795,7 @@
     "description": "Diagnose and repair malfunctioning garage door opener sensors.",
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safety sensors",
       "Obstacle detection",
@@ -2811,7 +2811,7 @@
     "description": "Optimize force, travel, and safety settings for smooth operation.",
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Custom settings", "Improved safety", "Smooth performance"],
     "popular": false,
     "price": "$50 - $100",
@@ -2823,7 +2823,7 @@
     "description": "Reprogram existing remotes or install new keypads for enhanced security.",
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Universal compatibility",
       "Secure access",
@@ -2839,7 +2839,7 @@
     "description": "Ensure continued operation during power outages by installing a backup battery.",
     "category": "Garage Doors",
     "subcategory": "garage-door-opener-installation-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Power failure protection",
       "Reliable operation",
@@ -2855,7 +2855,7 @@
     "description": "Repair or replace damaged sectional door panels to restore appearance and function.",
     "category": "Garage Doors",
     "subcategory": "garage-door-panel-hardware-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores door integrity",
       "Matching panel options",
@@ -2871,7 +2871,7 @@
     "description": "Upgrade garage door security with new handles and locking mechanisms.",
     "category": "Garage Doors",
     "subcategory": "garage-door-panel-hardware-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Enhanced security", "Durable materials", "Weather-resistant"],
     "popular": false,
     "price": "$50 - $150",
@@ -2883,7 +2883,7 @@
     "description": "Fix noisy, broken, or rusted garage door hinges for smooth operation.",
     "category": "Garage Doors",
     "subcategory": "garage-door-panel-hardware-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Quiet operation", "Prevents wear", "Extends door lifespan"],
     "popular": false,
     "price": "$75 - $200",
@@ -2895,7 +2895,7 @@
     "description": "Install insulation kits to improve energy efficiency and temperature control.",
     "category": "Garage Doors",
     "subcategory": "garage-door-insulation-weatherproofing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Energy efficient",
       "Temperature regulation",
@@ -2911,7 +2911,7 @@
     "description": "Replace worn bottom seals and weather stripping to prevent drafts.",
     "category": "Garage Doors",
     "subcategory": "garage-door-insulation-weatherproofing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Prevents drafts", "Keeps out moisture", "Energy efficient"],
     "popular": false,
     "price": "$75 - $200",
@@ -2923,7 +2923,7 @@
     "description": "Seal gaps around garage doors to improve insulation and energy efficiency.",
     "category": "Garage Doors",
     "subcategory": "garage-door-insulation-weatherproofing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Weather-resistant",
       "Energy efficient",
@@ -2939,7 +2939,7 @@
     "description": "Enhance garage security with reinforced door bars or high-quality locks.",
     "category": "Garage Doors",
     "subcategory": "garage-security-safety-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Enhanced security", "Durable materials", "Weather-resistant"],
     "popular": true,
     "price": "$100 - $300",
@@ -2951,7 +2951,7 @@
     "description": "Install motion-activated lighting for increased safety and convenience.",
     "category": "Garage Doors",
     "subcategory": "garage-security-safety-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Automatic activation",
       "Energy efficient",
@@ -2967,7 +2967,7 @@
     "description": "Configure smart garage door openers for remote access and monitoring.",
     "category": "Garage Doors",
     "subcategory": "garage-security-safety-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["WiFi-enabled", "Remote control", "Secure access"],
     "popular": true,
     "price": "$150 - $400",
@@ -2979,7 +2979,7 @@
     "description": "Ensure garage door safety with auto-reverse and sensor alignment adjustments.",
     "category": "Garage Doors",
     "subcategory": "garage-security-safety-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Auto-reverse feature",
       "Sensor calibration",
@@ -2995,7 +2995,7 @@
     "description": "Power washing home siding made of vinyl, brick, stucco, or wood to remove dirt, mildew, and stains.",
     "category": "Powerwashing",
     "subcategory": "exterior-home-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes dirt & stains",
       "Mildew prevention",
@@ -3011,7 +3011,7 @@
     "description": "Professional power washing to clean dirt, grime, and weathering from exterior doors, shutters, and trim.",
     "category": "Powerwashing",
     "subcategory": "exterior-home-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes built-up grime",
       "Restores appearance",
@@ -3027,7 +3027,7 @@
     "description": "Deep cleaning porches and entryways using pressure washing techniques to remove stains, algae, and buildup.",
     "category": "Powerwashing",
     "subcategory": "exterior-home-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes algae & mold",
       "Improves curb appeal",
@@ -3043,7 +3043,7 @@
     "description": "Power washing to remove dirt, stains, and mildew from concrete driveways, restoring their original appearance.",
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes tough stains",
       "Prevents mildew growth",
@@ -3059,7 +3059,7 @@
     "description": "Deep cleaning of brick and stone walkways using pressure washing techniques to remove moss, algae, and buildup.",
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes moss & algae",
       "Restores natural color",
@@ -3075,7 +3075,7 @@
     "description": "Power washing paver patios and pathways to remove dirt, stains, and weeds growing between pavers.",
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Deep cleans paver surfaces",
       "Eliminates weed growth",
@@ -3091,7 +3091,7 @@
     "description": "Specialized power washing treatment to remove tough oil stains and tire marks from driveways.",
     "category": "Powerwashing",
     "subcategory": "driveway-walkway-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Breaks down oil & grease",
       "Removes tough tire marks",
@@ -3107,7 +3107,7 @@
     "description": "Gentle pressure washing of wooden decks to remove dirt, mold, and mildew while preserving the wood’s integrity.",
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Mold & mildew removal",
       "Preserves wood finish",
@@ -3123,7 +3123,7 @@
     "description": "Safe pressure washing for composite or vinyl decking, restoring their clean and fresh appearance.",
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe for composite surfaces",
       "Restores color & texture",
@@ -3139,7 +3139,7 @@
     "description": "Pressure washing patios to eliminate algae and moss, preventing slip hazards and discoloration.",
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prevents slip hazards",
       "Eliminates moss & algae",
@@ -3155,7 +3155,7 @@
     "description": "Deep power washing of concrete and stone patios to restore their original color and remove buildup.",
     "category": "Powerwashing",
     "subcategory": "deck-patio-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores color",
       "Removes stains & dirt",
@@ -3171,7 +3171,7 @@
     "description": "Thorough cleaning of wooden fences with power washing to remove dirt and prepare the surface for staining or sealing.",
     "category": "Powerwashing",
     "subcategory": "fence-gate-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prepares fence for staining",
       "Removes dirt & mildew",
@@ -3187,7 +3187,7 @@
     "description": "Pressure washing vinyl and metal fences to eliminate accumulated dirt, grime, and stains.",
     "category": "Powerwashing",
     "subcategory": "fence-gate-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe for vinyl & metal",
       "Restores clean appearance",
@@ -3203,7 +3203,7 @@
     "description": "Specialized pressure washing treatment to remove mold and mildew from outdoor gates, preventing further growth.",
     "category": "Powerwashing",
     "subcategory": "fence-gate-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Kills mold & mildew",
       "Prevents future growth",
@@ -3219,7 +3219,7 @@
     "description": "High-pressure washing of garage doors and exterior walls to remove dust, stains, and grime.",
     "category": "Powerwashing",
     "subcategory": "garage-outdoor-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores clean appearance",
       "Removes dirt & stains",
@@ -3235,7 +3235,7 @@
     "description": "Power washing sheds and storage units to remove accumulated dirt and mildew from exterior surfaces.",
     "category": "Powerwashing",
     "subcategory": "garage-outdoor-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Mildew removal",
       "Restores original color",
@@ -3251,7 +3251,7 @@
     "description": "Gentle pressure washing for small pergolas, gazebos, and outdoor furniture to remove dirt and restore their beauty.",
     "category": "Powerwashing",
     "subcategory": "garage-outdoor-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Restores outdoor structures",
       "Safe for wood & metal",
@@ -3267,7 +3267,7 @@
     "description": "Low-pressure soft washing of gutters and downspouts to remove dirt, grime, and streaks.",
     "category": "Powerwashing",
     "subcategory": "gutter-roofline-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safe soft washing",
       "Removes grime & dirt",
@@ -3283,7 +3283,7 @@
     "description": "Gentle washing of soffits and fascia boards to remove accumulated dirt, cobwebs, and debris.",
     "category": "Powerwashing",
     "subcategory": "gutter-roofline-power-washing",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Soft washing for delicate surfaces",
       "Eliminates cobwebs & debris",
@@ -3299,7 +3299,7 @@
     "description": "Professional lawn mowing and edging to maintain a neat and healthy yard appearance.",
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Neat trim", "Healthy lawn care", "Sharp edges"],
     "popular": true,
     "price": "$50 - $150",
@@ -3311,7 +3311,7 @@
     "description": "Removing overgrown grass and weeds to improve curb appeal and prevent pest infestation.",
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Weed removal", "Grass height control", "Pest prevention"],
     "popular": false,
     "price": "$60 - $200",
@@ -3323,7 +3323,7 @@
     "description": "Seasonal yard cleanup service including leaf raking and debris removal for a tidy lawn.",
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Seasonal cleanup",
       "Debris removal",
@@ -3339,7 +3339,7 @@
     "description": "Mulching and gravel spreading services to enhance garden beds and control soil moisture.",
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Improves soil health",
       "Aesthetic enhancement",
@@ -3355,7 +3355,7 @@
     "description": "Applying lawn fertilizer and weed control solutions to promote grass growth and reduce invasive plants.",
     "category": "Landscaping",
     "subcategory": "general-yard-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Healthy lawn growth",
       "Weed prevention",
@@ -3371,7 +3371,7 @@
     "description": "Pruning and shaping small trees and shrubs to maintain a healthy and neat landscape.",
     "category": "Landscaping",
     "subcategory": "shrub-tree-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Healthier growth", "Enhanced aesthetics", "Pest control"],
     "popular": true,
     "price": "$100 - $300",
@@ -3383,7 +3383,7 @@
     "description": "Safely removing non-hazardous dead or overgrown branches to improve tree and shrub health.",
     "category": "Landscaping",
     "subcategory": "shrub-tree-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Tree health", "Pest prevention", "Improved appearance"],
     "popular": false,
     "price": "$150 - $400",
@@ -3395,7 +3395,7 @@
     "description": "Expert pruning services to encourage healthy and structured growth for bushes and hedges.",
     "category": "Landscaping",
     "subcategory": "shrub-tree-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Fuller growth",
       "Better air circulation",
@@ -3411,7 +3411,7 @@
     "description": "Setting up tree stakes to provide stability and support for newly planted trees.",
     "category": "Landscaping",
     "subcategory": "shrub-tree-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Supports young trees", "Prevents leaning", "Enhances growth"],
     "popular": false,
     "price": "$50 - $150",
@@ -3423,7 +3423,7 @@
     "description": "Professional planting services to enhance your garden with colorful flowers, shrubs, and small trees.",
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Garden beautification",
       "Expert plant selection",
@@ -3439,7 +3439,7 @@
     "description": "Clearing weeds and replenishing soil to provide optimal conditions for plant growth.",
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Healthy soil", "Weed control", "Promotes plant growth"],
     "popular": false,
     "price": "$75 - $250",
@@ -3451,7 +3451,7 @@
     "description": "Custom installation or repair of garden borders using stone, wood, or plastic materials.",
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Garden structure",
       "Erosion control",
@@ -3467,7 +3467,7 @@
     "description": "Building and installing small raised garden beds for improved soil drainage and gardening convenience.",
     "category": "Landscaping",
     "subcategory": "flower-bed-garden-work",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Better soil drainage",
       "Easier maintenance",
@@ -3483,7 +3483,7 @@
     "description": "Adding or replacing stepping stones and pavers to enhance outdoor walkways and garden paths.",
     "category": "Landscaping",
     "subcategory": "hardscape-install-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Walkway improvement", "Durable materials", "Custom designs"],
     "popular": true,
     "price": "$250 - $800",
@@ -3495,7 +3495,7 @@
     "description": "Professional repair of minor cracks in patios and walkways to prevent further damage.",
     "category": "Landscaping",
     "subcategory": "hardscape-install-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Crack sealing", "Prevents erosion", "Restores appearance"],
     "popular": false,
     "price": "$100 - $400",
@@ -3507,7 +3507,7 @@
     "description": "Creating decorative rock or gravel pathways for a natural and aesthetic outdoor space.",
     "category": "Landscaping",
     "subcategory": "hardscape-install-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Low maintenance", "Aesthetic appeal", "Customizable designs"],
     "popular": true,
     "price": "$300 - $1,000",
@@ -3519,7 +3519,7 @@
     "description": "Fixing or strengthening wooden garden edging to improve durability and structure.",
     "category": "Landscaping",
     "subcategory": "hardscape-install-repair",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prevents soil erosion",
       "Defines garden areas",
@@ -3535,7 +3535,7 @@
     "description": "Secure installation or repair of wooden fences and gates for privacy and security.",
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Increased privacy",
       "Weather-resistant materials",
@@ -3551,7 +3551,7 @@
     "description": "Applying protective stains or sealants to fences to prevent weather damage.",
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "UV protection",
       "Moisture resistance",
@@ -3567,7 +3567,7 @@
     "description": "Fixing or reinforcing loose fence posts and panels to ensure stability.",
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced stability",
       "Structural reinforcement",
@@ -3583,7 +3583,7 @@
     "description": "Adding decorative garden fencing to enhance the aesthetics of outdoor spaces.",
     "category": "Landscaping",
     "subcategory": "fence-gate-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced garden appeal",
       "Pet containment",
@@ -3599,7 +3599,7 @@
     "description": "Efficient drip irrigation system installation or repair for water conservation.",
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Water-efficient",
       "Soil moisture control",
@@ -3615,7 +3615,7 @@
     "description": "Removing and replacing faulty sprinkler heads to improve lawn irrigation.",
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Efficient water coverage",
       "Prevents water waste",
@@ -3631,7 +3631,7 @@
     "description": "Calibrating sprinkler heads for optimal lawn and garden coverage.",
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Even water distribution",
       "Prevents dry spots",
@@ -3647,7 +3647,7 @@
     "description": "Installing hose reels and outdoor spigots for easy lawn and garden watering.",
     "category": "Landscaping",
     "subcategory": "irrigation-watering-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Convenient watering",
       "Prevents hose tangling",
@@ -3663,7 +3663,7 @@
     "description": "Removing fallen branches, leaves, and storm debris to restore yard condition.",
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Safety improvement",
       "Restores lawn appearance",
@@ -3679,7 +3679,7 @@
     "description": "Clearing away old landscaping materials to make space for fresh installations.",
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Prepares for new landscaping",
       "Cleaner outdoor space",
@@ -3695,7 +3695,7 @@
     "description": "Disposing of small loads of organic waste, broken pots, and outdoor debris.",
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Efficient waste disposal", "Reduces clutter", "Eco-friendly"],
     "popular": true,
     "price": "$100 - $400",
@@ -3707,7 +3707,7 @@
     "description": "Decluttering and organizing outdoor storage sheds for better functionality.",
     "category": "Landscaping",
     "subcategory": "outdoor-cleanups-junk-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Increased storage space",
       "Easier access to tools",
@@ -3723,7 +3723,7 @@
     "description": "Building or fixing wooden planter boxes for growing flowers, herbs, and vegetables.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": ["Custom sizes", "Improved drainage", "Aesthetic enhancement"],
     "popular": true,
     "price": "$100 - $500",
@@ -3735,7 +3735,7 @@
     "description": "Arranging patio furniture and outdoor decor to create a comfortable outdoor space.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Enhanced outdoor aesthetics",
       "Comfortable seating",
@@ -3751,7 +3751,7 @@
     "description": "Setting up energy-efficient outdoor solar lights for pathway or patio illumination.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Energy-efficient",
       "Weather-resistant",
@@ -3767,7 +3767,7 @@
     "description": "Thoroughly cleaning patios, decks, and walkways using high-pressure washing to remove dirt, mold, and stains.",
     "category": "Landscaping",
     "subcategory": "outdoor-living-space-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removes mold, mildew, and grime",
       "Restores original appearance",
@@ -3783,7 +3783,7 @@
     "description": "Installing wired or wireless security cameras such as Ring, Nest, or Arlo for enhanced home security.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Supports Ring, Nest, Arlo, and other brands",
       "Professional mounting and setup",
@@ -3799,7 +3799,7 @@
     "description": "Properly mounting and positioning security cameras for the best possible view and coverage.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Strategic camera placement",
       "Mounting on walls, ceilings, and outdoor areas",
@@ -3815,7 +3815,7 @@
     "description": "Connecting and configuring smart security cameras with home networks for remote access.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "WiFi configuration and cloud storage setup",
       "Integration with smart home systems",
@@ -3831,7 +3831,7 @@
     "description": "Running low-voltage wiring for wired security cameras, ensuring a reliable and secure connection.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Professional low-voltage wiring installation",
       "Supports wired security camera models",
@@ -3847,7 +3847,7 @@
     "description": "Installing video doorbells such as Ring, Google Nest, or Eufy to monitor front door activity.",
     "category": "Home Security",
     "subcategory": "security-camera-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Supports Ring, Google Nest, and Eufy",
       "Integration with smart home systems",
@@ -3863,7 +3863,7 @@
     "description": "Enhance home security with new or replacement deadbolt locks for doors.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure deadbolt installation",
       "Upgrading to high-security locks",
@@ -3879,7 +3879,7 @@
     "description": "Upgrade your home security with modern keyless entry smart locks for convenient access.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Supports WiFi and Bluetooth locks",
       "Integration with smart home systems",
@@ -3895,7 +3895,7 @@
     "description": "Strengthen door frames and strike plates for enhanced security against break-ins.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reinforced door strike plate installation",
       "Frame reinforcement for extra security",
@@ -3911,7 +3911,7 @@
     "description": "Add extra layers of protection with door jammers and security bars.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of high-strength security bars",
       "Adjustable door jammers for extra security",
@@ -3927,7 +3927,7 @@
     "description": "Increase home security by installing secure window locks and safety latches.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Window lock replacement and upgrades",
       "Enhanced safety latches for childproofing",
@@ -3943,7 +3943,7 @@
     "description": "Improve security with door peepholes or wide-angle viewers for front and side doors.",
     "category": "Home Security",
     "subcategory": "door-window-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Standard and wide-angle peephole installation",
       "Enhanced visibility for front door security",
@@ -3959,7 +3959,7 @@
     "description": "Enhance outdoor security with motion-activated sensor lighting.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Energy-efficient LED motion lights",
       "Increased night-time visibility",
@@ -3975,7 +3975,7 @@
     "description": "Improve security with floodlights featuring cameras and smart detection technology.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smart motion-activated lighting",
       "High-lumen floodlights for maximum brightness",
@@ -3991,7 +3991,7 @@
     "description": "Set up automatic dusk-to-dawn security lighting to keep your property illuminated at night.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Energy-efficient automatic lighting",
       "Enhances nighttime visibility",
@@ -4007,7 +4007,7 @@
     "description": "Install solar-powered security lights for environmentally friendly outdoor illumination.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Eco-friendly solar security lighting",
       "Battery backup for night-time operation",
@@ -4023,7 +4023,7 @@
     "description": "Enhance security and aesthetics with pathway and landscape lighting solutions.",
     "category": "Home Security",
     "subcategory": "outdoor-security-lighting",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Low-voltage and solar-powered options",
       "Enhances walkway visibility and curb appeal",
@@ -4039,7 +4039,7 @@
     "description": "Install and configure smart home security systems like SimpliSafe, Ring, and ADT DIY.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Supports major security brands",
       "Customizable settings and alerts",
@@ -4055,7 +4055,7 @@
     "description": "Secure your home by installing door and window alarm sensors.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Instant alerts for unauthorized entry",
       "Wireless and wired options available",
@@ -4071,7 +4071,7 @@
     "description": "Upgrade to a smart garage door opener with mobile app control and remote access.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "WiFi-enabled garage door control",
       "Compatible with Alexa, Google Assistant",
@@ -4087,7 +4087,7 @@
     "description": "Automate security with smart lights, locks, and alarm integration.",
     "category": "Home Security",
     "subcategory": "smart-home-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Automate security lights and locks",
       "Control via mobile app or voice assistants",
@@ -4103,7 +4103,7 @@
     "description": "Reinforce garage security with high-strength security bars.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Durable metal construction",
       "Prevents forced entry",
@@ -4119,7 +4119,7 @@
     "description": "Secure garage and shed doors with traditional or smart lock systems.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Keyless entry options available",
       "Heavy-duty deadbolts for added protection",
@@ -4135,7 +4135,7 @@
     "description": "Increase garage security with reinforced door panels to prevent break-ins.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Heavy-duty reinforcements for extra security",
       "Protects against prying and forced entry",
@@ -4151,7 +4151,7 @@
     "description": "Enhance garage and shed security with motion-activated detectors.",
     "category": "Home Security",
     "subcategory": "garage-shed-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Detects movement inside and around garage",
       "Sends alerts to security system or mobile device",
@@ -4167,7 +4167,7 @@
     "description": "Secure entry points with door and window contact sensors.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Wireless connectivity for easy installation",
       "Compatible with alarm systems",
@@ -4183,7 +4183,7 @@
     "description": "Detects glass-breaking sounds to trigger alarm systems.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Covers multiple windows in a room",
       "Compatible with most alarm systems",
@@ -4199,7 +4199,7 @@
     "description": "Install wireless keypads and sirens to enhance home security alerts.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Customizable alarm settings",
       "Easy wireless installation",
@@ -4215,7 +4215,7 @@
     "description": "Install panic buttons or emergency alert systems for immediate assistance in case of emergencies.",
     "category": "Home Security",
     "subcategory": "home-alarm-sensors",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Instant emergency response activation",
       "Discreet or wall-mounted options",
@@ -4231,7 +4231,7 @@
     "description": "Install and configure smart video doorbells such as Ring, Nest, and Arlo for enhanced home security.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Live video monitoring",
       "Two-way audio communication",
@@ -4247,7 +4247,7 @@
     "description": "Set up and install smart security cameras for indoor and outdoor surveillance.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Wireless and wired options available",
       "Night vision and HD recording",
@@ -4263,7 +4263,7 @@
     "description": "Upgrade home security with keyless smart locks and access control features.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Remote locking and unlocking",
       "Fingerprint and keypad entry",
@@ -4279,7 +4279,7 @@
     "description": "Enhance security with motion sensors and entry detection for doors and windows.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Detects movement and unauthorized access",
       "Triggers security alerts and alarms",
@@ -4295,7 +4295,7 @@
     "description": "Set up a central security hub to control smart home alarm systems and sensors.",
     "category": "Smart Home",
     "subcategory": "smart-security-surveillance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Connects to all smart security devices",
       "Remote control via smartphone",
@@ -4311,7 +4311,7 @@
     "description": "Installation and configuration of smart light bulbs and LED strips to enhance home lighting automation.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup and configuration of smart LED bulbs",
       "Custom lighting schedules and automation",
@@ -4327,7 +4327,7 @@
     "description": "Professional installation of smart light switches and dimmers to provide customized lighting control.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart dimmers and light switches",
       "Wi-Fi and app connectivity setup",
@@ -4343,7 +4343,7 @@
     "description": "Installation of motion-activated and automated lighting solutions for energy efficiency and convenience.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of motion sensors and automated lighting",
       "Customizable lighting schedules",
@@ -4359,7 +4359,7 @@
     "description": "Configure and integrate smart lighting systems with Alexa, Google Home, and other voice assistants.",
     "category": "Smart Home",
     "subcategory": "smart-lighting-electrical",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Connect lighting systems with Alexa or Google Home",
       "Hands-free voice control setup",
@@ -4375,7 +4375,7 @@
     "description": "Installation and configuration of smart thermostats to provide energy efficiency and remote control capabilities.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of Nest, Ecobee, Honeywell smart thermostats",
       "Wi-Fi and remote access setup",
@@ -4391,7 +4391,7 @@
     "description": "Connecting smart thermostats to Wi-Fi networks and integrating with smart home ecosystems.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Connect thermostat to Wi-Fi and mobile apps",
       "Integrate with Google Home, Alexa, and HomeKit",
@@ -4407,7 +4407,7 @@
     "description": "Setting up custom temperature schedules and automation to maximize energy savings.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom temperature schedule programming",
       "Energy efficiency optimization",
@@ -4423,7 +4423,7 @@
     "description": "Installation and integration of smart ceiling fans with thermostats and voice assistants.",
     "category": "Smart Home",
     "subcategory": "smart-thermostats-climate",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Smart ceiling fan installation",
       "Integration with thermostat systems",
@@ -4439,7 +4439,7 @@
     "description": "Professional installation and setup of smart TVs, ensuring optimal positioning and configuration.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure mounting of smart TVs",
       "Wi-Fi and app setup",
@@ -4455,7 +4455,7 @@
     "description": "Installation and configuration of streaming devices like Roku, Apple TV, and Fire Stick for seamless entertainment.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup of Roku, Apple TV, Fire Stick, and more",
       "Wi-Fi and app integration",
@@ -4471,7 +4471,7 @@
     "description": "Installation and configuration of smart sound systems including Sonos, Bose, and Echo speakers.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup and placement of smart speakers",
       "Integration with home entertainment systems",
@@ -4487,7 +4487,7 @@
     "description": "Configuration of home theater systems with surround sound for an immersive entertainment experience.",
     "category": "Smart Home",
     "subcategory": "smart-entertainment-theater",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Home theater setup and optimization",
       "Surround sound calibration",
@@ -4503,7 +4503,7 @@
     "description": "Installation and setup of smart home hubs such as Amazon Echo, Google Nest Hub, and Samsung SmartThings.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart home hubs",
       "Configuration with connected devices",
@@ -4519,7 +4519,7 @@
     "description": "Integrate smart devices with voice assistants such as Alexa, Google Assistant, and Siri for hands-free control.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup and pairing with voice assistants",
       "Configuration for lighting, security, and climate",
@@ -4535,7 +4535,7 @@
     "description": "Create custom smart home automation routines to control lighting, security, and climate systems.",
     "category": "Smart Home",
     "subcategory": "smart-home-automation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Automation setup for lights, security, and climate",
       "Custom scheduling for daily routines",
@@ -4551,7 +4551,7 @@
     "description": "Installation of smart garage door openers for remote access and security monitoring.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart garage openers",
       "Remote access configuration",
@@ -4567,7 +4567,7 @@
     "description": "Setup of smart outdoor lighting and motion sensors for enhanced security and automation.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart outdoor lighting",
       "Motion sensor integration",
@@ -4583,7 +4583,7 @@
     "description": "Installation and configuration of smart irrigation controllers for automated watering schedules.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart irrigation controllers",
       "Automated watering schedule setup",
@@ -4599,7 +4599,7 @@
     "description": "Setup and integration of outdoor security cameras and smart doorbell cameras for enhanced home security.",
     "category": "Smart Home",
     "subcategory": "smart-garage-outdoor",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of outdoor security cameras",
       "Setup of smart doorbell cameras",
@@ -4615,7 +4615,7 @@
     "description": "Installation and configuration of smart refrigerators, ovens, and microwaves.",
     "category": "Smart Home",
     "subcategory": "smart-appliance-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup of smart refrigerators, ovens, and microwaves",
       "Wi-Fi and app connectivity setup",
@@ -4631,7 +4631,7 @@
     "description": "Setup and configuration of smart washing machines and dryers for automated laundry care.",
     "category": "Smart Home",
     "subcategory": "smart-appliance-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart washers and dryers",
       "Wi-Fi and app setup for remote control",
@@ -4647,7 +4647,7 @@
     "description": "Configuration of small smart appliances such as coffee makers and robotic vacuums.",
     "category": "Smart Home",
     "subcategory": "smart-appliance-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup of smart coffee makers and vacuums",
       "Wi-Fi and app connectivity setup",
@@ -4663,7 +4663,7 @@
     "description": "Setting up and optimizing Wi-Fi networks for seamless smart home connectivity.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Wi-Fi network setup and configuration",
       "Signal optimization and troubleshooting",
@@ -4679,7 +4679,7 @@
     "description": "Installation of Wi-Fi extenders and smart home bridges for improved network coverage.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of Wi-Fi extenders and mesh systems",
       "Smart home bridge setup for expanded device support",
@@ -4695,7 +4695,7 @@
     "description": "Diagnosing and resolving connectivity issues with smart devices to ensure seamless operation.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Identify and resolve Wi-Fi connectivity issues",
       "Diagnose and fix smart device pairing problems",
@@ -4711,7 +4711,7 @@
     "description": "Setting up home networks for improved speed, security, and device connectivity.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation and configuration of home routers",
       "Secure Wi-Fi setup and device pairing",
@@ -4727,7 +4727,7 @@
     "description": "Installation and setup of home servers for data storage, streaming, and automation.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Configuration of home media and file servers",
       "Network-attached storage (NAS) setup",
@@ -4743,7 +4743,7 @@
     "description": "Professional installation of Cat 5 and Cat 6 Ethernet cables for high-speed wired networking.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of Cat 5 and Cat 6 cables",
       "Wall jack and patch panel setup",
@@ -4759,7 +4759,7 @@
     "description": "Configuration of guest Wi-Fi networks and access points for secure and convenient internet access.",
     "category": "Smart Home",
     "subcategory": "smart-networking-connectivity",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup of dedicated guest Wi-Fi networks",
       "Secure access control and password management",
@@ -4775,7 +4775,7 @@
     "description": "Professional installation of deadbolt locks for enhanced home and business security.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of single and double-cylinder deadbolts",
       "Secure mounting for maximum protection",
@@ -4791,7 +4791,7 @@
     "description": "Replacement of outdated or damaged door locks with upgraded security models.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removal of existing door locks",
       "Installation of upgraded lock models",
@@ -4807,7 +4807,7 @@
     "description": "Upgrade to smart locks and keyless entry systems for convenient and secure access.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of smart locks with keypads or biometric access",
       "Wi-Fi and mobile app integration",
@@ -4823,7 +4823,7 @@
     "description": "Installation or replacement of door knob locks and lever handle locks for residential and commercial properties.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of standard or high-security door knobs",
       "Replacement of malfunctioning or outdated locks",
@@ -4839,7 +4839,7 @@
     "description": "Installation of specialized locks for sliding doors to improve security and prevent forced entry.",
     "category": "Locksmithing",
     "subcategory": "lock-installation-replacement",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of high-security sliding door locks",
       "Customization for glass and patio doors",
@@ -4855,7 +4855,7 @@
     "description": "Diagnosing and repairing malfunctioning door locks to restore security and ease of use.",
     "category": "Locksmithing",
     "subcategory": "lock-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection and troubleshooting of faulty locks",
       "Repair or replacement of malfunctioning components",
@@ -4871,7 +4871,7 @@
     "description": "Lubricating and adjusting locks to resolve sticking or jamming issues.",
     "category": "Locksmithing",
     "subcategory": "lock-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Cleaning and lubrication of internal lock mechanisms",
       "Adjustment of lock alignment and operation",
@@ -4887,7 +4887,7 @@
     "description": "Fixing misaligned door latches and strike plates to ensure proper locking.",
     "category": "Locksmithing",
     "subcategory": "lock-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Alignment and repositioning of strike plates",
       "Repair or replacement of latches for smooth operation",
@@ -4903,7 +4903,7 @@
     "description": "Repairing or replacing broken key cylinders for improved security and key access.",
     "category": "Locksmithing",
     "subcategory": "lock-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Diagnosis of key cylinder issues",
       "Replacement of damaged or broken cylinders",
@@ -4919,7 +4919,7 @@
     "description": "Tightening loose lock mechanisms to improve security and prevent damage.",
     "category": "Locksmithing",
     "subcategory": "lock-repair-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection of lock mechanism stability",
       "Tightening and securing lock components",
@@ -4935,7 +4935,7 @@
     "description": "Rekeying locks to work with a new key set for added security.",
     "category": "Locksmithing",
     "subcategory": "key-lock-security-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Rekeying of existing locks",
       "Providing new key sets",
@@ -4951,7 +4951,7 @@
     "description": "Installing additional deadbolts for enhanced door security.",
     "category": "Locksmithing",
     "subcategory": "key-lock-security-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of new deadbolts on existing doors",
       "Customization for single or double-cylinder deadbolts",
@@ -4967,7 +4967,7 @@
     "description": "Upgrading locks to high-security or bump-resistant models for increased protection.",
     "category": "Locksmithing",
     "subcategory": "key-lock-security-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of high-security or bump-resistant locks",
       "Drill-resistant and anti-pick lock mechanisms",
@@ -4983,7 +4983,7 @@
     "description": "Installing door reinforcements and security plates to prevent break-ins.",
     "category": "Locksmithing",
     "subcategory": "key-lock-security-enhancements",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reinforcement of door frames and hinges",
       "Installation of security plates for lock protection",
@@ -4999,7 +4999,7 @@
     "description": "Installing peepholes or door viewers to enhance security and visibility before opening the door.",
     "category": "Locksmithing",
     "subcategory": "door-entryway-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of standard and wide-angle peepholes",
       "Drilling and secure mounting on wooden or metal doors",
@@ -5015,7 +5015,7 @@
     "description": "Installing or replacing door chains and slide bolts for added security against forced entry.",
     "category": "Locksmithing",
     "subcategory": "door-entryway-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of high-quality door chains",
       "Mounting and securing slide bolts",
@@ -5031,7 +5031,7 @@
     "description": "Installing security latch guards to prevent forced entry and improve door security.",
     "category": "Locksmithing",
     "subcategory": "door-entryway-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reinforced latch guard installation",
       "Protection against forced entry techniques",
@@ -5047,7 +5047,7 @@
     "description": "Reinforcing door frames to provide extra security against break-ins and forced entry.",
     "category": "Locksmithing",
     "subcategory": "door-entryway-security",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Reinforcement of weak door frames",
       "Installation of security plates and brackets",
@@ -5063,7 +5063,7 @@
     "description": "Installing or replacing locks on garage doors to improve security and prevent unauthorized access.",
     "category": "Locksmithing",
     "subcategory": "garage-gate-lock-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of keyed or keyless garage door locks",
       "Replacement of outdated or damaged locks",
@@ -5079,7 +5079,7 @@
     "description": "Installing padlocks and hasps on gates or sheds for enhanced outdoor security.",
     "category": "Locksmithing",
     "subcategory": "garage-gate-lock-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of heavy-duty padlocks",
       "Mounting of hasps for reinforced security",
@@ -5095,7 +5095,7 @@
     "description": "Replacing mailbox locks to ensure secure mail and parcel access.",
     "category": "Locksmithing",
     "subcategory": "garage-gate-lock-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removal of broken or old mailbox locks",
       "Installation of new high-security mailbox locks",
@@ -5111,7 +5111,7 @@
     "description": "Skimming debris from the pool surface to keep the water clean and clear.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removing leaves, bugs, and debris from the surface",
       "Ensuring water clarity and cleanliness",
@@ -5127,7 +5127,7 @@
     "description": "Vacuuming pool floors and walls to remove dirt and algae buildup.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Vacuuming pool floors and walls",
       "Removing dirt, algae, and small debris",
@@ -5143,7 +5143,7 @@
     "description": "Brushing pool walls, steps, and tile lines to prevent algae and scale buildup.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Brushing pool walls and steps",
       "Scrubbing tile lines to remove buildup",
@@ -5159,7 +5159,7 @@
     "description": "Cleaning and emptying skimmer and pump baskets to maintain filtration efficiency.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Emptying and rinsing skimmer baskets",
       "Removing debris for optimal filtration",
@@ -5175,7 +5175,7 @@
     "description": "Testing and balancing pool water chemistry, including pH, chlorine, and alkalinity levels.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Testing pH, chlorine, and alkalinity levels",
       "Balancing chemicals for safe swimming",
@@ -5191,7 +5191,7 @@
     "description": "Adding necessary pool chemicals to maintain water balance and cleanliness.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Adding chlorine, algaecide, and clarifiers",
       "Ensuring balanced water chemistry",
@@ -5207,7 +5207,7 @@
     "description": "Backwashing and cleaning pool filters to ensure optimal filtration and water circulation.",
     "category": "Pools & Spas",
     "subcategory": "pool-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Backwashing sand or DE filters",
       "Cleaning and replacing cartridge filters",
@@ -5223,7 +5223,7 @@
     "description": "Draining and refilling hot tubs or spas to maintain clean and balanced water.",
     "category": "Pools & Spas",
     "subcategory": "spa-hot-tub-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Complete drainage of spa water",
       "Refilling with clean, treated water",
@@ -5239,7 +5239,7 @@
     "description": "Cleaning and scrubbing spa interiors to remove dirt, algae, and buildup.",
     "category": "Pools & Spas",
     "subcategory": "spa-hot-tub-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Scrubbing spa walls and floors",
       "Removing algae, grime, and scale buildup",
@@ -5255,7 +5255,7 @@
     "description": "Testing and balancing spa water chemistry, including pH, alkalinity, and sanitizer levels.",
     "category": "Pools & Spas",
     "subcategory": "spa-hot-tub-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Testing spa water for proper chemical balance",
       "Adjusting pH, chlorine, and alkalinity levels",
@@ -5271,7 +5271,7 @@
     "description": "Cleaning and replacing spa filters to maintain efficient water circulation.",
     "category": "Pools & Spas",
     "subcategory": "spa-hot-tub-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removing and cleaning spa filters",
       "Replacing worn or damaged filters",
@@ -5287,7 +5287,7 @@
     "description": "Checking and adjusting spa jets and control settings for an optimal experience.",
     "category": "Pools & Spas",
     "subcategory": "spa-hot-tub-cleaning-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection and testing of spa jets",
       "Adjusting water pressure and flow",
@@ -5303,7 +5303,7 @@
     "description": "Inspecting and cleaning pool pumps and motors to ensure proper functionality.",
     "category": "Pools & Spas",
     "subcategory": "pool-spa-equipment-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection of pool pump and motor components",
       "Cleaning and removal of debris buildup",
@@ -5319,7 +5319,7 @@
     "description": "Checking and replacing pool and spa filter cartridges for improved filtration.",
     "category": "Pools & Spas",
     "subcategory": "pool-spa-equipment-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection of filter cartridges",
       "Replacement of old or damaged filters",
@@ -5335,7 +5335,7 @@
     "description": "Inspecting and tightening plumbing connections to prevent leaks and water loss.",
     "category": "Pools & Spas",
     "subcategory": "pool-spa-equipment-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Checking pool and spa plumbing connections",
       "Tightening loose fittings to prevent leaks",
@@ -5351,7 +5351,7 @@
     "description": "Lubricating O-rings and seals on pump lids to prevent leaks and ensure a tight fit.",
     "category": "Pools & Spas",
     "subcategory": "pool-spa-equipment-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection of pump lid O-rings",
       "Applying lubricant for a secure seal",
@@ -5367,7 +5367,7 @@
     "description": "Cleaning and adjusting pool skimmers and drains to maintain efficient water circulation.",
     "category": "Pools & Spas",
     "subcategory": "pool-spa-equipment-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removing debris from pool skimmers",
       "Adjusting drain flow and suction",
@@ -5383,7 +5383,7 @@
     "description": "Replacing pool skimmer baskets and covers to maintain optimal filtration efficiency.",
     "category": "Pools & Spas",
     "subcategory": "minor-pool-spa-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removal of old skimmer baskets and covers",
       "Installation of new, high-quality replacements",
@@ -5399,7 +5399,7 @@
     "description": "Repairing or replacing minor leaks in pool plumbing connections to prevent water loss.",
     "category": "Pools & Spas",
     "subcategory": "minor-pool-spa-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Identifying and sealing minor plumbing leaks",
       "Replacing damaged fittings and connectors",
@@ -5415,7 +5415,7 @@
     "description": "Repairing or replacing pool light bulbs and fixtures for safe and effective illumination.",
     "category": "Pools & Spas",
     "subcategory": "minor-pool-spa-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Replacing faulty or burned-out pool light bulbs",
       "Repairing damaged light fixtures",
@@ -5431,7 +5431,7 @@
     "description": "Replacing or repairing spa jet covers and air valves to ensure smooth operation.",
     "category": "Pools & Spas",
     "subcategory": "minor-pool-spa-repairs",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Inspection of spa jet covers and air valves",
       "Replacement of damaged or worn-out components",
@@ -5447,7 +5447,7 @@
     "description": "Power washing pool decks and patios to remove dirt, grime, and algae buildup.",
     "category": "Pools & Spas",
     "subcategory": "pool-deck-surrounding-area-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "High-pressure washing of pool decks and patios",
       "Removing stains, algae, and dirt buildup",
@@ -5463,7 +5463,7 @@
     "description": "Sealing or staining wooden pool decks to protect against moisture and wear.",
     "category": "Pools & Spas",
     "subcategory": "pool-deck-surrounding-area-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Applying high-quality sealant or stain",
       "Protecting wood from water damage and sun exposure",
@@ -5479,7 +5479,7 @@
     "description": "Cleaning and organizing pool equipment and storage areas for efficiency and accessibility.",
     "category": "Pools & Spas",
     "subcategory": "pool-deck-surrounding-area-maintenance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removing debris and clutter from storage spaces",
       "Organizing pool maintenance tools and chemicals",
@@ -5495,7 +5495,7 @@
     "description": "Installing string lights along rooflines, gutters, and eaves for festive holiday decor.",
     "category": "Holiday Lighting",
     "subcategory": "exterior-holiday-lighting-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Securing string lights along roof edges",
       "Weatherproof installation for outdoor durability",
@@ -5511,7 +5511,7 @@
     "description": "Installing LED or icicle lights on house exteriors to enhance holiday ambiance.",
     "category": "Holiday Lighting",
     "subcategory": "exterior-holiday-lighting-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installation of energy-efficient LED holiday lights",
       "Custom placement for icicle lighting effects",
@@ -5527,7 +5527,7 @@
     "description": "Wrapping holiday lights around trees, bushes, and shrubs for a vibrant seasonal display.",
     "category": "Holiday Lighting",
     "subcategory": "exterior-holiday-lighting-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Evenly wrapping lights around outdoor greenery",
       "Use of weather-resistant lighting for long-lasting effects",
@@ -5543,7 +5543,7 @@
     "description": "Installing decorative pathway and driveway holiday lighting to create a welcoming entrance.",
     "category": "Holiday Lighting",
     "subcategory": "exterior-holiday-lighting-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Lining driveways and walkways with festive lights",
       "Ground stake installation for secure placement",
@@ -5559,7 +5559,7 @@
     "description": "Setting up lighted holiday decorations such as reindeer, snowmen, and inflatables.",
     "category": "Holiday Lighting",
     "subcategory": "exterior-holiday-lighting-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Placement of pre-lit holiday decorations",
       "Secure installation for stability",
@@ -5575,7 +5575,7 @@
     "description": "Installing holiday light projectors or spotlights to illuminate outdoor spaces with festive designs.",
     "category": "Holiday Lighting",
     "subcategory": "exterior-holiday-lighting-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setup of animated or static light projectors",
       "Strategic placement for best coverage",
@@ -5591,7 +5591,7 @@
     "description": "Installing and decorating Christmas trees with lights to create a festive atmosphere.",
     "category": "Holiday Lighting",
     "subcategory": "interior-holiday-lighting-decorations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Stringing lights on Christmas trees",
       "Arranging ornaments and decorative accents",
@@ -5607,7 +5607,7 @@
     "description": "Hanging holiday lights along mantels, staircases, and walls for a festive indoor display.",
     "category": "Holiday Lighting",
     "subcategory": "interior-holiday-lighting-decorations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installing string lights along mantels and railings",
       "Securing holiday lights on walls with decorative placements",
@@ -5623,7 +5623,7 @@
     "description": "Installing window candle lights or decorative LED displays for enhanced holiday aesthetics.",
     "category": "Holiday Lighting",
     "subcategory": "interior-holiday-lighting-decorations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setting up LED candle displays in windows",
       "Installing decorative window holiday lights",
@@ -5639,7 +5639,7 @@
     "description": "Setting up holiday village or lighted tabletop decorations for an elegant indoor holiday display.",
     "category": "Holiday Lighting",
     "subcategory": "interior-holiday-lighting-decorations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Arranging miniature holiday village displays",
       "Setting up lighted tabletop decorations",
@@ -5655,7 +5655,7 @@
     "description": "Installing smart holiday lighting with timers and remote controls for effortless automation.",
     "category": "Holiday Lighting",
     "subcategory": "specialty-custom-lighting-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Setting up programmable holiday lights",
       "Integration with smart home systems",
@@ -5671,7 +5671,7 @@
     "description": "Installing color-changing or animated holiday lighting displays for a dynamic festive look.",
     "category": "Holiday Lighting",
     "subcategory": "specialty-custom-lighting-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installing animated LED holiday displays",
       "Custom color and motion programming",
@@ -5687,7 +5687,7 @@
     "description": "Mounting wreaths and garlands with integrated lighting for a polished holiday display.",
     "category": "Holiday Lighting",
     "subcategory": "specialty-custom-lighting-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Attaching pre-lit wreaths to doors and windows",
       "Securing garlands with evenly distributed lights",
@@ -5703,7 +5703,7 @@
     "description": "Setting up holiday light controllers and syncing lights with music for a spectacular display.",
     "category": "Holiday Lighting",
     "subcategory": "specialty-custom-lighting-installations",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Installing and programming light controllers",
       "Syncing lights to holiday music playlists",
@@ -5719,7 +5719,7 @@
     "description": "Replacing burnt-out or damaged holiday bulbs to maintain a bright and even lighting display.",
     "category": "Holiday Lighting",
     "subcategory": "holiday-lighting-maintenance-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Checking for burnt-out bulbs in light strands",
       "Replacing and testing new bulbs",
@@ -5735,7 +5735,7 @@
     "description": "Troubleshooting and repairing minor holiday light strand issues for a consistent lighting display.",
     "category": "Holiday Lighting",
     "subcategory": "holiday-lighting-maintenance-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Identifying and fixing broken light strands",
       "Repairing faulty wiring or loose connections",
@@ -5751,7 +5751,7 @@
     "description": "Removing and safely storing holiday lights after the season to ensure longevity.",
     "category": "Holiday Lighting",
     "subcategory": "holiday-lighting-maintenance-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Careful removal of holiday lights",
       "Organizing lights for tangle-free storage",
@@ -5767,7 +5767,7 @@
     "description": "Organizing and packing holiday lights and decorations for easy access next season.",
     "category": "Holiday Lighting",
     "subcategory": "holiday-lighting-maintenance-removal",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Labeling and sorting holiday decorations",
       "Providing storage solutions for delicate items",
@@ -5783,7 +5783,7 @@
     "description": "Assembling bed frames including platform beds, bunk beds, and daybeds.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of platform, bunk, and daybeds",
       "Secure fastening and structural reinforcement",
@@ -5799,7 +5799,7 @@
     "description": "Assembling dressers, nightstands, and wardrobes for bedroom storage solutions.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of all sizes of dressers and nightstands",
       "Installation of drawers, doors, and hardware",
@@ -5815,7 +5815,7 @@
     "description": "Assembling bookshelves and storage cabinets to enhance organization and decor.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of standard and custom storage units",
       "Installation of adjustable shelving and doors",
@@ -5831,7 +5831,7 @@
     "description": "Assembling office desks and chairs for ergonomic workspace setups.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of office desks with drawers and compartments",
       "Chair installation with ergonomic adjustments",
@@ -5847,7 +5847,7 @@
     "description": "Assembling dining tables and chairs for home and commercial dining spaces.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of dining tables of all sizes",
       "Chair installation and leg attachment",
@@ -5863,7 +5863,7 @@
     "description": "Assembling TV stands and entertainment centers for home media setups.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of TV stands with shelves and compartments",
       "Installation of doors, drawers, and hardware",
@@ -5879,7 +5879,7 @@
     "description": "Assembling coffee tables and end tables for functional living spaces.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of round, square, and modern coffee tables",
       "Installation of legs, drawers, and shelving",
@@ -5895,7 +5895,7 @@
     "description": "Assembling and installing shelving units and wall-mounted shelves.",
     "category": "Furniture Assembly",
     "subcategory": "indoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of freestanding shelving units",
       "Wall-mounting shelves with secure brackets",
@@ -5911,7 +5911,7 @@
     "description": "Assembling patio dining sets and chairs for comfortable outdoor dining experiences.",
     "category": "Furniture Assembly",
     "subcategory": "outdoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of outdoor dining tables and chairs",
       "Ensuring stability and proper alignment",
@@ -5927,7 +5927,7 @@
     "description": "Assembling outdoor benches and picnic tables for parks, gardens, and patios.",
     "category": "Furniture Assembly",
     "subcategory": "outdoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of wooden and metal picnic tables",
       "Secure fastenings for weather durability",
@@ -5943,7 +5943,7 @@
     "description": "Assembling small to medium-sized garden storage sheds for tool and equipment storage.",
     "category": "Furniture Assembly",
     "subcategory": "outdoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of plastic, metal, or wooden sheds",
       "Secure anchoring for outdoor durability",
@@ -5959,7 +5959,7 @@
     "description": "Assembling and securing porch swings and hammocks for relaxation and outdoor comfort.",
     "category": "Furniture Assembly",
     "subcategory": "outdoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure mounting and fastenings",
       "Weight-tested safety checks",
@@ -5975,7 +5975,7 @@
     "description": "Assembling outdoor loungers and daybeds for luxurious outdoor seating.",
     "category": "Furniture Assembly",
     "subcategory": "outdoor-furniture-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of cushioned loungers and daybeds",
       "Weather-resistant frame setup",
@@ -5991,7 +5991,7 @@
     "description": "Assembling cribs and toddler beds with safety compliance for young children.",
     "category": "Furniture Assembly",
     "subcategory": "childrens-furniture-playsets",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure crib and toddler bed assembly",
       "Ensuring safety regulations compliance",
@@ -6007,7 +6007,7 @@
     "description": "Assembling changing tables and nursery furniture for baby care and organization.",
     "category": "Furniture Assembly",
     "subcategory": "childrens-furniture-playsets",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of changing tables and storage drawers",
       "Secure anchoring for baby safety",
@@ -6023,7 +6023,7 @@
     "description": "Assembling toy storage units and organizers for easy cleanup and organization.",
     "category": "Furniture Assembly",
     "subcategory": "childrens-furniture-playsets",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of multi-bin and cubby storage",
       "Secure fitting and wall-mounting options",
@@ -6039,7 +6039,7 @@
     "description": "Assembling play kitchens and dollhouses for imaginative play and fun.",
     "category": "Furniture Assembly",
     "subcategory": "childrens-furniture-playsets",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of interactive play kitchens",
       "Setting up dollhouses with multiple levels",
@@ -6055,7 +6055,7 @@
     "description": "Assembling small indoor playsets and slides for safe indoor entertainment.",
     "category": "Furniture Assembly",
     "subcategory": "childrens-furniture-playsets",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembling plastic and wooden play structures",
       "Ensuring stability and safety compliance",
@@ -6071,7 +6071,7 @@
     "description": "Assembling small to large outdoor playsets for active outdoor fun.",
     "category": "Furniture Assembly",
     "subcategory": "childrens-furniture-playsets",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of small to large outdoor play structures",
       "Swing, slide, and climbing feature installations",
@@ -6087,7 +6087,7 @@
     "description": "Assembling treadmills and exercise bikes for home or commercial gyms.",
     "category": "Furniture Assembly",
     "subcategory": "fitness-equipment-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of treadmills and stationary bikes",
       "Ensuring proper wiring and digital console setup",
@@ -6103,7 +6103,7 @@
     "description": "Assembling weight benches and home gym systems with multiple workout stations.",
     "category": "Furniture Assembly",
     "subcategory": "fitness-equipment-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of adjustable and fixed-weight benches",
       "Setup of pulley systems and resistance machines",
@@ -6119,7 +6119,7 @@
     "description": "Assembling rowing machines and elliptical trainers for cardio workouts.",
     "category": "Furniture Assembly",
     "subcategory": "fitness-equipment-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of rowing machines and elliptical trainers",
       "Adjusting resistance settings and foot pedals",
@@ -6135,7 +6135,7 @@
     "description": "Installing wall-mounted pull-up bars and gym racks for strength training.",
     "category": "Furniture Assembly",
     "subcategory": "fitness-equipment-assembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure wall-mounting of pull-up bars",
       "Installation of gym racks for barbell storage",
@@ -6151,7 +6151,7 @@
     "description": "Assembling closet organizers and wardrobe systems for enhanced storage solutions.",
     "category": "Furniture Assembly",
     "subcategory": "storage-organization-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of modular closet systems",
       "Installation of hanging rods and shelves",
@@ -6167,7 +6167,7 @@
     "description": "Installing wall-mounted storage units for space-saving organization.",
     "category": "Furniture Assembly",
     "subcategory": "storage-organization-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Drilling and securing wall-mounted units",
       "Adjusting shelves for optimized storage",
@@ -6183,7 +6183,7 @@
     "description": "Assembling and installing garage shelving and tool racks for optimized workspace organization.",
     "category": "Furniture Assembly",
     "subcategory": "storage-organization-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of heavy-duty garage shelving",
       "Installation of wall-mounted tool racks",
@@ -6199,7 +6199,7 @@
     "description": "Assembling laundry room storage cabinets and organizers for efficient space use.",
     "category": "Furniture Assembly",
     "subcategory": "storage-organization-systems",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of freestanding and wall-mounted cabinets",
       "Installation of shelves and compartments",
@@ -6215,7 +6215,7 @@
     "description": "Assembling futons and sofa beds for multi-functional living spaces.",
     "category": "Furniture Assembly",
     "subcategory": "miscellaneous-assembly-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of convertible futons and sofa beds",
       "Installation of mattress frames and support",
@@ -6231,7 +6231,7 @@
     "description": "Assembling shoe racks and entryway furniture for efficient organization.",
     "category": "Furniture Assembly",
     "subcategory": "miscellaneous-assembly-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of entryway storage benches",
       "Installation of shoe racks and cubbies",
@@ -6247,7 +6247,7 @@
     "description": "Assembling bar stools and kitchen islands for functional dining and workspace setups.",
     "category": "Furniture Assembly",
     "subcategory": "miscellaneous-assembly-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of adjustable and fixed-height bar stools",
       "Setup of freestanding or wheeled kitchen islands",
@@ -6263,7 +6263,7 @@
     "description": "Assembling and securing floating shelves for a modern, space-saving design.",
     "category": "Furniture Assembly",
     "subcategory": "miscellaneous-assembly-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Drilling and securing floating shelf brackets",
       "Ensuring weight-bearing capacity",
@@ -6279,7 +6279,7 @@
     "description": "Disassembling and reassembling beds, tables, and large furniture for safe and easy transport.",
     "category": "Third Party Moving",
     "subcategory": "furniture-disassembly-reassembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Disassembly of large furniture items",
       "Safe packing and labeling of parts",
@@ -6295,7 +6295,7 @@
     "description": "Taking apart modular furniture pieces to ensure compact and damage-free transport.",
     "category": "Third Party Moving",
     "subcategory": "furniture-disassembly-reassembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Careful breakdown of modular furniture components",
       "Labeling and organizing for easy reassembly",
@@ -6311,7 +6311,7 @@
     "description": "Removing and reinstalling doors to allow easy movement of large furniture during a move.",
     "category": "Third Party Moving",
     "subcategory": "furniture-disassembly-reassembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Careful door removal for furniture clearance",
       "Reinstallation of doors at the new location",
@@ -6327,7 +6327,7 @@
     "description": "Disassembling and reassembling shelving units, bookcases, and storage systems.",
     "category": "Third Party Moving",
     "subcategory": "furniture-disassembly-reassembly",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Disassembly and safe packing of shelving units",
       "Reinstallation at the new location",
@@ -6343,7 +6343,7 @@
     "description": "Packing household items into moving boxes securely to ensure safe transport.",
     "category": "Third Party Moving",
     "subcategory": "packing-unpacking-assistance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sorting and organizing household items",
       "Using high-quality packing materials",
@@ -6359,7 +6359,7 @@
     "description": "Wrapping and securing fragile items to prevent damage during transportation.",
     "category": "Third Party Moving",
     "subcategory": "packing-unpacking-assistance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Using bubble wrap and protective padding",
       "Packing glassware, artwork, and valuables safely",
@@ -6375,7 +6375,7 @@
     "description": "Labeling and organizing moving boxes by room to simplify unpacking.",
     "category": "Third Party Moving",
     "subcategory": "packing-unpacking-assistance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Categorizing boxes by contents and room",
       "Using color-coded labels for efficiency",
@@ -6391,7 +6391,7 @@
     "description": "Unpacking and setting up furniture and household items after a move.",
     "category": "Third Party Moving",
     "subcategory": "packing-unpacking-assistance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Unpacking boxes and organizing items",
       "Reassembling and arranging furniture",
@@ -6407,7 +6407,7 @@
     "description": "Loading household items into moving trucks or storage units efficiently and securely.",
     "category": "Third Party Moving",
     "subcategory": "loading-unloading-assistance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Strategic placement for safe transport",
       "Proper securing of heavy and fragile items",
@@ -6423,7 +6423,7 @@
     "description": "Unloading items from moving trucks and placing them in designated rooms.",
     "category": "Third Party Moving",
     "subcategory": "loading-unloading-assistance",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Careful unloading to prevent damage",
       "Placing boxes and furniture in correct rooms",
@@ -6439,7 +6439,7 @@
     "description": "Disconnecting and reconnecting washers, dryers, refrigerators, and ice makers safely.",
     "category": "Third Party Moving",
     "subcategory": "appliance-moving-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Properly shutting off water and power",
       "Disconnecting and reconnecting appliance hoses",
@@ -6455,7 +6455,7 @@
     "description": "Installing or uninstalling dishwashers and microwaves with minor hookups.",
     "category": "Third Party Moving",
     "subcategory": "appliance-moving-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure installation of built-in microwaves",
       "Basic water and power hookups for dishwashers",
@@ -6471,7 +6471,7 @@
     "description": "Moving and positioning heavy appliances within the home with professional care.",
     "category": "Third Party Moving",
     "subcategory": "appliance-moving-installation",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Lifting and transporting heavy appliances safely",
       "Securing appliances to prevent shifting",
@@ -6487,7 +6487,7 @@
     "description": "Moving large or heavy items within the home such as safes, pianos, and workout equipment.",
     "category": "Third Party Moving",
     "subcategory": "specialty-moving-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure handling of heavy items",
       "Use of professional moving equipment",
@@ -6503,7 +6503,7 @@
     "description": "Assembling and setting up office furniture after a move for a productive workspace.",
     "category": "Third Party Moving",
     "subcategory": "specialty-moving-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of desks, chairs, and filing cabinets",
       "Proper placement for ergonomic use",
@@ -6519,7 +6519,7 @@
     "description": "Transporting items to or from storage units with secure loading and unloading.",
     "category": "Third Party Moving",
     "subcategory": "specialty-moving-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Careful packing and transport",
       "Secure storage placement",
@@ -6535,7 +6535,7 @@
     "description": "Disassembling and reassembling pool tables to ensure safe transport and setup.",
     "category": "Third Party Moving",
     "subcategory": "specialty-moving-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Careful breakdown of pool table components",
       "Safe transportation to a new location",
@@ -6551,7 +6551,7 @@
     "description": "Disassembling and reassembling fitness equipment for safe relocation.",
     "category": "Third Party Moving",
     "subcategory": "specialty-moving-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Dismantling treadmills, weight benches, and gym machines",
       "Careful transport with proper handling",
@@ -6567,7 +6567,7 @@
     "description": "Disassembling and reassembling outdoor playsets to ensure safe transport and installation.",
     "category": "Third Party Moving",
     "subcategory": "specialty-moving-services",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Disassembling swings, slides, and climbing structures",
       "Safe transport to new locations",
@@ -6583,7 +6583,7 @@
     "description": "Removing packing materials and boxes to leave your space clutter-free after a move.",
     "category": "Third Party Moving",
     "subcategory": "post-move-cleanup-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Collection and disposal of boxes and packing materials",
       "Recycling of suitable materials",
@@ -6599,7 +6599,7 @@
     "description": "Reinstalling curtain rods, blinds, and shelves to complete your move-in setup.",
     "category": "Third Party Moving",
     "subcategory": "post-move-cleanup-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Proper alignment and secure mounting",
       "Ensuring stability and functionality",
@@ -6615,7 +6615,7 @@
     "description": "Hanging artwork, mirrors, and TVs to personalize your new space after moving.",
     "category": "Third Party Moving",
     "subcategory": "post-move-cleanup-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Wall-mounting artwork and mirrors securely",
       "Installing TVs with proper wall brackets",
@@ -6631,7 +6631,7 @@
     "description": "Performing minor wall touch-ups and patching small holes from previous installations.",
     "category": "Third Party Moving",
     "subcategory": "post-move-cleanup-setup",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Filling nail and screw holes",
       "Painting over minor scuffs and marks",
@@ -6647,7 +6647,7 @@
     "description": "Building custom crates for paintings, mirrors, chandeliers, vases, and sculptures to ensure safe transport.",
     "category": "Third Party Moving",
     "subcategory": "crating-valuable-items",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Custom-sized crates for valuable items",
       "Secure padding and internal support",
@@ -6663,7 +6663,7 @@
     "description": "Routine cleaning of residential spaces, including dusting, vacuuming, and surface cleaning.",
     "category": "Cleaning",
     "subcategory": "general-home-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sweeping, mopping, and vacuuming floors",
       "Dusting surfaces and furniture",
@@ -6679,7 +6679,7 @@
     "description": "Thorough cleaning of residential spaces, including scrubbing, sanitizing, and detailed attention to high-use areas.",
     "category": "Cleaning",
     "subcategory": "general-home-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Intensive scrubbing of kitchen and bathroom surfaces",
       "Sanitizing high-touch areas",
@@ -6695,7 +6695,7 @@
     "description": "Preparing homes for new occupants by deep cleaning and sanitizing.",
     "category": "Cleaning",
     "subcategory": "move-in-move-out-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Deep cleaning of kitchens and bathrooms",
       "Vacuuming and scrubbing all floors",
@@ -6711,7 +6711,7 @@
     "description": "Removing dust, debris, and construction residue after renovations.",
     "category": "Cleaning",
     "subcategory": "post-construction-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sweeping and vacuuming construction dust",
       "Removing leftover debris and materials",
@@ -6727,7 +6727,7 @@
     "description": "Clearing and organizing garage spaces to maximize storage and functionality.",
     "category": "Cleaning",
     "subcategory": "garage-cleanout-organization",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sorting and organizing stored items",
       "Sweeping and deep cleaning garage floors",
@@ -6743,7 +6743,7 @@
     "description": "Decluttering and deep cleaning of storage areas.",
     "category": "Cleaning",
     "subcategory": "basement-attic-cleanouts",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sorting and removing unwanted items",
       "Vacuuming and wiping down surfaces",
@@ -6759,7 +6759,7 @@
     "description": "Quick and efficient cleaning between tenant transitions.",
     "category": "Cleaning",
     "subcategory": "rental-property-turnover-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Sanitizing kitchen and bathroom surfaces",
       "Vacuuming and mopping floors",
@@ -6775,7 +6775,7 @@
     "description": "Light commercial cleaning for small business offices and workspaces.",
     "category": "Cleaning",
     "subcategory": "office-workspace-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Vacuuming and mopping office floors",
       "Disinfecting workstations and common areas",
@@ -6791,7 +6791,7 @@
     "description": "Removing junk and sanitizing abandoned or neglected properties.",
     "category": "Cleaning",
     "subcategory": "foreclosure-eviction-cleanouts",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Removing abandoned furniture and trash",
       "Sanitizing floors, kitchens, and bathrooms",
@@ -6807,7 +6807,7 @@
     "description": "Quick turnaround cleaning services for short-term rental properties.",
     "category": "Cleaning",
     "subcategory": "airbnb-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Linen change and restocking essentials",
       "Vacuuming and wiping down all surfaces",
@@ -6823,7 +6823,7 @@
     "description": "Recurring cleaning services catered to the needs of elderly individuals.",
     "category": "Cleaning",
     "subcategory": "elderly-monthly-cleaning",
-    "image": "/Handyman_Wannabe.png",
+    "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Light housekeeping and organization",
       "Dusting and disinfecting common areas",
