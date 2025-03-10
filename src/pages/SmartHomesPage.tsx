@@ -256,8 +256,6 @@ const SmartHomesPage = () => {
                           src={services[0]?.image || "/images/smart-Lock.avif"}
                           alt={info.title}
                           className="w-full h-full object-cover"
-                          loading="lazy"
-                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <h3 className="absolute bottom-4 left-6 text-2xl font-bold text-white">
