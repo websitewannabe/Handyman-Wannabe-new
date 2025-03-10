@@ -1,4 +1,23 @@
 
+# Enable CORS for images
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|avif)$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Cache-Control "max-age=86400, public"
+  </FilesMatch>
+</IfModule>
+
+# Ensure proper MIME types
+<IfModule mod_mime.c>
+  AddType image/jpeg .jpg .jpeg
+  AddType image/png .png
+  AddType image/gif .gif
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+  AddType image/avif .avif
+</IfModule>
+
+
 # Redirect all 404 errors to index.html to let React Router handle them
 ErrorDocument 404 /index.html
 

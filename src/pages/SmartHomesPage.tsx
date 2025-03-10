@@ -189,9 +189,13 @@ const SmartHomesPage = () => {
                 className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8"
               >
                 <img
-                  src="/images/Handyman_Logo.png"
+                  src="/public/images/Handyman_Logo.png"
                   alt="Handyman Wannabe Logo"
                   className="max-w-full max-h-full object-contain"
+                  onError={(e) => {
+                    console.error('Image failed to load:', e.currentTarget.src);
+                    e.currentTarget.src = "/images/Handyman_Logo.png"; // Fallback path
+                  }}
                 />
               </motion.div>
               <motion.div

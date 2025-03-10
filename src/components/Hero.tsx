@@ -128,6 +128,11 @@ const Hero = () => {
               maxWidth: '100%',
               height: '100%',
             }}
+            onError={(e) => {
+              console.error('Hero image failed to load:', e.currentTarget.src);
+              // Try alternative path
+              e.currentTarget.src = `${window.location.origin}/images/Handyman-Hero.jpeg`;
+            }}
           />
           <div className="absolute inset-0 bg-black/50"></div>
           {/* Add a preloader image */}
