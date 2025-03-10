@@ -44,9 +44,14 @@ export const pageSEOData: Record<string, PageSEOData> = {
   }
 };
 
+// Base domain for canonical URLs and absolute image paths
+const domain = "https://www.handymanwannabe.com";
+
 // Helper function to get canonical URL
 export const getCanonicalUrl = (path: string): string => {
-  return `${domain}${path}`;
+  // Remove any query parameters from the path
+  const cleanPath = path.split('?')[0];
+  return `${domain}${cleanPath}`;
 };
 
 // Helper function to get absolute image URL

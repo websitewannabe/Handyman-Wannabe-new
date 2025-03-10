@@ -44,7 +44,7 @@ const groupedServices = smartHomeServices.reduce(
   {} as Record<string, typeof smartHomeServices>,
 );
 
-import SEO from "../components/SEO";
+import OptimizedSEO from "../components/OptimizedSEO";
 import { pageSEOData, getCanonicalUrl } from "../utils/seoHelpers";
 
 const SmartHomesPage = () => {
@@ -114,13 +114,13 @@ const SmartHomesPage = () => {
 
   return (
     <div className="relative">
-      <SEO
+      <OptimizedSEO
         title={seoData.title}
         description={seoData.description}
         keywords={seoData.keywords}
         featuredImage={seoData.featuredImage}
         ogImage={seoData.featuredImage}
-        canonicalUrl={getCanonicalUrl ? getCanonicalUrl(seoData.path) : `https://www.handymanwannabe.com${seoData.path}`}
+        path={seoData.path}
       />
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center">

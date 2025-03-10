@@ -1,39 +1,42 @@
 
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
-interface SEOProps {
+interface OptimizedSEOProps {
   title?: string;
   description?: string;
   keywords?: string;
   ogImage?: string;
-  ogUrl?: string;
-  canonicalUrl?: string;
   featuredImage?: string;
+  path?: string;
+  overrideCanonical?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({
+const OptimizedSEO: React.FC<OptimizedSEOProps> = ({
   title = 'Handyman Wannabe - Professional Handyman Services',
   description = 'Handyman Wannabe provides professional and reliable handyman services for all your home maintenance and improvement needs.',
   keywords = 'handyman, home repair, home maintenance, professional handyman, home improvement',
   ogImage = '/images/Handyman-Hero.jpeg',
   featuredImage = '/images/Handyman-Hero.jpeg',
-  ogUrl,
-  canonicalUrl,
+  path,
+  overrideCanonical,
 }) => {
-  const siteUrl = 'https://www.handymanwannabe.com';
+  const location = useLocation();
+  const domain = "https://www.handymanwannabe.com";
   
-  // Clean URL - remove any query parameters
-  const cleanUrl = () => {
-    const currentUrl = window.location.href;
-    const urlWithoutParams = currentUrl.split('?')[0];
-    return urlWithoutParams;
+  // Generate canonical URL (without query parameters)
+  const getCanonicalUrl = () => {
+    if (overrideCanonical) return overrideCanonical;
+    
+    // If path is provided, use it, otherwise use current path
+    const urlPath = path || location.pathname;
+    return `${domain}${urlPath}`;
   };
   
-  // Use provided canonical URL, or generate a clean one
-  const pageUrl = canonicalUrl || cleanUrl();
-  const imageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
-  const featuredImageUrl = featuredImage.startsWith('http') ? featuredImage : `${siteUrl}${featuredImage}`;
+  const canonicalUrl = getCanonicalUrl();
+  const imageUrl = ogImage.startsWith('http') ? ogImage : `${domain}${ogImage}`;
+  const featuredImageUrl = featuredImage.startsWith('http') ? featuredImage : `${domain}${featuredImage}`;
 
   return (
     <Helmet>
@@ -43,13 +46,13 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="keywords" content={keywords} />
 
       {/* Canonical URL - always present and always clean */}
-      <link rel="canonical" href={pageUrl} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph tags */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
-      <meta property="og:url" content={pageUrl} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
       
       {/* Twitter Card data */}
@@ -64,4 +67,4 @@ const SEO: React.FC<SEOProps> = ({
   );
 };
 
-export default SEO;
+export default OptimizedSEO;
