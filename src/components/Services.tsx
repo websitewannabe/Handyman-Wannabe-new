@@ -150,7 +150,7 @@ const Services = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className="group relative bg-gray-50 rounded-lg p-6 hover:bg-primary/5 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
+                          className="group relative bg-gray-50 rounded-lg p-6 hover:bg-primary/5 transition-all duration-300 hover:shadow-lg"
                         >
                           <div className="flex items-start justify-between mb-4">
                             <div className="bg-white rounded-full p-3 shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
@@ -167,7 +167,6 @@ const Services = () => {
                             to={getServiceUrl(item.name)}
                             className="w-full bg-white border-2 border-primary text-primary font-medium py-2 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 group-hover:shadow-md block text-center"
                             aria-label={`Learn more about ${item.name} services`}
-                            style={{ minWidth: '150px', maxWidth: '150px', height: '40px' }}
                           >
                             Learn more about {item.name}
                           </Link>
