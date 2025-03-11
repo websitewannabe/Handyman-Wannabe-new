@@ -171,16 +171,22 @@ const Navbar = () => {
     return `/services/${slug}`;
   };
 
-  const shouldUseBlackText =
-    location.pathname === "/how-it-works" ||
-    location.pathname === "/service-area" ||
-    location.pathname === "/about-us" ||
-    location.pathname === "/careers" ||
-    location.pathname === "/meet-the-team" ||
-    location.pathname === "/faq" ||
-    location.pathname === "/contact" ||
-    location.pathname === "/blog" ||
-    location.pathname === "/packages";
+  const currentPath = location.pathname;
+  // Check if we're on a page that should always have black text
+  const shouldUseBlackText = [
+    "/services",
+    "/packages",
+    "/how-it-works",
+    "/about-us",
+    "/careers",
+    "/meet-the-team",
+    "/service-area",
+    "/contact",
+    "/faq",
+    "/accessibility", // Added accessibility page
+    "/sitemap",       // Added sitemap page
+    "/404",           // Added 404 page
+  ].includes(currentPath);
 
   useEffect(() => {
     // Close dropdown when clicking outside
