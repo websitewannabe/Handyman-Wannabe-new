@@ -77,7 +77,7 @@ const PackageCardDropdown: React.FC<PackageCardDropdownProps> = ({
               </div>
             </div>
 
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-gray-200 flex justify-center">
               <button className="bg-primary hover:bg-primary/90 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
                 Book This Package
               </button>
