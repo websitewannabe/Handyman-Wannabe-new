@@ -265,22 +265,12 @@ const Footer = () => {
               >
                 Accessibility Statement
               </Link>
-              <li>
-                <Link
-                  to="/privacy"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-                <div id="policy" width="640" height="480"
-                  data-policy-key="ZEhSRVQwdFVMMDVJUTBndmJGRTlQUT09" 
-                  data-extra="h-align=left&table-style=accordion">
-                  Please wait while the policy is loaded. If it does not load, please 
-                  <a rel="nofollow" href="https://app.termageddon.com/api/policy/ZEhSRVQwdFVMMDVJUTBndmJGRTlQUT09?h-align=left&table-style=accordion" 
-                     target="_blank" aria-label="View Policy">click here to view the policy</a>.
-                </div>
-                <script src="https://app.termageddon.com/js/termageddon.js"></script>
-              </li>
+              <Link
+                to="/privacy"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </Link>
               <Link
                 to="/terms"
                 className="text-gray-400 hover:text-white transition-colors"
