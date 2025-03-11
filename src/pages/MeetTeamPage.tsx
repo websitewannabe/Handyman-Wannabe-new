@@ -136,22 +136,10 @@ const MeetTeamPage = () => {
                       </h3>
                       <p className="text-gray-600 mb-4">{member.bio}</p>
                       <div className="flex items-center text-sm text-gray-500 mb-3">
-                        <div className="bg-gray-100 rounded-full px-3 py-1 mr-3">
+                        <div className="bg-gray-100 rounded-full px-3 py-1">
                           <span className="font-medium">
                             {member.experience} Experience
                           </span>
-                        </div>
-                        <div className="flex items-center">
-                          <Star className="w-4 h-4 text-yellow-400 mr-1 fill-current" />
-                          <span>{member.rating}/5</span>
-                        </div>
-                      </div>
-                      <div className="border-t border-gray-100 pt-4 mt-4">
-                        <div className="flex items-center text-gray-600">
-                          <p className="text-sm">
-                            <span className="font-bold">Fun Fact: </span>
-                            {member.funFact}
-                          </p>
                         </div>
                       </div>
                     </div>
