@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Check, Star, ChevronDown, ChevronUp } from "lucide-react";
@@ -12,52 +11,65 @@ const packageData = [
     id: "basic",
     name: "Basic Handyman Package",
     description: "Essential services for minor home repairs and maintenance.",
-    price: "$199",
+    price: "$399",
     duration: "4 hours",
     features: [
-      "Minor plumbing repairs",
-      "Light fixture installation",
-      "Furniture assembly",
-      "Door/cabinet adjustments",
-      "TV mounting",
-      "Small drywall repairs"
+      "Carpentry",
+      "Electrical",
+      "Furniture Assembly",
+      "Garage Doors",
+      "Holiday Lighting",
+      "Home Inspections",
+      "Home Security",
+      "Locksmithing",
+      "Painting & Drywall",
+      "Plumbing",
+      "Pools & Spas",
+      "Smart Home",
+      "Windows & Doors",
     ],
     exclusions: [
-      "Materials cost (except as noted)",
-      "Permits or inspection fees",
-      "Major structural repairs",
-      "Electrical panel work"
+      "Cleaning",
+      "Flooring",
+      "Home Inspections",
+      "Power Washing",
+      "Landscaping",
     ],
-    popular: false
+    popular: false,
   },
   {
     id: "standard",
     name: "Standard Home Maintenance Package",
-    description: "Comprehensive service package for regular home maintenance and improvements.",
-    price: "$349",
+    description:
+      "Comprehensive service package for regular home maintenance and improvements.",
+    price: "$799",
     duration: "8 hours",
     features: [
-      "All Basic Package services",
-      "Deck/fence repairs",
-      "Ceiling fan installation",
-      "Painting (small areas)",
-      "Toilet replacement",
-      "Garbage disposal installation",
-      "Weatherstripping & caulking"
+      "Carpentry",
+      "Electrical",
+      "Flooring",
+      "Furniture Assembly",
+      "Garage Doors",
+      "Holiday Lighting",
+      "Home Inspections",
+      "Home Security",
+      "Locksmithing",
+      "Landscaping",
+      "Painting & Drywall",
+      "Plumbing",
+      "Pools & Spas",
+      "Smart Home",
+      "Windows & Doors",
     ],
-    exclusions: [
-      "Materials cost (except as noted)",
-      "Permits or inspection fees",
-      "Major structural repairs",
-      "Specialized tools rental"
-    ],
-    popular: true
+    exclusions: ["Cleaning", "Home Inspections", "Power Washing"],
+    popular: true,
   },
   {
     id: "premium",
     name: "Premium Home Improvement Package",
-    description: "Complete home improvement services with priority scheduling and dedicated support.",
-    price: "$599",
+    description:
+      "Complete home improvement services with priority scheduling and dedicated support.",
+    price: "$1599",
     duration: "16 hours",
     features: [
       "All Standard Package services",
@@ -67,40 +79,35 @@ const packageData = [
       "Interior trim work",
       "Major appliance installation",
       "Complete bathroom updates",
-      "24/7 emergency support"
+      "24/7 emergency support",
     ],
-    exclusions: [
-      "Materials cost (except as noted)",
-      "Permits or inspection fees",
-      "Structural modifications",
-      "Roof repairs"
-    ],
-    popular: false
-  }
+    exclusions: ["Cleaning", "Power Washing", "Home Inspections"],
+    popular: false,
+  },
 ];
 
 // Animation variants
 const fadeInVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 // PackageCard component
-const PackageCard = ({ 
-  pkg, 
+const PackageCard = ({
+  pkg,
   isExpanded,
-  toggleExpand 
-}: { 
-  pkg: typeof packageData[0], 
-  isExpanded: boolean,
-  toggleExpand: (id: string) => void
+  toggleExpand,
+}: {
+  pkg: (typeof packageData)[0];
+  isExpanded: boolean;
+  toggleExpand: (id: string) => void;
 }) => {
   return (
     <div className="flex flex-col">
       <motion.div
         className={`relative bg-white rounded-xl overflow-hidden shadow-lg ${
-          isExpanded ? 'rounded-b-none shadow-md' : 'hover:shadow-xl'
+          isExpanded ? "rounded-b-none shadow-md" : "hover:shadow-xl"
         } transition-all duration-300 ${
           pkg.popular ? "ring-2 ring-primary" : ""
         }`}
@@ -153,29 +160,30 @@ const PackageCard = ({
             )}
           </ul>
 
-          <button 
+          <button
             onClick={() => toggleExpand(pkg.id)}
             className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors flex justify-center items-center"
             aria-expanded={isExpanded}
             aria-controls={`dropdown-${pkg.id}`}
           >
             {isExpanded ? (
-              <>Hide Details <ChevronUp className="ml-2 w-5 h-5" /></>
+              <>
+                Hide Details <ChevronUp className="ml-2 w-5 h-5" />
+              </>
             ) : (
-              <>View Details <ChevronDown className="ml-2 w-5 h-5" /></>
+              <>
+                View Details <ChevronDown className="ml-2 w-5 h-5" />
+              </>
             )}
           </button>
         </div>
       </motion.div>
-      
-      <div 
+
+      <div
         id={`dropdown-${pkg.id}`}
-        className={`rounded-b-xl overflow-hidden ${isExpanded ? 'shadow-lg' : ''}`}
+        className={`rounded-b-xl overflow-hidden ${isExpanded ? "shadow-lg" : ""}`}
       >
-        <PackageCardDropdown
-          isOpen={isExpanded}
-          packageData={pkg}
-        />
+        <PackageCardDropdown isOpen={isExpanded} packageData={pkg} />
       </div>
     </div>
   );
@@ -184,16 +192,16 @@ const PackageCard = ({
 const PackagesPage = () => {
   const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  
+
   // Using useCallback to memoize functions
   const toggleExpand = useCallback((id: string) => {
-    setExpandedPackage(prev => prev === id ? null : id);
+    setExpandedPackage((prev) => (prev === id ? null : id));
   }, []);
 
   const closeQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(false);
   }, []);
-  
+
   const openQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(true);
   }, []);
@@ -201,8 +209,8 @@ const PackagesPage = () => {
   // Memoize the package cards to prevent unnecessary re-renders
   const packageCards = useMemo(() => {
     return packageData.map((pkg) => (
-      <PackageCard 
-        key={pkg.id} 
+      <PackageCard
+        key={pkg.id}
         pkg={pkg}
         isExpanded={expandedPackage === pkg.id}
         toggleExpand={toggleExpand}
@@ -218,15 +226,13 @@ const PackagesPage = () => {
         keywords="handyman packages, home maintenance package, home repair bundle, service packages"
         featuredImage="/images/packages-banner.jpg"
       />
-      
+
       <div className="container mx-auto px-4">
-        <motion.div
-          {...fadeInVariants}
-          className="text-center mb-12"
-        >
+        <motion.div {...fadeInVariants} className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Service Packages</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Choose from our selection of pre-designed service packages that combine our most popular services at discounted rates.
+            Choose from our selection of pre-designed service packages that
+            combine our most popular services at discounted rates.
           </p>
         </motion.div>
 
@@ -241,7 +247,8 @@ const PackagesPage = () => {
         >
           <h2 className="text-2xl font-bold mb-4">Need a Custom Package?</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            We can create a personalized service package tailored to your specific home improvement needs.
+            We can create a personalized service package tailored to your
+            specific home improvement needs.
           </p>
           <button
             onClick={openQuoteModal}
@@ -254,10 +261,7 @@ const PackagesPage = () => {
 
       {/* Custom Quote Modal - Only render when needed */}
       {isQuoteModalOpen && (
-        <CustomQuoteModal 
-          isOpen={isQuoteModalOpen} 
-          onClose={closeQuoteModal} 
-        />
+        <CustomQuoteModal isOpen={isQuoteModalOpen} onClose={closeQuoteModal} />
       )}
     </div>
   );
