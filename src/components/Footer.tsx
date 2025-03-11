@@ -292,5 +292,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// Privacy Policy component removed to avoid conflicts with the dedicated page
