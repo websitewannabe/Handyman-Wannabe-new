@@ -186,7 +186,7 @@ const Navbar = () => {
     "/accessibility", // Added accessibility page
     "/sitemap",       // Added sitemap page
     "/404",           // Added 404 page
-  ].includes(currentPath) || window.location.pathname.includes("404");
+  ].includes(currentPath) || location.pathname.includes("404") || location.pathname === "*";
 
   useEffect(() => {
     // Close dropdown when clicking outside
