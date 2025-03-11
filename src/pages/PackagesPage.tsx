@@ -1,8 +1,7 @@
-
-import React, { useState, useRef, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import PackageModal from "../components/PackageModal";
 import CustomQuoteModal from "../components/CustomQuoteModal";
+import PackageCardDropdown from "../components/PackageCardDropdown";
 
 // Package data - moved to top level to prevent re-creation on renders
 const packageData = [
@@ -59,89 +58,28 @@ const packageData = [
   }
 ];
 
-// Animation variants - defined outside component to prevent recreating on each render
+// Define fade-in animation variants
 const fadeInVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
 };
 
-// Extracted PackageCard component for better reusability and memoization
-const PackageCard = React.memo(({ pkg, openModal }) => {
-  const { id, name, description, price, duration, features, popular } = pkg;
-  
-  return (
-    <motion.div
-      className={`bg-white rounded-xl shadow-xl overflow-hidden flex flex-col h-full ${
-        popular ? "border-2 border-primary" : ""
-      }`}
-      {...fadeInVariants}
-      transition={{ duration: 0.5, delay: id === "standard" ? 0.2 : id === "premium" ? 0.4 : 0 }}
-    >
-      {popular && (
-        <div className="bg-primary text-white py-1 px-4 text-center">
-          <span className="text-sm font-bold">MOST POPULAR</span>
-        </div>
-      )}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold mb-2">{name}</h3>
-        <p className="text-gray-600 mb-4">{description}</p>
-        <div className="flex items-baseline mb-6">
-          <span className="text-3xl font-bold text-primary">{price}</span>
-          <span className="text-gray-500 ml-2">/ {duration}</span>
-        </div>
-        <ul className="space-y-2 mb-6 flex-grow">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <span className="text-primary mr-2">✓</span>
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-        <button 
-          onClick={() => openModal(pkg)}
-          className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors mt-auto"
-        >
-          View Details
-        </button>
-      </div>
-    </motion.div>
-  );
-});
-
 const PackagesPage = () => {
-  const [selectedPackage, setSelectedPackage] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expandedPackageId, setExpandedPackageId] = useState<string | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  
-  // Using useCallback to memoize functions
-  const openPackageModal = useCallback((pkg) => {
-    setSelectedPackage(pkg);
-    setIsModalOpen(true);
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-  }, []);
 
   const closeQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(false);
   }, []);
-  
+
   const openQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(true);
   }, []);
 
-  // Memoize the package cards to prevent unnecessary re-renders
-  const packageCards = useMemo(() => {
-    return packageData.map((pkg) => (
-      <PackageCard 
-        key={pkg.id} 
-        pkg={pkg} 
-        openModal={openPackageModal}
-      />
-    ));
-  }, [openPackageModal]);
+  // Toggle package dropdown
+  const togglePackageDropdown = useCallback((packageId: string) => {
+    setExpandedPackageId(prevId => prevId === packageId ? null : packageId);
+  }, []);
 
   return (
     <div className="pt-28 pb-20">
@@ -156,8 +94,20 @@ const PackagesPage = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {packageCards}
+        <div className="space-y-6 max-w-4xl mx-auto">
+          {packageData.map((pkg) => (
+            <motion.div
+              key={pkg.id}
+              {...fadeInVariants}
+              transition={{ duration: 0.5, delay: packageData.indexOf(pkg) * 0.1 }}
+            >
+              <PackageCardDropdown
+                pkg={pkg}
+                isExpanded={expandedPackageId === pkg.id}
+                onToggle={() => togglePackageDropdown(pkg.id)}
+              />
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
@@ -177,15 +127,6 @@ const PackagesPage = () => {
           </button>
         </motion.div>
       </div>
-
-      {/* Package Modal - Only render when needed */}
-      {isModalOpen && selectedPackage && (
-        <PackageModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          packageData={selectedPackage}
-        />
-      )}
 
       {/* Custom Quote Modal - Only render when needed */}
       {isQuoteModalOpen && (
