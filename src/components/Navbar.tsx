@@ -186,6 +186,7 @@ const Navbar = () => {
     "/faq",
     "/accessibility", // Added accessibility page
     "/sitemap",       // Added sitemap page
+    "/blog",          // Added blog page
     "/404",           // Added 404 page
   ].includes(currentPath) || 
     currentPath.includes("404") || 
