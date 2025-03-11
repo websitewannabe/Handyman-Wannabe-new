@@ -140,6 +140,12 @@ body:has(.phone-call-modal-container) {
   top: 100%;
 }
 
+/* Blog page navigation text color */
+.blog-page .nav-link,
+.blog-page .navbar-link {
+  color: #000 !important;
+}
+
 .search-dropdown li {
   padding: 0.35rem 0.6rem; /* Reduced padding for more compact items */
   font-size: 0.85rem; /* Smaller text */
