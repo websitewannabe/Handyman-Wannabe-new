@@ -140,9 +140,11 @@ body:has(.phone-call-modal-container) {
   top: 100%;
 }
 
-/* Blog page navigation text color */
+/* Blog and NotFound page navigation text color */
 .blog-page .nav-link,
-.blog-page .navbar-link {
+.blog-page .navbar-link,
+.notfound-page .nav-link,
+.notfound-page .navbar-link {
   color: #000 !important;
 }
 
