@@ -18,7 +18,7 @@ const fadeIn = {
   transition: { duration: 0.6 },
 };
 
-const teamMembers = [
+const fieldMembers = [
   {
     name: "Dennis Tierney",
     role: "Field Manager",
@@ -46,6 +46,40 @@ const teamMembers = [
   },
 ];
 
+const officeMembers = [
+  {
+    name: "Jane Doe",
+    role: "Office Manager",
+    experience: "10+ years",
+    image: "/images/placeholder.jpg", // Replace with actual image
+    bio: "Manages day-to-day office operations.",
+    funFact: "Expert in office organization.",
+    icon: Paintbrush, // Replace with appropriate icon
+    rating: 4.5,
+  },
+  {
+    name: "John Smith",
+    role: "Accountant",
+    experience: "5+ years",
+    image: "/images/placeholder.jpg", // Replace with actual image
+    bio: "Handles all financial matters.",
+    funFact: "Adept at tax preparation.",
+    icon: Hammer, // Replace with appropriate icon
+    rating: 4.8,
+  },
+  {
+    name: "Sarah Jones",
+    role: "Receptionist",
+    experience: "2+ years",
+    image: "/images/placeholder.jpg", // Replace with actual image
+    bio: "Greets clients and handles phone calls.",
+    funFact: "Excellent communication skills.",
+    icon: Phone, // Replace with appropriate icon
+    rating: 4.7,
+  },
+];
+
+
 const MeetTeamPage = () => {
   return (
     <div className="pt-28">
@@ -61,55 +95,112 @@ const MeetTeamPage = () => {
               Meet Our Team
             </motion.h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {teamMembers.map((member, index) => (
+            {/* Field Team Members */}
+            <motion.h2 
+              className="text-3xl font-bold mb-8 text-primary"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Field Team
+            </motion.h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+              {fieldMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  {...fadeIn}
+                  transition={{ delay: index * 0.2 }}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div className="relative">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className={`w-full h-80 object-cover object-center`}
-                    />
-                    <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-primary">
-                      {member.experience}
+                  <div className="flex flex-col md:flex-row">
+                    <div className="md:w-1/3">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover object-center"
+                        style={{ aspectRatio: "1/1" }}
+                        onError={(e) => {
+                          e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
+                        }}
+                      />
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold mb-1">
-                          {member.name}
-                        </h3>
-                        <p className="text-primary font-medium">
-                          {member.role}
-                        </p>
+                    <div className="md:w-2/3 p-6">
+                      <div className="flex items-center mb-2">
+                        <div className="bg-primary/10 p-2 rounded-full mr-3">
+                          <member.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <h2 className="text-2xl font-bold">{member.name}</h2>
                       </div>
-                      <div className="bg-primary/10 p-2 rounded-full">
-                        <member.icon className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                    <p className="text-gray-600 mb-4">{member.bio}</p>
-                    <div className="border-t pt-4">
-                      <p className="text-gray-500 italic mb-4">
-                        <span className="font-medium text-dark">Fun Fact:</span>{" "}
-                        {member.funFact}
-                      </p>
-                      <div className="flex justify-between items-center">
-                        <div className="flex items-center">
-                          <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                          <span className="ml-1 font-bold">
-                            {member.rating}
+                      <h3 className="text-lg text-primary font-semibold mb-3">
+                        {member.role}
+                      </h3>
+                      <p className="text-gray-600 mb-4">{member.bio}</p>
+                      <div className="flex items-center text-sm text-gray-500 mb-3">
+                        <div className="bg-gray-100 rounded-full px-3 py-1 mr-3">
+                          <span className="font-medium">
+                            {member.experience} Experience
                           </span>
                         </div>
-                        <div className="text-gray-600">
-                          {member.projects}+ Projects Completed
+                        <div className="flex items-center">
+                          <Star className="w-4 h-4 text-yellow-400 mr-1 fill-current" />
+                          <span>{member.rating}/5</span>
                         </div>
+                      </div>
+                      <div className="border-t border-gray-100 pt-4 mt-4">
+                        <div className="flex items-center text-gray-600">
+                          <p className="text-sm">
+                            <span className="font-bold">Fun Fact: </span>
+                            {member.funFact}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Office Staff Section */}
+            <motion.h2 
+              className="text-3xl font-bold mb-8 text-primary"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Office Staff
+            </motion.h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+              {officeMembers.map((member, index) => (
+                <motion.div
+                  key={member.name}
+                  {...fadeIn}
+                  transition={{ delay: 0.6 + index * 0.2 }}
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-primary/10 p-2 rounded-full mr-3">
+                        <member.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h2 className="text-xl font-bold">{member.name}</h2>
+                    </div>
+                    <h3 className="text-lg text-primary font-semibold mb-3">
+                      {member.role}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{member.bio}</p>
+                    <div className="flex items-center text-sm text-gray-500 mb-3">
+                      <div className="bg-gray-100 rounded-full px-3 py-1 mr-3">
+                        <span className="font-medium">
+                          {member.experience} Experience
+                        </span>
+                      </div>
+                    </div>
+                    <div className="border-t border-gray-100 pt-4 mt-4">
+                      <div className="flex items-center text-gray-600">
+                        <p className="text-sm">
+                          <span className="font-bold">Fun Fact: </span>
+                          {member.funFact}
+                        </p>
                       </div>
                     </div>
                   </div>
