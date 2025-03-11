@@ -260,6 +260,12 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
+                to="/accessibility"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                Accessibility Statement
+              </Link>
+              <Link
                 to="/privacy"
                 className="text-gray-400 hover:text-white transition-colors"
               >
