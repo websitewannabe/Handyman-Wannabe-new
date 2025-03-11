@@ -1,8 +1,8 @@
+
 import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Check, Star, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, Star, ChevronRight } from "lucide-react";
 import CustomQuoteModal from "../components/CustomQuoteModal";
-import PackageCardDropdown from "../components/PackageCardDropdown";
 import SEO from "../components/SEO";
 
 // Package data
@@ -102,109 +102,13 @@ const fadeInVariants = {
   transition: { duration: 0.5 },
 };
 
-// PackageCard component
-const PackageCard = ({
-  pkg,
-  isExpanded,
-  toggleExpand,
-}: {
-  pkg: (typeof packageData)[0];
-  isExpanded: boolean;
-  toggleExpand: (id: string) => void;
-}) => {
-  return (
-    <div className="flex flex-col">
-      <motion.div
-        className={`relative bg-white rounded-xl overflow-hidden shadow-lg ${
-          isExpanded ? "rounded-b-none shadow-md" : "hover:shadow-xl"
-        } transition-all duration-300 ${
-          pkg.popular ? "ring-2 ring-primary" : ""
-        }`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {pkg.popular && (
-          <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
-            <Star className="w-4 h-4 mr-1 fill-current" />
-            Most Popular
-          </div>
-        )}
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={`/images/${pkg.id}-package.jpeg`}
-            alt={pkg.name}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-          <div className="absolute bottom-4 left-4 text-white">
-            <h2 className="text-2xl font-bold mb-1">{pkg.name}</h2>
-            <p className="text-white/90">{pkg.description}</p>
-          </div>
-        </div>
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-6">
-            <div>
-              <span className="text-3xl font-bold text-primary">
-                {pkg.price}
-              </span>
-              <span className="text-gray-500 ml-2">/{pkg.duration}</span>
-            </div>
-          </div>
-
-          <ul className="space-y-3 mb-6">
-            {pkg.features.slice(0, 4).map((feature, idx) => (
-              <li key={idx} className="flex items-center text-gray-600">
-                <Check className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
-                {feature}
-              </li>
-            ))}
-            {pkg.features.length > 4 && (
-              <li className="text-gray-500 italic text-sm">
-                +{pkg.features.length - 4} more features
-              </li>
-            )}
-          </ul>
-
-          <button
-            onClick={() => toggleExpand(pkg.id)}
-            className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors flex justify-center items-center"
-            aria-expanded={isExpanded}
-            aria-controls={`dropdown-${pkg.id}`}
-          >
-            {isExpanded ? (
-              <>
-                Hide Details <ChevronUp className="ml-2 w-5 h-5" />
-              </>
-            ) : (
-              <>
-                View Details <ChevronDown className="ml-2 w-5 h-5" />
-              </>
-            )}
-          </button>
-        </div>
-      </motion.div>
-
-      <div
-        id={`dropdown-${pkg.id}`}
-        className={`rounded-b-xl overflow-hidden w-full ${isExpanded ? "shadow-lg" : ""}`}
-      >
-        <PackageCardDropdown isOpen={isExpanded} packageData={pkg} />
-      </div>
-    </div>
-  );
-};
-
 const PackagesPage = () => {
-  const [expandedPackage, setExpandedPackage] = useState<string | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<(typeof packageData)[0] | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   // Using useCallback to memoize functions
-  const toggleExpand = useCallback((id: string) => {
-    setExpandedPackage((prev) => (prev === id ? null : id));
+  const selectPackage = useCallback((pkg: (typeof packageData)[0]) => {
+    setSelectedPackage(pkg);
   }, []);
 
   const closeQuoteModal = useCallback(() => {
@@ -215,17 +119,12 @@ const PackagesPage = () => {
     setIsQuoteModalOpen(true);
   }, []);
 
-  // Memoize the package cards to prevent unnecessary re-renders
-  const packageCards = useMemo(() => {
-    return packageData.map((pkg) => (
-      <PackageCard
-        key={pkg.id}
-        pkg={pkg}
-        isExpanded={expandedPackage === pkg.id}
-        toggleExpand={toggleExpand}
-      />
-    ));
-  }, [expandedPackage, toggleExpand]);
+  // Default to the first package if none selected
+  React.useEffect(() => {
+    if (!selectedPackage && packageData.length > 0) {
+      setSelectedPackage(packageData[0]);
+    }
+  }, []);
 
   return (
     <div className="pt-28 pb-20">
@@ -247,8 +146,129 @@ const PackagesPage = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {packageCards}
+        <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
+          {/* Left side - Package cards */}
+          <div className="lg:w-1/3">
+            <div className="space-y-6">
+              {packageData.map((pkg) => (
+                <motion.div
+                  key={pkg.id}
+                  className={`relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
+                    selectedPackage?.id === pkg.id ? "ring-2 ring-primary" : ""
+                  } ${pkg.popular ? "ring-2 ring-primary" : ""}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => selectPackage(pkg)}
+                >
+                  {pkg.popular && (
+                    <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                      <Star className="w-4 h-4 mr-1 fill-current" />
+                      Most Popular
+                    </div>
+                  )}
+                  <div className="relative h-36 overflow-hidden">
+                    <img
+                      src={`/images/${pkg.id}-package.jpeg`}
+                      alt={pkg.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h2 className="text-xl font-bold">{pkg.name}</h2>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <div>
+                        <span className="text-2xl font-bold text-primary">
+                          {pkg.price}
+                        </span>
+                        <span className="text-gray-500 ml-2">/{pkg.duration}</span>
+                      </div>
+                      <ChevronRight className={`w-5 h-5 text-primary transition-transform ${selectedPackage?.id === pkg.id ? 'rotate-90' : ''}`} />
+                    </div>
+                    <p className="text-sm text-gray-600 line-clamp-2 mb-2">{pkg.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Right side - Package details */}
+          <div className="lg:w-2/3">
+            {selectedPackage && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white rounded-xl overflow-hidden shadow-lg p-6"
+              >
+                <div className="border-b pb-6 mb-6">
+                  <h2 className="text-3xl font-bold text-gray-800 mb-2">{selectedPackage.name}</h2>
+                  <p className="text-lg text-gray-600 mb-4">{selectedPackage.description}</p>
+                  <div className="flex flex-wrap gap-4">
+                    <div className="bg-primary/10 rounded-lg p-4 flex-1">
+                      <p className="text-gray-600 text-sm mb-1">Price</p>
+                      <p className="text-3xl font-bold text-primary">{selectedPackage.price}</p>
+                      <p className="text-gray-500">for {selectedPackage.duration}</p>
+                    </div>
+                    <div className="bg-primary/10 rounded-lg p-4 flex-1">
+                      <p className="text-gray-600 text-sm mb-1">Price for 4 Hours</p>
+                      <p className="text-3xl font-bold text-primary">
+                        {selectedPackage.duration.includes("4 hours") 
+                          ? selectedPackage.price 
+                          : `$${Math.round(parseInt(selectedPackage.price.replace("$", "")) / parseInt(selectedPackage.duration.split(" ")[0]) * 4)}`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Included Services</h3>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+                      {selectedPackage.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Not Included</h3>
+                    <ul className="space-y-2">
+                      {selectedPackage.exclusions.map((exclusion, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-red-500 mr-2 font-bold">✕</span>
+                          <span className="text-gray-700">{exclusion}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="mt-8">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-4">Materials & Supplies</h3>
+                      <p className="text-gray-600 mb-2">
+                        Basic materials are included in all packages. Specialized materials or supplies 
+                        that exceed $50 will be quoted separately before work begins.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-center mt-6">
+                  <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                    Book This Package
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </div>
         </div>
 
         <motion.div
