@@ -72,16 +72,25 @@ const packageData = [
     price: "$1599",
     duration: "16 hours",
     features: [
-      "All Standard Package services",
-      "Priority scheduling",
-      "Custom shelving installation",
-      "Smart home device setup",
-      "Interior trim work",
-      "Major appliance installation",
-      "Complete bathroom updates",
-      "24/7 emergency support",
+      "Carpentry",
+      "Cleaning",
+      "Electrical",
+      "Flooring",
+      "Furniture Assembly",
+      "Garage Doors",
+      "Holiday Lighting",
+      "Home Inspections",
+      "Home Security",
+      "Locksmithing",
+      "Landscaping",
+      "Painting & Drywall",
+      "Plumbing",
+      "Pools & Spas",
+      "Power Washing",
+      "Smart Home",
+      "Windows & Doors",
     ],
-    exclusions: ["Cleaning", "Power Washing", "Home Inspections"],
+    exclusions: ["Home Inspections"],
     popular: false,
   },
 ];
@@ -222,7 +231,7 @@ const PackagesPage = () => {
     <div className="pt-28 pb-20">
       <SEO
         title="Service Packages - Handyman Wannabe"
-        description="Choose from our selection of pre-designed service packages that combine our most popular services at discounted rates."
+        description="Choose from our selection of pre-designed service packages that combine our most popular services at discounted rates. Our current service rate is $250 for the first hour and additional $125 for each additional hour."
         keywords="handyman packages, home maintenance package, home repair bundle, service packages"
         featuredImage="/images/packages-banner.jpg"
       />
