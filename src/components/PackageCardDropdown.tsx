@@ -46,24 +46,22 @@ const PackageCardDropdown: React.FC<PackageCardDropdownProps> = ({
           className="overflow-hidden bg-gray-50 border-t border-gray-200"
         >
           <div className="p-6 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Price for 4 Hours</h3>
-                  <p className="text-2xl font-bold text-primary">{fourHourPrice}</p>
-                </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Price for 4 Hours</h3>
+              <p className="text-2xl font-bold text-primary mb-6">{fourHourPrice}</p>
+            </div>
 
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Included Services</h3>
-                  <ul className="space-y-2">
-                    {packageData.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Included Services</h3>
+                <ul className="space-y-2">
+                  {packageData.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div>
