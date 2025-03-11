@@ -190,6 +190,7 @@ const Navbar = () => {
     "/404",           // Added 404 page
   ].includes(currentPath) || 
     currentPath.includes("404") || 
+    currentPath.includes("not-found") || 
     window.location.pathname.includes("404") || 
     window.location.href.includes("404") || 
     currentPath === "*";
