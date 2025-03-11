@@ -148,8 +148,7 @@ const Hero = () => {
             for Every Home Project
           </h1>
           <p className="text-xl mb-12 text-gray-200 max-w-2xl mx-auto">
-            Expert craftsmen ready to tackle any home improvement task with
-            precision and care. Available 24/7 for your convenience.
+            Locally owned and family-operated, providing expert tradesmen services turned handyman solutions.
           </p>
 
           <div
