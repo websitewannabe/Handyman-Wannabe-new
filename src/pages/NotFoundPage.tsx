@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -11,14 +10,14 @@ const NotFoundPage: React.FC = () => {
         <meta name="description" content="The page you're looking for doesn't exist or has been moved." />
       </Helmet>
 
-      <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-16 bg-gray-50">
+      <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 pt-20 pb-16 bg-gray-50"> {/* Added pt-20 for top padding */}
         <div className="text-center max-w-xl mx-auto">
           <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
           <h2 className="text-3xl font-semibold mb-6">Page Not Found</h2>
           <p className="text-gray-600 text-lg mb-8">
             Oops! The page you're looking for doesn't exist or has been moved.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
               to="/" 
@@ -30,7 +29,7 @@ const NotFoundPage: React.FC = () => {
                 <polyline points="9 22 9 12 15 12 15 22"/>
               </svg>
             </Link>
-            
+
             <Link 
               to="/service-directory" 
               className="btn-secondary inline-flex items-center"
@@ -41,7 +40,7 @@ const NotFoundPage: React.FC = () => {
               </svg>
             </Link>
           </div>
-          
+
           <div className="mt-12 p-6 bg-white rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4">Looking for something specific?</h3>
             <p className="text-gray-600 mb-4">

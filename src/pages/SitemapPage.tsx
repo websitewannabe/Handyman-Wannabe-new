@@ -44,7 +44,7 @@ const SitemapPage: React.FC = () => {
         <meta name="description" content="Browse all pages on Handyman Wannabe's website through our sitemap." />
       </Helmet>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-28 pb-20"> {/* Added padding here */}
         <h1 className="text-3xl font-bold text-center mb-8">Sitemap</h1>
 
         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
