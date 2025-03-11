@@ -132,7 +132,7 @@ const PackageCard = ({
         )}
         <div className="relative h-48 overflow-hidden">
           <img
-            src={`/images/${pkg.id}-package.jpg`}
+            src={`/images/${pkg.id}-package.jpeg`}
             alt={pkg.name}
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -241,7 +241,9 @@ const PackagesPage = () => {
           <h1 className="text-4xl font-bold mb-4">Service Packages</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Choose from our selection of pre-designed service packages that
-            combine our most popular services at discounted rates.
+            combine our most popular services at discounted rates. Our current
+            service rate is $250 for the first hour and additional $125 for each
+            additional hour.
           </p>
         </motion.div>
 
