@@ -42,12 +42,18 @@ const ServiceAreas = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="w-full max-w-2xl">
-                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8">
-                  <img
-                    src="/images/Handyman_Logo.png"
-                    alt="Handyman Wannabe Logo"
-                    className="max-w-full max-h-full object-contain"
-                  />
+                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207019.11336308766!2d-104.9200903957284!3d38.87345444651031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8713412ea1e6d22b%3A0x418eeb92f5e86b13!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1666123456789!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Service Area Map"
+                    className="absolute inset-0"
+                  ></iframe>
                 </div>
               </div>
             </motion.div>
