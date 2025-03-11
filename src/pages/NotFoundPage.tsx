@@ -1,7 +1,8 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const NotFoundPage = () => {
   return (
@@ -11,7 +12,7 @@ const NotFoundPage = () => {
         <meta name="description" content="The page you're looking for doesn't exist or has been moved." />
       </Helmet>
 
-      <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 pt-32 pb-16 bg-gray-50">
+      <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 pt-40 pb-16 bg-gray-50">
         <div className="text-center max-w-xl mx-auto">
           <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
           <h2 className="text-3xl font-semibold mb-6">Page Not Found</h2>
