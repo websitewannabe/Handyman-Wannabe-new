@@ -38,6 +38,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
 import MobileServicesPage from "./components/MobileServicesPage";
 import AccessibilityPage from "./pages/AccessibilityPage"; // Added import
+import PrivacyPage from "./pages/PrivacyPage"; // Added import for Privacy Page
 
 
 function App() {
@@ -80,6 +81,7 @@ function App() {
             <Route path="/service-directory" element={<ServiceDirectoryPage />} />
             <Route path="/services" element={<ServiceDirectoryPage />} />
             <Route path="/sitemap" element={<SitemapPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} /> {/* Added Privacy Policy route */}
             <Route path="/accessibility" element={<AccessibilityPage />} /> {/* Added route */}
             <Route path="/mobileservicespage" element={<MobileServicesPage onClose={() => window.history.back()} />} />
             {/* Catch-all route for 404 errors */}
