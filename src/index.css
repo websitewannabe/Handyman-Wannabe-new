@@ -82,20 +82,11 @@
   }
 
   .btn-ai-call {
-    @apply bg-primary text-white font-bold text-xl py-4 px-8 rounded-lg shadow-md;
-    animation: pulse-glow 1.5s infinite ease-in-out;
+    @apply bg-orange-500 text-white font-bold text-xl py-4 px-8 rounded-lg shadow-md;
   }
 
   .btn-ai-call:hover {
-    @apply bg-primary/90;
-    animation-play-state: paused;
-  }
-
-  /* Reduce motion if user prefers */
-  @media (prefers-reduced-motion: reduce) {
-    .btn-ai-call {
-      animation: none;
-    }
+    @apply bg-orange-600;
   }
 
 /* PhoneCallModal isolation styles */
