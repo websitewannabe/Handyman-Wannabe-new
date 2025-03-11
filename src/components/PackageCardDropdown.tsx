@@ -43,7 +43,7 @@ const PackageCardDropdown: React.FC<PackageCardDropdownProps> = ({
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="overflow-hidden bg-gray-50 border-t border-gray-200"
+          className="overflow-hidden bg-gray-50 border-t border-gray-200 w-full"
         >
           <div className="p-6 space-y-6">
             <div>

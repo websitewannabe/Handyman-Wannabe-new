@@ -190,7 +190,7 @@ const PackageCard = ({
 
       <div
         id={`dropdown-${pkg.id}`}
-        className={`rounded-b-xl overflow-hidden ${isExpanded ? "shadow-lg" : ""}`}
+        className={`rounded-b-xl overflow-hidden w-full ${isExpanded ? "shadow-lg" : ""}`}
       >
         <PackageCardDropdown isOpen={isExpanded} packageData={pkg} />
       </div>
