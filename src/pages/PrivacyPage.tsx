@@ -7,25 +7,10 @@ const PrivacyPage = () => {
   const policyContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Create and add the Termageddon script with proper attributes
+    // Create and add the Termageddon script
     const script = document.createElement('script');
     script.src = "https://app.termageddon.com/js/termageddon.js";
     script.async = true;
-    script.defer = true;
-    script.type = "text/javascript";
-    
-    // Add event listener to know when script is loaded
-    script.onload = () => {
-      console.log("Termageddon script loaded");
-      
-      // Force policy to initialize by dispatching a window resize event
-      // This helps trigger Termageddon's initialization code if needed
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 500);
-    };
-    
-    // Add script to document
     document.body.appendChild(script);
 
     // Handle cleanup when component unmounts
@@ -58,22 +43,7 @@ const PrivacyPage = () => {
             id="policy"
             style={{width: "100%", minHeight: "800px", padding: "20px 0"}}
             data-policy-key="ZEhSRVQwdFVMMDVJUTBndmJGRTlQUT09"  
-
-          {/* Direct iframe fallback if JavaScript loading fails */}
-          <div className="mt-8 border-t pt-8">
-            <h2 className="text-2xl font-semibold mb-4">Direct Policy Access</h2>
-            <p className="mb-4">If the policy doesn't load above, you can access it directly here:</p>
-            <iframe 
-              src="https://app.termageddon.com/api/policy/ZEhSRVQwdFVMMDVJUTBndmJGRTlQUT09?h-align=left&table-style=accordion"
-              title="Privacy Policy"
-              width="100%" 
-              height="600px"
-              style={{border: "1px solid #ddd", borderRadius: "4px"}}
-            ></iframe>
-          </div>
-
             data-extra="h-align=left&table-style=accordion"
-            data-color="#000000"
           >
             Please wait while the policy is loaded. If it does not load, please{" "}
             <a 
@@ -82,7 +52,8 @@ const PrivacyPage = () => {
               target="_blank" 
               aria-label="View Policy"
             >
-              click here to view the policy</a>.
+              click here to view the policy
+            </a>.
           </div>
         </motion.div>
       </div>
