@@ -1,18 +1,20 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 
 const PrivacyPage = () => {
+  const policyContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Add Termageddon script
+    // Create and add the Termageddon script
     const script = document.createElement('script');
     script.src = "https://app.termageddon.com/js/termageddon.js";
     script.async = true;
     document.body.appendChild(script);
 
+    // Handle cleanup when component unmounts
     return () => {
-      // Clean up script when component unmounts
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
@@ -37,12 +39,13 @@ const PrivacyPage = () => {
           <h1 className="text-4xl font-bold mb-8 text-center">Privacy Policy</h1>
           
           <div 
+            ref={policyContainerRef}
             id="policy"
-            style={{width: "100%", minHeight: "800px"}}
+            style={{width: "100%", minHeight: "800px", padding: "20px 0"}}
             data-policy-key="ZEhSRVQwdFVMMDVJUTBndmJGRTlQUT09"  
             data-extra="h-align=left&table-style=accordion"
           >
-            Please wait while the policy is loaded. If it does not load, please 
+            Please wait while the policy is loaded. If it does not load, please{" "}
             <a 
               rel="nofollow" 
               href="https://app.termageddon.com/api/policy/ZEhSRVQwdFVMMDVJUTBndmJGRTlQUT09?h-align=left&table-style=accordion" 
@@ -50,7 +53,7 @@ const PrivacyPage = () => {
               aria-label="View Policy"
             >
               click here to view the policy
-            </a>
+            </a>.
           </div>
         </motion.div>
       </div>
