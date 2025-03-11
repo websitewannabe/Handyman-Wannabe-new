@@ -431,10 +431,9 @@ const Navbar = () => {
                   </span>
                 </div>
                 <button
-                  onClick={() => setIsModalOpen(true)} // Open modal on click
-                  className="bg-primary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+                  className="bg-secondary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-secondary/90 transition-colors"
                 >
-                  Have Our AI Call You
+                  Customer Login
                 </button>
               </div>
             </div>

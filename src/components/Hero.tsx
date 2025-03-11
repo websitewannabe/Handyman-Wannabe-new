@@ -291,6 +291,10 @@ const Hero = () => {
             <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
             </button>
+            <button className="btn-ai-call hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center">
+              <Phone className="w-5 h-5 mr-2" />
+              Have Our AI Call You
+            </button>
           </div>
         </div>
       </div>
