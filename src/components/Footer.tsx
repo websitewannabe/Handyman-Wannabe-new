@@ -278,6 +278,12 @@ const Footer = () => {
                 Terms of Service
               </Link>
               <Link
+                to="/disclaimer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                Disclaimer
+              </Link>
+              <Link
                 to="/sitemap"
                 className="text-gray-400 hover:text-white transition-colors"
               >
