@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Search, Phone, DollarSign, Clock, Star, X } from "lucide-react";
+import { Search, Phone, X, DollarSign, Clock, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../data/services.json";
+import PhoneCallModal from "./PhoneCallModal";
 
 const services = [
   "Outlet Repair",
@@ -21,9 +22,11 @@ const Hero = () => {
   >("idle");
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [selectedService, setSelectedService] = useState<any | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredServices, setFilteredServices] = useState<any[]>([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,10 +74,22 @@ const Hero = () => {
       }
     };
 
+    // Close modal when clicking outside
+    const handleModalClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setIsModalOpen(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleModalClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleModalClickOutside);
     };
   }, []);
 
@@ -88,17 +103,14 @@ const Hero = () => {
 
   const handleSelectService = (service: any) => {
     setSelectedService(service);
+    setIsModalOpen(true);
     setSearchQuery("");
     setIsDropdownVisible(false);
-    navigate(`/services/${service.id}`);
   };
 
-  // Service selection handler
-  const handleSelectService = (service: any) => {
-    setSelectedService(service);
-    setSearchQuery("");
-    setIsDropdownVisible(false);
-    navigate(`/services/${service.id}`);
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService(null);
   };
 
   return (
@@ -283,13 +295,13 @@ const Hero = () => {
             <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
             </button>
-            <a 
-              href="tel:7193156628" 
+            <button 
+              onClick={() => setIsModalOpen(true)} 
               className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call Us Directly
-            </a>
+              Have Our AI Call You
+            </button>
           </div>
         </div>
       </div>
@@ -315,7 +327,12 @@ const Hero = () => {
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
       
-      </div>
+      {/* Phone Call Modal */}
+      <PhoneCallModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </div>
   );
 };
 
