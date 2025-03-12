@@ -132,11 +132,17 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleDropdownEnter = (label: string) => {
+  const handleDropdownEnter = (label: string, e?: React.MouseEvent) => {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
     setActiveDropdown(label);
   };
 
-  const handleDropdownLeave = () => {
+  const handleDropdownLeave = (e?: React.MouseEvent) => {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
     setTimeout(() => {
       setActiveDropdown(null);
     }, 100);
@@ -340,13 +346,16 @@ const Navbar = () => {
                   <div
                     key={item.label}
                     className="relative group"
-                    onMouseEnter={() => handleDropdownEnter(item.label)}
-                    onMouseLeave={handleDropdownLeave}
+                    onMouseEnter={(e) => handleDropdownEnter(item.label, e)}
+                    onMouseLeave={(e) => handleDropdownLeave(e)}
                   >
                     <div>
                       {item.label === "SERVICES" ? (
                         <button
-                          onClick={handleServiceClick}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleServiceClick(e);
+                          }}
                           className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
                             isActive(item.href)
                               ? "text-secondary"
