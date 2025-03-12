@@ -183,6 +183,9 @@ const PhoneCallModal: React.FC<PhoneCallModalProps> = ({ isOpen, onClose }) => {
                 <p className="text-gray-600">
                   Our AI assistant will call you shortly at {phoneNumber}.
                 </p>
+                <p className="text-gray-500 mt-2 text-sm">
+                  If you need immediate assistance, please call us directly at (719) 315-6628.
+                </p>
               </div>
             )}
           </div>

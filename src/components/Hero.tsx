@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Search, Phone, X, DollarSign, Clock, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../data/services.json";
+import PhoneCallModal from "./PhoneCallModal";
 
 const services = [
   "Outlet Repair",
@@ -291,7 +292,10 @@ const Hero = () => {
             <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
             </button>
-            <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center">
+            <button 
+              onClick={() => setIsModalOpen(true)} 
+              className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
+            >
               <Phone className="w-5 h-5 mr-2" />
               Have Our AI Call You
             </button>
@@ -319,6 +323,12 @@ const Hero = () => {
         className="absolute -bottom-32 left-0 right-0 h-32 z-0"
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
+      
+      {/* Phone Call Modal */}
+      <PhoneCallModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 };
