@@ -20,109 +20,145 @@ const ServiceAreaPage = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   // Memoize the ZIP codes to prevent recreation on each render
-  const servicedZipCodes = useMemo(() => [
-    "80817", "80118", "80132", "80133", "80921", "80831", "80902", "80903",
-    "80904", "80905", "80906", "80907", "80908", "80909", "80910", "80911",
-    "80913", "80915", "80916", "80917", "80918", "80919", "80920", "80922",
-    "80923", "80924", "80925", "80926", "80927", "80928", "80929", "80930",
-    "80938", "80939", "80951", "80829", "80819",
-  ], []);
+  const servicedZipCodes = useMemo(
+    () => [
+      "80817",
+      "80132",
+      "80921",
+      "80831",
+      "80903",
+      "80905",
+      "80906",
+      "80907",
+      "80908",
+      "80909",
+      "80910",
+      "80911",
+      "80915",
+      "80916",
+      "80917",
+      "80918",
+      "80919",
+      "80920",
+      "80922",
+      "80923",
+      "80924",
+      "80925",
+      "80927",
+      "80929",
+      "80930",
+      "80938",
+      "80829",
+      "80840",
+      "80106",
+    ],
+    [],
+  );
 
   // Memoize region data to prevent recreation on each render
-  const regionData = useMemo(() => [
-    {
-      name: "El Paso County",
-      cities: [
-        "Colorado Springs",
-        "Fountain",
-        "Monument",
-        "Peyton",
-        "Falcon",
-        "Black Forest",
-        "Security-Widefield",
-      ],
-      zipCodes: [
-        "80902-80923",
-        "80924-80930",
-        "80938-80939",
-        "80951",
-        "80817",
-        "80132",
-        "80831",
-      ],
-    },
-    {
-      name: "Douglas County",
-      cities: ["Larkspur", "Castle Rock (partial)"],
-      zipCodes: ["80118", "80104 (partial)"],
-    },
-    {
-      name: "Teller County",
-      cities: ["Woodland Park", "Green Mountain Falls", "Manitou Springs"],
-      zipCodes: ["80863", "80819", "80829"],
-    },
-  ], []);
+  const regionData = useMemo(
+    () => [
+      {
+        name: "El Paso County",
+        cities: [
+          "Colorado Springs",
+          "Fountain",
+          "Monument",
+          "Peyton",
+          "Falcon",
+          "Black Forest",
+          "Security-Widefield",
+        ],
+        zipCodes: [
+          "80902-80923",
+          "80924-80930",
+          "80938-80939",
+          "80951",
+          "80817",
+          "80132",
+          "80831",
+        ],
+      },
+      {
+        name: "Douglas County",
+        cities: ["Larkspur", "Castle Rock (partial)"],
+        zipCodes: ["80104 (partial)"],
+      },
+      {
+        name: "Teller County",
+        cities: ["Woodland Park", "Green Mountain Falls", "Manitou Springs"],
+        zipCodes: ["80863", "80829"],
+      },
+    ],
+    [],
+  );
 
   // FAQ data - memoized to avoid recreation
-  const faqData = useMemo(() => [
-    {
-      question: "What areas do you service?",
-      answer:
-        "We currently service El Paso County, Douglas County, and Teller County in Colorado. This includes cities like Colorado Springs, Fountain, Monument, Woodland Park, and more.",
-    },
-    {
-      question: "How do I know if you service my specific location?",
-      answer:
-        "You can check if we service your location by entering your ZIP code in the search field above. We'll instantly let you know if your area is covered by our services.",
-    },
-    {
-      question: "Do you charge extra for service in certain areas?",
-      answer:
-        "While there may be a small travel fee for locations at the edges of our service area, we always disclose any additional fees upfront before scheduling your service.",
-    },
-    {
-      question: "What if I'm just outside your service area?",
-      answer:
-        "If you're just outside our primary service area, please give us a call. We evaluate these requests on a case-by-case basis and may be able to accommodate your needs, especially for larger projects.",
-    },
-    {
-      question: "Do I need to be present when you provide service?",
-      answer:
-        "In most cases, we require someone 18 or older to be present during service. However, for certain exterior projects, arrangements can be made. Please discuss your specific needs with our team when scheduling.",
-    },
-  ], []);
+  const faqData = useMemo(
+    () => [
+      {
+        question: "What areas do you service?",
+        answer:
+          "We currently service El Paso County, Douglas County, and Teller County in Colorado. This includes cities like Colorado Springs, Fountain, Monument, Woodland Park, and more.",
+      },
+      {
+        question: "How do I know if you service my specific location?",
+        answer:
+          "You can check if we service your location by entering your ZIP code in the search field above. We'll instantly let you know if your area is covered by our services.",
+      },
+      {
+        question: "Do you charge extra for service in certain areas?",
+        answer:
+          "While there may be a small travel fee for locations at the edges of our service area, we always disclose any additional fees upfront before scheduling your service.",
+      },
+      {
+        question: "What if I'm just outside your service area?",
+        answer:
+          "If you're just outside our primary service area, please give us a call. We evaluate these requests on a case-by-case basis and may be able to accommodate your needs, especially for larger projects.",
+      },
+      {
+        question: "Do I need to be present when you provide service?",
+        answer:
+          "In most cases, we require someone 18 or older to be present during service. However, for certain exterior projects, arrangements can be made. Please discuss your specific needs with our team when scheduling.",
+      },
+    ],
+    [],
+  );
 
   // Optimize search handler with useCallback to prevent recreation on each render
-  const handleSearch = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSearch = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
 
-    // Validate ZIP code format
-    const isValidZip = /^\d{5}$/.test(searchQuery);
-    if (!isValidZip) {
-      alert("Please enter a valid 5-digit ZIP code");
-      return;
-    }
+      // Validate ZIP code format
+      const isValidZip = /^\d{5}$/.test(searchQuery);
+      if (!isValidZip) {
+        alert("Please enter a valid 5-digit ZIP code");
+        return;
+      }
 
-    // Check if ZIP code is in our service area - using memoized array
-    const isServicedArea = servicedZipCodes.includes(searchQuery);
-    setSearchStatus(isServicedArea ? "available" : "unavailable");
-  }, [searchQuery, servicedZipCodes]);
+      // Check if ZIP code is in our service area - using memoized array
+      const isServicedArea = servicedZipCodes.includes(searchQuery);
+      setSearchStatus(isServicedArea ? "available" : "unavailable");
+    },
+    [searchQuery, servicedZipCodes],
+  );
 
   // Toggle region visibility with useCallback
   const toggleRegion = useCallback((region: string) => {
-    setActiveRegion(prevRegion => prevRegion === region ? null : region);
+    setActiveRegion((prevRegion) => (prevRegion === region ? null : region));
   }, []);
 
   // Toggle FAQ visibility with useCallback
   const toggleFaq = useCallback((index: number) => {
-    setActiveFaq(prevFaq => prevFaq === index ? null : index);
+    setActiveFaq((prevFaq) => (prevFaq === index ? null : index));
   }, []);
 
   // Animation variants - defined outside of render to avoid recreation
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
+    transition: { duration: 0.5 },
   };
 
   return (
