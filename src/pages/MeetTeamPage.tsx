@@ -25,10 +25,10 @@ const fieldMembers = [
     specialty: "general",
     experience: "15+ years",
     image: "/images/Dennis-Tierney.png",
-    bio: "Experienced field manager overseeing all on-site operations and ensuring quality workmanship on every project.",
+    bio: "4 year residential electrical & repair trade school degree\ncurrent electrical apprentice ready to take the test for residential wireman\nExperienced maintenance & troubleshooting technician\nExcellent reputation for resolving problems, improving customer satisfaction,\nand driving overall operational improvements",
     funFact: "Can troubleshoot any home issue within minutes of inspection",
     icon: Wrench,
-    projects: 750,
+    projects: "Electrician\nFreedom Solar Power - Colorado Springs, CO\nFebruary 2023 to Present\nSolar Electrician, in charge of equipment wall for solar panels. Installing meters, disconnect ,combination\npanels, full main panel upgrades, overhead & underground service upgrades. Bending conduit, planning\nand execution of one line diagram & permitted plans",
     rating: 4.9,
   },
   {
@@ -134,12 +134,11 @@ const MeetTeamPage = () => {
                       <h3 className="text-lg text-primary font-semibold mb-3">
                         {member.role}
                       </h3>
-                      <p className="text-gray-600 mb-4">{member.bio}</p>
-                      <div className="flex items-center text-sm text-gray-500 mb-3">
-                        <div className="bg-gray-100 rounded-full px-3 py-1">
-                          <span className="font-medium">
-                            {member.experience} Experience
-                          </span>
+                      <p className="text-gray-700 mb-4 whitespace-pre-line">{member.bio}</p>
+                      <div className="mb-4">
+                        <h4 className="font-medium text-primary mb-2">Experience:</h4>
+                        <div className="text-gray-700 whitespace-pre-line">
+                          {typeof member.projects === 'string' ? member.projects : `${member.projects}+ Projects Completed`}
                         </div>
                       </div>
                     </div>
@@ -175,7 +174,7 @@ const MeetTeamPage = () => {
                     <h3 className="text-lg text-primary font-semibold mb-3">
                       {member.role}
                     </h3>
-                    <p className="text-gray-600 mb-4">{member.bio}</p>
+                    <p className="text-gray-700 mb-4 whitespace-pre-line">{member.bio}</p>
                     <div className="flex items-center text-sm text-gray-500 mb-3">
                       <div className="bg-gray-100 rounded-full px-3 py-1">
                         <span className="font-medium">
