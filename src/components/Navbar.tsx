@@ -407,7 +407,7 @@ const Navbar = () => {
                                   <Link
                                     key={service.name}
                                     to={getServiceUrl(service.name)}
-                                    className="px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded text-secondary hover:text-primary flex items-center"
+                                    className="px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded text-green-500 hover:text-primary flex items-center"
                                   >
                                     <service.icon className="w-4 h-4 mr-2" />
                                     {service.name}
