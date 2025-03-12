@@ -459,11 +459,14 @@ const Navbar = () => {
                   data-orgname="Handyman-Wannabe-LLC"
                   onClick={(e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     window.open(
                       "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
                       "_blank",
                     );
                   }}
+                  onMouseEnter={(e) => e.stopPropagation()}
+                  onMouseOver={(e) => e.stopPropagation()}
                   className="bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-primary/90 transition-colors"
                 >
                   Customer Portal
@@ -604,8 +607,11 @@ const Navbar = () => {
                     data-orgname='Handyman-Wannabe-LLC' 
                     onClick={(e) => {
                       e.preventDefault();
+                      e.stopPropagation();
                       window.open('https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b', '_blank');
                     }}
+                    onMouseEnter={(e) => e.stopPropagation()}
+                    onMouseOver={(e) => e.stopPropagation()}
                   >
                     Customer Portal
                   </button>
