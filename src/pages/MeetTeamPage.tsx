@@ -49,21 +49,21 @@ const fieldMembers = [
 
 const officeMembers = [
   {
-    name: "Jane Doe",
-    role: "Office Manager",
-    experience: "10+ years",
+    name: "Sean Nolan",
+    role: "Junior Engineer",
+    experience: "5+ years",
     image: "/images/placeholder.jpg", // Replace with actual image
-    bio: "Manages day-to-day office operations.",
+    bio: "Passionate junior engineer with a problem-solving mindset, eager to learn and build innovative solutions.",
     funFact: "Expert in office organization.",
     icon: Paintbrush, // Replace with appropriate icon
     rating: 4.5,
   },
   {
-    name: "John Smith",
-    role: "Accountant",
+    name: "Timothy Goggins",
+    role: "Junior Engineer",
     experience: "5+ years",
     image: "/images/placeholder.jpg", // Replace with actual image
-    bio: "Handles all financial matters.",
+    bio: "Passionate junior engineer with a problem-solving mindset, eager to learn and build innovative solutions.",
     funFact: "Adept at tax preparation.",
     icon: Hammer, // Replace with appropriate icon
     rating: 4.8,
@@ -119,7 +119,9 @@ const MeetTeamPage = () => {
                         <div className="bg-primary/10 p-2 rounded-full mr-3">
                           <member.icon className="w-5 h-5 text-primary" />
                         </div>
-                        <h2 className="text-2xl font-bold hidden md:block">{member.name}</h2>
+                        <h2 className="text-2xl font-bold hidden md:block">
+                          {member.name}
+                        </h2>
                       </div>
                       <h3 className="text-lg text-primary font-semibold mb-3 flex items-center">
                         {member.role}
@@ -129,12 +131,15 @@ const MeetTeamPage = () => {
                       </h3>
 
                       <div className="overflow-auto max-h-[220px] pr-2 custom-scrollbar mb-4">
-                        <p className="text-gray-700 whitespace-pre-line leading-relaxed text-sm md:text-base">{member.bio}</p>
+                        <p className="text-gray-700 whitespace-pre-line leading-relaxed text-sm md:text-base">
+                          {member.bio}
+                        </p>
                       </div>
 
                       <div className="mb-4 mt-5 pt-4 border-t border-gray-100">
                         <h4 className="font-medium text-primary mb-2 flex items-center">
-                          <span className="mr-2">💼</span> Professional Experience:
+                          <span className="mr-2">💼</span> Professional
+                          Experience:
                         </h4>
                         <div className="text-gray-700 whitespace-pre-line text-sm md:text-base overflow-auto max-h-[150px] pr-2 custom-scrollbar">
                           {typeof member.projects === "string"
@@ -157,7 +162,9 @@ const MeetTeamPage = () => {
             >
               Office Staff
             </motion.h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"> {/* Changed to grid-cols-2 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              {" "}
+              {/* Changed to grid-cols-2 */}
               {officeMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
