@@ -455,7 +455,7 @@ const Navbar = () => {
                       "_blank",
                     );
                   }}
-                  className="bg-[#0F77CC] text-white font-bold py-3 px-6 rounded-full hover:bg-[#0F77CC]/90 transition-colors"
+                  className="bg-orange-500 text-white font-bold py-3 px-6 rounded-full hover:bg-orange-600 transition-colors"
                 >
                   Customer Portal
                 </button>
