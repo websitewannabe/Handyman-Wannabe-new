@@ -106,35 +106,25 @@ const PackagesPage = () => {
   const [selectedPackage, setSelectedPackage] = useState<(typeof packageData)[0] | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
-  // Using useCallback to memoize functions and preserve scroll position
+  // Using useCallback to memoize functions
   const selectPackage = useCallback((pkg: (typeof packageData)[0]) => {
-    // Only update if actually changing to prevent unnecessary renders
-    if (pkg.id !== selectedPackage?.id) {
-      const scrollPosition = window.scrollY;
-      setSelectedPackage(pkg);
-      // Restore scroll position after state update
-      requestAnimationFrame(() => window.scrollTo(0, scrollPosition));
-    }
-  }, [selectedPackage]);
+    setSelectedPackage(pkg);
+  }, []);
 
   const closeQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(false);
   }, []);
 
   const openQuoteModal = useCallback(() => {
-    // Preserve scroll position when opening modal
-    const scrollPosition = window.scrollY;
     setIsQuoteModalOpen(true);
-    // Restore scroll position after modal opens
-    setTimeout(() => window.scrollTo(0, scrollPosition), 0);
   }, []);
 
-  // Default to the first package if none selected - only run once on mount
+  // Default to the first package if none selected
   React.useEffect(() => {
     if (!selectedPackage && packageData.length > 0) {
       setSelectedPackage(packageData[0]);
     }
-  }, [selectedPackage]); // Add dependency to prevent continuous re-rendering
+  }, []);
 
   return (
     <div className="pt-28 pb-20">

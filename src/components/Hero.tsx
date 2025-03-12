@@ -30,15 +30,12 @@ const Hero = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Prevent multiple intervals with cleanup
     const interval = setInterval(() => {
       setCurrentServiceIndex((prevIndex) => (prevIndex + 1) % services.length);
     }, 3000);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [services.length]); // Add dependency to properly handle changes to services
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     // Filter services based on search query
