@@ -102,19 +102,19 @@ const MeetTeamPage = () => {
                   transition={{ delay: index * 0.2 }}
                   className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-1/3">
+                  <div className="flex flex-col">
+                    <div className="w-full h-64">
                       <img
                         src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover object-center"
-                        style={{ aspectRatio: "1/1" }}
+                        style={{ aspectRatio: "16/9" }}
                         onError={(e) => {
                           e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
                         }}
                       />
                     </div>
-                    <div className="md:w-2/3 p-6">
+                    <div className="p-6">
                       <div className="flex items-center mb-2">
                         <div className="bg-primary/10 p-2 rounded-full mr-3">
                           <member.icon className="w-5 h-5 text-primary" />
