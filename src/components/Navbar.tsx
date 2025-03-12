@@ -443,11 +443,19 @@ const Navbar = () => {
                     (719) 315-6628
                   </span>
                 </div>
-                <button
-                  className="bg-secondary text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-secondary/90 transition-colors"
+                {/*Start of Housecall Pro Customer Portal button*/}
+                <button 
+                  data-token='a723826f09b6469fb06bd0ddb961381b' 
+                  data-orgname='Handyman-Wannabe-LLC' 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open('https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b', '_blank');
+                  }} 
+                  className="bg-[#0F77CC] text-white font-bold py-3 px-6 rounded-full hover:bg-[#0F77CC]/90 transition-colors"
                 >
-                  Customer Login
+                  LOG IN TO PORTAL
                 </button>
+                {/*End of Housecall Pro Customer Portal button*/}
               </div>
             </div>
 
