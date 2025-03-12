@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
-import ScrollRestoration from './components/ScrollRestoration';
 import HomePage from './pages/HomePage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import AboutUsPage from './pages/AboutUsPage';
@@ -49,7 +48,6 @@ function App() {
     <HelmetProvider>
       <Router>
         <div className="min-h-screen">
-          <ScrollRestoration />
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
