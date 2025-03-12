@@ -162,9 +162,7 @@ const MeetTeamPage = () => {
             >
               Office Staff
             </motion.h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {" "}
-              {/* Changed to grid-cols-2 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
               {officeMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
