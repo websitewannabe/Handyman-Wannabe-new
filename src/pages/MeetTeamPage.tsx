@@ -94,27 +94,26 @@ const MeetTeamPage = () => {
             >
               Field Team
             </motion.h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+            <div className="flex flex-wrap gap-10 mb-16"> {/* Changed to flex for horizontal stacking */}
               {fieldMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
                   {...fadeIn}
                   transition={{ delay: index * 0.2 }}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow w-full lg:w-1/2"  {/* Added width for responsiveness */}
                 >
-                  <div className="flex flex-col">
-                    <div className="w-full h-64">
+                  <div className="flex"> {/* Changed to flex for horizontal layout */}
+                    <div className="w-48 h-64 mr-6"> {/* Adjusted image size and added margin */}
                       <img
                         src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover object-center"
-                        style={{ aspectRatio: "16/9" }}
                         onError={(e) => {
                           e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
                         }}
                       />
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex-grow"> {/* Added flex-grow to make content take remaining space */}
                       <div className="flex items-center mb-2">
                         <div className="bg-primary/10 p-2 rounded-full mr-3">
                           <member.icon className="w-5 h-5 text-primary" />
@@ -162,13 +161,13 @@ const MeetTeamPage = () => {
             >
               Office Staff
             </motion.h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <div className="flex flex-wrap gap-12 mb-20"> {/* Changed to flex for horizontal layout */}
               {officeMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
                   {...fadeIn}
                   transition={{ delay: 0.6 + index * 0.2 }}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow w-full lg:w-1/2" {/* Added width for responsiveness */}
                 >
                   <div className="p-6">
                     <div className="flex items-center mb-4">
