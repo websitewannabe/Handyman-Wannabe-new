@@ -174,25 +174,26 @@ const Navbar = () => {
 
   const currentPath = location.pathname;
   // Check if we're on a page that should always have black text
-  const shouldUseBlackText = [
-    "/services",
-    "/packages",
-    "/how-it-works",
-    "/about-us",
-    "/careers",
-    "/meet-the-team",
-    "/service-area",
-    "/contact",
-    "/faq",
-    "/accessibility", // Added accessibility page
-    "/sitemap",       // Added sitemap page
-    "/blog",          // Added blog page
-    "/404",           // Added 404 page
-  ].includes(currentPath) || 
-    currentPath.includes("404") || 
-    currentPath.includes("not-found") || 
-    window.location.pathname.includes("404") || 
-    window.location.href.includes("404") || 
+  const shouldUseBlackText =
+    [
+      "/services",
+      "/packages",
+      "/how-it-works",
+      "/about-us",
+      "/careers",
+      "/meet-the-team",
+      "/service-area",
+      "/contact",
+      "/faq",
+      "/accessibility", // Added accessibility page
+      "/sitemap", // Added sitemap page
+      "/blog", // Added blog page
+      "/404", // Added 404 page
+    ].includes(currentPath) ||
+    currentPath.includes("404") ||
+    currentPath.includes("not-found") ||
+    window.location.pathname.includes("404") ||
+    window.location.href.includes("404") ||
     currentPath === "*";
 
   useEffect(() => {
@@ -444,16 +445,19 @@ const Navbar = () => {
                   </span>
                 </div>
                 {/*Start of Housecall Pro Customer Portal button*/}
-                <button 
-                  data-token='a723826f09b6469fb06bd0ddb961381b' 
-                  data-orgname='Handyman-Wannabe-LLC' 
+                <button
+                  data-token="a723826f09b6469fb06bd0ddb961381b"
+                  data-orgname="Handyman-Wannabe-LLC"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.open('https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b', '_blank');
-                  }} 
+                    window.open(
+                      "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
+                      "_blank",
+                    );
+                  }}
                   className="bg-[#0F77CC] text-white font-bold py-3 px-6 rounded-full hover:bg-[#0F77CC]/90 transition-colors"
                 >
-                  LOG IN TO PORTAL
+                  Customer Portal
                 </button>
                 {/*End of Housecall Pro Customer Portal button*/}
               </div>
@@ -491,10 +495,10 @@ const Navbar = () => {
                             isActive("/mobileservicespage")
                               ? "text-primary"
                               : isScrolled
-                              ? "text-dark"
-                              : shouldUseBlackText
-                              ? "text-dark"
-                              : "text-dark"
+                                ? "text-dark"
+                                : shouldUseBlackText
+                                  ? "text-dark"
+                                  : "text-dark"
                           }`}
                           onClick={() => {
                             setIsOpen(false); // Close the mobile menu after click
@@ -516,10 +520,10 @@ const Navbar = () => {
                             activeDropdown === item.label
                               ? "text-primary"
                               : isScrolled
-                              ? "text-dark"
-                              : shouldUseBlackText
-                              ? "text-dark"
-                              : "text-dark"
+                                ? "text-dark"
+                                : shouldUseBlackText
+                                  ? "text-dark"
+                                  : "text-dark"
                           }`}
                           aria-expanded={activeDropdown === item.label}
                           data-menu-trigger={item.label}
@@ -540,10 +544,10 @@ const Navbar = () => {
                           isActive(item.href)
                             ? "text-primary"
                             : isScrolled
-                            ? "text-dark"
-                            : shouldUseBlackText
-                            ? "text-dark"
-                            : "text-dark"
+                              ? "text-dark"
+                              : shouldUseBlackText
+                                ? "text-dark"
+                                : "text-dark"
                         }`}
                         onClick={(e) => {
                           e.stopPropagation(); // Stop event propagation
