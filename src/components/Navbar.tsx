@@ -589,8 +589,16 @@ const Navbar = () => {
                     <Phone className="w-5 h-5 mr-2" />
                     (719) 315-6628
                   </a>
-                  <button className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors">
-                    Get a Quote
+                  <button 
+                    className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors"
+                    data-token='a723826f09b6469fb06bd0ddb961381b' 
+                    data-orgname='Handyman-Wannabe-LLC' 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open('https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b', '_blank');
+                    }}
+                  >
+                    Customer Portal
                   </button>
                 </div>
               </div>
