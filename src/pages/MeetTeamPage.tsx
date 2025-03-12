@@ -53,7 +53,7 @@ const officeMembers = [
     role: "Junior Engineer",
     experience: "5+ years",
     image: "/images/placeholder.jpg", // Replace with actual image
-    bio: "Passionate junior engineer with a problem-solving mindset, eager to learn and build innovative solutions.",
+    bio: "Passionate junior engineer with a problem-solving mindset, eager to learn and build innovative solutions. Sean brings a methodical approach to project planning and excels at finding creative solutions to complex problems. His attention to detail and commitment to quality ensures that every customer receives exceptional service. Sean is known for his ability to explain technical concepts in easily understandable terms.",
     funFact: "Expert in office organization.",
     icon: Paintbrush, // Replace with appropriate icon
     rating: 4.5,
@@ -63,7 +63,7 @@ const officeMembers = [
     role: "Junior Engineer",
     experience: "5+ years",
     image: "/images/placeholder.jpg", // Replace with actual image
-    bio: "Passionate junior engineer with a problem-solving mindset, eager to learn and build innovative solutions.",
+    bio: "Passionate junior engineer with a problem-solving mindset, eager to learn and build innovative solutions. Timothy has developed expertise in streamlining office systems and improving customer communication processes. His background in computer science helps him implement technology solutions that enhance our service delivery. He consistently receives praise from clients for his thoroughness and friendly, professional demeanor.",
     funFact: "Adept at tax preparation.",
     icon: Hammer, // Replace with appropriate icon
     rating: 4.8,
