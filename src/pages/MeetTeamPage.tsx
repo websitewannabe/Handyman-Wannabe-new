@@ -38,7 +38,7 @@ const fieldMembers = [
     specialty: "management",
     experience: "30+ years",
     image: "/images/Chris-Tierney.jpg",
-    bio: "Strategic operations director with a focus on efficiency, customer satisfaction, and business growth.",
+    bio: "Strategic operations director with a focus on efficiency, customer satisfaction, and business growth. Chris brings over three decades of industry experience and leadership to our team, mastering the art of streamlining operations and optimizing service delivery. His innovative approach to business management has been instrumental in scaling our services while maintaining the highest quality standards. Chris excels at developing systems that ensure consistent customer experiences and is passionate about mentoring team members to help them reach their full potential.",
     funFact:
       "Transformed our scheduling system to reduce response times by 45%",
     icon: Tool,
