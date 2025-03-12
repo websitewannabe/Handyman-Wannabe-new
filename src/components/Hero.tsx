@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Search, Phone, X, DollarSign, Clock, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../data/services.json";
-import PhoneCallModal from "./PhoneCallModal";
-
 const services = [
   "Outlet Repair",
   "Custom Shelving",
@@ -22,11 +20,9 @@ const Hero = () => {
   >("idle");
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [selectedService, setSelectedService] = useState<any | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredServices, setFilteredServices] = useState<any[]>([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,22 +67,10 @@ const Hero = () => {
       }
     };
 
-    // Close modal when clicking outside
-    const handleModalClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        setIsModalOpen(false);
-      }
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("mousedown", handleModalClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("mousedown", handleModalClickOutside);
     };
   }, []);
 
@@ -100,14 +84,10 @@ const Hero = () => {
 
   const handleSelectService = (service: any) => {
     setSelectedService(service);
-    setIsModalOpen(true);
     setSearchQuery("");
     setIsDropdownVisible(false);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedService(null);
+    // Navigate to service page instead of opening modal
+    navigate(`/services/${service.id}`);
   };
 
   return (
@@ -202,76 +182,7 @@ const Hero = () => {
               </div>
             )}
 
-            {/* Service Modal */}
-            {isModalOpen && selectedService && (
-              <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
-                <div
-                  ref={modalRef}
-                  className="bg-white rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="relative">
-                    <button
-                      onClick={closeModal}
-                      className="absolute right-4 top-4 bg-white/80 rounded-full p-1 backdrop-blur-sm z-10 hover:bg-white transition-colors"
-                    >
-                      <X className="w-6 h-6 text-gray-800" />
-                    </button>
-
-                    <div className="p-5">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                        {selectedService.name}
-                      </h2>
-                      <p className="text-gray-600 mb-6">
-                        {selectedService.description}
-                      </p>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <div className="flex items-center text-primary mb-2">
-                            <DollarSign className="w-5 h-5 mr-2" />
-                            <span className="font-bold">Price Estimate</span>
-                          </div>
-                          <p className="text-gray-700">
-                            {selectedService.price}
-                          </p>
-                        </div>
-
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <div className="flex items-center text-primary mb-2">
-                            <Clock className="w-5 h-5 mr-2" />
-                            <span className="font-bold">Estimated Time</span>
-                          </div>
-                          <p className="text-gray-700">
-                            {selectedService.timeEstimate}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mb-6">
-                        <h3 className="text-lg font-semibold mb-3 text-gray-800">
-                          Features
-                        </h3>
-                        <ul className="space-y-2">
-                          {selectedService.features.map(
-                            (feature: string, index: number) => (
-                              <li key={index} className="flex text-gray-700">
-                                <Star className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
-                                <span>{feature}</span>
-                              </li>
-                            ),
-                          )}
-                        </ul>
-                      </div>
-
-                      <button className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors">
-                        Book This Service
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            {/* Service search results only - modal removed */}
           </div>
 
           {searchStatus !== "idle" && (
@@ -292,13 +203,13 @@ const Hero = () => {
             <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
             </button>
-            <button 
-              onClick={() => setIsModalOpen(true)} 
+            <a 
+              href="tel:7193156628"
               className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Have Our AI Call You
-            </button>
+              Call Us Directly
+            </a>
           </div>
         </div>
       </div>
@@ -324,12 +235,7 @@ const Hero = () => {
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
       
-      {/* Phone Call Modal */}
-      <PhoneCallModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
-    </div>
+      </div>
   );
 };
 
