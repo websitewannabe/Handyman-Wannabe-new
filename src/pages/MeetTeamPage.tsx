@@ -68,16 +68,6 @@ const officeMembers = [
     icon: Hammer, // Replace with appropriate icon
     rating: 4.8,
   },
-  {
-    name: "Sarah Jones",
-    role: "Receptionist",
-    experience: "2+ years",
-    image: "/images/placeholder.jpg", // Replace with actual image
-    bio: "Greets clients and handles phone calls.",
-    funFact: "Excellent communication skills.",
-    icon: Phone, // Replace with appropriate icon
-    rating: 4.7,
-  },
 ];
 
 const MeetTeamPage = () => {
@@ -129,19 +119,24 @@ const MeetTeamPage = () => {
                         <div className="bg-primary/10 p-2 rounded-full mr-3">
                           <member.icon className="w-5 h-5 text-primary" />
                         </div>
-                        <h2 className="text-2xl font-bold">{member.name}</h2>
+                        <h2 className="text-2xl font-bold hidden md:block">{member.name}</h2>
                       </div>
-                      <h3 className="text-lg text-primary font-semibold mb-3">
+                      <h3 className="text-lg text-primary font-semibold mb-3 flex items-center">
                         {member.role}
+                        <span className="ml-3 text-sm bg-gray-100 text-gray-700 px-3 py-1 rounded-full">
+                          {member.experience}
+                        </span>
                       </h3>
-                      <p className="text-gray-700 mb-4 whitespace-pre-line">
-                        {member.bio}
-                      </p>
-                      <div className="mb-4">
-                        <h4 className="font-medium text-primary mb-2">
-                          Experience:
+
+                      <div className="overflow-auto max-h-[220px] pr-2 custom-scrollbar mb-4">
+                        <p className="text-gray-700 whitespace-pre-line leading-relaxed text-sm md:text-base">{member.bio}</p>
+                      </div>
+
+                      <div className="mb-4 mt-5 pt-4 border-t border-gray-100">
+                        <h4 className="font-medium text-primary mb-2 flex items-center">
+                          <span className="mr-2">💼</span> Professional Experience:
                         </h4>
-                        <div className="text-gray-700 whitespace-pre-line">
+                        <div className="text-gray-700 whitespace-pre-line text-sm md:text-base overflow-auto max-h-[150px] pr-2 custom-scrollbar">
                           {typeof member.projects === "string"
                             ? member.projects
                             : `${member.projects}+ Projects Completed`}
@@ -162,7 +157,7 @@ const MeetTeamPage = () => {
             >
               Office Staff
             </motion.h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"> {/* Changed to grid-cols-2 */}
               {officeMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
