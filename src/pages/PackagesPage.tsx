@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Check,
@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import CustomQuoteModal from "../components/CustomQuoteModal";
 import SEO from "../components/SEO";
+import { useSearchParams, useLocation } from "react-router-dom";
 
 // Expanded package data with more packages and categories
 const packageData = [
@@ -159,7 +160,7 @@ const packageData = [
       "Landscaping",
     ],
     popular: false,
-    image: "/images/newhome-package.jpeg",
+      image: "/images/newhome-package.jpeg",
   },
   {
     id: "newpet",
@@ -207,21 +208,20 @@ const expandVariants = {
 };
 
 const PackagesPage = () => {
-  const [selectedPackage, setSelectedPackage] = useState<
-    (typeof packageData)[0] | null
-  >(null);
-  const [expandedPackageId, setExpandedPackageId] = useState<string | null>(
-    null,
-  );
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [filterValue, setFilterValue] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [expandedPackageId, setExpandedPackageId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"grid" | "compare">("grid");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedPackageId, setSelectedPackageId] = useState<string | null>(null);
+
+  // Get URL search parameters
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
 
   // Using useCallback to memoize functions
   const selectPackage = useCallback(
     (pkg: (typeof packageData)[0]) => {
-      setSelectedPackage(pkg);
+      setSelectedPackageId(pkg.id);
       if (expandedPackageId !== pkg.id) {
         setExpandedPackageId(pkg.id);
       } else {
@@ -243,22 +243,24 @@ const PackagesPage = () => {
     setViewMode((prev) => (prev === "grid" ? "compare" : "grid"));
   }, []);
 
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+
   // Filter packages based on search term and category
   const filteredPackages = useMemo(() => {
     return packageData.filter((pkg) => {
       const matchesSearch =
-        pkg.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        pkg.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pkg.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        pkg.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         pkg.features.some((feature) =>
-          feature.toLowerCase().includes(searchTerm.toLowerCase()),
+          feature.toLowerCase().includes(searchQuery.toLowerCase()),
         );
 
       const matchesCategory =
-        selectedCategory === "All" || pkg.category === selectedCategory;
+        filterValue === "all" || pkg.category === filterValue;
 
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [searchQuery, filterValue]);
 
   // Get all unique features across all packages for comparison table
   const allFeatures = useMemo(() => {
@@ -269,12 +271,34 @@ const PackagesPage = () => {
     return Array.from(features).sort();
   }, []);
 
-  // Default to the first package if none selected
+  // Check for preselected package from URL parameter
   useEffect(() => {
-    if (!selectedPackage && packageData.length > 0) {
-      setSelectedPackage(packageData[0]);
+    const packageParam = searchParams.get("package");
+    if (packageParam) {
+      // Find package id that matches the URL parameter
+      const matchingPackage = packageData.find(
+        (pkg) => pkg.id.toLowerCase() === packageParam.toLowerCase(),
+      );
+      if (matchingPackage) {
+        setExpandedPackageId(matchingPackage.id);
+        setSelectedPackageId(matchingPackage.id);
+      }
     }
-  }, []);
+  }, [location.search, searchParams]);
+
+  // Scroll to dropdown when a package is expanded
+  useEffect(() => {
+    if (expandedPackageId) {
+      const element = document.getElementById(
+        `package-dropdown-${expandedPackageId}`,
+      );
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 300);
+      }
+    }
+  }, [expandedPackageId]);
 
   return (
     <div className="pt-28 pb-20">
@@ -307,11 +331,11 @@ const PackagesPage = () => {
               <button
                 key={category}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  selectedCategory === category
+                  filterValue === category
                     ? "bg-primary text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => setFilterValue(category)}
               >
                 {category}
               </button>
@@ -323,15 +347,15 @@ const PackagesPage = () => {
               <input
                 type="text"
                 placeholder="Search packages..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              {searchTerm && (
+              {searchQuery && (
                 <button
                   className="absolute right-3 top-1/2 -translate-y-1/2"
-                  onClick={() => setSearchTerm("")}
+                  onClick={() => setSearchQuery("")}
                 >
                   <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
                 </button>
@@ -364,7 +388,7 @@ const PackagesPage = () => {
                 <div key={pkg.id} className="flex flex-col">
                   <motion.div
                     className={`relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
-                      selectedPackage?.id === pkg.id
+                      selectedPackageId === pkg.id
                         ? "ring-2 ring-primary"
                         : ""
                     } ${pkg.popular ? "ring-2 ring-primary" : ""}`}
@@ -424,6 +448,7 @@ const PackagesPage = () => {
                           animate="visible"
                           exit="exit"
                           className="bg-white shadow-lg mt-4 p-4 rounded-b-xl border-t border-gray-100"
+                          id={`package-dropdown-${pkg.id}`}
                         >
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>

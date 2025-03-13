@@ -119,59 +119,43 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* More Services */}
+          {/* Packages */}
           <div>
-            <h4 className="text-lg font-bold mb-6">More Services</h4>
+            <h4 className="text-lg font-bold mb-6">Packages</h4>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/services/windows-doors"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Windows & Doors
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/garage-doors"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Garage Doors
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/landscaping"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Landscaping
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/powerwashing"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Powerwashing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/pools-spas"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Pools & Spas
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services/holiday-lighting"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Holiday Lighting
-                </Link>
-              </li>
-            </ul>
+                <li>
+                  <Link
+                    to="/packages?package=homeowner-essentials"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Homeowner Essentials
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=seasonal-maintenance"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Seasonal Maintenance
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=new-home-setup"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    New Home Setup
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=emergency-repairs"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Emergency Repairs
+                  </Link>
+                </li>
+              </ul>
           </div>
 
           {/* Site Structure */}
