@@ -467,7 +467,7 @@ const Navbar = () => {
                   }}
                   onMouseEnter={(e) => e.stopPropagation()}
                   onMouseOver={(e) => e.stopPropagation()}
-                  className="bg-primary text-white font-bold py-3 px-6 rounded-full hover:bg-primary/90 transition-colors"
+                  className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors" // Modified class for smaller size
                 >
                   Customer Portal
                 </button>
@@ -602,7 +602,7 @@ const Navbar = () => {
                     (719) 315-6628
                   </a>
                   <button 
-                    className="mt-4 bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors"
+                    className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors" // Modified class for smaller size
                     data-token='a723826f09b6469fb06bd0ddb961381b' 
                     data-orgname='Handyman-Wannabe-LLC' 
                     onClick={(e) => {
