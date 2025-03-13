@@ -222,7 +222,13 @@ const PackagesPage = () => {
   useEffect(() => {
     const packageParam = searchParams.get("package");
     if (packageParam) {
-      const selectedPkg = packageData.find(pkg => pkg.id === packageParam);
+      // Find by exact ID or case-insensitive match for more flexibility
+      const selectedPkg = packageData.find(
+        pkg => pkg.id === packageParam || 
+               pkg.id.toLowerCase() === packageParam.toLowerCase() ||
+               pkg.id.replace(/-/g, '').toLowerCase() === packageParam.replace(/-/g, '').toLowerCase()
+      );
+      
       if (selectedPkg) {
         setSelectedPackageId(selectedPkg.id);
         setExpandedPackageId(selectedPkg.id);
@@ -234,6 +240,8 @@ const PackagesPage = () => {
             element.scrollIntoView({ behavior: "smooth", block: "center" });
           }
         }, 300);
+      } else {
+        console.log(`Package not found for ID: ${packageParam}`);
       }
     }
   }, [searchParams]);
