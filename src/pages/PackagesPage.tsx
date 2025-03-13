@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Star, ChevronRight, ChevronDown, Search, X, Filter, Grid, Table } from "lucide-react";
@@ -236,9 +235,9 @@ const PackagesPage = () => {
         pkg.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         pkg.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         pkg.features.some(feature => feature.toLowerCase().includes(searchTerm.toLowerCase()));
-      
+
       const matchesCategory = selectedCategory === 'All' || pkg.category === selectedCategory;
-      
+
       return matchesSearch && matchesCategory;
     });
   }, [searchTerm, selectedCategory]);
@@ -300,7 +299,7 @@ const PackagesPage = () => {
               </button>
             ))}
           </div>
-          
+
           <div className="w-full md:w-auto flex items-center gap-4">
             <div className="relative flex-grow md:w-64">
               <input
@@ -320,7 +319,7 @@ const PackagesPage = () => {
                 </button>
               )}
             </div>
-            
+
             <button
               onClick={toggleViewMode}
               className="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition-colors"
@@ -382,13 +381,13 @@ const PackagesPage = () => {
                       <p className="text-sm text-gray-600 line-clamp-2 mb-2">{pkg.description}</p>
                     </div>
                   </motion.div>
-                  
+
                   {/* This is just a placeholder for positioning */}
                   <div className={expandedPackageId === pkg.id ? "h-2" : ""}></div>
                 </div>
               ))}
             </div>
-            
+
             {/* Full-width expandable details section */}
             <AnimatePresence>
               {expandedPackageId && (
@@ -406,7 +405,7 @@ const PackagesPage = () => {
                       {(() => {
                         const pkg = packageData.find(p => p.id === expandedPackageId);
                         if (!pkg) return null;
-                        
+
                         return (
                           <>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -432,7 +431,7 @@ const PackagesPage = () => {
                                     </li>
                                   ))}
                                 </ul>
-                                
+
                                 <div className="mt-6">
                                   <h3 className="text-lg font-semibold text-gray-800 mb-3">Materials & Supplies</h3>
                                   <p className="text-gray-600 mb-2">
@@ -456,11 +455,6 @@ const PackagesPage = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-                </div>
-              ))}
-            </div>
-            
-            {/* Sticky Summary Boxes removed */}
           </div>
         )}
 
