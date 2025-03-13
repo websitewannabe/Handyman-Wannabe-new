@@ -155,6 +155,30 @@ const Footer = () => {
                     Emergency Repairs
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/packages?package=basic"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Basic Handyman
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=standard"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Standard Home Maintenance
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=premium"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Premium Services
+                  </Link>
+                </li>
               </ul>
           </div>
 
