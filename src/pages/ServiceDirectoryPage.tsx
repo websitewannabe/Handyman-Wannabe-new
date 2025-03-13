@@ -374,7 +374,7 @@ const ServiceDirectoryPage = () => {
                 {/* Call to Action */}
                 <div className="flex gap-4">
                   <a
-                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3?..."
+                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32?v2=true&lead_source=google&merchant_id=75977328-0490-46ae-a2c0-ff7f95559206&hl=en-US&gei=y0TQZ-TLAark5NoPzqbemQ4&rwg_token=AAiGsob2E05dxlHIY1V72CDzKrPXjfBBpr-bLpRjINnRuPGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
                     className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-center"
                     target="_blank"
                     rel="noopener noreferrer"
