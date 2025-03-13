@@ -334,112 +334,122 @@ const PackagesPage = () => {
         {/* Grid View */}
         {viewMode === 'grid' && (
           <div className="flex flex-col">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
               {filteredPackages.map((pkg, index) => (
-                <div key={pkg.id} className="flex flex-col">
-                  <motion.div
-                    className={`relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
-                      selectedPackage?.id === pkg.id ? "ring-2 ring-primary" : ""
-                    } ${pkg.popular ? "ring-2 ring-primary" : ""}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={() => selectPackage(pkg)}
-                  >
-                    {pkg.popular && (
-                      <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center z-10">
-                        <Star className="w-4 h-4 mr-1 fill-current" />
-                        Most Popular
-                      </div>
-                    )}
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={pkg.image}
-                        alt={pkg.name}
-                        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <h2 className="text-xl font-bold">{pkg.name}</h2>
-                        <div className="text-sm text-white/80 bg-black/30 px-2 py-0.5 rounded mt-1 inline-block">
-                          {pkg.category}
-                        </div>
+                <motion.div
+                  key={pkg.id}
+                  className={`relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
+                    selectedPackage?.id === pkg.id ? "ring-2 ring-primary" : ""
+                  } ${pkg.popular ? "ring-2 ring-primary" : ""}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  onClick={() => selectPackage(pkg)}
+                >
+                  {pkg.popular && (
+                    <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center z-10">
+                      <Star className="w-4 h-4 mr-1 fill-current" />
+                      Most Popular
+                    </div>
+                  )}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={pkg.image}
+                      alt={pkg.name}
+                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <h2 className="text-xl font-bold">{pkg.name}</h2>
+                      <div className="text-sm text-white/80 bg-black/30 px-2 py-0.5 rounded mt-1 inline-block">
+                        {pkg.category}
                       </div>
                     </div>
-                    <div className="p-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <div>
-                          <span className="text-2xl font-bold text-primary">
-                            {pkg.price}
-                          </span>
-                          <span className="text-gray-500 ml-2">/{pkg.duration}</span>
-                        </div>
-                        <ChevronDown className={`w-5 h-5 text-primary transition-transform ${expandedPackageId === pkg.id ? 'rotate-180' : ''}`} />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <div>
+                        <span className="text-2xl font-bold text-primary">
+                          {pkg.price}
+                        </span>
+                        <span className="text-gray-500 ml-2">/{pkg.duration}</span>
                       </div>
-                      <p className="text-sm text-gray-600 line-clamp-2 mb-2">{pkg.description}</p>
+                      <ChevronDown className={`w-5 h-5 text-primary transition-transform ${expandedPackageId === pkg.id ? 'rotate-180' : ''}`} />
                     </div>
-                  </motion.div>
-                  
-                  {/* Expandable details section */}
-                  <AnimatePresence>
-                    {expandedPackageId === pkg.id && (
-                      <motion.div
-                        key={`${pkg.id}-details`}
-                        variants={expandVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        className="bg-white rounded-b-xl shadow-lg mt-1 overflow-hidden border-t border-gray-100"
-                      >
-                        <div className="p-6 space-y-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Included Services</h3>
-                              <ul className="grid grid-cols-1 gap-y-2">
-                                {pkg.features.map((feature, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <Check className="w-5 h-5 text-[#91d30f] mr-2 flex-shrink-0 mt-0.5" />
-                                    <span className="text-gray-700">{feature}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-
-                            <div>
-                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Not Included</h3>
-                              <ul className="space-y-2">
-                                {pkg.exclusions.map((exclusion, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <span className="text-red-500 mr-2 font-bold">✕</span>
-                                    <span className="text-gray-700">{exclusion}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                              
-                              <div className="mt-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-3">Materials & Supplies</h3>
-                                <p className="text-gray-600 mb-2">
-                                  Basic materials are included. Specialized materials or supplies 
-                                  that exceed $50 will be quoted separately.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="flex justify-center mt-4">
-                            <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-                              Book This Package
-                            </button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                    <p className="text-sm text-gray-600 line-clamp-2 mb-2">{pkg.description}</p>
+                  </div>
+                </motion.div>
               ))}
+              
+              {/* Expandable details section - Full width */}
+              <AnimatePresence>
+                {expandedPackageId && (
+                  <motion.div
+                    key={`${expandedPackageId}-details`}
+                    variants={expandVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="col-span-1 md:col-span-2 lg:col-span-3 bg-white rounded-xl shadow-lg mt-8 overflow-hidden border border-gray-100"
+                  >
+                    {selectedPackage && (
+                      <div className="p-6 space-y-6">
+                        <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
+                          <h2 className="text-2xl font-bold text-gray-800">{selectedPackage.name}</h2>
+                          <div className="text-sm bg-gray-100 px-2 py-1 rounded">{selectedPackage.category}</div>
+                          <div className="ml-auto">
+                            <span className="text-2xl font-bold text-primary">{selectedPackage.price}</span>
+                            <span className="text-gray-500 ml-1">/{selectedPackage.duration}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4">Included Services</h3>
+                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6">
+                              {selectedPackage.features.map((feature, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <Check className="w-5 h-5 text-[#91d30f] mr-2 flex-shrink-0 mt-0.5" />
+                                  <span className="text-gray-700">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4">Not Included</h3>
+                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6">
+                              {selectedPackage.exclusions.map((exclusion, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <span className="text-red-500 mr-2 font-bold">✕</span>
+                                  <span className="text-gray-700">{exclusion}</span>
+                                </li>
+                              ))}
+                            </ul>
+                            
+                            <div className="mt-8">
+                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Materials & Supplies</h3>
+                              <p className="text-gray-600 mb-2">
+                                Basic materials are included. Specialized materials or supplies 
+                                that exceed $50 will be quoted separately.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex justify-center mt-8 pt-4 border-t border-gray-100">
+                          <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                            Book This Package
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             
             {/* Sticky Summary Box (Desktop) */}
