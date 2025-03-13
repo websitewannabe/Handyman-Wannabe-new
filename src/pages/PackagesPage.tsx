@@ -217,6 +217,26 @@ const PackagesPage = () => {
   // Get URL search parameters
   const [searchParams] = useSearchParams();
   const location = useLocation();
+  
+  // Check for package parameter in URL and auto-expand that package
+  useEffect(() => {
+    const packageParam = searchParams.get("package");
+    if (packageParam) {
+      const selectedPkg = packageData.find(pkg => pkg.id === packageParam);
+      if (selectedPkg) {
+        setSelectedPackageId(selectedPkg.id);
+        setExpandedPackageId(selectedPkg.id);
+        
+        // Wait for the component to render before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(`package-${selectedPkg.id}`);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 300);
+      }
+    }
+  }, [searchParams]);
 
   // Using useCallback to memoize functions
   const selectPackage = useCallback(
