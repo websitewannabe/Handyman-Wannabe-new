@@ -157,7 +157,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/packages?package=new-home-setup"
+                    to="/packages?package=newhome"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     New Home Setup
