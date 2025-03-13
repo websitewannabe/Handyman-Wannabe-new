@@ -150,20 +150,26 @@ const Services = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className="group relative bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-300 hover:shadow-lg h-[76px] flex items-center" //Added h-[76px] and flex items-center
+                          className="group relative bg-gray-50 rounded-lg p-6 hover:bg-primary/5 transition-all duration-300 hover:shadow-lg"
                         >
-                          <div className="mr-4 bg-primary/10 p-3 rounded-lg text-primary flex-shrink-0"> {/* Added flex-shrink-0 */}
-                            <item.icon className="w-6 h-6" />
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="bg-white rounded-full p-3 shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
+                              <item.icon className="w-6 h-6" />
+                            </div>
+                            <div className="bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary">
+                              {item.time}
+                            </div>
                           </div>
-                          <div className="flex-grow min-w-0"> {/* Added min-w-0 */}
-                            <h4 className="font-bold text-[#1B4332] group-hover:text-primary transition-colors truncate"> {/* Added truncate */}
-                              {item.name}
-                            </h4>
-                            <p className="text-sm text-gray-600">{item.time}</p>
-                          </div>
-                          <div className="flex-shrink-0"> {/* Added flex-shrink-0 and changed class */}
-                            <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                          </div>
+                          <h4 className="text-lg font-bold mb-4 text-gray-900">
+                            {item.name}
+                          </h4>
+                          <Link
+                            to={getServiceUrl(item.name)}
+                            className="w-full bg-white border-2 border-primary text-primary font-medium py-2 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 group-hover:shadow-md block text-center"
+                            aria-label={`Learn more about ${item.name} services`}
+                          >
+                            Learn more about {item.name}
+                          </Link>
                         </motion.div>
                       ))}
                   </div>
