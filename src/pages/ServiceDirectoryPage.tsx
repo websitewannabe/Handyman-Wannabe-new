@@ -373,17 +373,11 @@ const ServiceDirectoryPage = () => {
 
                 {/* Call to Action */}
                 <div className="flex gap-4">
-                  <a 
-                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
+                  <a
+                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3?..."
                     className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-center"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => {
-                      // Prevent default behavior and manually open in new window
-                      e.preventDefault();
-                      const url = "https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D";
-                      window.open(url, "_blank", "noopener,noreferrer");
-                    }}
                   >
                     Book Now
                   </a>
