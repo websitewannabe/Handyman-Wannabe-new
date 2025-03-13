@@ -5782,7 +5782,7 @@
     "name": "Bed Frame Assembly",
     "description": "Assembling bed frames including platform beds, bunk beds, and daybeds.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of platform, bunk, and daybeds",
@@ -5798,7 +5798,7 @@
     "name": "Dresser, Nightstand & Wardrobe Assembly",
     "description": "Assembling dressers, nightstands, and wardrobes for bedroom storage solutions.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of all sizes of dressers and nightstands",
@@ -5814,7 +5814,7 @@
     "name": "Bookshelf & Storage Cabinet Assembly",
     "description": "Assembling bookshelves and storage cabinets to enhance organization and decor.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of standard and custom storage units",
@@ -5830,7 +5830,7 @@
     "name": "Desk & Office Chair Assembly",
     "description": "Assembling office desks and chairs for ergonomic workspace setups.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of office desks with drawers and compartments",
@@ -5846,7 +5846,7 @@
     "name": "Dining Table & Chair Assembly",
     "description": "Assembling dining tables and chairs for home and commercial dining spaces.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of dining tables of all sizes",
@@ -5862,7 +5862,7 @@
     "name": "TV Stand & Entertainment Center Assembly",
     "description": "Assembling TV stands and entertainment centers for home media setups.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of TV stands with shelves and compartments",
@@ -5878,7 +5878,7 @@
     "name": "Coffee Table & End Table Assembly",
     "description": "Assembling coffee tables and end tables for functional living spaces.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of round, square, and modern coffee tables",
@@ -5894,7 +5894,7 @@
     "name": "Shelving Unit & Wall-Mounted Shelf Installation",
     "description": "Assembling and installing shelving units and wall-mounted shelves.",
     "category": "Furniture Assembly",
-    "subcategory": "indoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of freestanding shelving units",
@@ -5910,7 +5910,7 @@
     "name": "Patio Dining Set & Chair Assembly",
     "description": "Assembling patio dining sets and chairs for comfortable outdoor dining experiences.",
     "category": "Furniture Assembly",
-    "subcategory": "outdoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of outdoor dining tables and chairs",
@@ -5926,7 +5926,7 @@
     "name": "Outdoor Bench & Picnic Table Assembly",
     "description": "Assembling outdoor benches and picnic tables for parks, gardens, and patios.",
     "category": "Furniture Assembly",
-    "subcategory": "outdoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of wooden and metal picnic tables",
@@ -5942,7 +5942,7 @@
     "name": "Garden Storage Shed Assembly",
     "description": "Assembling small to medium-sized garden storage sheds for tool and equipment storage.",
     "category": "Furniture Assembly",
-    "subcategory": "outdoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of plastic, metal, or wooden sheds",
@@ -5958,7 +5958,7 @@
     "name": "Porch Swing & Hammock Assembly",
     "description": "Assembling and securing porch swings and hammocks for relaxation and outdoor comfort.",
     "category": "Furniture Assembly",
-    "subcategory": "outdoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Secure mounting and fastenings",
@@ -5974,7 +5974,7 @@
     "name": "Outdoor Lounger & Daybed Assembly",
     "description": "Assembling outdoor loungers and daybeds for luxurious outdoor seating.",
     "category": "Furniture Assembly",
-    "subcategory": "outdoor-furniture-assembly",
+    "subcategory": "furniture-assembly",
     "image": "/images/Handyman_Wannabe.png",
     "features": [
       "Assembly of cushioned loungers and daybeds",

@@ -51,15 +51,11 @@ const FurnitureAssemblyPage = () => {
 
   // Map subcategories to display names and icons
   const subcategoryInfo = {
-    "indoor-furniture-assembly": {
-      title: "Indoor Furniture Assembly",
-      description: "Professional assembly of indoor furniture pieces.",
+    "furniture-assembly": {
+      title: "General Furniture Assembly",
+      description:
+        "Professional assembly of indoor and outdoor furniture pieces.",
       icon: Sofa,
-    },
-    "outdoor-furniture-assembly": {
-      title: "Outdoor Furniture Assembly",
-      description: "Expert assembly of outdoor and patio furniture.",
-      icon: Umbrella,
     },
     "childrens-furniture-playsets": {
       title: "Children's Furniture & Playsets",
@@ -153,8 +149,8 @@ const FurnitureAssemblyPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8"
               >
-                <img 
-                  src="/images/Handyman_Logo.png" 
+                <img
+                  src="/images/Handyman_Logo.png"
                   alt="Handyman Wannabe Logo"
                   className="max-w-full max-h-full object-contain"
                 />
