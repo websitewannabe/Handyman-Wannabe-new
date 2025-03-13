@@ -442,58 +442,7 @@ const PackagesPage = () => {
               ))}
             </div>
             
-            {/* Sticky Summary Box (Desktop) */}
-            {selectedPackage && expandedPackageId && (
-              <motion.div 
-                className="hidden lg:block fixed right-8 top-32 w-72 bg-white rounded-xl shadow-lg p-4 border border-gray-200"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3 className="font-bold text-lg mb-2">{selectedPackage.name}</h3>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold text-primary">{selectedPackage.price}</span>
-                  <span className="text-gray-500 ml-1">/{selectedPackage.duration}</span>
-                </div>
-                
-                <h4 className="font-semibold text-sm text-gray-700 mb-2">Key Services:</h4>
-                <ul className="mb-4 space-y-1">
-                  {selectedPackage.features.slice(0, 5).map((feature, idx) => (
-                    <li key={idx} className="text-sm flex items-start">
-                      <Check className="w-4 h-4 text-[#91d30f] mr-1 flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                  {selectedPackage.features.length > 5 && (
-                    <li className="text-sm text-gray-500 italic">+ {selectedPackage.features.length - 5} more services</li>
-                  )}
-                </ul>
-                
-                <button className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-lg transition-colors text-sm">
-                  Book This Package
-                </button>
-              </motion.div>
-            )}
-            
-            {/* Sticky Summary Box (Mobile) */}
-            {selectedPackage && expandedPackageId && (
-              <motion.div 
-                className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg px-4 py-3 border-t border-gray-200 z-50"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-bold text-base">{selectedPackage.name}</h3>
-                    <div className="text-primary font-bold">{selectedPackage.price}</div>
-                  </div>
-                  <button className="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
-                    Book Now
-                  </button>
-                </div>
-              </motion.div>
-            )}
+            {/* Sticky Summary Boxes removed */}
           </div>
         )}
 
