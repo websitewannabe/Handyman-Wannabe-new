@@ -19,6 +19,7 @@ import {
   Eraser,
   Wallpaper,
   Droplet,
+  Check,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -184,195 +185,134 @@ const PaintingDrywallPage = () => {
       </section>
 
       {/* Packages Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">
+            <h2 className="text-3xl font-bold text-primary mb-4">
               Painting & Drywall Packages
             </h2>
-            <p className="max-w-3xl mx-auto text-lg text-gray-600">
-              Choose from our carefully curated service packages designed for different room sizes.
-              Each package includes full preparation, premium paint, and expert application.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Choose from our specially designed packages to get your painting and drywall projects completed efficiently.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* 2 Rooms Package */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">2 Rooms Package</h3>
-                <div className="flex items-baseline mb-4">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">2 Rooms Package</h3>
+                <div className="flex items-center mb-6">
                   <span className="text-3xl font-bold text-primary">$399</span>
-                  <span className="text-gray-500 ml-2">/ 4 hours</span>
+                  <span className="text-gray-500 ml-2">for 4 hours</span>
                 </div>
-                <hr className="my-4" />
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6 flex-grow">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Full wall preparation</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Professional painting of 2 rooms</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Premium paint included</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Minor drywall repairs</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Expert application</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Basic prep work included</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Up to 2 average-sized rooms</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Standard paint included</span>
                   </li>
                 </ul>
-                <a
-                  href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32?v2=true&lead_source=google&merchant_id=75977328-0490-46ae-a2c0-ff7f95559206&hl=en-US&gei=y0TQZ-TLAark5NoPzqbemQ4&rwg_token=AAiGsob2E05dxlHIY1V72CDzKrPXjfBBpr-bLpRjINnRuPGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
-                  className="block w-full bg-primary text-white text-center font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book Now
-                </a>
+                <div className="mt-auto">
+                  <a
+                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-primary text-white text-center font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* 4 Rooms Package */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow transform scale-105 border-2 border-primary/20"
-            >
-              <div className="bg-primary/10 py-2">
-                <p className="text-center font-bold text-primary">Most Popular</p>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">4 Rooms Package</h3>
-                <div className="flex items-baseline mb-4">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">4 Rooms Package</h3>
+                <div className="flex items-center mb-6">
                   <span className="text-3xl font-bold text-primary">$799</span>
-                  <span className="text-gray-500 ml-2">/ 8 hours</span>
+                  <span className="text-gray-500 ml-2">for 8 hours</span>
                 </div>
-                <hr className="my-4" />
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6 flex-grow">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Full wall preparation</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Professional painting of 4 rooms</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Premium paint included</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Medium drywall repairs</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Expert application</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Thorough prep work included</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Up to 4 average-sized rooms</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Minor drywall repairs included</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Premium paint options available</span>
                   </li>
                 </ul>
-                <a
-                  href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32?v2=true&lead_source=google&merchant_id=75977328-0490-46ae-a2c0-ff7f95559206&hl=en-US&gei=y0TQZ-TLAark5NoPzqbemQ4&rwg_token=AAiGsob2E05dxlHIY1V72CDzKrPXjfBBpr-bLpRjINnRuPGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
-                  className="block w-full bg-primary text-white text-center font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book Now
-                </a>
+                <div className="mt-auto">
+                  <a
+                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-primary text-white text-center font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* 8 Rooms Package */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-            >
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900">8 Rooms Package</h3>
-                <div className="flex items-baseline mb-4">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full">
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">8 Rooms Package</h3>
+                <div className="flex items-center mb-6">
                   <span className="text-3xl font-bold text-primary">$1599</span>
-                  <span className="text-gray-500 ml-2">/ 16 hours</span>
+                  <span className="text-gray-500 ml-2">for 16 hours</span>
                 </div>
-                <hr className="my-4" />
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6 flex-grow">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Full wall preparation</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Professional painting of 8 rooms</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Premium paint included</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Extensive drywall repairs</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Expert application</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Complete prep and cleanup included</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Up to 8 average-sized rooms</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Extensive drywall repairs included</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-primary mt-1 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Priority scheduling</span>
+                    <Check className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                    <span>Custom color consultation included</span>
                   </li>
                 </ul>
-                <a
-                  href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32?v2=true&lead_source=google&merchant_id=75977328-0490-46ae-a2c0-ff7f95559206&hl=en-US&gei=y0TQZ-TLAark5NoPzqbemQ4&rwg_token=AAiGsob2E05dxlHIY1V72CDzKrPXjfBBpr-bLpRjINnRuPGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
-                  className="block w-full bg-primary text-white text-center font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Book Now
-                </a>
+                <div className="mt-auto">
+                  <a
+                    href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-primary text-white text-center font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
