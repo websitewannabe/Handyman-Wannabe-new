@@ -34,7 +34,7 @@ interface NavItem {
   label: string;
   href: string;
   dropdown?: { label: string; href: string }[];
-  megaMenu?: { items: { name: string; icon: any }[] }[];
+  megaMenu?: { items: { name: string; icon: any; href?: string }[] }[];
 }
 
 const serviceCategories = [
@@ -44,7 +44,7 @@ const serviceCategories = [
       { name: "Cleaning", icon: Brush },
       { name: "Electrical", icon: Zap },
       { name: "Flooring", icon: Ruler },
-      { name: "General Assembly", icon: Sofa },
+      { name: "General Assembly", icon: Sofa, href: "/furniture-assembly" },
       { name: "Garage Doors", icon: GarageDoor },
       { name: "Holiday Lighting", icon: Lightbulb },
       { name: "Home Inspections", icon: ClipboardCheck },
@@ -406,7 +406,7 @@ const Navbar = () => {
                                 {category.items.map((service) => (
                                   <Link
                                     key={service.name}
-                                    to={getServiceUrl(service.name)}
+                                    to={service.href || getServiceUrl(service.name)}
                                     className={`px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded ${index === 0 ? "text-secondary" : "text-[#91d30f]"} hover:text-primary flex items-center`}
                                   >
                                     <service.icon className="w-4 h-4 mr-2" />
