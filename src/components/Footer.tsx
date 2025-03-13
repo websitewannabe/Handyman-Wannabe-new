@@ -125,10 +125,26 @@ const Footer = () => {
             <ul className="space-y-3">
                 <li>
                   <Link
-                    to="/packages?package=homeowner-essentials"
+                    to="/packages?package=basic"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Homeowner Essentials
+                    Basic Handyman Package
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=standard"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Standard Home Maintenance
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/packages?package=premium"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Premium Services
                   </Link>
                 </li>
                 <li>
@@ -153,30 +169,6 @@ const Footer = () => {
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     Emergency Repairs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/packages?package=basic"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Basic Handyman
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/packages?package=standard"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Standard Home Maintenance
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/packages?package=premium"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Premium Services
                   </Link>
                 </li>
               </ul>
