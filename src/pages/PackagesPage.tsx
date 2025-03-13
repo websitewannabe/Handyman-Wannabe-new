@@ -333,7 +333,7 @@ const PackagesPage = () => {
 
         {/* Grid View */}
         {viewMode === 'grid' && (
-          <div className="flex flex-col">
+          <div className="flex flex-col relative">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPackages.map((pkg, index) => (
                 <div key={pkg.id} className="flex flex-col">
@@ -383,61 +383,79 @@ const PackagesPage = () => {
                     </div>
                   </motion.div>
                   
-                  {/* Expandable details section */}
-                  <AnimatePresence>
-                    {expandedPackageId === pkg.id && (
-                      <motion.div
-                        key={`${pkg.id}-details`}
-                        variants={expandVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        className="bg-white rounded-b-xl shadow-lg mt-1 overflow-hidden border-t border-gray-100"
-                      >
-                        <div className="p-6 space-y-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Included Services</h3>
-                              <ul className="grid grid-cols-1 gap-y-2">
-                                {pkg.features.map((feature, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <Check className="w-5 h-5 text-[#91d30f] mr-2 flex-shrink-0 mt-0.5" />
-                                    <span className="text-gray-700">{feature}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
+                  {/* This is just a placeholder for positioning */}
+                  <div className={expandedPackageId === pkg.id ? "h-2" : ""}></div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Full-width expandable details section */}
+            <AnimatePresence>
+              {expandedPackageId && (
+                <motion.div
+                  key={`${expandedPackageId}-details-fullwidth`}
+                  variants={expandVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="w-full bg-white shadow-lg mt-4 mb-8 overflow-hidden border-t border-gray-100 relative z-10"
+                >
+                  <div className="container mx-auto px-4">
+                    <div className="py-8 space-y-6 max-w-7xl mx-auto">
+                      {/* Content for the selected package */}
+                      {(() => {
+                        const pkg = packageData.find(p => p.id === expandedPackageId);
+                        if (!pkg) return null;
+                        
+                        return (
+                          <>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-3">Included Services</h3>
+                                <ul className="grid grid-cols-1 gap-y-2">
+                                  {pkg.features.map((feature, idx) => (
+                                    <li key={idx} className="flex items-start">
+                                      <Check className="w-5 h-5 text-[#91d30f] mr-2 flex-shrink-0 mt-0.5" />
+                                      <span className="text-gray-700">{feature}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
 
-                            <div>
-                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Not Included</h3>
-                              <ul className="space-y-2">
-                                {pkg.exclusions.map((exclusion, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <span className="text-red-500 mr-2 font-bold">✕</span>
-                                    <span className="text-gray-700">{exclusion}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                              
-                              <div className="mt-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-3">Materials & Supplies</h3>
-                                <p className="text-gray-600 mb-2">
-                                  Basic materials are included. Specialized materials or supplies 
-                                  that exceed $50 will be quoted separately.
-                                </p>
+                              <div>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-3">Not Included</h3>
+                                <ul className="space-y-2">
+                                  {pkg.exclusions.map((exclusion, idx) => (
+                                    <li key={idx} className="flex items-start">
+                                      <span className="text-red-500 mr-2 font-bold">✕</span>
+                                      <span className="text-gray-700">{exclusion}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                                
+                                <div className="mt-6">
+                                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Materials & Supplies</h3>
+                                  <p className="text-gray-600 mb-2">
+                                    Basic materials are included. Specialized materials or supplies 
+                                    that exceed $50 will be quoted separately.
+                                  </p>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div className="flex justify-center mt-4">
-                            <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-                              Book This Package
-                            </button>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                            <div className="flex justify-center mt-4">
+                              <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                                Book This Package
+                              </button>
+                            </div>
+                          </>
+                        );
+                      })()}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
                 </div>
               ))}
             </div>
