@@ -396,6 +396,7 @@ const PackagesPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     onClick={() => selectPackage(pkg)}
+                    id={`package-${pkg.id}`} // Added id for scrolling
                   >
                     {pkg.popular && (
                       <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center z-10">
