@@ -64,6 +64,15 @@ const MobileServicesPage: React.FC<MobileServicesPageProps> = ({ onClose }) => {
           <XCircle size={24} />
         </button>
       </div>
+      
+      <a 
+        href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
+        className="block w-full bg-primary text-white font-bold py-3 px-4 rounded-lg text-center mb-6 hover:bg-primary/90 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Book Now
+      </a>
 
       <div className="space-y-8">
         {serviceCategories.map((category, index) => (
