@@ -44,7 +44,7 @@ const serviceCategories = [
       { name: "Cleaning", icon: Brush },
       { name: "Electrical", icon: Zap },
       { name: "Flooring", icon: Ruler },
-      { name: "Furniture Assembly", icon: Sofa },
+      { name: "General Assembly", icon: Sofa },
       { name: "Garage Doors", icon: GarageDoor },
       { name: "Holiday Lighting", icon: Lightbulb },
       { name: "Home Inspections", icon: ClipboardCheck },
@@ -601,14 +601,17 @@ const Navbar = () => {
                     <Phone className="w-5 h-5 mr-2" />
                     (719) 315-6628
                   </a>
-                  <button 
+                  <button
                     className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors" // Modified class for smaller size
-                    data-token='a723826f09b6469fb06bd0ddb961381b' 
-                    data-orgname='Handyman-Wannabe-LLC' 
+                    data-token="a723826f09b6469fb06bd0ddb961381b"
+                    data-orgname="Handyman-Wannabe-LLC"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      window.open('https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b', '_blank');
+                      window.open(
+                        "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
+                        "_blank",
+                      );
                     }}
                     onMouseEnter={(e) => e.stopPropagation()}
                     onMouseOver={(e) => e.stopPropagation()}

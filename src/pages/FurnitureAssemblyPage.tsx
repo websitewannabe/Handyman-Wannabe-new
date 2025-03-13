@@ -102,7 +102,7 @@ const FurnitureAssemblyPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Furniture Assembly Services
+            General Assembly Services
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl mb-6 text-white/90"

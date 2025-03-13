@@ -1,6 +1,16 @@
 import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Star, ChevronRight, ChevronDown, Search, X, Filter, Grid, Table } from "lucide-react";
+import {
+  Check,
+  Star,
+  ChevronRight,
+  ChevronDown,
+  Search,
+  X,
+  Filter,
+  Grid,
+  Table,
+} from "lucide-react";
 import CustomQuoteModal from "../components/CustomQuoteModal";
 import SEO from "../components/SEO";
 
@@ -128,8 +138,7 @@ const packageData = [
   {
     id: "newhome",
     name: "New Home Setup Package",
-    description:
-      "Everything you need to make your new house feel like home.",
+    description: "Everything you need to make your new house feel like home.",
     price: "$899",
     duration: "8 hours",
     category: "Moving",
@@ -153,28 +162,24 @@ const packageData = [
     image: "/images/newhome-package.jpeg",
   },
   {
-    id: "emergency",
-    name: "Emergency Repairs Package",
+    id: "newpet",
+    name: "New Pet Package",
     description:
-      "Fast response for urgent home issues with priority scheduling.",
+      "A handyman service package tailored for pet owners! This package includes installing pet doors, setting up pet-friendly flooring, assembling pet furniture, securing fences, and mounting pet gates to create a safe and comfortable space for your furry friend.",
     price: "$549",
     duration: "4 hours",
-    category: "Emergency",
+    category: "Moving",
     features: [
-      "Plumbing Fixes",
-      "Electrical Troubleshooting",
-      "Home Security",
-      "Leak Repairs",
-      "Lock Replacement",
-      "Window & Door Repairs",
-      "HVAC Emergency Service",
-      "Water Damage Assessment",
+      "Installing pet gates or doors",
+      "Setting up pet-friendly flooring or carpets",
+      "Building and installing pet furniture (kennels, playpens)",
+      "Securing home for pets (hiding wires, installing cabinet locks)",
+      "Landscaping improvements for a pet-friendly yard",
     ],
     exclusions: [
       "Full Renovations",
       "Cosmetic Improvements",
       "Regular Maintenance",
-      "Landscaping",
     ],
     popular: false,
     image: "/images/emergency-package.jpeg",
@@ -182,7 +187,10 @@ const packageData = [
 ];
 
 // Get all unique categories from package data
-const allCategories = ['All', ...new Set(packageData.map(pkg => pkg.category))];
+const allCategories = [
+  "All",
+  ...new Set(packageData.map((pkg) => pkg.category)),
+];
 
 // Animation variants
 const fadeInVariants = {
@@ -195,26 +203,33 @@ const fadeInVariants = {
 const expandVariants = {
   hidden: { height: 0, opacity: 0 },
   visible: { height: "auto", opacity: 1, transition: { duration: 0.3 } },
-  exit: { height: 0, opacity: 0, transition: { duration: 0.2 } }
+  exit: { height: 0, opacity: 0, transition: { duration: 0.2 } },
 };
 
 const PackagesPage = () => {
-  const [selectedPackage, setSelectedPackage] = useState<(typeof packageData)[0] | null>(null);
-  const [expandedPackageId, setExpandedPackageId] = useState<string | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<
+    (typeof packageData)[0] | null
+  >(null);
+  const [expandedPackageId, setExpandedPackageId] = useState<string | null>(
+    null,
+  );
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'compare'>('grid');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [viewMode, setViewMode] = useState<"grid" | "compare">("grid");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   // Using useCallback to memoize functions
-  const selectPackage = useCallback((pkg: (typeof packageData)[0]) => {
-    setSelectedPackage(pkg);
-    if (expandedPackageId !== pkg.id) {
-      setExpandedPackageId(pkg.id);
-    } else {
-      setExpandedPackageId(null);
-    }
-  }, [expandedPackageId]);
+  const selectPackage = useCallback(
+    (pkg: (typeof packageData)[0]) => {
+      setSelectedPackage(pkg);
+      if (expandedPackageId !== pkg.id) {
+        setExpandedPackageId(pkg.id);
+      } else {
+        setExpandedPackageId(null);
+      }
+    },
+    [expandedPackageId],
+  );
 
   const closeQuoteModal = useCallback(() => {
     setIsQuoteModalOpen(false);
@@ -225,18 +240,21 @@ const PackagesPage = () => {
   }, []);
 
   const toggleViewMode = useCallback(() => {
-    setViewMode(prev => prev === 'grid' ? 'compare' : 'grid');
+    setViewMode((prev) => (prev === "grid" ? "compare" : "grid"));
   }, []);
 
   // Filter packages based on search term and category
   const filteredPackages = useMemo(() => {
-    return packageData.filter(pkg => {
-      const matchesSearch = 
-        pkg.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    return packageData.filter((pkg) => {
+      const matchesSearch =
+        pkg.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         pkg.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        pkg.features.some(feature => feature.toLowerCase().includes(searchTerm.toLowerCase()));
+        pkg.features.some((feature) =>
+          feature.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
 
-      const matchesCategory = selectedCategory === 'All' || pkg.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === "All" || pkg.category === selectedCategory;
 
       return matchesSearch && matchesCategory;
     });
@@ -245,8 +263,8 @@ const PackagesPage = () => {
   // Get all unique features across all packages for comparison table
   const allFeatures = useMemo(() => {
     const features = new Set<string>();
-    packageData.forEach(pkg => {
-      pkg.features.forEach(feature => features.add(feature));
+    packageData.forEach((pkg) => {
+      pkg.features.forEach((feature) => features.add(feature));
     });
     return Array.from(features).sort();
   }, []);
@@ -279,19 +297,19 @@ const PackagesPage = () => {
         </motion.div>
 
         {/* Filter and search controls */}
-        <motion.div 
-          {...fadeInVariants} 
+        <motion.div
+          {...fadeInVariants}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-8 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <div className="w-full md:w-auto flex flex-wrap gap-2">
-            {allCategories.map(category => (
+            {allCategories.map((category) => (
               <button
                 key={category}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  selectedCategory === category 
-                    ? 'bg-primary text-white' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  selectedCategory === category
+                    ? "bg-primary text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
                 onClick={() => setSelectedCategory(category)}
               >
@@ -311,9 +329,9 @@ const PackagesPage = () => {
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               {searchTerm && (
-                <button 
-                  className="absolute right-3 top-1/2 -translate-y-1/2" 
-                  onClick={() => setSearchTerm('')}
+                <button
+                  className="absolute right-3 top-1/2 -translate-y-1/2"
+                  onClick={() => setSearchTerm("")}
                 >
                   <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
                 </button>
@@ -323,22 +341,32 @@ const PackagesPage = () => {
             <button
               onClick={toggleViewMode}
               className="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition-colors"
-              aria-label={viewMode === 'grid' ? 'Switch to compare view' : 'Switch to grid view'}
+              aria-label={
+                viewMode === "grid"
+                  ? "Switch to compare view"
+                  : "Switch to grid view"
+              }
             >
-              {viewMode === 'grid' ? <Table className="w-5 h-5" /> : <Grid className="w-5 h-5" />}
+              {viewMode === "grid" ? (
+                <Table className="w-5 h-5" />
+              ) : (
+                <Grid className="w-5 h-5" />
+              )}
             </button>
           </div>
         </motion.div>
 
         {/* Grid View */}
-        {viewMode === 'grid' && (
+        {viewMode === "grid" && (
           <div className="flex flex-col relative">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPackages.map((pkg, index) => (
                 <div key={pkg.id} className="flex flex-col">
                   <motion.div
                     className={`relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer ${
-                      selectedPackage?.id === pkg.id ? "ring-2 ring-primary" : ""
+                      selectedPackage?.id === pkg.id
+                        ? "ring-2 ring-primary"
+                        : ""
                     } ${pkg.popular ? "ring-2 ring-primary" : ""}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -374,11 +402,17 @@ const PackagesPage = () => {
                           <span className="text-2xl font-bold text-primary">
                             {pkg.price}
                           </span>
-                          <span className="text-gray-500 ml-2">/{pkg.duration}</span>
+                          <span className="text-gray-500 ml-2">
+                            /{pkg.duration}
+                          </span>
                         </div>
-                        <ChevronDown className={`w-5 h-5 text-primary transition-transform ${expandedPackageId === pkg.id ? 'rotate-180' : ''}`} />
+                        <ChevronDown
+                          className={`w-5 h-5 text-primary transition-transform ${expandedPackageId === pkg.id ? "rotate-180" : ""}`}
+                        />
                       </div>
-                      <p className="text-sm text-gray-600 line-clamp-2 mb-2">{pkg.description}</p>
+                      <p className="text-sm text-gray-600 line-clamp-2 mb-2">
+                        {pkg.description}
+                      </p>
                     </div>
                     {/* Expandable details integrated here */}
                     <AnimatePresence>
@@ -393,33 +427,46 @@ const PackagesPage = () => {
                         >
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Included Services</h3>
+                              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                                Included Services
+                              </h3>
                               <ul className="grid grid-cols-1 gap-y-2">
                                 {pkg.features.map((feature, idx) => (
                                   <li key={idx} className="flex items-start">
                                     <Check className="w-5 h-5 text-[#91d30f] mr-2 flex-shrink-0 mt-0.5" />
-                                    <span className="text-gray-700">{feature}</span>
+                                    <span className="text-gray-700">
+                                      {feature}
+                                    </span>
                                   </li>
                                 ))}
                               </ul>
                             </div>
 
                             <div>
-                              <h3 className="text-lg font-semibold text-gray-800 mb-3">Not Included</h3>
+                              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                                Not Included
+                              </h3>
                               <ul className="space-y-2">
                                 {pkg.exclusions.map((exclusion, idx) => (
                                   <li key={idx} className="flex items-start">
-                                    <span className="text-red-500 mr-2 font-bold">✕</span>
-                                    <span className="text-gray-700">{exclusion}</span>
+                                    <span className="text-red-500 mr-2 font-bold">
+                                      ✕
+                                    </span>
+                                    <span className="text-gray-700">
+                                      {exclusion}
+                                    </span>
                                   </li>
                                 ))}
                               </ul>
 
                               <div className="mt-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-3">Materials & Supplies</h3>
+                                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                                  Materials & Supplies
+                                </h3>
                                 <p className="text-gray-600 mb-2">
-                                  Basic materials are included. Specialized materials or supplies 
-                                  that exceed $50 will be quoted separately.
+                                  Basic materials are included. Specialized
+                                  materials or supplies that exceed $50 will be
+                                  quoted separately.
                                 </p>
                               </div>
                             </div>
@@ -443,8 +490,8 @@ const PackagesPage = () => {
         )}
 
         {/* Comparison View */}
-        {viewMode === 'compare' && (
-          <motion.div 
+        {viewMode === "compare" && (
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -453,14 +500,23 @@ const PackagesPage = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th scope="col" className="sticky left-0 bg-gray-50 px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]">
+                  <th
+                    scope="col"
+                    className="sticky left-0 bg-gray-50 px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]"
+                  >
                     Service / Package
                   </th>
-                  {filteredPackages.map(pkg => (
-                    <th key={pkg.id} scope="col" className="px-6 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[150px]">
+                  {filteredPackages.map((pkg) => (
+                    <th
+                      key={pkg.id}
+                      scope="col"
+                      className="px-6 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[150px]"
+                    >
                       <div className="flex flex-col items-center gap-2">
                         <span>{pkg.name}</span>
-                        <span className="text-primary font-bold text-base">{pkg.price}</span>
+                        <span className="text-primary font-bold text-base">
+                          {pkg.price}
+                        </span>
                         {pkg.popular && (
                           <span className="bg-primary text-white px-2 py-0.5 rounded-full text-xs font-medium">
                             Popular
@@ -473,12 +529,18 @@ const PackagesPage = () => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {allFeatures.map((feature, index) => (
-                  <tr key={feature} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                  <tr
+                    key={feature}
+                    className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                  >
                     <td className="sticky left-0 px-6 py-3 text-sm font-medium text-gray-900 bg-inherit">
                       {feature}
                     </td>
-                    {filteredPackages.map(pkg => (
-                      <td key={`${pkg.id}-${feature}`} className="px-6 py-3 text-sm text-gray-500 text-center">
+                    {filteredPackages.map((pkg) => (
+                      <td
+                        key={`${pkg.id}-${feature}`}
+                        className="px-6 py-3 text-sm text-gray-500 text-center"
+                      >
                         {pkg.features.includes(feature) ? (
                           <Check className="w-5 h-5 text-[#91d30f] mx-auto" />
                         ) : (
@@ -492,8 +554,11 @@ const PackagesPage = () => {
                   <td className="sticky left-0 px-6 py-4 text-sm font-medium text-gray-900 bg-gray-50">
                     Book Package
                   </td>
-                  {filteredPackages.map(pkg => (
-                    <td key={`${pkg.id}-book`} className="px-6 py-4 text-sm text-center">
+                  {filteredPackages.map((pkg) => (
+                    <td
+                      key={`${pkg.id}-book`}
+                      className="px-6 py-4 text-sm text-center"
+                    >
                       <button className="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm">
                         Book Now
                       </button>
