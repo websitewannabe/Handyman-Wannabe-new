@@ -519,15 +519,14 @@ const PackagesPage = () => {
                           </div>
 
                           <div className="flex justify-center mt-4">
-                            <button 
-                              className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors"
-                              onClick={() => {
-                                const url = "https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D";
-                                window.open(url, "_blank", "noopener,noreferrer");
-                              }}
+                            <a 
+                              href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
+                              className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors text-center inline-block"
+                              target="_blank"
+                              rel="noopener noreferrer"
                             >
                               Book This Package
-                            </button>
+                            </a>
                           </div>
                         </motion.div>
                       )}
@@ -611,15 +610,14 @@ const PackagesPage = () => {
                       key={`${pkg.id}-book`}
                       className="px-6 py-4 text-sm text-center"
                     >
-                      <button 
-                        className="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
-                        onClick={() => {
-                          const url = "https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D";
-                          window.open(url, "_blank", "noopener,noreferrer");
-                        }}
+                      <a 
+                        href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
+                        className="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm inline-block"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Book Now
-                      </button>
+                      </a>
                     </td>
                   ))}
                 </tr>
