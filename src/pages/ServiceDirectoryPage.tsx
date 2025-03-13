@@ -373,18 +373,7 @@ const ServiceDirectoryPage = () => {
 
                 {/* Call to Action */}
                 <div className="flex gap-4">
-                  <button 
-                    className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-center"
-                    onClick={() => {
-                      const url = "https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D";
-                      // Using both methods for better cross-browser compatibility
-                      window.open(url, "_blank", "noopener,noreferrer");
-                      // Fallback method
-                      setTimeout(() => {
-                        window.location.href = url;
-                      }, 100);
-                    }}
-                  >
+                  <button className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors">
                     Book Now
                   </button>
                   <button className="flex-1 border-2 border-primary text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/5 transition-colors">
