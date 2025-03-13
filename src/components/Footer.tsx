@@ -165,10 +165,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/packages?package=emergency-repairs"
+                    to="/packages?package=new-pet"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Emergency Repairs
+                    New Pet Package
                   </Link>
                 </li>
               </ul>
