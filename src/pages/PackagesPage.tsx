@@ -222,14 +222,33 @@ const PackagesPage = () => {
   useEffect(() => {
     const packageParam = searchParams.get("package");
     if (packageParam) {
-      // Find by exact ID or case-insensitive match for more flexibility
-      const selectedPkg = packageData.find(
-        pkg => pkg.id === packageParam || 
-               pkg.id.toLowerCase() === packageParam.toLowerCase() ||
-               pkg.id.replace(/-/g, '').toLowerCase() === packageParam.replace(/-/g, '').toLowerCase()
-      );
+      console.log("Looking for package:", packageParam);
+      
+      // Debug: Log all package IDs for comparison
+      console.log("Available package IDs:", packageData.map(pkg => pkg.id));
+      
+      // Enhanced matching logic for package IDs
+      const selectedPkg = packageData.find(pkg => {
+        // Normalize both strings for comparison: lowercase and remove hyphens
+        const normalizedParamId = packageParam.toLowerCase().replace(/-/g, '');
+        const normalizedPkgId = pkg.id.toLowerCase().replace(/-/g, '');
+        
+        // Try different matching strategies
+        const exactMatch = pkg.id === packageParam;
+        const lowercaseMatch = pkg.id.toLowerCase() === packageParam.toLowerCase();
+        const normalizedMatch = normalizedPkgId === normalizedParamId;
+        
+        // For debugging
+        if (normalizedPkgId.includes(normalizedParamId) || normalizedParamId.includes(normalizedPkgId)) {
+          console.log(`Partial match - Param: ${packageParam}, Package: ${pkg.id}, 
+                      Normalized param: ${normalizedParamId}, Normalized pkg: ${normalizedPkgId}`);
+        }
+        
+        return exactMatch || lowercaseMatch || normalizedMatch;
+      });
       
       if (selectedPkg) {
+        console.log("Found matching package:", selectedPkg.id);
         setSelectedPackageId(selectedPkg.id);
         setExpandedPackageId(selectedPkg.id);
         
@@ -238,10 +257,31 @@ const PackagesPage = () => {
           const element = document.getElementById(`package-${selectedPkg.id}`);
           if (element) {
             element.scrollIntoView({ behavior: "smooth", block: "center" });
+          } else {
+            console.log(`Element with ID 'package-${selectedPkg.id}' not found in DOM`);
           }
         }, 300);
       } else {
         console.log(`Package not found for ID: ${packageParam}`);
+        
+        // Fallback: Try to find a package that contains the search param as a substring
+        const fallbackPkg = packageData.find(pkg => 
+          pkg.id.toLowerCase().includes(packageParam.toLowerCase()) ||
+          packageParam.toLowerCase().includes(pkg.id.toLowerCase())
+        );
+        
+        if (fallbackPkg) {
+          console.log(`Found fallback package match: ${fallbackPkg.id}`);
+          setSelectedPackageId(fallbackPkg.id);
+          setExpandedPackageId(fallbackPkg.id);
+          
+          setTimeout(() => {
+            const element = document.getElementById(`package-${fallbackPkg.id}`);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          }, 300);
+        }
       }
     }
   }, [searchParams]);
