@@ -84,13 +84,13 @@ const Services = () => {
             onMouseEnter={() => setHoveredService(service.category)}
             onMouseLeave={() => setHoveredService(null)}
           >
-            <div className="relative h-[300px] mx-auto">
+            <div className="relative h-[300px] mx-auto"> {/* Reduced height and centered image */}
               {/* Image with overlay */}
-              <div className="absolute inset-0 mx-auto w-[90%]">
+              <div className="absolute inset-0 mx-auto w-[90%]"> {/* Contained image width */}
                 <img
                   src={service.image}
                   alt={service.category}
-                  className="w-full h-full object-cover rounded-lg mt-4"
+                  className="w-full h-full object-cover rounded-lg mt-4 transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 mx-auto w-[90%] rounded-lg bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
               </div>
@@ -109,10 +109,10 @@ const Services = () => {
 
               {/* Hover overlay */}
               <motion.div
-                className="absolute inset-0 mx-auto w-[90%] rounded-lg"
+                className="absolute inset-0 mx-auto w-[90%] rounded-lg bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
                 animate={{
-                  opacity: hoveredService === service.category ? 0 : 0,
+                  opacity: hoveredService === service.category ? 1 : 0,
                 }}
               />
             </div>
