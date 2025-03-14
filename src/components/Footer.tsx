@@ -70,7 +70,7 @@ const Footer = () => {
                 href="https://pro.housecallpro.com/pro/client_hub/log_in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors"
               >
                 Customer Portal
               </a>
