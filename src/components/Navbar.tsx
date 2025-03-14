@@ -173,7 +173,7 @@ const Navbar = () => {
       if (!dropdownElement && !dropdownTrigger && !dropdownLink && !dropdownContainer) {
         setDropdownOpen(null);
       }
-    }, 600);
+    }, 400);
   };
 
   const handleMegaMenuEnter = (label: string) => {
@@ -469,14 +469,14 @@ const Navbar = () => {
 
                     {item.dropdown && dropdownOpen === item.label && (
                       <div
-                        className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50"
+                        className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 dropdown-menu"
                         role="menu"
                       >
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.label}
                             to={dropdownItem.href}
-                            className="block px-4 py-3 text-sm text-dark hover:bg-gray-50 hover:text-secondary transition-colors"
+                            className="block px-4 py-3 text-sm text-dark hover:bg-gray-50 hover:text-secondary transition-colors dropdown-link"
                             role="menuitem"
                           >
                             {dropdownItem.label}
