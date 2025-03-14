@@ -162,9 +162,13 @@ const Navbar = () => {
   };
 
   const handleDropdownLeave = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
     dropdownTimeoutRef.current = setTimeout(() => {
       const dropdownElement = document.querySelector('.dropdown-menu:hover');
-      if (!dropdownElement) {
+      const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
+      if (!dropdownElement && !dropdownTrigger) {
         setDropdownOpen(null);
       }
     }, 300);

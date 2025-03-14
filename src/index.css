@@ -88,11 +88,17 @@
   transform: translate3d(0, 0, 0);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease-out;
+  transition: opacity 0.3s ease-out;
   contain: layout paint style;
   will-change: transform, opacity;
   padding-top: 8px;
   margin-top: -8px;
+  z-index: 1000;
+}
+
+.dropdown-menu:hover {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .dropdown-menu:hover {
