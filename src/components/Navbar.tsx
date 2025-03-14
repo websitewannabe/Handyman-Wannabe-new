@@ -444,18 +444,8 @@ const Navbar = () => {
                 ))}
               </div>
 
-              {/* Phone Number and CTA */}
-              <div className="flex flex-col items-center space-y-2">
-                <div className="flex items-center">
-                  <Phone
-                    className={`w-5 h-5 ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"} mr-2`}
-                  />
-                  <span
-                    className={`text-base font-medium ${isScrolled || shouldUseBlackText ? "text-[#00274D]" : "text-white"}`}
-                  >
-                    (719) 315-6628
-                  </span>
-                </div>
+              {/* CTA */}
+              <div className="flex items-center">
                 {/*Start of Housecall Pro Customer Portal button*/}
                 <button
                   data-token="a723826f09b6469fb06bd0ddb961381b"
@@ -595,15 +585,8 @@ const Navbar = () => {
                   </div>
                 ))}
 
-                {/* Phone number in mobile menu */}
+                {/* Mobile menu CTA */}
                 <div className="py-4 flex flex-col items-center mt-2">
-                  <a
-                    href="tel:7193156628"
-                    className="flex items-center text-xl font-bold text-primary hover:text-secondary transition-colors py-2"
-                  >
-                    <Phone className="w-5 h-5 mr-2" />
-                    (719) 315-6628
-                  </a>
                   <button
                     className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors" // Modified class for smaller size
                     data-token="a723826f09b6469fb06bd0ddb961381b"
