@@ -44,7 +44,7 @@ const serviceCategories = [
       { name: "Cleaning", icon: Brush },
       { name: "Electrical", icon: Zap },
       { name: "Flooring", icon: Ruler },
-      { name: "Furniture Assembly", icon: Sofa, href: "/furniture-assembly" },
+      { name: "Furniture Assembly", icon: Sofa, href: "/services/furniture-assembly" },
       { name: "Garage Doors", icon: GarageDoor },
       { name: "Holiday Lighting", icon: Lightbulb },
       { name: "Home Inspections", icon: ClipboardCheck },
