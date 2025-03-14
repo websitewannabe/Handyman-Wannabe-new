@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { navItems, serviceCategories } from "../data/navigation";
+import { navItems } from "../data/navigation";
 import PhoneCallModal from "./PhoneCallModal";
 import {
   Menu,
