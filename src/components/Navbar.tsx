@@ -44,7 +44,11 @@ const serviceCategories = [
       { name: "Cleaning", icon: Brush },
       { name: "Electrical", icon: Zap },
       { name: "Flooring", icon: Ruler },
-      { name: "Furniture Assembly", icon: Sofa, href: "/services/furniture-assembly" },
+      {
+        name: "Furniture Assembly",
+        icon: Sofa,
+        href: "/services/furniture-assembly",
+      },
       { name: "Garage Doors", icon: GarageDoor },
       { name: "Holiday Lighting", icon: Lightbulb },
       { name: "Home Inspections", icon: ClipboardCheck },
@@ -88,7 +92,10 @@ const navItems: NavItem[] = [
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
-      { label: "Customer Portal", href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b" },
+      {
+        label: "Customer Portal",
+        href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
+      },
     ],
   },
 ];
@@ -97,7 +104,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(null);
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(
+    null,
+  );
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
@@ -161,8 +170,10 @@ const Navbar = () => {
 
   const handleDropdownLeave = () => {
     const timeoutId = setTimeout(() => {
-      const dropdownElement = document.querySelector('.dropdown-menu:hover');
-      const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
+      const dropdownElement = document.querySelector(".dropdown-menu:hover");
+      const dropdownTrigger = document.querySelector(
+        "[data-menu-trigger]:hover",
+      );
       if (!dropdownElement && !dropdownTrigger) {
         setDropdownOpen(null);
       }
@@ -325,7 +336,6 @@ const Navbar = () => {
       }, 100);
     };
 
-
     const handleClickOutside = (event: MouseEvent) => {
       if (megaMenuOpen) {
         const megaMenu = document.querySelector(".mega-menu-container");
@@ -448,7 +458,10 @@ const Navbar = () => {
                                 {category.items.map((service) => (
                                   <Link
                                     key={service.name}
-                                    to={service.href || getServiceUrl(service.name)}
+                                    to={
+                                      service.href ||
+                                      getServiceUrl(service.name)
+                                    }
                                     className={`px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded ${index === 0 ? "text-secondary hover:text-primary" : "text-[#91d30f] hover:text-orange-500"} flex items-center`}
                                   >
                                     <service.icon className="w-4 h-4 mr-2" />
