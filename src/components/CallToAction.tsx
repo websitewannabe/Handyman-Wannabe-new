@@ -8,9 +8,14 @@ const CallToAction = () => {
         <p className="text-white/90 mb-8 text-lg">
           No obligation, just expert help when you need it!
         </p>
-        <button className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors">
+        <a
+          href="https://carpet-quote-pro-ctierney1.replit.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors inline-block"
+        >
           Get an Instant Quote Now!
-        </button>
+        </a>
       </div>
     </section>
   );
