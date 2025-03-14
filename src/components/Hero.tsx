@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Search, Phone, X, DollarSign, Clock, Star } from "lucide-react";
+import { Search, Phone, X, DollarSign, Clock, Star, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../data/services.json";
+import { motion, AnimatePresence } from "framer-motion";
+
 const services = [
   "Outlet Repair",
   "Custom Shelving",
@@ -83,11 +85,9 @@ const Hero = () => {
   };
 
   const handleSelectService = (service: any) => {
-    setSelectedService(service);
     setSearchQuery("");
     setIsDropdownVisible(false);
-    // Navigate to service page instead of opening modal
-    navigate(`/services/${service.id}`);
+    setSelectedService(service);
   };
 
   return (
@@ -99,18 +99,18 @@ const Hero = () => {
             transition: "opacity 0.3s ease-in-out",
           }}
         >
-          <img 
+          <img
             src="/images/Handyman-Hero.jpeg"
             alt="Professional Handyman Services"
             className="w-full h-full object-cover object-center"
             loading="lazy"
             fetchpriority="high"
             style={{
-              maxWidth: '100%',
-              height: '100%',
+              maxWidth: "100%",
+              height: "100%",
             }}
             onError={(e) => {
-              console.error('Hero image failed to load:', e.currentTarget.src);
+              console.error("Hero image failed to load:", e.currentTarget.src);
               // Try alternative path
               e.currentTarget.src = `${window.location.origin}/images/Handyman-Hero.jpeg`;
             }}
@@ -180,7 +180,110 @@ const Hero = () => {
               </div>
             </form>
 
-            {/* Service search results only - modal removed */}
+            {/* Service Modal */}
+            <AnimatePresence>
+              {selectedService && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                  onClick={() => setSelectedService(null)}
+                >
+                  <motion.div
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.95, opacity: 0 }}
+                    className="bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {/* Modal Header */}
+                    <div className="relative h-64">
+                      <img
+                        src={selectedService.image}
+                        alt={selectedService.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <button
+                        className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full hover:bg-white/30 transition-colors"
+                        onClick={() => setSelectedService(null)}
+                      >
+                        <ChevronDown className="w-6 h-6" />
+                      </button>
+                      {selectedService.popular && (
+                        <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                          <Star className="w-4 h-4 mr-1" />
+                          Popular
+                        </div>
+                      )}
+                      <div className="absolute bottom-4 left-6 right-6">
+                        <h3 className="text-3xl font-bold text-white mb-2">
+                          {selectedService.name}
+                        </h3>
+                        <p className="text-white/90 text-lg">
+                          {selectedService.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Modal Content */}
+                    <div className="p-6">
+                      {/* Service Details */}
+                      <div className="grid grid-cols-2 gap-4 mb-8">
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                          <div className="flex items-center text-primary mb-2">
+                            <DollarSign className="w-5 h-5 mr-2" />
+                            <span className="font-bold">Price Estimate</span>
+                          </div>
+                          <p className="text-gray-700">{selectedService.price}</p>
+                        </div>
+                        <div className="bg-gray-50 p-4 rounded-lg">
+                          <div className="flex items-center text-primary mb-2">
+                            <Clock className="w-5 h-5 mr-2" />
+                            <span className="font-bold">Duration</span>
+                          </div>
+                          <p className="text-gray-700">
+                            {selectedService.timeEstimate}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Features */}
+                      <div className="mb-8">
+                        <h4 className="text-lg font-bold mb-4">What's Included</h4>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {selectedService.features.map((feature, index) => (
+                            <li
+                              key={index}
+                              className="flex items-start bg-gray-50 p-4 rounded-lg"
+                            >
+                              <Star className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                              <span className="text-gray-700">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Call to Action */}
+                      <div className="flex gap-4">
+                        <a
+                          href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32?v2=true&lead_source=google&merchant_id=75977328-0490-46ae-a2c0-ff7f95559206&hl=en-US&gei=y0TQZ-TLAark5NoPzqbemQ4&rwg_token=AAiGsob2E05dxlHIY1V72CDzKrPXjfBBpr-bLpRjINnRuPGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D"
+                          className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-center"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book Now
+                        </a>
+                        <button className="flex-1 border-2 border-primary text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/5 transition-colors">
+                          Get a Quote
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {searchStatus !== "idle" && (
@@ -201,7 +304,7 @@ const Hero = () => {
             <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
             </button>
-            <a 
+            <a
               href="tel:7193156628"
               className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
             >
@@ -232,7 +335,6 @@ const Hero = () => {
         className="absolute -bottom-32 left-0 right-0 h-32 z-0"
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
-
     </div>
   );
 };
