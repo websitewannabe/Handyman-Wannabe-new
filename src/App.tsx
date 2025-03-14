@@ -37,10 +37,10 @@ import SitemapPage from './pages/SitemapPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
 import MobileServicesPage from "./components/MobileServicesPage";
-import AccessibilityPage from "./pages/AccessibilityPage"; // Added import
-import PrivacyPage from "./pages/PrivacyPage"; // Added import for Privacy Page
-import TermsPage from "./pages/TermsPage"; // Added import for Terms of Service Page
-import DisclaimerPage from "./pages/DisclaimerPage"; // Added import for Disclaimer Page
+import AccessibilityPage from "./pages/AccessibilityPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
+import DisclaimerPage from "./pages/DisclaimerPage";
 
 
 function App() {
@@ -84,12 +84,11 @@ function App() {
             <Route path="/service-directory" element={<ServiceDirectoryPage />} />
             <Route path="/services" element={<ServiceDirectoryPage />} />
             <Route path="/sitemap" element={<SitemapPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} /> {/* Added Privacy Policy route */}
-            <Route path="/terms" element={<TermsPage />} /> {/* Added Terms of Service route */}
-            <Route path="/disclaimer" element={<DisclaimerPage />} /> {/* Added Disclaimer route */}
-            <Route path="/accessibility" element={<AccessibilityPage />} /> {/* Added route */}
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/disclaimer" element={<DisclaimerPage />} />
+            <Route path="/accessibility" element={<AccessibilityPage />} />
             <Route path="/mobileservicespage" element={<MobileServicesPage onClose={() => window.history.back()} />} />
-            {/* Catch-all route for 404 errors */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Footer />
