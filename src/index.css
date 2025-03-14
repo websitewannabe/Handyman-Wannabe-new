@@ -35,6 +35,12 @@
   transform: translateZ(0);
   will-change: transform;
   backface-visibility: hidden;
+  position: relative;
+  z-index: 50;
+}
+
+.nav-item:hover {
+  z-index: 51;
 }
 
 .dropdown-enter,
@@ -42,6 +48,29 @@
   transform: translateZ(0);
   will-change: transform;
   pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 49;
+}
+
+/* Prevent layout shifts during scroll */
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  contain: layout style paint;
+}
+
+/* Optimize performance */
+.nav-content {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: layout style paint;
 }
 
   background: #f1f1f1;

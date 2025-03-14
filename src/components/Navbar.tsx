@@ -27,7 +27,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
+import PhoneCallModal from "./PhoneCallModal";
 import MobileServicesPage from "./MobileServicesPage";
 
 interface NavItem {
@@ -107,16 +107,26 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  let scrollTimeout: NodeJS.Timeout | null = null; // Added timeout variable
+  const lastScrollPosition = useRef(0);
+  const isScrolling = useRef(false);
+  let scrollTimeout: NodeJS.Timeout | null = null;
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      if (!isScrolling.current) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY;
+          setIsScrolled(scrollPosition > 0);
+          lastScrollPosition.current = scrollPosition;
+          isScrolling.current = false;
+        });
+      }
+      isScrolling.current = true;
     };
 
     const handleResize = () => {
@@ -134,7 +144,7 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
       if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
       if (megaMenuTimeoutRef.current) clearTimeout(megaMenuTimeoutRef.current);
-      clearTimeout(scrollTimeout); // Clear timeout on unmount
+      clearTimeout(scrollTimeout);
     };
   }, []);
 
@@ -142,13 +152,17 @@ const Navbar = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
-    setDropdownOpen(label);
+    if (!isScrolling.current) {
+      setDropdownOpen(label);
+    }
   };
 
   const handleDropdownLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setDropdownOpen(null);
-    }, 150);
+    if (!isScrolling.current) {
+      dropdownTimeoutRef.current = setTimeout(() => {
+        setDropdownOpen(null);
+      }, 150);
+    }
   };
 
   const handleMegaMenuEnter = () => {
@@ -169,7 +183,6 @@ const Navbar = () => {
   };
 
   const getServiceUrl = (serviceName: string) => {
-    // Special cases for services with different URL patterns
     if (serviceName === "Smart Home") {
       return "/services/smart-homes";
     }
@@ -189,7 +202,6 @@ const Navbar = () => {
       return "/services/furniture-assembly";
     }
 
-    // Handle other services
     const slug = serviceName
       .toLowerCase()
       .replace(/\s+&\s+|-/g, "-")
@@ -198,7 +210,6 @@ const Navbar = () => {
   };
 
   const currentPath = location.pathname;
-  // Check if we're on a page that should always have black text
   const shouldUseBlackText =
     [
       "/services",
@@ -210,10 +221,10 @@ const Navbar = () => {
       "/service-area",
       "/contact",
       "/faq",
-      "/accessibility", // Added accessibility page
-      "/sitemap", // Added sitemap page
-      "/blog", // Added blog page
-      "/404", // Added 404 page
+      "/accessibility",
+      "/sitemap",
+      "/blog",
+      "/404",
     ].includes(currentPath) ||
     currentPath.includes("404") ||
     currentPath.includes("not-found") ||
@@ -222,7 +233,6 @@ const Navbar = () => {
     currentPath === "*";
 
   useEffect(() => {
-    // Close dropdown when clicking outside
     function handleClickOutside(event: MouseEvent) {
       if (
         searchRef.current &&
@@ -237,13 +247,11 @@ const Navbar = () => {
     };
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
     setMobileSubMenuOpen(null);
   }, [location.pathname]);
 
-  // Prevent body scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("menu-open");
@@ -260,7 +268,6 @@ const Navbar = () => {
     setMobileSubMenuOpen(mobileSubMenuOpen === label ? null : label);
   };
 
-  // Helper function to convert strings to kebab-case
   const kebabCase = (str: string) => {
     return str
       .replace(/([a-z])([A-Z])/g, "$1-$2")
@@ -272,13 +279,12 @@ const Navbar = () => {
     e.preventDefault();
     if (isMobile) {
       setIsMobileServicesOpen(true);
-      setIsOpen(false); // Close the main mobile menu
+      setIsOpen(false);
     } else {
       setMegaMenuOpen(!megaMenuOpen);
     }
   };
 
-  // Add/remove body class to prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileServicesOpen) {
       document.body.classList.add("mobile-menu-open");
@@ -293,25 +299,21 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 0);
-      if (megaMenuOpen) {
-        if (scrollTimeout) {
-          clearTimeout(scrollTimeout);
-        }
-        scrollTimeout = setTimeout(() => {
-          setMegaMenuOpen(false);
-        }, 500); // Close mega-menu after 500ms of scrolling
+      if (!isScrolling.current) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY;
+          setIsScrolled(scrollPosition > 0);
+          lastScrollPosition.current = scrollPosition;
+          isScrolling.current = false;
+        });
       }
+      isScrolling.current = true;
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      // Check if mega menu is open
-      if (megaMenuOpen) {
-        // Get the mega menu element
-        const megaMenu = document.querySelector(".mega-menu-container");
 
-        // If we found the mega menu and the click is outside it and not on the services nav item
+    const handleClickOutside = (event: MouseEvent) => {
+      if (megaMenuOpen) {
+        const megaMenu = document.querySelector(".mega-menu-container");
         if (
           megaMenu &&
           !megaMenu.contains(event.target) &&
@@ -328,13 +330,12 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousedown", handleClickOutside);
-      clearTimeout(scrollTimeout); // Clear timeout on unmount
+      clearTimeout(scrollTimeout);
     };
   }, [megaMenuOpen]);
 
   return (
     <>
-      {/* Mobile Services Page */}
       {isMobileServicesOpen && isMobile && (
         <div className="fixed inset-0 z-[60] bg-white">
           <MobileServicesPage onClose={() => setIsMobileServicesOpen(false)} />
@@ -351,9 +352,7 @@ const Navbar = () => {
         aria-label="Main navigation"
       >
         <div className="max-w-[1920px] mx-auto">
-          {/* Combined Navigation Bar */}
           <div className="flex items-center justify-between h-28 px-8">
-            {/* Logo */}
             <Link
               to="/"
               className="flex-shrink-0"
@@ -366,9 +365,7 @@ const Navbar = () => {
               />
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-12">
-              {/* Main Navigation Items */}
               <div className="flex items-center space-x-8">
                 {navItems.map((item) => (
                   <div
@@ -395,7 +392,7 @@ const Navbar = () => {
                           }`}
                           aria-expanded={megaMenuOpen ? "true" : "false"}
                           aria-haspopup="true"
-                          data-menu-trigger="SERVICES" // Added data attribute
+                          data-menu-trigger="SERVICES"
                         >
                           {item.label}
                           <ChevronDown className="ml-1 w-4 h-4" />
@@ -425,13 +422,10 @@ const Navbar = () => {
                       )}
                     </div>
 
-                    {/* Mega Menu */}
                     {item.megaMenu &&
                       megaMenuOpen &&
                       item.label === "SERVICES" && (
                         <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 mega-menu-container">
-                          {" "}
-                          {/* Added class for selection */}
                           <div className="grid grid-cols-2 gap-4 p-4">
                             {item.megaMenu.map((category, index) => (
                               <div key={index} className="grid gap-1">
@@ -451,7 +445,6 @@ const Navbar = () => {
                         </div>
                       )}
 
-                    {/* Regular Dropdown Menu */}
                     {item.dropdown && dropdownOpen === item.label && (
                       <div
                         className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50"
@@ -473,9 +466,7 @@ const Navbar = () => {
                 ))}
               </div>
 
-              {/* CTA */}
               <div className="flex items-center">
-                {/*Start of Housecall Pro Customer Portal button*/}
                 <button
                   data-token="a723826f09b6469fb06bd0ddb961381b"
                   data-orgname="Handyman-Wannabe-LLC"
@@ -489,15 +480,13 @@ const Navbar = () => {
                   }}
                   onMouseEnter={(e) => e.stopPropagation()}
                   onMouseOver={(e) => e.stopPropagation()}
-                  className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors" // Modified class for smaller size
+                  className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors"
                 >
                   Customer Portal
                 </button>
-                {/*End of Housecall Pro Customer Portal button*/}
               </div>
             </div>
 
-            {/* Mobile menu button */}
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -513,18 +502,15 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-          {/* Mobile menu */}
           {isOpen && (
             <div className="lg:hidden bg-white">
               <div className="px-2 pt-2 pb-3 space-y-1 list-none">
                 {navItems.map((item) => (
                   <div key={item.label} className="w-full">
-                    {/* First level item */}
                     {item.dropdown || item.megaMenu ? (
-                      // Items with dropdown - special handling for SERVICES on mobile
                       item.label === "SERVICES" ? (
                         <Link
-                          to="/mobileservicespage" // Updated link for Services
+                          to="/mobileservicespage"
                           className={`block py-3 text-lg font-medium ${
                             isActive("/mobileservicespage")
                               ? "text-primary"
@@ -535,17 +521,16 @@ const Navbar = () => {
                                   : "text-dark"
                           }`}
                           onClick={() => {
-                            setIsOpen(false); // Close the mobile menu after click
+                            setIsOpen(false);
                             setActiveDropdown(null);
                           }}
                         >
                           {item.label}
                         </Link>
                       ) : (
-                        // Other dropdown items
                         <button
                           onClick={(e) => {
-                            e.stopPropagation(); // Stop event propagation
+                            e.stopPropagation();
                             setActiveDropdown(
                               activeDropdown === item.label ? null : item.label,
                             );
@@ -573,7 +558,6 @@ const Navbar = () => {
                         </button>
                       )
                     ) : (
-                      // Regular links
                       <Link
                         to={item.href}
                         className={`block py-3 text-lg font-medium ${
@@ -586,15 +570,14 @@ const Navbar = () => {
                                 : "text-dark"
                         }`}
                         onClick={(e) => {
-                          e.stopPropagation(); // Stop event propagation
-                          setIsOpen(false); // Close mobile menu after link click
+                          e.stopPropagation();
+                          setIsOpen(false);
                           setActiveDropdown(null);
                         }}
                       >
                         {item.label}
                       </Link>
                     )}
-                    {/* For mobile submenu */}
                     {mobileSubMenuOpen === item.label && (
                       <div className="pl-4 pr-2 py-2 space-y-1">
                         {item.dropdown?.map((subItem) => (
@@ -603,9 +586,9 @@ const Navbar = () => {
                             to={subItem.href}
                             className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
                             onClick={(e) => {
-                              e.stopPropagation(); // Stop event propagation
-                              setIsOpen(false); // Close mobile menu
-                              setMobileSubMenuOpen(null); // Close submenu
+                              e.stopPropagation();
+                              setIsOpen(false);
+                              setMobileSubMenuOpen(null);
                             }}
                           >
                             {subItem.label}
@@ -616,10 +599,9 @@ const Navbar = () => {
                   </div>
                 ))}
 
-                {/* Mobile menu CTA */}
                 <div className="py-4 flex flex-col items-center mt-2">
                   <button
-                    className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors" // Modified class for smaller size
+                    className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors"
                     data-token="a723826f09b6469fb06bd0ddb961381b"
                     data-orgname="Handyman-Wannabe-LLC"
                     onClick={(e) => {
@@ -642,9 +624,7 @@ const Navbar = () => {
           <PhoneCallModal
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
-          />{" "}
-          {/* Added modal rendering */}
-          {/* Services Mega Menu for Desktop - Handled in the nav items section */}
+          />
         </div>
       </nav>
     </>
