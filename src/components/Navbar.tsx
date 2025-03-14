@@ -161,19 +161,24 @@ const Navbar = () => {
     setDropdownOpen(label);
   };
 
-  const handleDropdownLeave = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
+  const handleDropdownLeave = (event: React.MouseEvent) => {
+    const relatedTarget = event.relatedTarget as HTMLElement;
+    const isStillInDropdown = relatedTarget?.closest('.dropdown-container');
+    
+    if (isStillInDropdown) {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+      return;
     }
+
     dropdownTimeoutRef.current = setTimeout(() => {
-      const dropdownElement = document.querySelector('.dropdown-menu:hover');
-      const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
-      const dropdownLink = document.querySelector('.dropdown-link:hover');
       const dropdownContainer = document.querySelector('.dropdown-container:hover');
-      if (!dropdownElement && !dropdownTrigger && !dropdownLink && !dropdownContainer) {
+      const isHovering = dropdownContainer || document.querySelector('.dropdown-menu:hover');
+      if (!isHovering) {
         setDropdownOpen(null);
       }
-    }, 600);
+    }, 150);
   };
 
   const handleMegaMenuEnter = (label: string) => {
