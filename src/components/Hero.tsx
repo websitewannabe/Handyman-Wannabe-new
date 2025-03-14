@@ -53,7 +53,7 @@ const Hero = () => {
     );
 
     setFilteredServices(filtered);
-    setIsDropdownVisible(filtered.length > 0);
+    setIsDropdownVisible(true); // Show dropdown if results are found
   }, [searchQuery]);
 
   useEffect(() => {
@@ -144,9 +144,7 @@ const Hero = () => {
                   placeholder={`Search for... ${services[currentServiceIndex]}`}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  onFocus={() =>
-                    setIsDropdownVisible(filteredServices.length > 0)
-                  }
+                  onFocus={() => setIsDropdownVisible(true)} // Show dropdown on focus
                   className="w-full px-6 py-4 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-primary text-lg"
                 />
                 <button
@@ -155,32 +153,32 @@ const Hero = () => {
                 >
                   <Search className="w-5 h-5" />
                 </button>
+
+                {/* Search Results Dropdown */}
+                {isDropdownVisible && (
+                  <div className="absolute mt-1 w-full bg-white shadow-md rounded-lg overflow-auto search-dropdown">
+                    <ul className="py-1">
+                      {filteredServices.map((service) => (
+                        <li
+                          key={service.id}
+                          className="px-3 py-2 hover:bg-gray-100 cursor-pointer transition-colors"
+                          onClick={() => handleSelectService(service)}
+                        >
+                          <div className="flex flex-col">
+                            <p className="font-medium text-gray-800 text-sm truncate">
+                              {service.name}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {service.category}
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </form>
-
-            {/* Search Results Dropdown */}
-            {isDropdownVisible && (
-              <div className="absolute mt-1 w-full bg-white shadow-md rounded-lg overflow-auto search-dropdown">
-                <ul className="py-1">
-                  {filteredServices.map((service) => (
-                    <li
-                      key={service.id}
-                      className="px-3 py-2 hover:bg-gray-100 cursor-pointer transition-colors"
-                      onClick={() => handleSelectService(service)}
-                    >
-                      <div className="flex flex-col">
-                        <p className="font-medium text-gray-800 text-sm truncate">
-                          {service.name}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {service.category}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
             {/* Service search results only - modal removed */}
           </div>
@@ -234,8 +232,8 @@ const Hero = () => {
         className="absolute -bottom-32 left-0 right-0 h-32 z-0"
         style={{ backgroundColor: "#ebd5c1" }}
       ></div>
-      
-      </div>
+
+    </div>
   );
 };
 
