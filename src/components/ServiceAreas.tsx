@@ -17,7 +17,7 @@ const serviceAreas = [
   {
     region: "Teller County",
     areas: ["Green Mountain Falls, CO", "Manitou Springs, 80829, CO"],
-  },
+  }
 ];
 
 const ServiceAreas = () => {
