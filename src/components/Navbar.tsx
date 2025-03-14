@@ -113,7 +113,6 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastScrollPosition = useRef(0);
   let scrollTimeout: NodeJS.Timeout | null = null;
@@ -314,7 +313,7 @@ const Navbar = () => {
 
       const currentScrollY = window.scrollY;
       const scrollDiff = Math.abs(currentScrollY - lastScrollY.current);
-      
+
       if (scrollDiff > 5) {
         window.requestAnimationFrame(() => {
           setIsScrolled(currentScrollY > 0);
