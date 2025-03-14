@@ -1,34 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import {
-  Menu,
-  X,
-  ChevronDown,
-  Phone,
-  Zap,
-  Droplet,
-  Paintbrush,
-  Ruler,
   Hammer,
-  DoorOpen,
-  Car as GarageDoor,
-  Waves,
-  Flower2,
+  Brush,
+  Zap,
+  Ruler,
+  Sofa,
+  GarageDoor,
+  Lightbulb,
   ClipboardCheck,
   Shield,
-  Home as SmartHome,
+  Flower2,
   Lock,
-  Bath,
-  Lightbulb,
-  Sofa,
-  Truck,
-  Brush,
-  Building2,
   Package,
-  ChevronUp,
+  Paintbrush,
+  Droplet,
+  Bath,
+  Waves,
+  Building2,
+  SmartHome,
+  Truck,
+  DoorOpen,
+  Menu,
+  X,
+  Phone,
 } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import PhoneCallModal from "./PhoneCallModal"; // Added import for the modal component
-import MobileServicesPage from "./MobileServicesPage";
+import PhoneCallModal from "./PhoneCallModal";
+import servicesData from "../data/services.json";
 
 interface NavItem {
   label: string;
@@ -93,535 +92,224 @@ const navItems: NavItem[] = [
 ];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(
-    null,
-  );
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
-  const searchRef = useRef<HTMLDivElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const shouldUseBlackText = location.pathname !== "/";
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-      if (window.innerWidth >= 1024) {
-        setIsMobileServicesOpen(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleDropdownEnter = (label: string, e?: React.MouseEvent) => {
-    if (e && e.preventDefault) {
-      e.preventDefault();
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveDropdown(null);
+  }, [location.pathname]);
+
+  const handleDropdownEnter = (label: string) => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
     }
     setActiveDropdown(label);
   };
 
-  const handleDropdownLeave = (e?: React.MouseEvent) => {
-    if (e && e.preventDefault) {
-      e.preventDefault();
-    }
-    setTimeout(() => {
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
     }, 100);
   };
 
-  const isActive = (href: string) => {
-    return location.pathname === href;
-  };
-
   const getServiceUrl = (serviceName: string) => {
-    // Special cases for services with different URL patterns
-    if (serviceName === "Smart Home") {
-      return "/services/smart-homes";
-    }
-    if (serviceName === "Property Management") {
-      return "/services/management-companies";
-    }
-    if (serviceName === "Third Party Moving") {
-      return "/services/third-party-moving";
-    }
-    if (serviceName === "Home Inspections") {
-      return "/services/home-inspections";
-    }
-    if (serviceName === "Misc.") {
-      return "/services/misc";
-    }
-    if (serviceName === "General Assembly") {
-      return "/services/furniture-assembly";
-    }
+    if (serviceName === "Smart Home") return "/services/smart-homes";
+    if (serviceName === "Property Management") return "/services/management-companies";
+    if (serviceName === "Third Party Moving") return "/services/third-party-moving";
+    if (serviceName === "Home Inspections") return "/services/home-inspections";
+    if (serviceName === "Misc.") return "/services/misc";
+    if (serviceName === "General Assembly") return "/services/furniture-assembly";
 
-    // Handle other services
-    const slug = serviceName
-      .toLowerCase()
-      .replace(/\s+&\s+|-/g, "-")
-      .replace(/\s+/g, "-");
-    return `/services/${slug}`;
+    return `/services/${serviceName.toLowerCase().replace(/\s+&\s+|-/g, "-").replace(/\s+/g, "-")}`;
   };
 
-  const currentPath = location.pathname;
-  // Check if we're on a page that should always have black text
-  const shouldUseBlackText =
-    [
-      "/services",
-      "/packages",
-      "/how-it-works",
-      "/about-us",
-      "/careers",
-      "/meet-the-team",
-      "/service-area",
-      "/contact",
-      "/faq",
-      "/accessibility", // Added accessibility page
-      "/sitemap", // Added sitemap page
-      "/blog", // Added blog page
-      "/404", // Added 404 page
-    ].includes(currentPath) ||
-    currentPath.includes("404") ||
-    currentPath.includes("not-found") ||
-    window.location.pathname.includes("404") ||
-    window.location.href.includes("404") ||
-    currentPath === "*";
-
-  useEffect(() => {
-    // Close dropdown when clicking outside
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        searchRef.current &&
-        !searchRef.current.contains(event.target as Node)
-      ) {
-        setIsSearchFocused(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-    setMobileSubMenuOpen(null);
-  }, [location.pathname]);
-
-  // Prevent body scrolling when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("menu-open");
-    } else {
-      document.body.classList.remove("menu-open");
-    }
-
-    return () => {
-      document.body.classList.remove("menu-open");
-    };
-  }, [isOpen]);
-
-  const toggleMobileSubMenu = (label: string) => {
-    setMobileSubMenuOpen(mobileSubMenuOpen === label ? null : label);
-  };
-
-  // Helper function to convert strings to kebab-case
-  const kebabCase = (str: string) => {
-    return str
-      .replace(/([a-z])([A-Z])/g, "$1-$2")
-      .replace(/[\s_]+/g, "-")
-      .toLowerCase();
-  };
-
-  const handleServiceClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (isMobile) {
-      setIsMobileServicesOpen(true);
-      setIsOpen(false); // Close the main mobile menu
-    } else {
-      setMegaMenuOpen(!megaMenuOpen);
-    }
-  };
-
-  // Add/remove body class to prevent background scrolling when mobile menu is open
-  useEffect(() => {
-    if (isMobileServicesOpen) {
-      document.body.classList.add("mobile-menu-open");
-    } else {
-      document.body.classList.remove("mobile-menu-open");
-    }
-
-    return () => {
-      document.body.classList.remove("mobile-menu-open");
-    };
-  }, [isMobileServicesOpen]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 0);
-      if (megaMenuOpen) {
-        setTimeout(() => {
-          setMegaMenuOpen(false);
-        }, 500); // Close mega-menu after 500ms of scrolling
-      }
-    };
-
-    const handleClickOutside = (event: MouseEvent) => {
-      // Check if mega menu is open
-      if (megaMenuOpen) {
-        // Get the mega menu element
-        const megaMenu = document.querySelector(".mega-menu-container");
-
-        // If we found the mega menu and the click is outside it and not on the services nav item
-        if (
-          megaMenu &&
-          !megaMenu.contains(event.target) &&
-          !event.target.closest('[data-menu-trigger="SERVICES"]')
-        ) {
-          setMegaMenuOpen(false);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [megaMenuOpen]);
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <>
-      {/* Mobile Services Page */}
-      {isMobileServicesOpen && isMobile && (
-        <div className="fixed inset-0 z-[60] bg-white">
-          <MobileServicesPage onClose={() => setIsMobileServicesOpen(false)} />
-        </div>
-      )}
-
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/75 backdrop-blur-sm shadow-lg"
-            : "bg-transparent"
+          isScrolled ? "bg-white shadow-md" : "bg-transparent"
         }`}
-        role="navigation"
-        aria-label="Main navigation"
       >
-        <div className="max-w-[1920px] mx-auto">
-          {/* Combined Navigation Bar */}
-          <div className="flex items-center justify-between h-28 px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link
-              to="/"
-              className="flex-shrink-0"
-              aria-label="Handyman Wannabe - Home"
-            >
+            <Link to="/" className="flex-shrink-0">
               <img
-                src="/images/Handyman_Logo.png"
-                alt="Handyman Wannabe"
-                className="h-16 w-auto"
+                src={isScrolled || shouldUseBlackText ? "/images/logo-color.png" : "/images/logo-white.png"}
+                alt="Logo"
+                className="h-12 w-auto"
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-12">
-              {/* Main Navigation Items */}
-              <div className="flex items-center space-x-8">
-                {navItems.map((item) => (
-                  <div
-                    key={item.label}
-                    className="relative group"
-                    onMouseEnter={(e) => handleDropdownEnter(item.label, e)}
-                    onMouseLeave={(e) => handleDropdownLeave(e)}
-                  >
-                    <div>
-                      {item.label === "SERVICES" ? (
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            handleServiceClick(e);
-                          }}
-                          className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
-                            isActive(item.href)
-                              ? "text-secondary"
-                              : isScrolled || shouldUseBlackText
-                                ? "text-dark hover:bg-gray-50"
-                                : "text-white hover:bg-white/10"
-                          }`}
-                          aria-expanded={megaMenuOpen ? "true" : "false"}
-                          aria-haspopup="true"
-                          data-menu-trigger="SERVICES" // Added data attribute
-                        >
-                          {item.label}
-                          <ChevronDown className="ml-1 w-4 h-4" />
-                        </button>
-                      ) : (
-                        <Link
-                          to={item.href.startsWith("#") ? item.href : item.href}
-                          className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
-                            isActive(item.href)
-                              ? "text-secondary"
-                              : isScrolled || shouldUseBlackText
-                                ? "text-dark hover:bg-gray-50"
-                                : "text-white hover:bg-white/10"
-                          }`}
-                          aria-expanded={activeDropdown === item.label}
-                          aria-haspopup={
-                            item.dropdown || item.megaMenu ? "true" : "false"
-                          }
-                        >
-                          {item.label}
-                          {(item.dropdown || item.megaMenu) && (
-                            <ChevronDown className="ml-1 w-4 h-4" />
-                          )}
-                        </Link>
-                      )}
-                    </div>
-
-                    {/* Mega Menu */}
-                    {item.megaMenu &&
-                      megaMenuOpen &&
-                      item.label === "SERVICES" && (
-                        <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 w-[600px] bg-white shadow-xl rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 mega-menu-container">
-                          {" "}
-                          {/* Added class for selection */}
-                          <div className="grid grid-cols-2 gap-4 p-4">
-                            {item.megaMenu.map((category, index) => (
-                              <div key={index} className="grid gap-1">
-                                {category.items.map((service) => (
-                                  <Link
-                                    key={service.name}
-                                    to={service.href || getServiceUrl(service.name)}
-                                    className={`px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded ${index === 0 ? "text-secondary" : "text-[#91d30f]"} hover:text-primary flex items-center`}
-                                  >
-                                    <service.icon className="w-4 h-4 mr-2" />
-                                    {service.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                    {/* Regular Dropdown Menu */}
-                    {item.dropdown && activeDropdown === item.label && (
-                      <div
-                        className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50"
-                        role="menu"
-                      >
-                        {item.dropdown.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.label}
-                            to={dropdownItem.href}
-                            className="block px-4 py-3 text-sm text-dark hover:bg-gray-50 hover:text-secondary transition-colors"
-                            role="menuitem"
-                          >
-                            {dropdownItem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <div className="flex items-center">
-                {/*Start of Housecall Pro Customer Portal button*/}
-                <button
-                  data-token="a723826f09b6469fb06bd0ddb961381b"
-                  data-orgname="Handyman-Wannabe-LLC"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.open(
-                      "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
-                      "_blank",
-                    );
-                  }}
-                  onMouseEnter={(e) => e.stopPropagation()}
-                  onMouseOver={(e) => e.stopPropagation()}
-                  className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors" // Modified class for smaller size
+            <div className="hidden lg:flex lg:items-center lg:space-x-1">
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="relative group"
+                  onMouseEnter={() => handleDropdownEnter(item.label)}
+                  onMouseLeave={handleDropdownLeave}
                 >
-                  Customer Portal
+                  <Link
+                    to={item.href.startsWith("#") ? item.href : item.href}
+                    className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
+                      isActive(item.href)
+                        ? "text-secondary"
+                        : isScrolled || shouldUseBlackText
+                        ? "text-dark hover:bg-gray-50"
+                        : "text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {item.label}
+                    {(item.dropdown || item.megaMenu) && (
+                      <ChevronDown className="ml-1 w-4 h-4" />
+                    )}
+                  </Link>
+
+                  {/* Mega Menu */}
+                  {item.megaMenu && activeDropdown === item.label && (
+                    <div className="absolute top-full -left-60 w-[800px] bg-white rounded-lg shadow-lg mt-1 p-4 grid grid-cols-2 gap-4">
+                      {item.megaMenu.map((column, columnIndex) => (
+                        <div key={columnIndex} className="space-y-2">
+                          {column.items.map((service) => (
+                            <Link
+                              key={service.name}
+                              to={service.href || getServiceUrl(service.name)}
+                              className="flex items-center p-2 rounded-md hover:bg-gray-50 text-dark"
+                            >
+                              {React.createElement(service.icon, {
+                                className: "w-5 h-5 mr-3 text-primary",
+                              })}
+                              {service.name}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Dropdown Menu */}
+                  {item.dropdown && activeDropdown === item.label && (
+                    <div className="absolute top-full left-0 w-48 bg-white rounded-lg shadow-lg mt-1">
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.label}
+                          to={dropdownItem.href}
+                          className="block px-4 py-2 text-dark hover:bg-gray-50"
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* CTA Buttons */}
+              <div className="flex items-center space-x-2 ml-4">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors hover:text-secondary"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call Us
                 </button>
-                {/*End of Housecall Pro Customer Portal button*/}
+                <a
+                  href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors"
+                >
+                  Book Now
+                </a>
               </div>
             </div>
 
             {/* Mobile menu button */}
-            <div className="lg:hidden">
+            <div className="flex lg:hidden items-center space-x-4">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className={`p-2 rounded-md ${
+                  isScrolled || shouldUseBlackText ? "text-dark" : "text-white"
+                }`}
+              >
+                <Phone className="w-6 h-6" />
+              </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${isScrolled || shouldUseBlackText ? "text-dark" : "text-white"} hover:text-secondary p-2`}
-                aria-expanded={isOpen}
-                aria-label="Toggle menu"
+                className={`p-2 rounded-md ${
+                  isScrolled || shouldUseBlackText ? "text-dark" : "text-white"
+                }`}
               >
                 {isOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="w-6 h-6" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="w-6 h-6" />
                 )}
               </button>
             </div>
           </div>
-          {/* Mobile menu */}
-          {isOpen && (
-            <div className="lg:hidden bg-white">
-              <div className="px-2 pt-2 pb-3 space-y-1 list-none">
-                {navItems.map((item) => (
-                  <div key={item.label} className="w-full">
-                    {/* First level item */}
-                    {item.dropdown || item.megaMenu ? (
-                      // Items with dropdown - special handling for SERVICES on mobile
-                      item.label === "SERVICES" ? (
-                        <Link
-                          to="/mobileservicespage" // Updated link for Services
-                          className={`block py-3 text-lg font-medium ${
-                            isActive("/mobileservicespage")
-                              ? "text-primary"
-                              : isScrolled
-                                ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
-                          }`}
-                          onClick={() => {
-                            setIsOpen(false); // Close the mobile menu after click
-                            setActiveDropdown(null);
-                          }}
-                        >
-                          {item.label}
-                        </Link>
-                      ) : (
-                        // Other dropdown items
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation(); // Stop event propagation
-                            setActiveDropdown(
-                              activeDropdown === item.label ? null : item.label,
-                            );
-                          }}
-                          className={`group flex items-center justify-between w-full py-3 text-lg font-medium ${
-                            activeDropdown === item.label
-                              ? "text-primary"
-                              : isScrolled
-                                ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
-                          }`}
-                          aria-expanded={activeDropdown === item.label}
-                          data-menu-trigger={item.label}
-                        >
-                          {item.label}
-                          <ChevronDown
-                            className={`w-5 h-5 transition-transform ${
-                              activeDropdown === item.label ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                      )
-                    ) : (
-                      // Regular links
-                      <Link
-                        to={item.href}
-                        className={`block py-3 text-lg font-medium ${
-                          isActive(item.href)
-                            ? "text-primary"
-                            : isScrolled
-                              ? "text-dark"
-                              : shouldUseBlackText
-                                ? "text-dark"
-                                : "text-dark"
-                        }`}
-                        onClick={(e) => {
-                          e.stopPropagation(); // Stop event propagation
-                          setIsOpen(false); // Close mobile menu after link click
-                          setActiveDropdown(null);
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-                    )}
-                    {/* For mobile submenu */}
-                    {mobileSubMenuOpen === item.label && (
-                      <div className="pl-4 pr-2 py-2 space-y-1">
-                        {item.dropdown?.map((subItem) => (
-                          <Link
-                            key={subItem.label}
-                            to={subItem.href}
-                            className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
-                            onClick={(e) => {
-                              e.stopPropagation(); // Stop event propagation
-                              setIsOpen(false); // Close mobile menu
-                              setMobileSubMenuOpen(null); // Close submenu
-                            }}
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-
-                {/* Mobile menu CTA */}
-                <div className="py-4 flex flex-col items-center mt-2">
-                  <button
-                    className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors" // Modified class for smaller size
-                    data-token="a723826f09b6469fb06bd0ddb961381b"
-                    data-orgname="Handyman-Wannabe-LLC"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      window.open(
-                        "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
-                        "_blank",
-                      );
-                    }}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseOver={(e) => e.stopPropagation()}
-                  >
-                    Customer Portal
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-          <PhoneCallModal
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-          />{" "}
-          {/* Added modal rendering */}
-          {/* Services Mega Menu for Desktop - Handled in the nav items section */}
         </div>
+
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="lg:hidden bg-white">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    to={item.href.startsWith("#") ? item.href : item.href}
+                    className="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-50"
+                    onClick={() => item.href !== "#more" && setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.dropdown &&
+                    item.dropdown.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.label}
+                        to={dropdownItem.href}
+                        className="block px-3 py-2 pl-6 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {dropdownItem.label}
+                      </Link>
+                    ))}
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile menu CTA */}
+            <div className="py-4 flex flex-col items-center mt-2">
+              <a
+                href="https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea32"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Book Now
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
+      <PhoneCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };
