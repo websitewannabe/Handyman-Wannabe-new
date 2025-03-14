@@ -1,7 +1,6 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { BiBuildingHouse, BiPaintRoll } from "react-icons/bi";
+//import { BiBuildingHouse, BiPaintRoll } from "react-icons/bi";
 import {
   FaWrench,
   FaLightbulb,
@@ -16,6 +15,7 @@ import {
   FaChevronDown,
   FaLock,
   FaTree,
+  FaPaintBrush,
 } from "react-icons/fa";
 import { GiBoilers } from "react-icons/gi";
 import { TbFence } from "react-icons/tb";
@@ -68,7 +68,7 @@ const Services = () => {
 
   const exteriorServices = [
     {
-      icon: <BiPaintRoll className="w-6 h-6" />,
+      icon: <FaPaintBrush className="w-6 h-6" />, // Changed icon here
       category: "Painting",
       description: "Professional painting services for a fresh look.",
       path: "/services/painting",
