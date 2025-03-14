@@ -127,15 +127,15 @@ const Services = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden bg-gray-50/50"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="bg-white rounded-xl shadow-xl overflow-hidden"
+                transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
+                className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
               >
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-bold mb-6">
