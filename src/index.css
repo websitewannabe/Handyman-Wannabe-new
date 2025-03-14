@@ -13,7 +13,7 @@
   html {
     font-family: 'Montserrat', sans-serif;
   }
-
+  
   html, body {
     overflow-x: hidden;
     max-width: 100%;
@@ -287,7 +287,7 @@ body:has(.phone-call-modal-container) {
   .phone-call-modal-container {
     align-items: flex-end;
   }
-
+  
   .phone-call-modal-content {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -410,7 +410,7 @@ body {
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-
+  
   /* Larger tap targets for mobile */
   .navbar-mobile-menu a,
   .navbar-mobile-menu button {
@@ -418,7 +418,7 @@ body {
     display: flex;
     align-items: center;
   }
-
+  
   /* Improved spacing for mobile menu items */
   .navbar-mobile-submenu {
     max-height: 250px;
@@ -426,11 +426,11 @@ body {
     scrollbar-width: thin;
     scrollbar-color: rgba(0,0,0,0.2) transparent;
   }
-
+  
   .navbar-mobile-submenu::-webkit-scrollbar {
     width: 4px;
   }
-
+  
   .navbar-mobile-submenu::-webkit-scrollbar-thumb {
     background-color: rgba(0,0,0,0.2);
     border-radius: 4px;
@@ -443,39 +443,26 @@ body {
     opacity: 0;
     transform: translateX(100%);
   }
-
+  
   .mobile-services-page-enter-active {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 300ms, transform 300ms;
   }
-
+  
   .mobile-services-page-exit {
     opacity: 1;
     transform: translateX(0);
   }
-
+  
   .mobile-services-page-exit-active {
     opacity: 0;
     transform: translateX(100%);
     transition: opacity 300ms, transform 300ms;
   }
-
+  
   /* Prevent scrolling when mobile menu is open */
   body.mobile-menu-open {
     overflow: hidden;
   }
-}
-
-.group:hover .group-hover\:shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.group:hover .group-hover\:shadow-2xl {
-  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  transition: box-shadow 0.3s ease-in-out;
 }
