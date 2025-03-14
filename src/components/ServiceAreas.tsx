@@ -15,10 +15,6 @@ const serviceAreas = [
     ],
   },
   {
-    region: "Douglas County",
-    areas: ["Larkspur, 80118, CO"],
-  },
-  {
     region: "Teller County",
     areas: ["Green Mountain Falls, CO", "Manitou Springs, 80829, CO"],
   },
