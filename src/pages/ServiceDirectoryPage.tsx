@@ -381,9 +381,14 @@ const ServiceDirectoryPage = () => {
                   >
                     Book Now
                   </a>
-                  <button className="flex-1 border-2 border-primary text-primary font-bold py-3 px-6 rounded-lg hover:bg-primary/5 transition-colors">
+                  <a
+                    href="https://carpet-quote-pro-ctierney1.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-center"
+                  >
                     Get a Quote
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>

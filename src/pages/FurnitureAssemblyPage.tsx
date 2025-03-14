@@ -396,9 +396,14 @@ const FurnitureAssemblyPage = () => {
             professionals. Contact us today for a free quote!
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <button className="bg-white text-primary font-bold text-xl px-12 py-4 rounded-lg hover:bg-gray-100 transition-colors">
+            <a
+              href="https://carpet-quote-pro-ctierney1.replit.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-primary font-bold text-xl px-12 py-4 rounded-lg hover:bg-gray-100 transition-colors inline-block"
+            >
               Get an Instant Quote
-            </button>
+            </a>
             <a
               href="tel:7193156628"
               className="flex items-center text-2xl font-bold hover:text-white/90 transition-colors"
