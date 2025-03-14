@@ -127,6 +127,20 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Package section transitions */
+.package-icon-container {
+  transform-origin: center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.package-icon {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
 .dropdown-menu.active {
   opacity: 1;
   pointer-events: auto;
