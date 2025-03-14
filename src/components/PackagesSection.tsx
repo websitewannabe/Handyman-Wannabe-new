@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Check, Gift } from "lucide-react";
+import { FaHome, FaTools, FaCrown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import PackageModal from "./PackageModal";
 
@@ -12,6 +12,7 @@ const packages = [
     price: "$399",
     duration: "4 Hours",
     category: "Home Maintenance",
+    icon: FaHome,
     image: "/images/kitchen.jpeg",
     features: [
       "Basic home repairs and maintenance",
@@ -27,6 +28,7 @@ const packages = [
     price: "$799",
     duration: "8 Hours",
     category: "Home Maintenance",
+    icon: FaTools,
     image: "/images/standard-package.jpeg",
     features: [
       "All Basic package services",
@@ -42,6 +44,7 @@ const packages = [
     price: "$1599",
     duration: "16 Hours",
     category: "Home Improvement",
+    icon: FaCrown,
     image: "/images/premium-package.jpeg",
     features: [
       "All Standard package services",
@@ -63,6 +66,17 @@ const PackagesSection = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleIconClick = (packageId) => {
+    const packageElement = document.getElementById(`package-${packageId}`);
+    if (packageElement) {
+      packageElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        const url = `/packages?package=${packageId}`;
+        window.open(url, '_self');
+      }, 500);
+    }
   };
 
   return (
@@ -91,63 +105,24 @@ const PackagesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex justify-center gap-16 mb-12">
           {packages.map((pkg) => (
             <motion.div
               key={pkg.id}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              id={`package-${pkg.id}`}
+              className="text-center cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+              onClick={() => handleIconClick(pkg.id)}
             >
-              <div className="h-48 relative overflow-hidden">
-                <img
-                  src={pkg.image}
-                  alt={pkg.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm">
-                  {pkg.category}
-                </div>
+              <div className="bg-white p-6 rounded-full shadow-lg mb-4 hover:bg-primary/5 transition-colors">
+                <pkg.icon className="w-12 h-12 text-primary" />
               </div>
-
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                  <div>
-                    <span className="text-3xl font-bold text-primary">
-                      {pkg.price}
-                    </span>
-                    <span className="text-gray-500">/{pkg.duration}</span>
-                  </div>
-                  <Gift className="w-6 h-6 text-primary" />
-                </div>
-
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  {pkg.name}
-                </h3>
-                <p className="text-gray-600 mb-6">{pkg.description}</p>
-
-                <ul className="space-y-3 mb-6">
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-600">
-                      <Check className="w-5 h-5 text-primary mr-2 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  onClick={() => openPackageModal(pkg)}
-                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                >
-                  Choose Package
-                </button>
-              </div>
+              <h3 className="font-semibold text-gray-800">{pkg.name}</h3>
+              <p className="text-primary font-bold">{pkg.price}</p>
             </motion.div>
           ))}
         </div>
+
       </div>
 
       {/* Package Modal */}
