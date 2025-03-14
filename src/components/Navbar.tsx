@@ -279,9 +279,11 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 0);
-      setTimeout(() => {
-        setMegaMenuOpen(false);
-      }, 300); // Close mega-menu after 300ms of scrolling
+      if (megaMenuOpen) {
+        setTimeout(() => {
+          setMegaMenuOpen(false);
+        }, 1000); // Close mega-menu after 1 second of scrolling
+      }
     };
 
     const handleClickOutside = (event: MouseEvent) => {
