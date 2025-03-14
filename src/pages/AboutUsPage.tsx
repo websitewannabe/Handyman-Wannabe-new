@@ -111,23 +111,23 @@ const AboutUsPage = () => {
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
-                className="relative group bg-white rounded-lg shadow-md overflow-hidden h-[420px]"
+                className="relative group bg-white rounded-lg shadow-lg overflow-hidden h-[420px] transform transition-transform duration-300 hover:-translate-y-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div className="h-full w-full">
+                <div className="h-full w-full relative">
                   <img
                     src={member.image}
                     alt={member.name}
                     className={`w-full h-full object-cover ${member.name === "Dennis Tierney" ? "object-center" : "object-top"}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-primary-light font-medium mb-3">{member.role}</p>
-                    <div className="h-0 overflow-hidden group-hover:h-auto group-hover:mt-2 transition-all duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
+                    <p className="text-primary-light font-medium mb-4">{member.role}</p>
+                    <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <p className="text-gray-200">{member.bio}</p>
                     </div>
                   </div>
