@@ -4,27 +4,27 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Bonnie J.",
+    name: "Gregory Nockleby",
     rating: 5,
-    text: " I will define be calling them again!Thank you for a great job! Great service, excellent quality and good value!.",
+    text: "There are several options for these services, but at the end of the day, it is about who you can trust. Handyman Wannabe are reliable and very responsive. Moreover, you can trust them to provide a fair assessment of the work and operate with much integrity. Thank you, and you will always be my first choice.",
     role: "Homeowner",
   },
   {
-    name: "Bruce W.",
+    name: "Judith Rogers",
     rating: 5,
-    text: "They did a very good job replacing my mailbox post. I would recommend them to anyone.",
+    text: "They completed my request for a new 'hatch' cover to the crawl space. Excellent job. THEN I happened to mention I needed a couple of fixtures installed .. they did those two fixtures on the same day! These guys are awesome. You will know the cost before they start the project. Great personalities to boot.",
     role: "Homeowner",
   },
   {
-    name: "Kathleen B.",
+    name: "Kiloebe",
     rating: 5,
-    text: "Assembly of desk with small hutch with many pieces and hardware. Dennis did an excellent job even though partial assembly was incorrect. Their price was also reasonable. I would highly recommend Handyman Wannabe. Thank you so much.",
+    text: "First, there are no words to describe how wonderful Dennis and Chris were. Dennis was on time and stayed until the job was done. The job actually came under the amount quoted. They were in constant contact with me so I wasn't hanging around wondering what time or when to expect them. I will definitely being using them again soon. Good old fashion quality work ethic.",
     role: "Homeowner",
   },
   {
-    name: "Oscar G.",
+    name: "Jannetta Knight",
     rating: 5,
-    text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
+    text: "Dennis was efficient and did quality work! I highly recommend Handyman Wannabe!",
     role: "Homeowner",
   },
 ];
