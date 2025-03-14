@@ -279,6 +279,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 0);
+      setMegaMenuOpen(false); // Close mega-menu on scroll
     };
 
     const handleClickOutside = (event: MouseEvent) => {
