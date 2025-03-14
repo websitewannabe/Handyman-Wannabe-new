@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -42,7 +43,6 @@ import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import DisclaimerPage from "./pages/DisclaimerPage";
 
-
 function App() {
   return (
     <HelmetProvider>
@@ -72,7 +72,6 @@ function App() {
             <Route path="/services/powerwashing" element={<PowerwashingPage />} />
             <Route path="/services/windows-doors" element={<WindowsDoorsPage />} />
             <Route path="/services/holiday-lighting" element={<HolidayLightingPage />} />
-            <Route path="/services/furniture-assembly" element={<FurnitureAssemblyPage />} />
             <Route path="/services/plumbing" element={<PlumbingPage />} />
             <Route path="/services/pools-spas" element={<PoolsSpasPage />} />
             <Route path="/services/flooring" element={<FlooringPage />} />
