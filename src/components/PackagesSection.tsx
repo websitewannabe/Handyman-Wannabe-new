@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, Gift } from "lucide-react";
@@ -10,47 +9,47 @@ const packages = [
     id: "basic",
     name: "Basic Handyman Package",
     description: "Essential home maintenance services",
-    price: "$149",
-    duration: "visit",
+    price: "$399",
+    duration: "4 Hours",
     category: "Home Maintenance",
-    image: "/images/basic-package.jpeg",
+    image: "/images/kitchen.jpeg",
     features: [
       "Basic home repairs and maintenance",
       "Minor plumbing fixes",
       "Light fixture replacements",
-      "Door and window adjustments"
-    ]
+      "Door and window adjustments",
+    ],
   },
   {
     id: "standard",
     name: "Standard Home Maintenance",
     description: "Comprehensive home care solutions",
-    price: "$299",
-    duration: "month",
+    price: "$799",
+    duration: "8 Hours",
     category: "Home Maintenance",
     image: "/images/standard-package.jpeg",
     features: [
       "All Basic package services",
       "Electrical system maintenance",
       "Drywall repairs and painting",
-      "Appliance maintenance"
-    ]
+      "Appliance maintenance",
+    ],
   },
   {
     id: "premium",
     name: "Premium Services",
     description: "Complete home transformation",
-    price: "$599",
-    duration: "project",
+    price: "$1599",
+    duration: "16 Hours",
     category: "Home Improvement",
     image: "/images/premium-package.jpeg",
     features: [
       "All Standard package services",
       "Custom carpentry work",
       "Room renovations",
-      "Smart home installations"
-    ]
-  }
+      "Smart home installations",
+    ],
+  },
 ];
 
 const PackagesSection = () => {
@@ -96,7 +95,8 @@ const PackagesSection = () => {
             Service Packages
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Choose from our carefully crafted service packages designed to meet your home maintenance needs
+            Choose from our carefully crafted service packages designed to meet
+            your home maintenance needs
           </p>
         </div>
 
@@ -133,7 +133,9 @@ const PackagesSection = () => {
                   <Gift className="w-6 h-6 text-primary" />
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{pkg.name}</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  {pkg.name}
+                </h3>
                 <p className="text-gray-600 mb-6">{pkg.description}</p>
 
                 <ul className="space-y-3 mb-6">
@@ -145,7 +147,7 @@ const PackagesSection = () => {
                   ))}
                 </ul>
 
-                <button 
+                <button
                   onClick={() => openPackageModal(pkg)}
                   className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors"
                 >
