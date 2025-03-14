@@ -165,11 +165,13 @@ const Navbar = () => {
     }
   };
 
-  const handleMegaMenuEnter = () => {
-    if (megaMenuTimeoutRef.current) {
-      clearTimeout(megaMenuTimeoutRef.current);
+  const handleMegaMenuEnter = (label: string) => {
+    if (label === "SERVICES") {
+      if (megaMenuTimeoutRef.current) {
+        clearTimeout(megaMenuTimeoutRef.current);
+      }
+      setMegaMenuOpen(true);
     }
-    setMegaMenuOpen(true);
   };
 
   const handleMegaMenuLeave = () => {
@@ -371,7 +373,7 @@ const Navbar = () => {
                   <div
                     key={item.label}
                     className="relative group"
-                    onMouseEnter={() => handleMegaMenuEnter()}
+                    onMouseEnter={() => handleMegaMenuEnter(item.label)}
                     onMouseLeave={handleMegaMenuLeave}
                     onClick={(e) => e.preventDefault()}
                   >
