@@ -92,7 +92,6 @@ const Services = () => {
                   alt={service.category}
                   className="w-full h-full object-cover rounded-lg mt-4 transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 mx-auto w-[90%] rounded-lg bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
               </div>
 
               {/* Category label */}
