@@ -2,183 +2,125 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
-  ArrowRight,
-  Wrench,
-  Paintbrush,
-  Zap,
-  Droplet,
-  Hammer,
-  Ruler,
-  Scissors,
-  Shovel,
-  Lightbulb,
-  Power,
-  Plug,
-  Fan,
-  BookOpen,
-  DoorOpen,
-  PenTool as Tool,
-  Sofa,
-  Lock,
-  Home,
-  Shield,
-  Waves,
-  Car,
+  ChevronRight,
+  Clock,
+  DollarSign,
+  Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const services = [
-  {
-    category: "Interior",
-    image: "/images/Wood-and-Drill.avif",
-    items: [
-      { name: "Electrical", time: "1-2 hours", icon: Zap },
-      { name: "Plumbing", time: "30-60 mins", icon: Droplet },
-      { name: "Carpentry", time: "4-6 hours", icon: Hammer },
-      { name: "Smart Home", time: "2-3 hours", icon: Home },
-      { name: "Painting & Drywall", time: "1-2 hours", icon: Paintbrush },
-      { name: "Flooring", time: "1-2 hours", icon: Ruler },
-      { name: "Home Security", time: "1-3 hours", icon: Shield },
-      { name: "Furniture Assembly", time: "2-4 hours", icon: Sofa },
-    ],
-  },
-  {
-    category: "Exterior",
-    image: "/images/Drill.avif",
-    items: [
-      { name: "Windows & Doors", time: "2-4 hours", icon: DoorOpen },
-      { name: "Garage Doors", time: "3-4 hours", icon: Car },
-      { name: "Landscaping", time: "1-3 hours", icon: Shovel },
-      { name: "Powerwashing", time: "1-2 hours", icon: Waves },
-      { name: "Pools & Spas", time: "2-3 hours", icon: Droplet },
-      { name: "Holiday Lighting", time: "4-6 hours", icon: Lightbulb },
-      { name: "Locksmithing", time: "3-4 hours", icon: Lock },
-      { name: "Property Management", time: "1-2 hours", icon: Tool },
-    ],
-  },
-];
-
-const getServiceUrl = (name: string) => {
-  // Convert service name to URL-friendly format
-  const slug = name
-    .toLowerCase()
-    .replace(/\s+&\s+|-/g, "-")
-    .replace(/\s+/g, "-");
-  return `/services/${slug}`;
-};
+import { services } from "../data/services";
 
 const Services = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Interior");
-  const [hoveredService, setHoveredService] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(selectedCategory === category ? null : category);
+  };
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <h2 className="text-center mb-12">Our Services</h2>
+    <section className="py-20 relative overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#1B4332] mb-4">Our Services</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Professional home services tailored to your needs. Select a category to explore our offerings.
+          </p>
+        </div>
 
-      <div className="flex flex-wrap">
-        {services.map((service) => (
-          <div
-            key={service.category}
-            className="w-full md:w-1/2 relative cursor-pointer group"
-            onClick={() => setSelectedCategory(service.category)}
-            onMouseEnter={() => setHoveredService(service.category)}
-            onMouseLeave={() => setHoveredService(null)}
-          >
-            <div className="relative h-[400px] overflow-hidden">
-              {/* Image with overlay */}
-              <div className="absolute inset-0">
-                <img
-                  src={service.image}
-                  alt={service.category}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
-              </div>
-
-              {/* Category label */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-bold">{service.category}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {services.map((category) => (
+            <motion.div
+              key={category.category}
+              className={`group cursor-pointer rounded-xl shadow-sm transition-all duration-300 ${
+                selectedCategory === category.category
+                  ? "bg-primary text-white ring-2 ring-primary"
+                  : "bg-white hover:bg-gray-50"
+              }`}
+              onClick={() => handleCategoryClick(category.category)}
+              whileHover={{ y: -4 }}
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className={`text-xl font-bold ${
+                    selectedCategory === category.category ? "text-white" : "text-[#1B4332]"
+                  }`}>
+                    {category.category}
+                  </h3>
                   <ChevronDown
-                    className={`w-6 h-6 transition-transform duration-300 ${
-                      selectedCategory === service.category ? "rotate-180" : ""
+                    className={`w-5 h-5 transition-transform ${
+                      selectedCategory === category.category ? "rotate-180" : ""
                     }`}
                   />
                 </div>
+                <p className={`text-sm ${
+                  selectedCategory === category.category ? "text-white/90" : "text-gray-600"
+                }`}>
+                  {category.description}
+                </p>
               </div>
+            </motion.div>
+          ))}
+        </div>
 
-              {/* Hover overlay */}
-              <motion.div
-                className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={false}
-                animate={{
-                  opacity: hoveredService === service.category ? 1 : 0,
-                }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Service Details Dropdown */}
-      <AnimatePresence>
-        {selectedCategory && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden bg-gradient-to-b from-gray-50/50 to-white/80"
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="backdrop-blur-sm bg-white/90 rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
-              >
+        <AnimatePresence>
+          {selectedCategory && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="mt-8"
+            >
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden max-w-6xl mx-auto">
                 <div className="p-8">
-                  <h3 className="text-3xl font-bold mb-8 text-[#1B4332] text-center">
-                    {selectedCategory} Services
-                  </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services
                       .find((s) => s.category === selectedCategory)
-                      ?.items.map((item, index) => (
+                      ?.items.map((service, index) => (
                         <motion.div
-                          key={item.name}
+                          key={service.name}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className="group relative bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border border-gray-100 hover:border-primary/20"
+                          className="group bg-gray-50 rounded-xl p-6 hover:bg-primary/5 transition-colors"
                         >
                           <div className="flex items-start justify-between mb-4">
-                            <div className="bg-white rounded-full p-3 shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
-                              <item.icon className="w-6 h-6" />
+                            <h4 className="text-lg font-semibold text-[#1B4332]">
+                              {service.name}
+                            </h4>
+                            {service.popular && (
+                              <span className="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded-full">
+                                Popular
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="space-y-3 mb-4">
+                            <div className="flex items-center text-gray-600">
+                              <Clock className="w-4 h-4 mr-2 text-primary" />
+                              <span className="text-sm">{service.duration}</span>
                             </div>
-                            <div className="bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-primary">
-                              {item.time}
+                            <div className="flex items-center text-gray-600">
+                              <DollarSign className="w-4 h-4 mr-2 text-primary" />
+                              <span className="text-sm">{service.price}</span>
                             </div>
                           </div>
-                          <h4 className="text-lg font-bold mb-4 text-gray-900">
-                            {item.name}
-                          </h4>
+
                           <Link
-                            to={getServiceUrl(item.name)}
-                            className="w-full bg-white border-2 border-primary text-primary font-medium py-2 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 group-hover:shadow-md block text-center"
-                            aria-label={`Learn more about ${item.name} services`}
+                            to={`/services/${service.slug}`}
+                            className="inline-flex items-center text-primary font-medium text-sm group-hover:text-primary/80 transition-colors"
                           >
-                            Learn more about {item.name}
+                            Learn More
+                            <ChevronRight className="w-4 h-4 ml-1" />
                           </Link>
                         </motion.div>
                       ))}
                   </div>
                 </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   );
 };
