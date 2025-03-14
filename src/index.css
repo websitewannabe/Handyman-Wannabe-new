@@ -63,27 +63,58 @@
   right: 0;
   z-index: 1000;
   contain: layout style paint;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   will-change: transform;
+  perspective: 1000px;
+  transition: transform 0.2s ease-out;
 }
 
-.nav-container * {
+.nav-content {
+  position: relative;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  contain: layout style paint;
 }
 
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  width: 100%;
+  transform-origin: top center;
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out;
+  contain: layout paint style;
+  will-change: transform, opacity;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+}
+
+.mega-menu-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: translate3d(0, 0, 0);
+  contain: layout paint style;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.25s ease-out;
+  will-change: transform, opacity;
+}
+
+.mega-menu-container.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .dropdown-menu.active {

@@ -96,17 +96,18 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(
-    null,
-  );
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const isScrollingRef = useRef<boolean>(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const lastScrollY = useRef<number>(0);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -306,22 +307,24 @@ const Navbar = () => {
   }, [isMobileServicesOpen]);
 
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
-
     const handleScroll = () => {
-      if (!isScrollingRef.current) {
-        window.requestAnimationFrame(() => {
-          const scrollPosition = window.scrollY;
-          setIsScrolled(scrollPosition > 0);
-          lastScrollPosition.current = scrollPosition;
-          isScrollingRef.current = true;
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
 
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            isScrollingRef.current = false;
-          }, 150);
+      const currentScrollY = window.scrollY;
+      const scrollDiff = Math.abs(currentScrollY - lastScrollY.current);
+      
+      if (scrollDiff > 5) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(currentScrollY > 0);
+          lastScrollY.current = currentScrollY;
         });
       }
+
+      scrollTimeoutRef.current = setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 100);
     };
 
 
