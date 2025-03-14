@@ -110,6 +110,8 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Added modal open state
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,23 +131,35 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
+      if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+      if (megaMenuTimeoutRef.current) clearTimeout(megaMenuTimeoutRef.current);
     };
   }, []);
 
-  const handleDropdownEnter = (label: string, e?: React.MouseEvent) => {
-    if (e && e.preventDefault) {
-      e.preventDefault();
+  const handleDropdownEnter = (label: string) => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
     }
-    setActiveDropdown(label);
+    setDropdownOpen(label);
   };
 
-  const handleDropdownLeave = (e?: React.MouseEvent) => {
-    if (e && e.preventDefault) {
-      e.preventDefault();
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setDropdownOpen(null);
+    }, 150);
+  };
+
+  const handleMegaMenuEnter = () => {
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current);
     }
-    setTimeout(() => {
-      setActiveDropdown(null);
-    }, 100);
+    setMegaMenuOpen(true);
+  };
+
+  const handleMegaMenuLeave = () => {
+    megaMenuTimeoutRef.current = setTimeout(() => {
+      setMegaMenuOpen(false);
+    }, 150);
   };
 
   const isActive = (href: string) => {
@@ -354,8 +368,8 @@ const Navbar = () => {
                   <div
                     key={item.label}
                     className="relative group"
-                    onMouseEnter={(e) => handleDropdownEnter(item.label, e)}
-                    onMouseLeave={handleDropdownLeave}
+                    onMouseEnter={() => handleMegaMenuEnter()}
+                    onMouseLeave={handleMegaMenuLeave}
                     onClick={(e) => e.preventDefault()}
                   >
                     <div>
@@ -394,6 +408,8 @@ const Navbar = () => {
                           aria-haspopup={
                             item.dropdown || item.megaMenu ? "true" : "false"
                           }
+                          onMouseEnter={() => handleDropdownEnter(item.label)}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           {item.label}
                           {(item.dropdown || item.megaMenu) && (
@@ -430,7 +446,7 @@ const Navbar = () => {
                       )}
 
                     {/* Regular Dropdown Menu */}
-                    {item.dropdown && activeDropdown === item.label && (
+                    {item.dropdown && dropdownOpen === item.label && (
                       <div
                         className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50"
                         role="menu"
@@ -539,6 +555,8 @@ const Navbar = () => {
                           }`}
                           aria-expanded={activeDropdown === item.label}
                           data-menu-trigger={item.label}
+                          onMouseEnter={() => handleDropdownEnter(item.label)}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           {item.label}
                           <ChevronDown
