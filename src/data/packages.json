@@ -1,0 +1,56 @@
+
+{
+  "packages": [
+    {
+      "id": "basic",
+      "name": "Basic Handyman Package",
+      "description": "Essential services for minor home repairs and maintenance.",
+      "price": "$399",
+      "duration": "4 hours",
+      "category": "Essential",
+      "features": [
+        "Carpentry",
+        "Electrical",
+        "Furniture Assembly",
+        "Garage Doors",
+        "Holiday Lighting"
+      ],
+      "popular": false,
+      "image": "/images/basic-package.jpeg"
+    },
+    {
+      "id": "standard",
+      "name": "Standard Home Maintenance Package",
+      "description": "Comprehensive service package for regular home maintenance and improvements.",
+      "price": "$799",
+      "duration": "8 hours",
+      "category": "Maintenance",
+      "features": [
+        "Carpentry",
+        "Electrical",
+        "Flooring",
+        "Furniture Assembly",
+        "Smart Home"
+      ],
+      "popular": true,
+      "image": "/images/standard-package.jpeg"
+    },
+    {
+      "id": "premium",
+      "name": "Premium Services Package",
+      "description": "Complete home transformation and maintenance solution.",
+      "price": "$1,299",
+      "duration": "12 hours",
+      "category": "Premium",
+      "features": [
+        "All Standard Features",
+        "Priority Service",
+        "24/7 Support",
+        "Quarterly Inspections",
+        "Extended Warranty"
+      ],
+      "popular": false,
+      "image": "/images/premium-package.jpeg"
+    }
+  ]
+}
