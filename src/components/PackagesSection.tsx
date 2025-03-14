@@ -81,14 +81,6 @@ const PackagesSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute top-6 right-6 z-10">
-        <Link
-          to="/packages"
-          className="bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-        >
-          View All Packages
-        </Link>
-      </div>
       <div
         className="absolute inset-0 z-0"
         style={{ 
