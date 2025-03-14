@@ -112,6 +112,7 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  let scrollTimeout: NodeJS.Timeout | null = null; // Added timeout variable
 
   useEffect(() => {
     const handleScroll = () => {
@@ -133,6 +134,7 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
       if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
       if (megaMenuTimeoutRef.current) clearTimeout(megaMenuTimeoutRef.current);
+      clearTimeout(scrollTimeout); // Clear timeout on unmount
     };
   }, []);
 
@@ -294,7 +296,10 @@ const Navbar = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 0);
       if (megaMenuOpen) {
-        setTimeout(() => {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
           setMegaMenuOpen(false);
         }, 500); // Close mega-menu after 500ms of scrolling
       }
@@ -323,6 +328,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousedown", handleClickOutside);
+      clearTimeout(scrollTimeout); // Clear timeout on unmount
     };
   }, [megaMenuOpen]);
 

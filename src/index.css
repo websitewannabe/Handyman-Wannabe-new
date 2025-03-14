@@ -29,6 +29,21 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
+
+/* Prevent layout shifts during navigation interactions */
+.nav-item {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.dropdown-enter,
+.dropdown-exit {
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
   background: #f1f1f1;
   border-radius: 10px;
 }
