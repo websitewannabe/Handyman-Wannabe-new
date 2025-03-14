@@ -75,7 +75,7 @@ const Services = () => {
     <section id="services" className="py-20 bg-gray-50">
       <h2 className="text-center mb-12">Our Services</h2>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap max-w-6xl mx-auto"> {/* Added max-width for better layout */}
         {services.map((service) => (
           <div
             key={service.category}
@@ -84,19 +84,19 @@ const Services = () => {
             onMouseEnter={() => setHoveredService(service.category)}
             onMouseLeave={() => setHoveredService(null)}
           >
-            <div className="relative h-[400px] overflow-hidden">
+            <div className="relative h-[300px] mx-auto"> {/* Reduced height and centered image */}
               {/* Image with overlay */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 mx-auto w-[90%]"> {/* Contained image width */}
                 <img
                   src={service.image}
                   alt={service.category}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover rounded-lg mt-4 transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+                <div className="absolute inset-0 mx-auto w-[90%] rounded-lg bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
               </div>
 
               {/* Category label */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+              <div className="absolute bottom-0 left-[8%] right-[8%] p-6 text-white z-10"> {/* Adjusted label position */}
                 <div className="flex items-center justify-between">
                   <h3 className="text-2xl font-bold">{service.category}</h3>
                   <ChevronDown
@@ -109,7 +109,7 @@ const Services = () => {
 
               {/* Hover overlay */}
               <motion.div
-                className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 mx-auto w-[90%] rounded-lg bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
                 animate={{
                   opacity: hoveredService === service.category ? 1 : 0,
