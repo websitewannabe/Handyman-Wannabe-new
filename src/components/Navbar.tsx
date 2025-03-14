@@ -168,10 +168,11 @@ const Navbar = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       const dropdownElement = document.querySelector('.dropdown-menu:hover');
       const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
-      if (!dropdownElement && !dropdownTrigger) {
+      const dropdownLink = document.querySelector('.dropdown-link:hover');
+      if (!dropdownElement && !dropdownTrigger && !dropdownLink) {
         setDropdownOpen(null);
       }
-    }, 300);
+    }, 400);
   };
 
   const handleMegaMenuEnter = (label: string) => {
