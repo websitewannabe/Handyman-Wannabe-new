@@ -88,7 +88,7 @@ const navItems: NavItem[] = [
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
-      { label: "Customer Portal", href: "https://pro.housecallpro.com/pro/client_hub/log_in" },
+      { label: "Customer Portal", href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b" },
     ],
   },
 ];
