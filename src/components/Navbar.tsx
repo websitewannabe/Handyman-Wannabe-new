@@ -72,7 +72,7 @@ const navItems: NavItem[] = [
   { label: "HOME", href: "/" },
   {
     label: "SERVICES",
-    href: "#services",
+    href: "/services",
     megaMenu: serviceCategories,
   },
   { label: "PROCESS", href: "/how-it-works" },
@@ -362,6 +362,7 @@ const Navbar = () => {
                         <button
                           onClick={(e) => {
                             e.preventDefault();
+                            e.stopPropagation();
                             handleServiceClick(e);
                           }}
                           className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
