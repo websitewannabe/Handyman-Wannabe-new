@@ -152,11 +152,10 @@ const HomePage: React.FC = () => {
 
       {/* Core page content */}
       <Hero />
-      <MemoizedServiceAreas />
+      <MemoizedPackagesSection />
       <MemoizedServices />
       <MemoizedTestimonials />
       <MemoizedBlogSection />
-      <MemoizedPackagesSection />
       <MemoizedCallToAction />
     </>
   );
