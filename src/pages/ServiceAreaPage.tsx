@@ -79,11 +79,6 @@ const ServiceAreaPage = () => {
         ],
       },
       {
-        name: "Douglas County",
-        cities: ["Larkspur", "Castle Rock (partial)"],
-        zipCodes: ["80104 (partial)"],
-      },
-      {
         name: "Teller County",
         cities: ["Woodland Park", "Green Mountain Falls", "Manitou Springs"],
         zipCodes: ["80863", "80829"],
