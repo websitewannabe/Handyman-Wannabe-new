@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaTools, FaCrown } from "react-icons/fa";
+import { GiHouse, GiToolbox, GiLaurelCrown } from "react-icons/gi";
 import { motion } from "framer-motion";
 import PackageModal from "./PackageModal";
 
@@ -12,7 +12,7 @@ const packages = [
     price: "$399",
     duration: "4 Hours",
     category: "Home Maintenance",
-    icon: FaHome,
+    icon: GiHouse,
     image: "/images/kitchen.jpeg",
     features: [
       "Basic home repairs and maintenance",
@@ -28,7 +28,7 @@ const packages = [
     price: "$799",
     duration: "8 Hours",
     category: "Home Maintenance",
-    icon: FaTools,
+    icon: GiToolbox,
     image: "/images/standard-package.jpeg",
     features: [
       "All Basic package services",
@@ -44,7 +44,7 @@ const packages = [
     price: "$1599",
     duration: "16 Hours",
     category: "Home Improvement",
-    icon: FaCrown,
+    icon: GiLaurelCrown,
     image: "/images/premium-package.jpeg",
     features: [
       "All Standard package services",
