@@ -166,10 +166,14 @@ const Navbar = () => {
       clearTimeout(dropdownTimeoutRef.current);
     }
     dropdownTimeoutRef.current = setTimeout(() => {
-      if (!document.querySelector('.dropdown-container:hover')) {
+      const dropdownElement = document.querySelector('.dropdown-menu:hover');
+      const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
+      const dropdownLink = document.querySelector('.dropdown-link:hover');
+      const dropdownContainer = document.querySelector('.dropdown-container:hover');
+      if (!dropdownElement && !dropdownTrigger && !dropdownLink && !dropdownContainer) {
         setDropdownOpen(null);
       }
-    }, 150);
+    }, 600);
   };
 
   const handleMegaMenuEnter = (label: string) => {
