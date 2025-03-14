@@ -450,7 +450,7 @@ const Navbar = () => {
                                   <Link
                                     key={service.name}
                                     to={service.href || getServiceUrl(service.name)}
-                                    className={`px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded ${index === 0 ? "text-secondary" : "text-[#91d30f]"} hover:text-primary flex items-center`}
+                                    className={`px-2 py-1 text-sm hover:bg-gray-50 transition-colors rounded ${index === 0 ? "text-secondary hover:text-primary" : "text-[#91d30f] hover:text-orange-500"} flex items-center`}
                                   >
                                     <service.icon className="w-4 h-4 mr-2" />
                                     {service.name}
