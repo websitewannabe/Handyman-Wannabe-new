@@ -1,125 +1,89 @@
 import React from "react";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const serviceAreas = [
+const services = [
   {
-    region: "El Paso County",
-    areas: [
-      "Fountain, CO",
-      "Monument, CO",
-      "Falcon, 80831, CO",
-      "Peyton, 80831, CO",
-      "Colorado Springs, CO",
-    ],
+    category: "Plumbing",
+    description: "Expert plumbing services for all your needs.",
+    icon: <MapPin className="w-6 h-6 text-primary" />,
+    items: ["Leak detection and repair", "Fixture installation", "Drain cleaning"],
+    link: "/plumbing",
   },
   {
-    region: "Teller County",
-    areas: ["Green Mountain Falls, CO", "Manitou Springs, 80829, CO"],
-  }
+    category: "Electrical",
+    description: "Reliable electrical work for your home.",
+    icon: <ArrowRight className="w-6 h-6 text-primary rotate-90" />,
+    items: ["Wiring upgrades", "Outlet installation", "Lighting fixture installation"],
+    link: "/electrical",
+  },
+  {
+    category: "Carpentry",
+    description: "Professional carpentry services for your home improvement projects.",
+    icon: <Check className="w-6 h-6 text-primary" />,
+    items: ["Custom cabinetry", "Shelving installation", "Deck building"],
+    link: "/carpentry",
+  },
 ];
+
 
 const ServiceAreas = () => {
   return (
     <>
-      <section
-        className="relative pt-32 pb-20"
-        style={{ backgroundColor: "#ebd5c1" }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Video Column */}
-            <motion.div
-              className="flex items-center justify-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="w-full max-w-2xl">
-                <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207019.11336308766!2d-104.9200903957284!3d38.87345444651031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8713412ea1e6d22b%3A0x418eeb92f5e86b13!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1666123456789!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Service Area Map"
-                    className="absolute inset-0"
-                  ></iframe>
-                </div>
-              </div>
-            </motion.div>
+      <section className="relative pt-32 pb-20" style={{ backgroundColor: "#ebd5c1" }}>
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              From basic repairs to complex installations, we offer a comprehensive range
+              of professional handyman services to meet all your home improvement needs.
+            </p>
+          </motion.div>
 
-            {/* Service Areas Column */}
-            <div className="flex flex-col h-full">
-              <motion.h2
-                className="text-3xl font-bold mb-8 text-[#5d4037]"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                Service Areas
-              </motion.h2>
-              <div className="space-y-6 flex-grow">
-                {serviceAreas.map((region, index) => (
-                  <motion.div
-                    key={region.region}
-                    className="bg-white/10 rounded-lg p-6 transition-all hover:bg-white/20 cursor-pointer"
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-center mb-3">
-                      <MapPin className="w-5 h-5 text-[#5d4037] mr-2" />
-                      <h3 className="text-xl font-bold text-[#5d4037]">
-                        {region.region}
-                      </h3>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {region.areas.map((area, areaIndex) => (
-                        <motion.span
-                          key={area}
-                          className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium text-[#5d4037]"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{
-                            duration: 0.4,
-                            delay: index * 0.2 + areaIndex * 0.1,
-                          }}
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          {area}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
               <motion.div
+                key={service.category}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative bg-white rounded-lg p-6"
               >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-primary/10 rounded-full p-3">
+                    {service.icon}
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2">{service.category}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+
+                <ul className="space-y-2 mb-6">
+                  {service.items.slice(0, 3).map((item, idx) => (
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <Check className="w-5 h-5 text-primary mr-2" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
                 <Link
-                  to="/service-area"
-                  className="inline-flex items-center mt-8 text-[#5d4037] font-bold hover:text-[#5d4037]/80 transition-colors"
+                  to={service.link}
+                  className="inline-flex items-center text-primary hover:text-primary/80"
                 >
-                  View All Service Areas
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  Learn More
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
