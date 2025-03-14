@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Search, Phone, X, DollarSign, Clock, Star, ChevronDown } from "lucide-react";
+import {
+  Search,
+  Phone,
+  X,
+  DollarSign,
+  Clock,
+  Star,
+  ChevronDown,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../data/services.json";
 import { motion, AnimatePresence } from "framer-motion";
@@ -129,7 +137,8 @@ const Hero = () => {
             for Every Home Project
           </h1>
           <p className="text-xl mb-12 text-gray-200 max-w-2xl mx-auto">
-            Locally owned and family-operated, providing expert tradesmen services turned handyman solutions.
+            Locally owned and family-operated, providing expert tradesmen
+            services turned handyman solutions.
           </p>
 
           <div
@@ -236,7 +245,9 @@ const Hero = () => {
                             <DollarSign className="w-5 h-5 mr-2" />
                             <span className="font-bold">Price Estimate</span>
                           </div>
-                          <p className="text-gray-700">{selectedService.price}</p>
+                          <p className="text-gray-700">
+                            {selectedService.price}
+                          </p>
                         </div>
                         <div className="bg-gray-50 p-4 rounded-lg">
                           <div className="flex items-center text-primary mb-2">
@@ -251,7 +262,9 @@ const Hero = () => {
 
                       {/* Features */}
                       <div className="mb-8">
-                        <h4 className="text-lg font-bold mb-4">What's Included</h4>
+                        <h4 className="text-lg font-bold mb-4">
+                          What's Included
+                        </h4>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {selectedService.features.map((feature, index) => (
                             <li
@@ -301,7 +314,12 @@ const Hero = () => {
           )}
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://carpet-quote-pro-ctierney1.replit.app/" target="_blank" rel="noopener noreferrer" className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
+            <a
+              href="https://carpet-quote-pro-ctierney1.replit.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg"
+            >
               Get an Instant Quote
             </a>
             <a
@@ -309,7 +327,7 @@ const Hero = () => {
               className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call Us Directly
+              Call Us
             </a>
           </div>
         </div>
