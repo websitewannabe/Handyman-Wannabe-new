@@ -355,7 +355,8 @@ const Navbar = () => {
                     key={item.label}
                     className="relative group"
                     onMouseEnter={(e) => handleDropdownEnter(item.label, e)}
-                    onMouseLeave={(e) => handleDropdownLeave(e)}
+                    onMouseLeave={handleDropdownLeave}
+                    onClick={(e) => e.preventDefault()}
                   >
                     <div>
                       {item.label === "SERVICES" ? (
