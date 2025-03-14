@@ -106,14 +106,7 @@ const Services = () => {
                 </div>
               </div>
 
-              {/* Hover overlay */}
-              <motion.div
-                className="absolute inset-0 mx-auto w-[90%] rounded-lg bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                initial={false}
-                animate={{
-                  opacity: hoveredService === service.category ? 1 : 0,
-                }}
-              />
+              {/* Hover overlay - removed */}
             </div>
           </div>
         ))}
