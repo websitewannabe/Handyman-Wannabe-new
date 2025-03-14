@@ -134,7 +134,7 @@ const packageData = [
       "Electrical Rewiring",
     ],
     popular: false,
-    image: "/images/seasonal-package.jpeg",
+    image: "/images/seasonal-maintenance-package.avif",
   },
   {
     id: "newhome",
@@ -160,7 +160,7 @@ const packageData = [
       "Landscaping",
     ],
     popular: false,
-      image: "/images/newhome-package.jpeg",
+      image: "/images/new-home-setup-package.avif",
   },
   {
     id: "newpet",
@@ -183,7 +183,7 @@ const packageData = [
       "Regular Maintenance",
     ],
     popular: false,
-    image: "/images/emergency-package.jpeg",
+    image: "/images/new-pet-package.avif",
   },
 ];
 
