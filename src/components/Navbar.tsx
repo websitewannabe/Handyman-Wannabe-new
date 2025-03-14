@@ -91,7 +91,8 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const handleDropdownEnter = (label: string) => {
+  const handleDropdownEnter = (label: string, e: React.MouseEvent) => {
+    e.preventDefault();
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
@@ -143,7 +144,7 @@ const Navbar = () => {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => handleDropdownEnter(item.label)}
+                  onMouseEnter={(e) => handleDropdownEnter(item.label, e)}
                   onMouseLeave={handleDropdownLeave}
                 >
                   <Link
