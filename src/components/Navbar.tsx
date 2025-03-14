@@ -88,6 +88,7 @@ const navItems: NavItem[] = [
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
+      { label: "Customer Portal", href: "https://pro.housecallpro.com/pro/client_hub/log_in" },
     ],
   },
 ];
