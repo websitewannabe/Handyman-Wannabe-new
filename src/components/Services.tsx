@@ -128,20 +128,20 @@ const Services = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden"
+            className="overflow-hidden bg-gradient-to-b from-gray-50/50 to-white/80"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-xl shadow-xl overflow-hidden"
+                className="backdrop-blur-sm bg-white/90 rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
               >
-                <div className="p-6 md:p-8">
-                  <h3 className="text-2xl font-bold mb-6">
+                <div className="p-8">
+                  <h3 className="text-3xl font-bold mb-8 text-[#1B4332] text-center">
                     {selectedCategory} Services
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services
                       .find((s) => s.category === selectedCategory)
                       ?.items.map((item, index) => (
@@ -150,7 +150,7 @@ const Services = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className="group relative bg-gray-50 rounded-lg p-6 hover:bg-primary/5 transition-all duration-300 hover:shadow-lg"
+                          className="group relative bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border border-gray-100 hover:border-primary/20"
                         >
                           <div className="flex items-start justify-between mb-4">
                             <div className="bg-white rounded-full p-3 shadow-md group-hover:bg-primary group-hover:text-white transition-colors">
