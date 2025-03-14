@@ -118,7 +118,7 @@ const PackagesSection = () => {
               transition={{ type: "spring", stiffness: 300 }}
               onClick={() => handleIconClick(pkg.id)}
             >
-              <div className="relative">
+              <div className="relative flex flex-col items-center">
                 <div className="bg-white w-36 h-36 rounded-3xl shadow-lg mb-8 flex items-center justify-center transform group-hover:shadow-2xl transition-all duration-300 group-hover:bg-primary/5 border border-transparent group-hover:border-primary/10">
                   <pkg.icon className="w-20 h-20 text-primary transform group-hover:scale-110 transition-all duration-300 group-hover:rotate-3" />
                 </div>
@@ -130,10 +130,10 @@ const PackagesSection = () => {
                   }}
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-all duration-300">
+              <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-all duration-300 text-center">
                 {pkg.name}
               </h3>
-              <p className="text-xl font-semibold text-primary group-hover:scale-110 transition-all duration-300">
+              <p className="text-xl font-semibold text-primary group-hover:scale-110 transition-all duration-300 text-center">
                 {pkg.price}
               </p>
             </motion.div>
