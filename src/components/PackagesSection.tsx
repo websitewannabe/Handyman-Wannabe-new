@@ -77,17 +77,8 @@ const PackagesSection = () => {
       </div>
       <div
         className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url("/images/construction-Worker2.jpeg")',
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: "rgba(235, 213, 193, 0.9)" }}
-        ></div>
-      </div>
+        style={{ backgroundColor: "rgb(235, 213, 193)" }}
+      ></div>
 
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-12">
