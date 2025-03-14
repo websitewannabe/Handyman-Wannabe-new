@@ -1,54 +1,57 @@
+
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Check, Gift } from "lucide-react";
 import { motion } from "framer-motion";
-import { Check, Star, Gift } from "lucide-react";
 import PackageModal from "./PackageModal";
 
 const packages = [
   {
-    name: "Holiday Lighting Package",
+    id: "basic",
+    name: "Basic Handyman Package",
+    description: "Essential home maintenance services",
+    price: "$149",
+    duration: "visit",
+    category: "Home Maintenance",
+    image: "/images/basic-package.jpeg",
+    features: [
+      "Basic home repairs and maintenance",
+      "Minor plumbing fixes",
+      "Light fixture replacements",
+      "Door and window adjustments"
+    ]
+  },
+  {
+    id: "standard",
+    name: "Standard Home Maintenance",
+    description: "Comprehensive home care solutions",
     price: "$299",
-    description: "Professional holiday lighting installation and removal",
-    image: "images/holiday-Lighting.avif",
+    duration: "month",
+    category: "Home Maintenance",
+    image: "/images/standard-package.jpeg",
     features: [
-      "Professional installation",
-      "All materials included",
-      "Timer setup",
-      "Post-season removal",
-      "Storage solution",
-    ],
-    popular: true,
+      "All Basic package services",
+      "Electrical system maintenance",
+      "Drywall repairs and painting",
+      "Appliance maintenance"
+    ]
   },
   {
-    name: "Home Maintenance Bundle",
-    price: "$499/quarter",
-    description: "Quarterly maintenance to keep your home in top condition",
-    image: "/images/cleaner.avif",
+    id: "premium",
+    name: "Premium Services",
+    description: "Complete home transformation",
+    price: "$599",
+    duration: "project",
+    category: "Home Improvement",
+    image: "/images/premium-package.jpeg",
     features: [
-      "HVAC filter replacement",
-      "Gutter cleaning",
-      "Plumbing inspection",
-      "Electrical safety check",
-      "Weather stripping check",
-    ],
-    popular: false,
-  },
-  {
-    name: "Move-In Ready Package",
-    price: "$799",
-    description: "Complete home setup service for new homeowners",
-    image: "/images/home-Keys.avif",
-    features: [
-      "Deep cleaning",
-      "Paint touch-ups",
-      "Hardware installation",
-      "Smart home setup",
-      "Safety inspection",
-    ],
-    popular: false,
-  },
+      "All Standard package services",
+      "Custom carpentry work",
+      "Room renovations",
+      "Smart home installations"
+    ]
+  }
 ];
-
-import { Link } from 'react-router-dom';
 
 const PackagesSection = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
@@ -62,6 +65,7 @@ const PackagesSection = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <section className="py-20 relative">
       <div className="absolute top-4 right-4 z-10">
@@ -86,61 +90,35 @@ const PackagesSection = () => {
         ></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <motion.span
-            className="text-dark font-bold text-lg mb-2 block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#1B4332] mb-4">
             Service Packages
-          </motion.span>
-          <motion.h2
-            className="text-4xl font-bold mb-4 text-dark"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            Bundle & Save
-          </motion.h2>
-          <motion.p
-            className="text-xl text-dark/90 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Choose from our carefully curated service packages designed to meet
-            your needs
-          </motion.p>
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+            Choose from our carefully crafted service packages designed to meet your home maintenance needs
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {packages.map((pkg, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {packages.map((pkg) => (
             <motion.div
-              key={index}
-              className={`relative bg-white rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 ${
-                pkg.popular ? "ring-2 ring-primary" : ""
-              }`}
+              key={pkg.id}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              {pkg.popular && (
-                <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
-                  <Star className="w-4 h-4 mr-1 fill-current" />
-                  Most Popular
-                </div>
-              )}
-              <div className="relative h-48 overflow-hidden">
+              <div className="h-48 relative overflow-hidden">
                 <img
                   src={pkg.image}
                   alt={pkg.name}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h2 className="text-2xl font-bold mb-1">{pkg.name}</h2> {/* Changed to h2 */}
-                  <p className="text-white/90">{pkg.description}</p>
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm">
+                  {pkg.category}
                 </div>
               </div>
 
@@ -150,9 +128,13 @@ const PackagesSection = () => {
                     <span className="text-3xl font-bold text-primary">
                       {pkg.price}
                     </span>
+                    <span className="text-gray-500">/{pkg.duration}</span>
                   </div>
                   <Gift className="w-6 h-6 text-primary" />
                 </div>
+
+                <h3 className="text-xl font-bold text-gray-800 mb-4">{pkg.name}</h3>
+                <p className="text-gray-600 mb-6">{pkg.description}</p>
 
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
