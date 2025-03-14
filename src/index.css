@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.services-grid button,
+[class*="Learn more about"] {
+  @apply w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors text-center;
+}
+
 @layer base {
   html {
     font-family: 'Montserrat', sans-serif;
