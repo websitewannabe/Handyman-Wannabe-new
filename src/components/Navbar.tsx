@@ -158,17 +158,13 @@ const Navbar = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
-    if (!isScrollingRef.current) {
-      setDropdownOpen(label);
-    }
+    setDropdownOpen(label);
   };
 
   const handleDropdownLeave = () => {
-    if (!isScrollingRef.current) {
-      dropdownTimeoutRef.current = setTimeout(() => {
-        setDropdownOpen(null);
-      }, 150);
-    }
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setDropdownOpen(null);
+    }, 300);
   };
 
   const handleMegaMenuEnter = (label: string) => {
