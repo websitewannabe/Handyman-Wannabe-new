@@ -88,7 +88,7 @@
   transform: translate3d(0, 0, 0);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
   contain: layout paint style;
   will-change: transform, opacity;
   padding-top: 8px;
@@ -102,13 +102,17 @@
   z-index: 1050;
 }
 
-.dropdown-menu.active,
+.dropdown-container:hover .dropdown-menu,
 .dropdown-menu:hover,
-.dropdown-container:hover .dropdown-menu {
+.dropdown-menu.active {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
-  transform: translate3d(0, 0, 0);
+}
+
+.dropdown-menu a {
+  display: block;
+  width: 100%;
 }
 
 .dropdown-menu.active,
