@@ -7,7 +7,6 @@ import CallToAction from "../components/CallToAction";
 import ServiceAreas from "../components/ServiceAreas";
 import BlogSection from "../components/BlogSection";
 import PackagesSection from "../components/PackagesSection";
-import InstagramFeed from "../components/InstagramFeed";
 
 // Memoized SEO component to prevent unnecessary re-renders
 const SEO = memo(
@@ -17,7 +16,7 @@ const SEO = memo(
     keywords,
     featuredImage,
     ogImage,
-    canonicalUrl
+    canonicalUrl,
   }: {
     title: string;
     description: string;
@@ -52,7 +51,6 @@ const MemoizedServices = memo(Services);
 const MemoizedTestimonials = memo(Testimonials);
 const MemoizedBlogSection = memo(BlogSection);
 const MemoizedPackagesSection = memo(PackagesSection);
-const MemoizedInstagramFeed = memo(InstagramFeed);
 const MemoizedCallToAction = memo(CallToAction);
 
 // Main HomePage component
@@ -60,65 +58,69 @@ const HomePage: React.FC = () => {
   // Placeholder data - Replace with actual data fetching mechanism
   const pageSEOData = {
     home: {
-      title: 'Handyman Wannabe - Professional Home Services & Repairs',
-      description: 'Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.',
-      keywords: 'handyman services, home repairs, home maintenance, professional handyman, home improvement',
-      featuredImage: '/images/Handyman-Hero.jpeg',
-      path: '/'
-    }
+      title: "Handyman Wannabe - Professional Home Services & Repairs",
+      description:
+        "Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.",
+      keywords:
+        "handyman services, home repairs, home maintenance, professional handyman, home improvement",
+      featuredImage: "/images/Handyman-Hero.jpeg",
+      path: "/",
+    },
   };
 
   const businessSchemaData = {
     "@context": "https://schema.org/",
     "@type": "LocalBusiness",
-    "name": "Handyman Wannabe",
-    "address": {
+    name: "Handyman Wannabe",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "123 Main St",
-      "addressLocality": "Anytown",
-      "addressRegion": "CA",
-      "postalCode": "90210",
-      "addressCountry": "US"
+      streetAddress: "123 Main St",
+      addressLocality: "Anytown",
+      addressRegion: "CA",
+      postalCode: "90210",
+      addressCountry: "US",
     },
-    "telephone": "+15551234567",
-    "priceRange": "$$$",
-    "openingHours": "Mo-Fr 09:00-17:00",
-    "url": "https://www.example.com"
+    telephone: "+15551234567",
+    priceRange: "$$$",
+    openingHours: "Mo-Fr 09:00-17:00",
+    url: "https://www.example.com",
   };
 
   const faqSchemaData = [
     {
       "@type": "Question",
-      "name": "What services do you offer?",
-      "acceptedAnswer": {
+      name: "What services do you offer?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "We offer a wide range of handyman services, including carpentry, painting, plumbing, and electrical work."
-      }
-    }
+        text: "We offer a wide range of handyman services, including carpentry, painting, plumbing, and electrical work.",
+      },
+    },
   ];
 
   const breadcrumbSchemaData = {
     "@context": "https://schema.org/",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.example.com"
-      }
-    ]
+        position: 1,
+        name: "Home",
+        item: "https://www.example.com",
+      },
+    ],
   };
 
   const getCanonicalUrl = (path: string) => `https://www.example.com${path}`;
 
   // Get SEO data for this page from our helper
   const seoData = pageSEOData.home || {
-    title: 'Handyman Wannabe - Professional Home Services & Repairs',
-    description: 'Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.',
-    keywords: 'handyman services, home repairs, home maintenance, professional handyman, home improvement',
-    featuredImage: '/images/Handyman-Hero.jpeg',
-    path: '/'
+    title: "Handyman Wannabe - Professional Home Services & Repairs",
+    description:
+      "Handyman Wannabe offers professional home maintenance, repair, and improvement services. From carpentry to electrical work, we handle all your home service needs.",
+    keywords:
+      "handyman services, home repairs, home maintenance, professional handyman, home improvement",
+    featuredImage: "/images/Handyman-Hero.jpeg",
+    path: "/",
   };
 
   return (
@@ -155,7 +157,6 @@ const HomePage: React.FC = () => {
       <MemoizedTestimonials />
       <MemoizedBlogSection />
       <MemoizedPackagesSection />
-      <MemoizedInstagramFeed />
       <MemoizedCallToAction />
     </>
   );
