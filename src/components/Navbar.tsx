@@ -9,7 +9,8 @@ import {
 } from "lucide-react";
 import PhoneCallModal from "./PhoneCallModal";
 import { useScrollPosition } from "../hooks/useScrollPosition";
-import { serviceCategories } from "../data/services.json";
+import servicesData from "../data/services.json";
+const serviceCategories = servicesData.serviceCategories;
 import * as Icons from "lucide-react";
 
 interface NavItem {
