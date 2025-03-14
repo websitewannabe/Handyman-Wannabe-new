@@ -80,18 +80,21 @@ const PackagesSection = () => {
   };
 
   return (
-    <section className="py-20 relative">
-      <div className="absolute top-4 right-4 z-10">
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute top-6 right-6 z-10">
         <Link
           to="/packages"
-          className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-semibold"
+          className="bg-primary text-white px-8 py-3 rounded-xl hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         >
           View All Packages
         </Link>
       </div>
       <div
         className="absolute inset-0 z-0"
-        style={{ backgroundColor: "rgb(235, 213, 193)" }}
+        style={{ 
+          backgroundColor: "rgb(235, 213, 193)",
+          backgroundImage: "linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)"
+        }}
       ></div>
 
       <div className="relative z-10 container mx-auto px-4">
@@ -116,20 +119,21 @@ const PackagesSection = () => {
               onClick={() => handleIconClick(pkg.id)}
             >
               <div className="relative">
-                <div className="bg-white w-32 h-32 rounded-2xl shadow-md mb-6 flex items-center justify-center transform group-hover:shadow-xl transition-all duration-300 group-hover:bg-primary/5">
-                  <pkg.icon className="w-16 h-16 text-primary transform group-hover:scale-110 transition-transform duration-300" />
+                <div className="bg-white w-36 h-36 rounded-3xl shadow-lg mb-8 flex items-center justify-center transform group-hover:shadow-2xl transition-all duration-300 group-hover:bg-primary/5 border border-transparent group-hover:border-primary/10">
+                  <pkg.icon className="w-20 h-20 text-primary transform group-hover:scale-110 transition-all duration-300 group-hover:rotate-3" />
                 </div>
                 <motion.div
-                  className="absolute -inset-2 bg-primary/5 rounded-3xl -z-10"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  className="absolute -inset-3 bg-primary/5 rounded-[2rem] -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  animate={{
+                    scale: [1, 1.02, 1],
+                    transition: { duration: 2, repeat: Infinity }
+                  }}
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-all duration-300">
                 {pkg.name}
               </h3>
-              <p className="text-xl font-semibold text-primary">
+              <p className="text-xl font-semibold text-primary group-hover:scale-110 transition-all duration-300">
                 {pkg.price}
               </p>
             </motion.div>
