@@ -159,9 +159,14 @@ const Navbar = () => {
   };
 
   const handleDropdownLeave = () => {
-    setTimeout(() => {
-      setDropdownOpen(null);
-    }, 150);
+    const timeoutId = setTimeout(() => {
+      const dropdownElement = document.querySelector('.dropdown-menu:hover');
+      const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
+      if (!dropdownElement && !dropdownTrigger) {
+        setDropdownOpen(null);
+      }
+    }, 100);
+    return () => clearTimeout(timeoutId);
   };
 
   const handleMegaMenuEnter = (label: string) => {
