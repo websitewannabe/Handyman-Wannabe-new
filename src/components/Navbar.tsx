@@ -282,7 +282,7 @@ const Navbar = () => {
       if (megaMenuOpen) {
         setTimeout(() => {
           setMegaMenuOpen(false);
-        }, 1000); // Close mega-menu after 1 second of scrolling
+        }, 500); // Close mega-menu after 500ms of scrolling
       }
     };
 
