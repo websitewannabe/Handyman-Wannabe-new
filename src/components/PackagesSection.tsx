@@ -48,6 +48,8 @@ const packages = [
   },
 ];
 
+import { Link } from 'react-router-dom';
+
 const PackagesSection = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -62,6 +64,14 @@ const PackagesSection = () => {
   };
   return (
     <section className="py-20 relative">
+      <div className="absolute top-4 right-4 z-10">
+        <Link
+          to="/packages"
+          className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors font-semibold"
+        >
+          View All Packages
+        </Link>
+      </div>
       <div
         className="absolute inset-0 z-0"
         style={{
