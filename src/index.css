@@ -63,6 +63,43 @@
   right: 0;
   z-index: 1000;
   contain: layout style paint;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.nav-container * {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.dropdown-menu.active {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Prevent focus outline from causing layout shifts */
+*:focus {
+  outline: none !important;
+}
+
+/* Force GPU acceleration for smoother animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Optimize performance */

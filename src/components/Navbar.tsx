@@ -103,6 +103,8 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef<boolean>(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
@@ -113,20 +115,24 @@ const Navbar = () => {
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastScrollPosition = useRef(0);
-  const isScrolling = useRef(false);
   let scrollTimeout: NodeJS.Timeout | null = null;
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleScroll = () => {
-      if (!isScrolling.current) {
+      if (!isScrollingRef.current) {
         window.requestAnimationFrame(() => {
           const scrollPosition = window.scrollY;
           setIsScrolled(scrollPosition > 0);
-          lastScrollPosition.current = scrollPosition;
-          isScrolling.current = false;
+          isScrollingRef.current = true;
+
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            isScrollingRef.current = false;
+          }, 150);
         });
       }
-      isScrolling.current = true;
     };
 
     const handleResize = () => {
@@ -152,13 +158,13 @@ const Navbar = () => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
-    if (!isScrolling.current) {
+    if (!isScrollingRef.current) {
       setDropdownOpen(label);
     }
   };
 
   const handleDropdownLeave = () => {
-    if (!isScrolling.current) {
+    if (!isScrollingRef.current) {
       dropdownTimeoutRef.current = setTimeout(() => {
         setDropdownOpen(null);
       }, 150);
@@ -300,16 +306,22 @@ const Navbar = () => {
   }, [isMobileServicesOpen]);
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleScroll = () => {
-      if (!isScrolling.current) {
+      if (!isScrollingRef.current) {
         window.requestAnimationFrame(() => {
           const scrollPosition = window.scrollY;
           setIsScrolled(scrollPosition > 0);
           lastScrollPosition.current = scrollPosition;
-          isScrolling.current = false;
+          isScrollingRef.current = true;
+
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            isScrollingRef.current = false;
+          }, 150);
         });
       }
-      isScrolling.current = true;
     };
 
 
@@ -350,6 +362,7 @@ const Navbar = () => {
             ? "bg-white/75 backdrop-blur-sm shadow-lg"
             : "bg-transparent"
         }`}
+        ref={navRef} // Added ref for potential future use
         role="navigation"
         aria-label="Main navigation"
       >
