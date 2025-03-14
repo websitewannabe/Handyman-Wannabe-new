@@ -24,6 +24,9 @@ const Footer = () => {
                 Professional handyman services for all your home improvement
                 needs.
               </p>
+              <p className="text-gray-400 mt-2">
+                72 N Main St, Doylestown, PA 18901
+              </p>
             </div>
 
             <div className="flex space-x-4">
