@@ -7,28 +7,24 @@ const testimonials = [
     name: "Bonnie J.",
     rating: 5,
     text: " I will define be calling them again!Thank you for a great job! Great service, excellent quality and good value!.",
-    image: "/images/sarah-Johnson.jpeg",
     role: "Homeowner",
   },
   {
     name: "Bruce W.",
     rating: 5,
     text: "They did a very good job replacing my mailbox post. I would recommend them to anyone.",
-    image: "/images/david_Thompson.avif",
     role: "Homeowner",
   },
   {
     name: "Kathleen B.",
     rating: 5,
     text: "Assembly of desk with small hutch with many pieces and hardware. Dennis did an excellent job even though partial assembly was incorrect. Their price was also reasonable. I would highly recommend Handyman Wannabe. Thank you so much.",
-    image: "/images/emily-Rodriguez.avif",
     role: "Homeowner",
   },
   {
     name: "Oscar G.",
     rating: 5,
     text: "Excellent communication furnished quotes & services. I appreciated the fact that Chris got back to me quickly and furnished costs and materials needed for the project and with time estimates. This helps me with all of my options.",
-    image: "/images/michael-Chen.avif",
     role: "Homeowner",
   },
 ];
@@ -137,11 +133,6 @@ const Testimonials = () => {
               >
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex flex-col items-center text-center">
-                    <img
-                      src={testimonials[currentIndex].image}
-                      alt={testimonials[currentIndex].name}
-                      className="w-24 h-24 rounded-full mb-6 object-cover border-4 border-white shadow-lg"
-                    />
                     <div className="flex mb-4">
                       {[...Array(testimonials[currentIndex].rating)].map(
                         (_, i) => (
