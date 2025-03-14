@@ -152,26 +152,29 @@ const Navbar = () => {
     return location.pathname === href;
   };
 
-  const getServiceUrl = (service: string) => {
+  const getServiceUrl = (serviceName: string) => {
     // Special cases for services with different URL patterns
-    if (service === "Smart Home") {
+    if (serviceName === "Smart Home") {
       return "/services/smart-homes";
     }
-    if (service === "Property Management") {
+    if (serviceName === "Property Management") {
       return "/services/management-companies";
     }
-    if (service === "Third Party Moving") {
+    if (serviceName === "Third Party Moving") {
       return "/services/third-party-moving";
     }
-    if (service === "Home Inspections") {
+    if (serviceName === "Home Inspections") {
       return "/services/home-inspections";
     }
-    if (service === "Misc.") {
+    if (serviceName === "Misc.") {
       return "/services/misc";
+    }
+    if (serviceName === "General Assembly") {
+      return "/services/furniture-assembly";
     }
 
     // Handle other services
-    const slug = service
+    const slug = serviceName
       .toLowerCase()
       .replace(/\s+&\s+|-/g, "-")
       .replace(/\s+/g, "-");
