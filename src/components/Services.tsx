@@ -168,7 +168,7 @@ const Services = () => {
                             className="w-full bg-white border-2 border-primary text-primary font-medium py-2 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 group-hover:shadow-md block text-center"
                             aria-label={`Learn more about ${item.name} services`}
                           >
-                            Learn more about {item.name}
+                            Learn More!
                           </Link>
                         </motion.div>
                       ))}
