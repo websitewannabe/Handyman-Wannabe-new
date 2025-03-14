@@ -88,12 +88,27 @@
   transform: translate3d(0, 0, 0);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease-out;
+  transition: all 0.3s ease-out;
   contain: layout paint style;
   will-change: transform, opacity;
   padding-top: 8px;
   margin-top: -8px;
-  z-index: 1000;
+  z-index: 1050;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dropdown-container {
+  position: relative;
+  z-index: 1050;
+}
+
+.dropdown-menu.active,
+.dropdown-menu:hover,
+.dropdown-container:hover .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
 }
 
 .dropdown-menu.active,

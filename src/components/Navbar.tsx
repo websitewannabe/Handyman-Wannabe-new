@@ -169,10 +169,11 @@ const Navbar = () => {
       const dropdownElement = document.querySelector('.dropdown-menu:hover');
       const dropdownTrigger = document.querySelector('[data-menu-trigger]:hover');
       const dropdownLink = document.querySelector('.dropdown-link:hover');
-      if (!dropdownElement && !dropdownTrigger && !dropdownLink) {
+      const dropdownContainer = document.querySelector('.dropdown-container:hover');
+      if (!dropdownElement && !dropdownTrigger && !dropdownLink && !dropdownContainer) {
         setDropdownOpen(null);
       }
-    }, 400);
+    }, 600);
   };
 
   const handleMegaMenuEnter = (label: string) => {
