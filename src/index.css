@@ -88,9 +88,9 @@
   transform: translate3d(0, 0, 0);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.15s ease-out;
+  transition: all 0.3s ease-out;
   contain: layout paint style;
-  will-change: opacity;
+  will-change: transform, opacity;
   padding-top: 8px;
   margin-top: -8px;
   z-index: 1050;
@@ -102,19 +102,13 @@
   z-index: 1050;
 }
 
-.dropdown-container:hover .dropdown-menu,
+.dropdown-menu.active,
 .dropdown-menu:hover,
-.dropdown-menu.active {
+.dropdown-container:hover .dropdown-menu {
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
-}
-
-.dropdown-menu a,
-.dropdown-menu button {
-  display: block;
-  width: 100%;
-  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
 }
 
 .dropdown-menu.active,
