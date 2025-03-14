@@ -173,7 +173,7 @@ const Navbar = () => {
       if (!dropdownElement && !dropdownTrigger && !dropdownLink && !dropdownContainer) {
         setDropdownOpen(null);
       }
-    }, 2000);
+    }, 1000);
   };
 
   const handleMegaMenuEnter = (label: string) => {
