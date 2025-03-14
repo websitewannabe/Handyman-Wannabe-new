@@ -301,9 +301,9 @@ const Hero = () => {
           )}
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
+            <a href="https://carpet-quote-pro-ctierney1.replit.app/" target="_blank" rel="noopener noreferrer" className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
               Get an Instant Quote
-            </button>
+            </a>
             <a
               href="tel:7193156628"
               className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
