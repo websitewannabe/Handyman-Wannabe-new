@@ -30,7 +30,7 @@ import { Link } from "react-router-dom";
 const services = [
   {
     category: "Interior",
-    image: "/images/Wood-and-Drill.avif",
+    image: "/images/living-Room.avif",
     items: [
       { name: "Electrical", time: "1-2 hours", icon: Zap },
       { name: "Plumbing", time: "30-60 mins", icon: Droplet },
@@ -44,7 +44,7 @@ const services = [
   },
   {
     category: "Exterior",
-    image: "/images/Drill.avif",
+    image: "/images/home.avif",
     items: [
       { name: "Windows & Doors", time: "2-4 hours", icon: DoorOpen },
       { name: "Garage Doors", time: "3-4 hours", icon: Car },
@@ -75,7 +75,9 @@ const Services = () => {
     <section id="services" className="py-20 bg-gray-50">
       <h2 className="text-center mb-12">Our Services</h2>
 
-      <div className="flex flex-wrap max-w-6xl mx-auto"> {/* Added max-width for better layout */}
+      <div className="flex flex-wrap max-w-6xl mx-auto">
+        {" "}
+        {/* Added max-width for better layout */}
         {services.map((service) => (
           <div
             key={service.category}
@@ -84,18 +86,23 @@ const Services = () => {
             onMouseEnter={() => setHoveredService(service.category)}
             onMouseLeave={() => setHoveredService(null)}
           >
-            <div className="relative h-[300px] mx-auto"> {/* Reduced height and centered image */}
+            <div className="relative h-[300px] mx-auto">
+              {" "}
+              {/* Reduced height and centered image */}
               {/* Image with overlay */}
-              <div className="absolute inset-0 mx-auto w-[90%]"> {/* Contained image width */}
+              <div className="absolute inset-0 mx-auto w-[90%]">
+                {" "}
+                {/* Contained image width */}
                 <img
                   src={service.image}
                   alt={service.category}
                   className="w-full h-full object-cover rounded-lg mt-4 transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-
               {/* Category label */}
-              <div className="absolute bottom-0 left-[8%] right-[8%] p-6 text-white z-10"> {/* Adjusted label position */}
+              <div className="absolute bottom-0 left-[8%] right-[8%] p-6 text-white z-10">
+                {" "}
+                {/* Adjusted label position */}
                 <div className="flex items-center justify-between">
                   <h3 className="text-2xl font-bold">{service.category}</h3>
                   <ChevronDown
@@ -105,7 +112,6 @@ const Services = () => {
                   />
                 </div>
               </div>
-
               {/* Hover overlay - removed */}
             </div>
           </div>
