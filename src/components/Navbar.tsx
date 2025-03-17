@@ -135,6 +135,23 @@ const Navbar = () => {
   );
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.mobile-menu') && !target.closest('.mobile-menu-button')) {
+        setMobileSubMenuOpen(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
@@ -572,24 +589,39 @@ const Navbar = () => {
                 {navItems.map((item) => (
                   <div key={item.label} className="w-full">
                     {item.dropdown || item.megaMenu ? (
-                      item.label === "SERVICES" ? (
-                        <Link
-                          to="/mobileservicespage"
-                          className={`block py-3 text-lg font-medium ${
-                            isActive("/mobileservicespage")
-                              ? "text-primary"
-                              : isScrolled
-                                ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
+                      <div className="relative">
+                        <button
+                          onClick={() => toggleMobileSubMenu(item.label)}
+                          className={`flex w-full items-center justify-between py-3 text-lg font-medium ${
+                            mobileSubMenuOpen === item.label ? "text-primary" : "text-dark"
                           }`}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setActiveDropdown(null);
-                          }}
+                          aria-expanded={mobileSubMenuOpen === item.label}
                         >
                           {item.label}
+                          <ChevronDown
+                            className={`h-5 w-5 transition-transform duration-300 ${
+                              mobileSubMenuOpen === item.label ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {mobileSubMenuOpen === item.label && (
+                          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg mt-1">
+                            {item.dropdown?.map((subItem) => (
+                              <Link
+                                key={subItem.label}
+                                to={subItem.href}
+                                className="block px-4 py-2 text-dark hover:bg-gray-100"
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setMobileSubMenuOpen(null);
+                                }}
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                         </Link>
                       ) : (
                         <button
