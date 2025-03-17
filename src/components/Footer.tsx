@@ -285,7 +285,7 @@ const Footer = () => {
             <p className="text-gray-400">
               &copy; 2025 Handyman Wannabe. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center sm:space-x-6 space-y-2 sm:space-y-0 mt-4 md:mt-0">
               <Link
                 to="/accessibility"
                 className="text-gray-400 hover:text-white transition-colors"
