@@ -105,32 +105,31 @@ const AboutUsPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">
-            Meet Our Team
+            Meet Our Field Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={index}
-                className="relative group bg-white rounded-lg shadow-lg overflow-hidden h-[420px] transform transition-transform duration-300 hover:-translate-y-2"
+                className="group relative bg-white rounded-xl shadow-lg overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div className="h-full w-full relative">
+                <div className="aspect-[3/4] overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className={`w-full h-full object-cover ${member.name === "Dennis Tierney" ? "object-center" : "object-top"}`}
+                    className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
-                    <p className="text-primary-light font-medium mb-4">{member.role}</p>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                  <p className="text-primary font-medium mb-4">{member.role}</p>
                     <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <p className="text-gray-200">{member.bio}</p>
                     </div>
-                  </div>
+                  <p className="text-gray-600">{member.bio}</p>
                 </div>
               </motion.div>
             ))}
