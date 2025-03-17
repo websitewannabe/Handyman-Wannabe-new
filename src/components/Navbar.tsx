@@ -97,7 +97,6 @@ const navItems: NavItem[] = [
         href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
         external: true,
         onClick: () => {
-          console.log("Customer Portal Clicked");
           window.open("https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b", "_blank", "noopener,noreferrer");
         }
       },
