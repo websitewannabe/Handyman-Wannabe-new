@@ -125,7 +125,7 @@ const ServiceAreas = () => {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-20" style={{ backgroundColor: "#ebd5c1" }}>
+      <section className="py-20 bg-[#FFA500]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -134,10 +134,10 @@ const ServiceAreas = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-[#1B4332] mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Trusted Local Expertise
             </h2>
-            <p className="text-xl text-gray-800">
+            <p className="text-xl text-white/90">
               Serving the Greater Colorado Springs Area since 2018
             </p>
           </motion.div>
