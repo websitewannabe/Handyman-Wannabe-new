@@ -95,8 +95,7 @@ const navItems: NavItem[] = [
       {
         label: "Customer Portal",
         href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
-        target: "_blank",
-        rel: "noopener noreferrer"
+        external: true
       },
     ],
   },
