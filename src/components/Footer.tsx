@@ -277,7 +277,6 @@ const Footer = () => {
                 <p className="text-lg font-bold">info@handymanwannabe.com</p>
               </div>
             </div>
-            <a href="mailto:info@handymanwannabe.com" className="text-lg font-bold hover:text-white">info@handymanwannabe.com</a> {/* Added email link */}
           </div>
         </div>
 
