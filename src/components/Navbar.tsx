@@ -572,18 +572,25 @@ const Navbar = () => {
                 {navItems.map((item) => (
                   <div key={item.label} className="w-full">
                     {item.dropdown || item.megaMenu ? (
-                      item.label === "SERVICES" ? (
-                        <Link
-                          to="/mobileservicespage"
-                          className={`block py-3 text-lg font-medium ${
-                            isActive("/mobileservicespage")
-                              ? "text-primary"
-                              : isScrolled
+                      <button
+                        onClick={() => toggleMobileSubMenu(item.label)}
+                        className={`flex justify-between items-center w-full py-3 text-lg font-medium ${
+                          isActive(item.href)
+                            ? "text-primary"
+                            : isScrolled
+                              ? "text-dark"
+                              : shouldUseBlackText
                                 ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
+                                : "text-dark"
+                        }`}
+                      >
+                        {item.label}
+                        <ChevronDown
+                          className={`ml-2 h-5 w-5 transition-transform duration-200 ${
+                            mobileSubMenuOpen === item.label ? "rotate-180" : ""
                           }`}
+                        />
+                      </button>
                           onClick={() => {
                             setIsOpen(false);
                             setActiveDropdown(null);
@@ -651,7 +658,6 @@ const Navbar = () => {
                             to={subItem.href}
                             className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
                             onClick={() => {
-                              e.stopPropagation();
                               setIsOpen(false);
                               setMobileSubMenuOpen(null);
                             }}
