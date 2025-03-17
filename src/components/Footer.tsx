@@ -4,6 +4,7 @@ import {
   AtSign,
   Phone,
   MapPin,
+  Mail
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
