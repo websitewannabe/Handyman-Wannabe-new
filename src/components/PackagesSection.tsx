@@ -125,7 +125,7 @@ const PackagesSection = () => {
               <h3 className="text-2xl font-extrabold text-gray-800 mb-3 group-hover:text-primary transition-all duration-300 text-center tracking-tight">
                 {pkg.name}
               </h3>
-              <p className="text-xl font-semibold text-primary group-hover:scale-110 transition-all duration-300 text-center">
+              <p className="text-xl font-semibold text-[#f05a27] group-hover:scale-110 transition-all duration-300 text-center">
                 {pkg.price}
               </p>
             </motion.div>
