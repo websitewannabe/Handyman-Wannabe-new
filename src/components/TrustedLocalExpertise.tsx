@@ -1,9 +1,8 @@
-
 import { motion } from 'framer-motion';
 
 const TrustedLocalExpertise = () => {
   return (
-    <section className="py-16 bg-[#FFA500]">
+    <section className="py-16 bg-[#f05a27]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
