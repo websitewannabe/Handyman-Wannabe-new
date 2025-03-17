@@ -600,7 +600,7 @@ const Navbar = () => {
                         setShowMobileServices(true);
                         setIsOpen(false);
                       }}
-                      className="w-full text-left px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md mobile-menu-button"
+                      className="block py-3 text-lg font-medium text-dark hover:text-primary w-full text-left"
                     >
                       {item.label}
                     </button>
