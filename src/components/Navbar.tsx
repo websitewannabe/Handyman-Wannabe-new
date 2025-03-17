@@ -95,8 +95,7 @@ const navItems: NavItem[] = [
       {
         label: "Customer Portal",
         href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
-        target: "_blank",
-        rel: "noopener noreferrer"
+        external: true
       },
     ],
   },
@@ -494,6 +493,18 @@ const Navbar = () => {
                         onMouseLeave={handleDropdownLeave}
                       >
                         {item.dropdown.map((dropdownItem) => (
+                          {dropdownItem.external ? (
+                          <a
+                            key={dropdownItem.label}
+                            href={dropdownItem.href}
+                            className="block px-4 py-3 text-sm text-dark hover:bg-gray-50 hover:text-secondary transition-colors dropdown-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            role="menuitem"
+                          >
+                            {dropdownItem.label}
+                          </a>
+                        ) : (
                           <Link
                             key={dropdownItem.label}
                             to={dropdownItem.href}
@@ -502,6 +513,7 @@ const Navbar = () => {
                           >
                             {dropdownItem.label}
                           </Link>
+                        )}
                         ))}
                       </div>
                     )}
