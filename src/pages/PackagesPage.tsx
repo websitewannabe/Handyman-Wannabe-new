@@ -19,6 +19,7 @@ import { useSearchParams, useLocation } from "react-router-dom";
 const packageData = [
   {
     id: "basic",
+    icon: "🛠️",
     name: "Basic Handyman Package",
     description: "Essential services for minor home repairs and maintenance.",
     price: "$399",
@@ -51,6 +52,7 @@ const packageData = [
   },
   {
     id: "standard",
+    icon: "🔧",
     name: "Standard Home Maintenance Package",
     description:
       "Comprehensive service package for regular home maintenance and improvements.",
@@ -80,6 +82,7 @@ const packageData = [
   },
   {
     id: "premium",
+    icon: "👑",
     name: "Premium Home Improvement Package",
     description:
       "Complete home improvement services with priority scheduling and dedicated support.",
@@ -111,6 +114,7 @@ const packageData = [
   },
   {
     id: "seasonal",
+    icon: "🍂",
     name: "Seasonal Maintenance Package",
     description:
       "Keep your home prepared for changing seasons with essential maintenance.",
@@ -138,6 +142,7 @@ const packageData = [
   },
   {
     id: "newhome",
+    icon: "🏠",
     name: "New Home Setup Package",
     description: "Everything you need to make your new house feel like home.",
     price: "$899",
@@ -160,10 +165,11 @@ const packageData = [
       "Landscaping",
     ],
     popular: false,
-      image: "/images/new-home-setup-package.avif",
+    image: "/images/new-home-setup-package.avif",
   },
   {
     id: "newpet",
+    icon: "🐾",
     name: "New Pet Package",
     description:
       "A handyman service package tailored for pet owners! This package includes installing pet doors, setting up pet-friendly flooring, assembling pet furniture, securing fences, and mounting pet gates to create a safe and comfortable space for your furry friend.",
@@ -217,41 +223,41 @@ const PackagesPage = () => {
   // Get URL search parameters
   const [searchParams] = useSearchParams();
   const location = useLocation();
-  
+
   // Check for package parameter in URL and auto-expand that package
   useEffect(() => {
     const packageParam = searchParams.get("package");
     if (packageParam) {
       console.log("Looking for package:", packageParam);
-      
+
       // Debug: Log all package IDs for comparison
       console.log("Available package IDs:", packageData.map(pkg => pkg.id));
-      
+
       // Enhanced matching logic for package IDs
       const selectedPkg = packageData.find(pkg => {
         // Normalize both strings for comparison: lowercase and remove hyphens
         const normalizedParamId = packageParam.toLowerCase().replace(/-/g, '');
         const normalizedPkgId = pkg.id.toLowerCase().replace(/-/g, '');
-        
+
         // Try different matching strategies
         const exactMatch = pkg.id === packageParam;
         const lowercaseMatch = pkg.id.toLowerCase() === packageParam.toLowerCase();
         const normalizedMatch = normalizedPkgId === normalizedParamId;
-        
+
         // For debugging
         if (normalizedPkgId.includes(normalizedParamId) || normalizedParamId.includes(normalizedPkgId)) {
           console.log(`Partial match - Param: ${packageParam}, Package: ${pkg.id}, 
                       Normalized param: ${normalizedParamId}, Normalized pkg: ${normalizedPkgId}`);
         }
-        
+
         return exactMatch || lowercaseMatch || normalizedMatch;
       });
-      
+
       if (selectedPkg) {
         console.log("Found matching package:", selectedPkg.id);
         setSelectedPackageId(selectedPkg.id);
         setExpandedPackageId(selectedPkg.id);
-        
+
         // Wait for the component to render before scrolling
         setTimeout(() => {
           const element = document.getElementById(`package-${selectedPkg.id}`);
@@ -263,18 +269,18 @@ const PackagesPage = () => {
         }, 300);
       } else {
         console.log(`Package not found for ID: ${packageParam}`);
-        
+
         // Fallback: Try to find a package that contains the search param as a substring
         const fallbackPkg = packageData.find(pkg => 
           pkg.id.toLowerCase().includes(packageParam.toLowerCase()) ||
           packageParam.toLowerCase().includes(pkg.id.toLowerCase())
         );
-        
+
         if (fallbackPkg) {
           console.log(`Found fallback package match: ${fallbackPkg.id}`);
           setSelectedPackageId(fallbackPkg.id);
           setExpandedPackageId(fallbackPkg.id);
-          
+
           setTimeout(() => {
             const element = document.getElementById(`package-${fallbackPkg.id}`);
             if (element) {
@@ -472,30 +478,32 @@ const PackagesPage = () => {
                         Most Popular
                       </div>
                     )}
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-6xl transform hover:scale-110 transition-all duration-300 filter drop-shadow-lg">{pkg.icon}</span>
+                      </div>
                       <img
                         src={pkg.image}
                         alt={pkg.name}
-                        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300 opacity-80"
                         onError={(e) => {
                           e.currentTarget.src = "/images/home-Keys.avif"; // Fallback image
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-4 left-4 text-white">
-                        <h2 className="text-xl font-bold">{pkg.name}</h2>
-                        <div className="text-sm text-white/80 bg-black/30 px-2 py-0.5 rounded mt-1 inline-block">
+                        <h2 className="text-2xl font-extrabold tracking-tight">{pkg.name}</h2>
+                        <div className="text-sm font-medium text-white/90 bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full mt-2 inline-block">
                           {pkg.category}
                         </div>
                       </div>
                     </div>
-                    <div className="p-4">
-                      <div className="flex justify-between items-center mb-2">
+                    <div className="p-6">
+                      <div className="flex justify-between items-center mb-4">
                         <div>
-                          <span className="text-2xl font-bold text-primary">
+                          <span className="text-3xl font-bold text-primary">
                             {pkg.price}
                           </span>
-                          <span className="text-gray-500 ml-2">
+                          <span className="text-gray-600 ml-2 font-medium">
                             /{pkg.duration}
                           </span>
                         </div>
@@ -567,7 +575,7 @@ const PackagesPage = () => {
                           </div>
 
                           <div className="flex justify-center mt-4">
-                            <button 
+                            <button
                               className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors"
                               onClick={() => {
                                 const url = "https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D";
@@ -659,7 +667,7 @@ const PackagesPage = () => {
                       key={`${pkg.id}-book`}
                       className="px-6 py-4 text-sm text-center"
                     >
-                      <button 
+                      <button
                         className="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm"
                         onClick={() => {
                           const url = "https://book.housecallpro.com/book/Handyman-Wannabe-LLC/15e9785faf164524b7cad4c718a9ea3f?hp_provider=82855cd1830743b395e62aef39c203d1&fl_provider_id=d3ZkdaY2hreE12MTBVR2UrRGHDqxlH0TCYf7rWOAj0ToniXiKhDLri1avY40-nDP7eGQazOyh0w%3D%3D";
