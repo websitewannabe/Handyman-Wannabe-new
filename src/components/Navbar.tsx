@@ -667,7 +667,7 @@ const Navbar = () => {
                             key={subItem.label}
                             to={subItem.href}
                             className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
-                            onClick={() => {
+                            onClick={(e) => {
                               e.stopPropagation();
                               setIsOpen(false);
                               setMobileSubMenuOpen(null);
