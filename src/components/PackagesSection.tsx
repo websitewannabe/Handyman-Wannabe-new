@@ -103,7 +103,7 @@ const PackagesSection = () => {
               </motion.h3>
 
               <motion.p
-                className="text-xl font-semibold text-primary mb-3"
+                className="text-xl font-semibold text-[#f05a27] mb-3"
                 whileHover={{ scale: 1.02 }}
               >
                 {pkg.price}
