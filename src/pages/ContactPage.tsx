@@ -57,23 +57,43 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
-    
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "General Inquiry",
+          message: "",
+        });
+      } else {
+        throw new Error(data.error || "Failed to send message");
+      }
+
       const text = await response.text();
       const result = text ? JSON.parse(text) : {};
-      
+
       if (!response.ok) {
-        throw new Error(result.error || `HTTP error! Status: ${response.status}`);
+        throw new Error(
+          result.error || `HTTP error! Status: ${response.status}`,
+        );
       }
-      
+
       if (result.success) {
         setSubmitted(true);
         setFormData({
@@ -84,11 +104,13 @@ const ContactPage = () => {
           message: "",
         });
       } else {
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(result.error || "Failed to send message");
       }
     } catch (error) {
-      setSubmitError(error.message || 'An error occurred. Please try again later.');
-      console.error('Form submission error:', error);
+      setSubmitError(
+        error.message || "An error occurred. Please try again later.",
+      );
+      console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
@@ -305,9 +327,9 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full btn-primary py-3 text-lg font-bold ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full btn-primary py-3 text-lg font-bold ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
 
                   {submitted && (
