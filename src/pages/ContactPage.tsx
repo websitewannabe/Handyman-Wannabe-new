@@ -67,24 +67,6 @@ const ContactPage = () => {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (data.success) {
-        setSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "General Inquiry",
-          message: "",
-        });
-      } else {
-        throw new Error(data.error || 'Failed to send message');
-      }
-
       const text = await response.text();
       const result = text ? JSON.parse(text) : {};
       
