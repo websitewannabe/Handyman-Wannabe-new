@@ -32,3 +32,18 @@ externalPort = 80
 [[ports]]
 localPort = 5175
 externalPort = 3000
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Dev Server"
+author = 39135033
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node src/server/index.ts"

@@ -50,24 +50,47 @@ const ContactPage = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const subject = `New Contact Form Submission from ${formData.name}`;
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Subject: ${formData.subject}
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-Message:
-${formData.message}
-    `;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
     
-    window.location.href = `mailto:info@handymanwannabe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "General Inquiry",
+          message: "",
+        });
+      } else {
+        setSubmitError('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      setSubmitError('An error occurred. Please try again later.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setSubmitted(false);
+        setSubmitError(null);
+      }, 5000);
+    }
   };
 
   const handleInputChange = (
@@ -276,14 +299,21 @@ ${formData.message}
 
                   <button
                     type="submit"
-                    className="w-full btn-primary py-3 text-lg font-bold"
+                    disabled={isSubmitting}
+                    className={`w-full btn-primary py-3 text-lg font-bold ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
 
                   {submitted && (
                     <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
                       Thank you! We'll get back to you as soon as possible.
+                    </div>
+                  )}
+
+                  {submitError && (
+                    <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                      {submitError}
                     </div>
                   )}
                 </form>
