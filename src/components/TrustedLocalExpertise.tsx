@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const TrustedLocalExpertise = () => {
   return (
@@ -18,20 +18,20 @@ const TrustedLocalExpertise = () => {
           {[
             {
               title: "5+ Years Experience",
-              description: "Serving Colorado Springs since 2018"
+              description: "Serving Colorado Springs since 2018",
             },
             {
               title: "Local Knowledge",
-              description: "Deep understanding of local home needs"
+              description: "Deep understanding of local home needs",
             },
             {
               title: "Licensed & Insured",
-              description: "Full coverage for your peace of mind"
+              description: "Full coverage for your peace of mind",
             },
             {
-              title: "5-Star Service",
-              description: "Consistently top-rated by customers"
-            }
+              title: "★ ★ ★ ★ ★",
+              description: "Consistently top-rated by customers",
+            },
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -44,9 +44,7 @@ const TrustedLocalExpertise = () => {
               <h3 className="text-2xl font-bold text-white mb-3">
                 {item.title}
               </h3>
-              <p className="text-white/90 text-lg">
-                {item.description}
-              </p>
+              <p className="text-white/90 text-lg">{item.description}</p>
             </motion.div>
           ))}
         </div>
