@@ -94,11 +94,9 @@ const navItems: NavItem[] = [
       { label: "Contact", href: "/contact" },
       {
         label: "Customer Portal",
-        href: "#",
-        onClick: (e: React.MouseEvent) => {
-          e.preventDefault();
-          window.open("https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b", "_blank");
-        }
+        href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
+        target: "_blank",
+        rel: "noopener noreferrer"
       },
     ],
   },
@@ -644,13 +642,8 @@ const Navbar = () => {
                     className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors"
                     data-token="a723826f09b6469fb06bd0ddb961381b"
                     data-orgname="Handyman-Wannabe-LLC"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      window.open(
-                        "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
-                        "_blank",
-                      );
+                    onClick={() => {
+                      window.location.href = "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b";
                     }}
                     onMouseEnter={(e) => e.stopPropagation()}
                     onMouseOver={(e) => e.stopPropagation()}
