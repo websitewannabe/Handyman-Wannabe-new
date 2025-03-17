@@ -133,6 +133,7 @@ const Navbar = () => {
   const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
     null,
   );
+  const [showMobileServices, setShowMobileServices] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -398,6 +399,11 @@ const Navbar = () => {
           <MobileServicesPage onClose={() => setIsMobileServicesOpen(false)} />
         </div>
       )}
+      {showMobileServices && isMobile && (
+        <div className="fixed inset-0 z-[60] bg-white">
+          <MobileServicesPage onClose={() => setShowMobileServices(false)} />
+        </div>
+      )}
 
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -584,57 +590,64 @@ const Navbar = () => {
             </div>
           </div>
           {isOpen && (
-            <div className="lg:hidden bg-white">
-              <div className="px-2 pt-2 pb-3 space-y-1 list-none">
-                {navItems.map((item) => (
-                  <div key={item.label} className="w-full">
-                    {item.dropdown || item.megaMenu ? (
-                      <div className="relative">
-                        <button
-                          onClick={() => toggleMobileSubMenu(item.label)}
-                          className={`flex w-full items-center justify-between py-3 text-lg font-medium ${
-                            mobileSubMenuOpen === item.label ? "text-primary" : "text-dark"
-                          }`}
-                        >
-                          {item.label}
-                          <ChevronDown
-                            className={`h-5 w-5 transition-transform duration-300 ${
-                              mobileSubMenuOpen === item.label ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                        {mobileSubMenuOpen === item.label && (
-                          <div className="pl-4 space-y-2">
-                            {item.dropdown?.map((subItem) => (
-                              <Link
-                                key={subItem.label}
-                                to={subItem.href}
-                                className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
-                                onClick={() => {
-                                  setIsOpen(false);
-                                  setMobileSubMenuOpen(null);
-                                }}
-                              >
-                                {subItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <Link
-                        to={item.href || "#"}
-                        className="block py-3 text-lg font-medium text-dark hover:text-primary"
-                        onClick={() => {
-                          setIsOpen(false);
-                          setActiveDropdown(null);
-                        }}
+            <div className="lg:hidden bg-white mobile-menu">
+              <div className="px-2 pt-2 pb-3 space-y-1 list-none mobile-menu-content">
+                {navItems.map((item) =>
+                  item.label === "SERVICES" ? (
+                    <button
+                      key={item.label}
+                      onClick={() => {
+                        setShowMobileServices(true);
+                        setIsOpen(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md mobile-menu-button"
+                    >
+                      {item.label}
+                    </button>
+                  ) : item.megaMenu || item.dropdown ? (
+                    <div key={item.label}>
+                      <button
+                        onClick={() => toggleMobileSubMenu(item.label)}
+                        className="w-full text-left flex justify-between items-center px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
                       >
                         {item.label}
-                      </Link>
-                    )}
-                  </div>
-                ))}
+                        {mobileSubMenuOpen === item.label ? (
+                          <ChevronUp className="h-5 w-5" />
+                        ) : (
+                          <ChevronDown className="h-5 w-5" />
+                        )}
+                      </button>
+                      {mobileSubMenuOpen === item.label && item.dropdown && (
+                        <div className="space-y-2 pl-4">
+                          {item.dropdown.map((subItem) => (
+                            <Link
+                              key={subItem.label}
+                              to={subItem.href}
+                              className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
+                              onClick={() => {
+                                setIsOpen(false);
+                                setMobileSubMenuOpen(null);
+                              }}
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href || "#"}
+                      className="block py-3 text-lg font-medium text-dark hover:text-primary"
+                      onClick={() => {
+                        setIsOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                )}
 
                 <div className="py-4 flex flex-col items-center mt-2">
                   <button
