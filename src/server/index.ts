@@ -1,6 +1,9 @@
 
 import express from 'express';
+import { config } from 'dotenv';
 import { sendEmail } from './emailService';
+
+config();
 
 const app = express();
 app.use(express.json());
