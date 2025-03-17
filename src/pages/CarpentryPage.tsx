@@ -1,8 +1,8 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Tool, ChevronRight, Hammer, Saw, Ruler, Home, Construction, Briefcase } from 'lucide-react';
+import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ChevronRight, Home, Construction, Wrench, Warehouse, Ruler } from "lucide-react";
 
 const CarpentryPage = () => {
   const carpentryServices = [
@@ -32,7 +32,7 @@ const CarpentryPage = () => {
     },
     {
       category: "Custom Woodworking",
-      icon: Saw,
+      icon: Wrench,
       description: "Bespoke carpentry and custom solutions",
       services: [
         "Built-in Shelving",
@@ -44,7 +44,7 @@ const CarpentryPage = () => {
     },
     {
       category: "Exterior Carpentry",
-      icon: Tool,
+      icon: Warehouse,
       description: "Outdoor carpentry and construction",
       services: [
         "Deck Building & Repair",
@@ -59,23 +59,11 @@ const CarpentryPage = () => {
       icon: Ruler,
       description: "Detailed finishing and precision work",
       services: [
-        "Window Installation & Trim",
-        "Custom Mantels",
-        "Wainscoting",
-        "Custom Cabinetry",
-        "Architectural Details"
-      ]
-    },
-    {
-      category: "Commercial Carpentry",
-      icon: Briefcase,
-      description: "Professional commercial carpentry services",
-      services: [
-        "Office Build-outs",
-        "Retail Fixtures",
-        "Commercial Door Installation",
-        "Partition Walls",
-        "Display Units"
+        "Door & Window Trim",
+        "Wainscoting Installation",
+        "Custom Moldings",
+        "Cabinet Finishing",
+        "Fine Woodworking"
       ]
     }
   ];
@@ -112,7 +100,7 @@ const CarpentryPage = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -152,11 +140,10 @@ const CarpentryPage = () => {
                     ))}
                   </ul>
                   <Link
-                    to={`/services/carpentry/${category.category.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors duration-200"
+                    to={`/services/carpentry#${category.category.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
                   >
                     Learn More
-                    <ChevronRight className="w-5 h-5 ml-2" />
                   </Link>
                 </div>
               </motion.div>
