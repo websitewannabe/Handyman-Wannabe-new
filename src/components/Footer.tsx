@@ -4,6 +4,7 @@ import {
   AtSign,
   Phone,
   MapPin,
+  Mail,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -271,10 +272,12 @@ const Footer = () => {
             </div>
 
             <div className="flex items-start">
-              <AtSign className="w-5 h-5 text-primary mt-1 mr-3" />
+              <Mail className="w-5 h-5 text-primary mt-1 mr-3" />
               <div>
                 <p className="text-sm text-gray-400">Email Us</p>
-                <p className="text-lg font-bold">info@handymanwannabe.com</p>
+                <a href="mailto:info@handymanwannabe.com" className="text-lg font-bold hover:text-white">
+                  info@handymanwannabe.com
+                </a>
               </div>
             </div>
           </div>
