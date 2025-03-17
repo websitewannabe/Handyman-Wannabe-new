@@ -572,21 +572,38 @@ const Navbar = () => {
                 {navItems.map((item) => (
                   <div key={item.label} className="w-full">
                     {item.dropdown || item.megaMenu ? (
-                      item.label === "SERVICES" ? (
-                        <Link
-                          to="/mobileservicespage"
-                          className={`block py-3 text-lg font-medium ${
-                            isActive("/mobileservicespage")
-                              ? "text-primary"
-                              : isScrolled
-                                ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
+                      <div>
+                        <button
+                          className={`flex w-full items-center justify-between py-3 text-lg font-medium ${
+                            mobileSubMenuOpen === item.label ? "text-primary" : "text-dark"
                           }`}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setActiveDropdown(null);
+                          onClick={() => toggleMobileSubMenu(item.label)}
+                        >
+                          {item.label}
+                          <ChevronDown
+                            className={`h-5 w-5 transition-transform ${
+                              mobileSubMenuOpen === item.label ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {mobileSubMenuOpen === item.label && (
+                          <div className="ml-4 space-y-2">
+                            {item.dropdown?.map((subItem) => (
+                              <Link
+                                key={subItem.label}
+                                to={subItem.href}
+                                className="block py-2 text-dark hover:text-primary"
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setMobileSubMenuOpen(null);
+                                }}
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                           }}
                         >
                           {item.label}
