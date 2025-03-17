@@ -650,18 +650,6 @@ const Navbar = () => {
                 )}
 
                 <div className="py-4 flex flex-col items-center mt-2">
-                  <button
-                    className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors"
-                    data-token="a723826f09b6469fb06bd0ddb961381b"
-                    data-orgname="Handyman-Wannabe-LLC"
-                    onClick={() => {
-                      window.location.href = "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b";
-                    }}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseOver={(e) => e.stopPropagation()}
-                  >
-                    Customer Portal
-                  </button>
                 </div>
               </div>
             </div>
