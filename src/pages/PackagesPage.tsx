@@ -676,54 +676,6 @@ const PackagesPage = () => {
           </motion.div>
         )}
 
-        {/* Trusted Local Expertise Section */}
-        <section className="py-20 bg-[#FFA500] mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2
-              className="text-3xl font-bold text-white mb-12 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Trusted Local Expertise
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  title: "5+ Years Experience",
-                  description: "Serving Colorado Springs since 2018",
-                },
-                {
-                  title: "Local Knowledge",
-                  description: "Deep understanding of local home needs",
-                },
-                {
-                  title: "Licensed & Insured",
-                  description: "Full coverage for your peace of mind",
-                },
-                {
-                  title: "5-Star Rated",
-                  description: "Consistently top-rated by customers",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-white/90 text-lg">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <motion.div
           {...fadeInVariants}
           transition={{ duration: 0.5, delay: 0.4 }}
