@@ -170,12 +170,8 @@ const Navbar = () => {
 
   const handleDropdownLeave = () => {
     const timeoutId = setTimeout(() => {
-      const menuHovered = document.querySelector(".dropdown-menu:hover");
-      const triggerHovered = document.querySelector("[data-menu-trigger]:hover");
-      if (!menuHovered && !triggerHovered) {
-        setDropdownOpen(null);
-        setActiveDropdown(null);
-      }
+      setDropdownOpen(null);
+      setActiveDropdown(null);
     }, 250);
     
     return () => clearTimeout(timeoutId);
@@ -478,6 +474,7 @@ const Navbar = () => {
                       <div
                         className="absolute left-0 mt-0 w-56 bg-white shadow-lg rounded-b-lg overflow-hidden transition-opacity duration-200 z-50 dropdown-menu"
                         role="menu"
+                        onMouseLeave={handleDropdownLeave}
                       >
                         {item.dropdown.map((dropdownItem) => (
                           <Link
