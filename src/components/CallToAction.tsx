@@ -12,7 +12,7 @@ const CallToAction = () => {
           href="https://carpet-quote-pro-ctierney1.replit.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white text-primary font-bold py-2 px-6 rounded-lg text-base hover:bg-gray-100 transition-colors inline-block"
+          className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-100 transition-colors inline-block"
         >
           Get an Instant Quote Now!
         </a>
