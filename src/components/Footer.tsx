@@ -67,7 +67,7 @@ const Footer = () => {
                 </a>
               </div>
               <a
-                href="https://pro.housecallpro.com/pro/client_hub/log_in"
+                href="https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors"
