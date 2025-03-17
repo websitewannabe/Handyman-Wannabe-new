@@ -129,13 +129,18 @@ const Hero = () => {
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-bold mb-4 md:mb-6"
+          >
             <span className="block mb-2">
               <span className="text-primary font-extrabold">Professional </span>
               <span className="text-primary font-extrabold">Handymen</span>
             </span>
             for Every Home Project
-          </h1>
+          </motion.h1>
           <p className="text-xl mb-12 text-gray-200 max-w-2xl mx-auto">
             Locally owned and family-operated, providing expert tradesmen
             services turned handyman solutions.
