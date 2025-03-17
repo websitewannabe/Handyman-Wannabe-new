@@ -169,14 +169,13 @@ const Navbar = () => {
   };
 
   const handleDropdownLeave = () => {
-    setTimeout(() => {
-      const dropdownElement = document.querySelector(".dropdown-menu:hover");
-      const dropdownTrigger = document.querySelector("[data-menu-trigger]:hover");
-      if (!dropdownElement && !dropdownTrigger) {
+    const timeoutId = setTimeout(() => {
+      if (!document.querySelector(".dropdown-menu:hover, [data-menu-trigger]:hover")) {
         setDropdownOpen(null);
         setActiveDropdown(null);
       }
-    }, 100);
+    }, 50);
+    return () => clearTimeout(timeoutId);
   };
 
   const handleMegaMenuEnter = (label: string) => {

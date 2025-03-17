@@ -102,11 +102,13 @@
   z-index: 1050;
 }
 
+.dropdown-menu {
+  pointer-events: auto;
+}
+
 .dropdown-menu.active,
-.dropdown-menu:hover,
 .dropdown-container:hover .dropdown-menu {
   opacity: 1;
-  pointer-events: auto;
   visibility: visible;
   transform: translate3d(0, 0, 0);
 }
