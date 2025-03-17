@@ -52,7 +52,20 @@ const ContactPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
+    
+    const subject = `New Contact Form Submission from ${formData.name}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+    `;
+    
+    window.location.href = `mailto:info@handymanwannabe.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
