@@ -104,10 +104,15 @@
 
 .dropdown-menu {
   pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, -10px, 0);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
 }
 
 .dropdown-menu.active,
-.dropdown-container:hover .dropdown-menu {
+.dropdown-container:hover .dropdown-menu,
+.dropdown-menu:hover {
   opacity: 1;
   visibility: visible;
   transform: translate3d(0, 0, 0);
