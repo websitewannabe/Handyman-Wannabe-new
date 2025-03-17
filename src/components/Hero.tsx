@@ -340,6 +340,7 @@ const Hero = () => {
               Call Us
             </a>
           </div>
+          <div className="mb-32 md:mb-24"></div> {/* Added spacing before wave */}
         </div>
       </div>
 
