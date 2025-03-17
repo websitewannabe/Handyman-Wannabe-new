@@ -91,7 +91,7 @@ const PackagesSection = () => {
                   <div className="absolute inset-0 bg-primary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="relative h-full flex items-center justify-center">
-                  <pkg.icon className="w-16 h-16 text-[#f05a27] transform transition-all duration-300 group-hover:scale-110" />
+                  <pkg.icon className="w-16 h-16 text-primary transform transition-all duration-300 group-hover:scale-110" />
                 </div>
               </motion.div>
 
