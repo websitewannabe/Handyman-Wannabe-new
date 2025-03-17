@@ -67,7 +67,12 @@ const ContactPage = () => {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      const text = await response.text();
+      const result = text ? JSON.parse(text) : {};
+      
+      if (!response.ok) {
+        throw new Error(result.error || `HTTP error! Status: ${response.status}`);
+      }
       
       if (result.success) {
         setSubmitted(true);
@@ -79,10 +84,10 @@ const ContactPage = () => {
           message: "",
         });
       } else {
-        setSubmitError('Failed to send message. Please try again later.');
+        throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
-      setSubmitError('An error occurred. Please try again later.');
+      setSubmitError(error.message || 'An error occurred. Please try again later.');
       console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
