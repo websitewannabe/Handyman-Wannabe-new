@@ -595,7 +595,6 @@ const Navbar = () => {
                           className={`flex w-full items-center justify-between py-3 text-lg font-medium ${
                             mobileSubMenuOpen === item.label ? "text-primary" : "text-dark"
                           }`}
-                          aria-expanded={mobileSubMenuOpen === item.label}
                         >
                           {item.label}
                           <ChevronDown
@@ -605,12 +604,12 @@ const Navbar = () => {
                           />
                         </button>
                         {mobileSubMenuOpen === item.label && (
-                          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg mt-1">
+                          <div className="pl-4 space-y-2">
                             {item.dropdown?.map((subItem) => (
                               <Link
                                 key={subItem.label}
                                 to={subItem.href}
-                                className="block px-4 py-2 text-dark hover:bg-gray-100"
+                                className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
                                 onClick={() => {
                                   setIsOpen(false);
                                   setMobileSubMenuOpen(null);
@@ -622,76 +621,17 @@ const Navbar = () => {
                           </div>
                         )}
                       </div>
-                        </Link>
-                      ) : (
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            setActiveDropdown(
-                              activeDropdown === item.label ? null : item.label,
-                            );
-                          }}
-                          className={`group flex items-center justify-between w-full py-3 text-lg font-medium ${
-                            activeDropdown === item.label
-                              ? "text-primary"
-                              : isScrolled
-                                ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
-                          }`}
-                          aria-expanded={activeDropdown === item.label}
-                          data-menu-trigger={item.label}
-                          onMouseEnter={() => handleDropdownEnter(item.label)}
-                          onMouseLeave={handleDropdownLeave}
-                        >
-                          <span>{item.label}</span>
-                          <ChevronDown
-                            className={`ml-2 h-5 w-5 transition-transform duration-200 ${
-                              activeDropdown === item.label ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                      )
                     ) : (
                       <Link
-                        to={item.href}
-                        className={`block py-3 text-lg font-medium ${
-                          isActive(item.href)
-                            ? "text-primary"
-                            : isScrolled
-                              ? "text-dark"
-                              : shouldUseBlackText
-                                ? "text-dark"
-                                : "text-dark"
-                        }`}
-                        onClick={(e) => {
-                          e.stopPropagation();
+                        to={item.href || "#"}
+                        className="block py-3 text-lg font-medium text-dark hover:text-primary"
+                        onClick={() => {
                           setIsOpen(false);
                           setActiveDropdown(null);
                         }}
                       >
                         {item.label}
                       </Link>
-                    )}
-                    {mobileSubMenuOpen === item.label && (
-                      <div className="pl-4 pr-2 py-2 space-y-1">
-                        {item.dropdown?.map((subItem) => (
-                          <Link
-                            key={subItem.label}
-                            to={subItem.href}
-                            className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setIsOpen(false);
-                              setMobileSubMenuOpen(null);
-                            }}
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
                     )}
                   </div>
                 ))}
