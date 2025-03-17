@@ -1,33 +1,34 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiToolbox, GiHouse, GiStarFormation } from "react-icons/gi";
 import { motion } from "framer-motion";
 
-const packageData = [
-  {
-    id: 'basic',
-    name: 'Basic Package',
-    price: '$399',
-    icon: GiToolbox,
-    description: 'Essential handyman services'
-  },
-  {
-    id: 'standard',
-    name: 'Standard Package',
-    price: '$799',
-    icon: GiHouse,
-    description: 'Comprehensive home maintenance'
-  },
-  {
-    id: 'premium',
-    name: 'Premium Package',
-    price: '$1599',
-    icon: GiStarFormation,
-    description: 'Complete home improvement'
-  }
-];
-
 const PackagesSection = () => {
+  const packageData = [
+    {
+      id: 'basic',
+      name: 'Basic Package',
+      price: '$399',
+      icon: GiToolbox,
+      description: 'Essential handyman services'
+    },
+    {
+      id: 'standard',
+      name: 'Standard Package',
+      price: '$799',
+      icon: GiHouse,
+      description: 'Comprehensive home maintenance'
+    },
+    {
+      id: 'premium',
+      name: 'Premium Package',
+      price: '$1599',
+      icon: GiStarFormation,
+      description: 'Complete home improvement'
+    }
+  ];
+
   const handleIconClick = (packageId: string) => {
     const packageElement = document.getElementById(`package-${packageId}`);
     if (packageElement) {
