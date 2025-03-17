@@ -554,14 +554,14 @@ const Navbar = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${isScrolled || shouldUseBlackText ? "text-dark" : "text-white"} hover:text-secondary p-2`}
+                className={`${isScrolled || shouldUseBlackText ? "text-dark" : "text-white"} hover:text-secondary p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors`}
                 aria-expanded={isOpen}
                 aria-label="Toggle menu"
               >
                 {isOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="h-8 w-8 text-primary" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-8 w-8 text-primary" />
                 )}
               </button>
             </div>
@@ -614,9 +614,9 @@ const Navbar = () => {
                           onMouseEnter={() => handleDropdownEnter(item.label)}
                           onMouseLeave={handleDropdownLeave}
                         >
-                          {item.label}
+                          <span>{item.label}</span>
                           <ChevronDown
-                            className={`w-5 h-5 transition-transform ${
+                            className={`ml-2 h-5 w-5 transition-transform duration-200 ${
                               activeDropdown === item.label ? "rotate-180" : ""
                             }`}
                           />
