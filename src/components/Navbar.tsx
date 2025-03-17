@@ -84,7 +84,7 @@ const navItems: NavItem[] = [
   { label: "SERVICE AREA", href: "/service-area" },
   {
     label: "MORE",
-    href: "#more",
+    href: "javascript:void(0)",
     dropdown: [
       { label: "About Us", href: "/about-us" },
       { label: "Careers", href: "/careers" },
@@ -440,7 +440,12 @@ const Navbar = () => {
                         </button>
                       ) : (
                         <Link
-                          to={item.href.startsWith("#") ? item.href : item.href}
+                          to={item.href}
+                          onClick={(e) => {
+                            if (item.href === "javascript:void(0)") {
+                              e.preventDefault();
+                            }
+                          }}
                           className={`flex items-center text-base font-medium px-4 py-2 rounded-md transition-colors group-hover:text-secondary relative ${
                             isActive(item.href)
                               ? "text-secondary"
@@ -589,6 +594,7 @@ const Navbar = () => {
                       ) : (
                         <button
                           onClick={(e) => {
+                            e.preventDefault();
                             e.stopPropagation();
                             setActiveDropdown(
                               activeDropdown === item.label ? null : item.label,
