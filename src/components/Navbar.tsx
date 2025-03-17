@@ -126,7 +126,9 @@ const Navbar = () => {
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const lastScrollPosition = useRef(0);
   let scrollTimeout: NodeJS.Timeout | null = null;
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
+    null,
+  );
 
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
@@ -177,7 +179,9 @@ const Navbar = () => {
   const handleDropdownLeave = () => {
     const timeoutId = setTimeout(() => {
       const menuHovered = document.querySelector(".dropdown-menu:hover");
-      const triggerHovered = document.querySelector("[data-menu-trigger]:hover");
+      const triggerHovered = document.querySelector(
+        "[data-menu-trigger]:hover",
+      );
 
       if (!menuHovered && !triggerHovered) {
         setDropdownOpen(null);
