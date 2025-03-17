@@ -7,6 +7,7 @@ import CallToAction from "../components/CallToAction";
 import ServiceAreas from "../components/ServiceAreas";
 import BlogSection from "../components/BlogSection";
 import PackagesSection from "../components/PackagesSection";
+import TrustedLocalExpertise from '../components/TrustedLocalExpertise'; // Added import
 
 // Memoized SEO component to prevent unnecessary re-renders
 const SEO = memo(
@@ -153,6 +154,7 @@ const HomePage: React.FC = () => {
       {/* Core page content */}
       <Hero />
       <MemoizedPackagesSection />
+      <TrustedLocalExpertise /> {/* Added TrustedLocalExpertise component */}
       <MemoizedServices />
       <MemoizedTestimonials />
       <MemoizedBlogSection />
