@@ -328,13 +328,13 @@ const Hero = () => {
               href="https://carpet-quote-pro-ctierney1.replit.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg"
+              className="bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-6 rounded-lg transition-colors text-base sm:text-lg"
             >
               Get an Instant Quote
             </a>
             <a
               href="tel:7193156628"
-              className="bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg flex items-center"
+              className="bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-6 rounded-lg transition-colors text-base sm:text-lg flex items-center"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Us

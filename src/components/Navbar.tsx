@@ -567,7 +567,7 @@ const Navbar = () => {
                   }}
                   onMouseEnter={(e) => e.stopPropagation()}
                   onMouseOver={(e) => e.stopPropagation()}
-                  className="bg-primary text-white font-bold py-2 px-4 rounded-full hover:bg-primary/90 transition-colors"
+                  className="bg-primary text-white font-bold text-sm md:text-base py-1.5 md:py-2 px-3 md:px-4 rounded-full hover:bg-primary/90 transition-colors"
                 >
                   Call Us
                 </button>
