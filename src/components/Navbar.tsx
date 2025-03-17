@@ -84,7 +84,7 @@ const navItems: NavItem[] = [
   { label: "SERVICE AREA", href: "/service-area" },
   {
     label: "MORE",
-    href: "#",
+    href: undefined,
     dropdown: [
       { label: "About Us", href: "/about-us" },
       { label: "Careers", href: "/careers" },
@@ -440,9 +440,9 @@ const Navbar = () => {
                         </button>
                       ) : (
                         <Link
-                          to={item.href}
+                          to={item.href || "#"}
                           onClick={(e) => {
-                            if (item.href === "javascript:void(0)") {
+                            if (!item.href) {
                               e.preventDefault();
                             }
                           }}
