@@ -188,13 +188,13 @@ const Footer = () => {
           </div>
 
           {/* Site Structure */}
-          <div>
+          <div className="w-full sm:w-auto">
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-2 sm:grid-cols-1 gap-3">
               <li>
                 <Link
                   to="/"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   Home
                 </Link>
@@ -202,7 +202,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/how-it-works"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   How It Works
                 </Link>
@@ -210,7 +210,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/about-us"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   About Us
                 </Link>
@@ -218,7 +218,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/careers"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   Careers
                 </Link>
@@ -226,7 +226,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/meet-the-team"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   Meet Our Team
                 </Link>
@@ -234,7 +234,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/service-area"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   Service Areas
                 </Link>
@@ -242,7 +242,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/faq"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors block"
                 >
                   FAQ
                 </Link>
