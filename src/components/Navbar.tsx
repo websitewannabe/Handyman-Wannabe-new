@@ -388,7 +388,7 @@ const Navbar = () => {
             ? "bg-white/75 backdrop-blur-sm shadow-lg"
             : "bg-transparent"
         }`}
-        ref={navRef} // Added ref for potential future use
+        ref={navRef}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -650,7 +650,7 @@ const Navbar = () => {
                             key={subItem.label}
                             to={subItem.href}
                             className="block px-3 py-2 text-base font-medium text-dark hover:bg-gray-100 rounded-md"
-                            onClick={(e) => {
+                            onClick={() => {
                               e.stopPropagation();
                               setIsOpen(false);
                               setMobileSubMenuOpen(null);
