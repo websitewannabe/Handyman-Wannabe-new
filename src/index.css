@@ -164,9 +164,20 @@
   opacity: 1;
 }
 
-/* Prevent focus outline from causing layout shifts */
+/* Improve focus styles without causing scroll jumps */
 *:focus {
-  outline: none !important;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+*:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 /* Force GPU acceleration for smoother animations */

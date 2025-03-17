@@ -84,7 +84,7 @@ const navItems: NavItem[] = [
   { label: "SERVICE AREA", href: "/service-area" },
   {
     label: "MORE",
-    href: "javascript:void(0)",
+    href: "#",
     dropdown: [
       { label: "About Us", href: "/about-us" },
       { label: "Careers", href: "/careers" },
@@ -510,8 +510,8 @@ const Navbar = () => {
                               rel="noopener noreferrer"
                               role="menuitem"
                               onClick={(e) => {
-                                e.preventDefault();
                                 if (dropdownItem.onClick) {
+                                  e.preventDefault();
                                   dropdownItem.onClick();
                                 }
                               }}
