@@ -95,7 +95,11 @@ const navItems: NavItem[] = [
       {
         label: "Customer Portal",
         href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
-        external: true
+        external: true,
+        onClick: () => {
+          console.log("Customer Portal Clicked");
+          window.open("https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b", "_blank", "noopener,noreferrer");
+        }
       },
     ],
   },
@@ -188,7 +192,7 @@ const Navbar = () => {
         setDropdownOpen(null);
         setActiveDropdown(null);
       }
-    }, 200);
+    }, 300);
 
     setDropdownTimeout(timeoutId);
   };
@@ -501,6 +505,12 @@ const Navbar = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               role="menuitem"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (dropdownItem.onClick) {
+                                  dropdownItem.onClick();
+                                }
+                              }}
                             >
                               {dropdownItem.label}
                             </a>
