@@ -572,18 +572,20 @@ const Navbar = () => {
                 {navItems.map((item) => (
                   <div key={item.label} className="w-full">
                     {item.dropdown || item.megaMenu ? (
-                      item.label === "SERVICES" ? (
-                        <Link
-                          to="/mobileservicespage"
-                          className={`block py-3 text-lg font-medium ${
-                            isActive("/mobileservicespage")
-                              ? "text-primary"
-                              : isScrolled
-                                ? "text-dark"
-                                : shouldUseBlackText
-                                  ? "text-dark"
-                                  : "text-dark"
+                      <button
+                        onClick={() => toggleMobileSubMenu(item.label)}
+                        className={`flex w-full items-center justify-between py-3 text-lg font-medium ${
+                          mobileSubMenuOpen === item.label ? "text-primary" : "text-dark"
+                        }`}
+                        aria-expanded={mobileSubMenuOpen === item.label}
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          className={`h-5 w-5 transition-transform duration-200 ${
+                            mobileSubMenuOpen === item.label ? "rotate-180" : ""
                           }`}
+                        />
+                      </button>
                           onClick={() => {
                             setIsOpen(false);
                             setActiveDropdown(null);
@@ -644,7 +646,7 @@ const Navbar = () => {
                       </Link>
                     )}
                     {mobileSubMenuOpen === item.label && (
-                      <div className="pl-4 pr-2 py-2 space-y-1">
+                      <div className="pl-4 pr-2 py-2 space-y-2 bg-gray-50 rounded-lg">
                         {item.dropdown?.map((subItem) => (
                           <Link
                             key={subItem.label}
