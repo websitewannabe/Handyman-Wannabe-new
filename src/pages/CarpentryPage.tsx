@@ -1,6 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
+  ChevronRight,
+  Home,
+  Ruler,
+  Warehouse,
+  Wrench,
+  Construction,
   Star,
   Hammer,
   Shield,
@@ -12,9 +18,6 @@ import {
   ClipboardList,
   UserCheck,
   Calendar,
-  ChevronRight,
-  Ruler,
-  Wrench,
   DoorOpen,
   PenTool as Tool,
   Sofa,
