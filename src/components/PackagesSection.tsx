@@ -80,7 +80,7 @@ const PackagesSection = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden">
       <div
         className="absolute inset-0 z-0"
         style={{ 
@@ -90,14 +90,48 @@ const PackagesSection = () => {
       ></div>
 
       <div className="relative z-10 container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-[#1B4332] mb-6">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold text-[#1B4332] mb-8">
             Service Packages
           </h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
             Choose from our carefully crafted service packages designed to meet
             your home maintenance needs
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          {packageData.slice(0, 3).map((pkg) => (
+            <motion.div
+              key={pkg.id}
+              className="flex flex-col items-center group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              onClick={() => handleIconClick(pkg.id)}
+            >
+              <div className="relative mb-6">
+                <motion.div
+                  className="w-32 h-32 flex items-center justify-center bg-white rounded-2xl shadow-lg transform transition-all duration-300 group-hover:scale-110"
+                  whileHover={{ y: -5 }}
+                  style={{
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)"
+                  }}
+                >
+                  <pkg.icon className="w-16 h-16 text-primary transform transition-all duration-300 group-hover:rotate-3" />
+                </motion.div>
+                <div className="absolute -inset-2 bg-primary/5 rounded-3xl -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 blur-lg" />
+              </div>
+              
+              <h3 className="text-2xl font-bold text-[#1B4332] mb-3 text-center transition-colors duration-300 group-hover:text-primary">
+                {pkg.name}
+              </h3>
+              <p className="text-xl font-semibold text-primary/90 text-center">
+                {pkg.price}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
         <div className="flex justify-center gap-24 mb-16">
