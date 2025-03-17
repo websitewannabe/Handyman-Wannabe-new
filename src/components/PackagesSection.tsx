@@ -100,29 +100,29 @@ const PackagesSection = () => {
           </p>
         </div>
 
-        <div className="flex justify-center gap-20 mb-16">
+        <div className="flex justify-center gap-24 mb-16">
           {packages.map((pkg) => (
             <motion.div
               key={pkg.id}
               id={`package-${pkg.id}`}
               className="text-center cursor-pointer group relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
               onClick={() => handleIconClick(pkg.id)}
             >
               <div className="relative flex flex-col items-center">
-                <div className="bg-white w-36 h-36 rounded-3xl shadow-lg mb-8 flex items-center justify-center transform group-hover:shadow-2xl transition-all duration-300 group-hover:bg-primary/5 border border-transparent group-hover:border-primary/10">
-                  <pkg.icon className="w-20 h-20 text-primary transform group-hover:scale-110 transition-all duration-300 group-hover:rotate-3" />
+                <div className="bg-gradient-to-br from-white to-gray-50 w-40 h-40 rounded-3xl shadow-lg mb-10 flex items-center justify-center transform group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-primary/5 border-2 border-transparent group-hover:border-primary/20">
+                  <pkg.icon className="w-24 h-24 text-primary transform group-hover:scale-110 transition-all duration-300 group-hover:rotate-3 drop-shadow-sm group-hover:drop-shadow-lg" />
                 </div>
                 <motion.div
-                  className="absolute -inset-3 bg-primary/5 rounded-[2rem] -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  className="absolute -inset-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-[2.5rem] -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm"
                   animate={{
-                    scale: [1, 1.02, 1],
-                    transition: { duration: 2, repeat: Infinity }
+                    scale: [1, 1.03, 1],
+                    transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
                   }}
                 />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-all duration-300 text-center">
+              <h3 className="text-2xl font-extrabold text-gray-800 mb-3 group-hover:text-primary transition-all duration-300 text-center tracking-tight">
                 {pkg.name}
               </h3>
               <p className="text-xl font-semibold text-primary group-hover:scale-110 transition-all duration-300 text-center">
