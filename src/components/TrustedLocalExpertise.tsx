@@ -25,8 +25,8 @@ const TrustedLocalExpertise = () => {
               description: "Deep understanding of local home needs",
             },
             {
-              title: "Licensed & Insured",
-              description: "Full coverage for your peace of mind",
+              title: "Over 300 Services",
+              description: "One call for all your home improvement needs.",
             },
             {
               title: "★ ★ ★ ★ ★",
