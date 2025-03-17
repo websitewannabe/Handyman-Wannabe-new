@@ -1,0 +1,53 @@
+I'm encountering a JSON parsing error when submitting the contact form:
+"Failed to execute 'json' on 'Response': Unexpected end of JSON input."
+
+This likely means the backend is returning an empty or invalid JSON response. Please do the following to debug and fix the issue:
+
+Check Backend Response:
+
+Log the actual response before parsing it to JSON in the frontend:
+javascript
+Copy
+Edit
+console.log(response);
+Ensure the backend is returning a valid JSON object. If it’s empty, the backend might not be handling responses correctly.
+Handle Empty Responses in the Frontend:
+
+Update the fetch request in the frontend to handle cases where the backend response is empty:
+javascript
+Copy
+Edit
+fetch('/api/contact', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(formData),
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.text(); // Convert response to text
+})
+.then(text => text ? JSON.parse(text) : {}) // Prevent parsing empty JSON
+.then(data => console.log('Server Response:', data))
+.catch(error => console.error('Error:', error));
+Debug API Endpoint (/api/contact):
+
+Test the API manually in Postman or the browser to see if it’s returning a response.
+If the API is not returning JSON, log the backend response to check for errors.
+Ensure the backend sends a valid JSON response using:
+javascript
+Copy
+Edit
+res.json({ success: true, message: "Email sent successfully!" });
+If the server encounters an error, make sure it still returns a valid JSON object:
+javascript
+Copy
+Edit
+res.status(500).json({ success: false, error: "Internal Server Error" });
+Check Backend Logs:
+
+Look at the server console for any errors when handling the request.
+Ensure the Express server is running properly and listening on the correct port.
+Expected Fix:
+After these updates, the frontend should no longer crash when receiving an empty response, and the backend should always return a properly formatted JSON object.
