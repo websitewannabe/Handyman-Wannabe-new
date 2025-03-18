@@ -5,13 +5,6 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  build: {
-    outDir: 'dist',
-    rollupOptions: {
-      input: './index.html',
-      external: ['express', '@sendgrid/mail', 'dotenv']
-    }
-  },
   server: {
     host: "0.0.0.0",
     port: 3002,
