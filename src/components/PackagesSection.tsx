@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiToolbox, GiHouse, GiStarFormation } from "react-icons/gi";
@@ -28,17 +27,6 @@ const PackagesSection = () => {
       description: 'Complete home improvement'
     }
   ];
-
-  const handleIconClick = (packageId: string) => {
-    const packageElement = document.getElementById(`package-${packageId}`);
-    if (packageElement) {
-      packageElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      setTimeout(() => {
-        const url = `/packages?package=${packageId}`;
-        window.open(url, '_self');
-      }, 500);
-    }
-  };
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -80,8 +68,8 @@ const PackagesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col items-center text-center group"
-              onClick={() => handleIconClick(pkg.id)}
+              onClick={() => window.location.href = `/packages?package=${pkg.id}`}
+              className="flex flex-col items-center text-center group cursor-pointer"
             >
               <motion.div
                 className="relative w-32 h-32 mb-6 cursor-pointer"
