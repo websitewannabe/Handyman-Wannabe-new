@@ -154,6 +154,19 @@ const CleaningPage = () => {
           }}
         >
           <div className="absolute inset-0 bg-[#1B4332]/80"></div>
+
+          {/* Hero to body transition */}
+          <div className="absolute -bottom-px left-0 right-0">
+            <svg
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+              className="absolute bottom-0 left-0 right-0 w-full"
+              style={{ height: '100px' }}
+              fill="#ebd5c1"
+            >
+              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" />
+            </svg>
+          </div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-16">
@@ -182,20 +195,6 @@ const CleaningPage = () => {
           >
             Get an Instant Quote
           </motion.button>
-        </div>
-
-        {/* Wave transition */}
-        <div className="absolute -bottom-1 left-0 right-0 z-20">
-          <svg
-            className="w-full relative"
-            style={{ height: "120px", color: "#ebd5c1" }}
-            preserveAspectRatio="none"
-            viewBox="0 0 1200 120"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-          >
-            <path d="M 0,60 C 150,60 200,100 300,100 C 400,100 500,40 600,40 C 700,40 800,100 900,100 C 1000,100 1050,60 1200,60 L 1200,120 L 0,120 Z" />
-          </svg>
         </div>
       </section>
 
