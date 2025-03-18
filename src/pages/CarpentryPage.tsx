@@ -156,9 +156,15 @@ const CarpentryPage = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
           >
-            <path d="M 0,60 C 150,60 200,100 300,100 C 400,100 500,40 600,40 C 700,40 800,100 900,100 C 1000,100 1050,60 1200,60 L 1200,120 L 0,120 Z" />
+            <path d="M 0,70 C 300,70 300,50 600,50 C 900,50 900,70 1200,70 L 1200,120 L 0,120 Z" />
           </svg>
         </div>
+
+        {/* Background color section */}
+        <div
+          className="absolute -bottom-32 left-0 right-0 h-32 z-10"
+          style={{ backgroundColor: "#ebd5c1" }}
+        ></div>
       </section>
 
       {/* Overview Section */}
