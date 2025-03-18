@@ -333,11 +333,11 @@ const Hero = () => {
               Get an Instant Quote
             </a>
             <a
-              href="tel:7193156628"
+              href="sms:+12402667532"
               className="bg-secondary hover:bg-secondary/90 text-white font-bold py-2 px-6 rounded-lg transition-colors text-base sm:text-lg flex items-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call Us
+              Text Us
             </a>
           </div>
           <div className="mb-32 md:mb-24"></div> {/* Added spacing before wave */}
