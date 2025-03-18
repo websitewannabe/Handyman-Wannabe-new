@@ -59,6 +59,9 @@ const services = [
 ];
 
 const getServiceUrl = (name: string) => {
+  if (name === "Property Management") {
+    return "/services/management-companies";
+  }
   // Convert service name to URL-friendly format
   const slug = name
     .toLowerCase()
