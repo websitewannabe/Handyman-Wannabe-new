@@ -63,7 +63,7 @@ const getServiceUrl = (name: string) => {
     return "/services/management-companies";
   }
   if (name === "Smart Home") {
-    return "/services/smart-home-page";
+    return "/services/smart-homes";
   }
   // Convert service name to URL-friendly format
   const slug = name
