@@ -45,7 +45,7 @@ const PackagesSection = () => {
       <div
         className="absolute inset-0 z-0"
         style={{ 
-          backgroundColor: "rgb(235, 213, 193)",
+          backgroundColor: "#ebd5c1",
           backgroundImage: "linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)"
         }}
       ></div>
