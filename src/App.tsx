@@ -12,7 +12,7 @@ import ServiceAreaPage from './pages/ServiceAreaPage';
 import FAQPage from './pages/FAQPage';
 import CarpentryPage from './pages/CarpentryPage';
 import GarageDoorsPage from './pages/GarageDoorsPage';
-import SmartHomesPage from './pages/SmartHomesPage';
+import SmartHomePage from './pages/SmartHomePage';
 import LocksmithingPage from './pages/LocksmithingPage';
 import FurnitureAssemblyPage from './pages/FurnitureAssemblyPage';
 import ElectricalPage from './pages/ElectricalPage';
@@ -63,7 +63,7 @@ function App() {
             <Route path="/packages" element={<PackagesPage />} />
             <Route path="/services/carpentry" element={<CarpentryPage />} />
             <Route path="/services/garage-doors" element={<GarageDoorsPage />} />
-            <Route path="/services/smart-homes" element={<SmartHomesPage />} />
+            <Route path="/services/smart-homes" element={<SmartHomePage />} />
             <Route path="/services/locksmithing" element={<LocksmithingPage />} />
             <Route path="/services/furniture-assembly" element={<FurnitureAssemblyPage />} />
             <Route path="/services/electrical" element={<ElectricalPage />} />
