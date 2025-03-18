@@ -1,16 +1,25 @@
-{/* Smart Home Page */}
-<motion.div
-  initial={{ opacity: 0, x: -20 }}
-  animate={{ opacity: 1, x: 0 }}
-  className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white flex items-center justify-center p-8"
->
-  <img
-    src="/images/Handyman_Logo.png"
-    alt="Handyman Wannabe Logo"
-    className="max-w-full max-h-full object-contain"
-  />
-</motion.div>
-{/* Rest of the Smart Home page content */}
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
+const SmartHomePage: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Smart Home Services | Handyman Wannabe</title>
+        <meta name="description" content="Professional smart home installation and setup services in Colorado Springs. Smart security, lighting, thermostats, and home automation solutions." />
+      </Helmet>
+
+      <div className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold text-primary mb-8">Smart Home Services</h1>
+        <p className="text-lg text-gray-700 mb-8">
+          Transform your home with our professional smart home installation and setup services.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default SmartHomePage;
 
 {/* Wave transition */}
 <div className="absolute -bottom-1 left-0 right-0 z-20">
