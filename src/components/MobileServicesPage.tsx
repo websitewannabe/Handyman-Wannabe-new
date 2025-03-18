@@ -77,7 +77,10 @@ const MobileServicesPage: React.FC<MobileServicesPageProps> = ({ onClose }) => {
                   key={serviceIndex}
                   to={service.link}
                   className="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded-lg"
-                  onClick={() => navigate(service.link)}
+                  onClick={() => {
+                    navigate(service.link);
+                    onClose();
+                  }}
                 >
                   <span className="text-gray-800">{service.name}</span>
                 </Link>
