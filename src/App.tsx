@@ -12,7 +12,7 @@ import ServiceAreaPage from './pages/ServiceAreaPage';
 import FAQPage from './pages/FAQPage';
 import CarpentryPage from './pages/CarpentryPage';
 import GarageDoorsPage from './pages/GarageDoorsPage';
-import SmartHomePage from './pages/SmartHomePage';
+import SmartHomePage from './pages/SmartHomePage.tsx';
 import LocksmithingPage from './pages/LocksmithingPage';
 import FurnitureAssemblyPage from './pages/FurnitureAssemblyPage';
 import ElectricalPage from './pages/ElectricalPage';
