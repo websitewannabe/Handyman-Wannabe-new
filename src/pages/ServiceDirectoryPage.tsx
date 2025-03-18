@@ -127,8 +127,25 @@ const ServiceDirectoryPage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20" style={{ backgroundColor: "#ebd5c1" }}>
+      {/* Border Transition */}
+      <div className="relative">
+        <div className="absolute inset-0 h-32 bg-gradient-to-b from-[#1B4332] to-transparent z-0"></div>
+        <svg
+          className="relative w-full h-24 text-white transform rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1000 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            className="fill-current"
+            d="M1000,0V100H0l0-100C150,100,350,0,500,0S850,100,1000,0z"
+          ></path>
+        </svg>
+      </div>
+
+      {/* Services Grid Section */}
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
             <div>
