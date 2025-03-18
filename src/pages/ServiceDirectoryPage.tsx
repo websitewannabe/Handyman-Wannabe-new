@@ -111,6 +111,23 @@ const ServiceDirectoryPage = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Border Transition */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B4332] to-transparent z-0"></div>
+          <svg
+            className="relative w-full h-24 text-[#ebd5c1] transform rotate-180"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1000 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              className="fill-current"
+              d="M1000,0V100H0l0-100C150,100,350,0,500,0S850,100,1000,0z"
+            ></path>
+          </svg>
+        </div>
       </section>
 
       {/* Services Grid Section */}
