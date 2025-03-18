@@ -2,10 +2,11 @@
 import sgMail from '@sendgrid/mail';
 
 // Initialize SendGrid with API key
-if (!process.env.SENDGRID_API_KEY) {
+const apiKey = process.env.SENDGRID_API_KEY;
+if (!apiKey) {
   console.error('SENDGRID_API_KEY is not set');
 } else {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  sgMail.setApiKey(apiKey);
 }
 
 export const sendEmail = async (formData: {

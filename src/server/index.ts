@@ -1,19 +1,15 @@
 import express from "express";
 import { config } from "dotenv";
-import { sendEmail } from "./emailService";
 import path from "path";
+import { sendEmail } from "./emailService";
 import fs from "fs";
 
-// Try loading from cPanel .env location (parent directory of public_html)
-const cpanelEnvPath = "/home/handymanwannabe/.env";
-if (fs.existsSync(cpanelEnvPath)) {
-  config({ path: cpanelEnvPath });
-} else {
-  // Fallback to local .env or Replit secrets
-  config();
-}
+// Load environment variables from .env file
+config();
 
+// Serve static files from the dist directory
 const app = express();
+app.use(express.static(path.join(__dirname, '../../dist')));
 app.use(express.json());
 
 app.post("/api/contact", async (req, res) => {
@@ -25,7 +21,7 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
-    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    if (!process.env.SENDGRID_API_KEY || !process.env.FROM_EMAIL_ADDRESS) {
       return res.status(500).json({
         success: false,
         error: "Email service not properly configured",
