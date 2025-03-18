@@ -48,3 +48,12 @@ args = "npm run dev"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "node src/server/index.ts"
+
+[[workflows.workflow]]
+name = "Build"
+author = 39135033
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run build"

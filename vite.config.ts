@@ -8,10 +8,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: {
-        main: './index.html',
-        server: './src/server/index.ts'
-      }
+      input: './index.html',
+      external: ['express', '@sendgrid/mail', 'dotenv']
     }
   },
   server: {
