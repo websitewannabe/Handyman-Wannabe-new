@@ -17,6 +17,13 @@ app.post('/api/contact', async (req, res) => {
       });
     }
 
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      return res.status(500).json({
+        success: false,
+        error: 'Email service not properly configured'
+      });
+    }
+
     const result = await sendEmail(req.body);
     if (result.success) {
       res.json({ 
@@ -25,16 +32,17 @@ app.post('/api/contact', async (req, res) => {
         message: 'Email sent successfully!' 
       });
     } else {
+      console.error('Email error:', result.error);
       res.status(500).json({ 
         success: false, 
-        error: result.error || 'Failed to send email' 
+        error: 'Failed to send email. Please try again later.' 
       });
     }
   } catch (error) {
     console.error('Server error:', error);
     res.status(500).json({ 
       success: false, 
-      error: error.message || 'Internal server error' 
+      error: 'An unexpected error occurred. Please try again later.' 
     });
   }
 });
