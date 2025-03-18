@@ -1,5 +1,6 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "handyman-wannabe",
+  "homepage": "https://handymanwannabe.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
