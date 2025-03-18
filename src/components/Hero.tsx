@@ -350,12 +350,12 @@ const Hero = () => {
         <svg
           className="w-full relative"
           style={{ height: "120px", color: "#ebd5c1" }}
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMax slice"
           viewBox="0 0 1200 120"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
         >
-          <path d="M 0,60 C 150,60 200,100 300,100 C 400,100 500,40 600,40 C 700,40 800,100 900,100 C 1000,100 1050,60 1200,60 L 1200,120 L 0,120 Z" />
+          <path d="M 0,80 C 300,80 300,40 600,40 C 900,40 900,80 1200,80 L 1200,120 L 0,120 Z" />
         </svg>
       </div>
 
