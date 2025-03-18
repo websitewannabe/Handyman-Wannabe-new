@@ -1,18 +1,12 @@
 
-import nodemailer from 'nodemailer';
+import sgMail from '@sendgrid/mail';
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER || '',
-    pass: process.env.SMTP_PASS || ''
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
-});
+// Initialize SendGrid with API key
+if (!process.env.SENDGRID_API_KEY) {
+  console.error('SENDGRID_API_KEY is not set');
+} else {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 export const sendEmail = async (formData: {
   name: string;
@@ -22,27 +16,31 @@ export const sendEmail = async (formData: {
   message: string;
 }) => {
   try {
-    const emailContent = `
-      Name: ${formData.name}
-      Email: ${formData.email}
-      Phone: ${formData.phone || 'Not provided'}
-      Subject: ${formData.subject}
-      
-      Message:
-      ${formData.message}
-    `;
+    const msg = {
+      to: 'snolan@websitewannabe.com', // TODO: Change to info@handymanwannabe.com after testing
+      from: {
+        email: process.env.FROM_EMAIL_ADDRESS || 'noreply@handymanwannabe.com',
+        name: 'Your Contact Form'
+      },
+      subject: `[Contact Form] ${formData.subject}`,
+      text: `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Subject: ${formData.subject}
 
-    const mailOptions = {
-      from: 'noreply@handymanwannabe.com',
-      to: 'snolan@websitewannabe.com', // TODO: Change back to info@handymanwannabe.com after testing
-      subject: `New Contact Form Submission from ${formData.name}`,
-      text: emailContent,
+Message:
+${formData.message}
+      `.trim()
     };
 
-    const info = await transporter.sendMail(mailOptions);
-    return { success: true, messageId: info.messageId };
+    await sgMail.send(msg);
+    return { success: true, messageId: Date.now().toString() };
   } catch (error) {
     console.error('Email sending failed:', error);
-    return { success: false, error: error.message };
+    return { 
+      success: false, 
+      error: error.response?.body?.errors?.[0]?.message || error.message 
+    };
   }
 };
