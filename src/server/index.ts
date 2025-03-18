@@ -1,8 +1,17 @@
 import express from 'express';
 import { config } from 'dotenv';
 import { sendEmail } from './emailService';
+import path from 'path';
+import fs from 'fs';
 
-config();
+// Try loading from cPanel .env location (parent directory of public_html)
+const cpanelEnvPath = path.join(__dirname, '../../../.env');
+if (fs.existsSync(cpanelEnvPath)) {
+  config({ path: cpanelEnvPath });
+} else {
+  // Fallback to local .env or Replit secrets
+  config();
+}
 
 const app = express();
 app.use(express.json());
