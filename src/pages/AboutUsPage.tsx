@@ -11,7 +11,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import SEO from '../components/SEO'; // Added import for SEO component
+import SEO from "../components/SEO"; // Added import for SEO component
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -23,7 +23,7 @@ const teamMembers = [
   {
     name: "Dennis Tierney",
     role: "Field Manager",
-    image: "/images/Dennis-Tierney.png", 
+    image: "/images/Dennis-Tierney.png",
     bio: "Experienced Field Manager",
   },
   {
@@ -37,10 +37,41 @@ const teamMembers = [
 const AboutUsPage = () => {
   return (
     <div className="pt-28">
-      <SEO 
-        title="About Us - Handyman Wannabe" 
+      <Helmet>
+        <title>About Us | Handyman Wannabe</title>
+        <meta
+          name="description"
+          content="Learn about the mission, values, and expert team behind Handyman Wannabe. We deliver reliable home repairs with transparent pricing and guaranteed satisfaction."
+        />
+        <meta
+          name="keywords"
+          content="about handyman wannabe, handyman services, home repair experts, local handyman team, handyman mission, professional repairs, trusted home services"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "About Us - Handyman Wannabe",
+            url: "https://handymanwannabe.com/about",
+            description:
+              "Get to know Handyman Wannabe — our story, our skilled team, and our commitment to quality workmanship, fair pricing, and fast scheduling.",
+            publisher: {
+              "@type": "Organization",
+              name: "Handyman Wannabe",
+              url: "https://handymanwannabe.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://handymanwannabe.com/images/logo.png",
+              },
+            },
+          })}
+        </script>
+      </Helmet>
+
+      <SEO
+        title="About Us - Handyman Wannabe"
         description="Learn more about our mission, values, and team at Handyman Wannabe. Discover our commitment to quality service and customer satisfaction."
-        keywords="about handyman wannabe, handyman team, professional handyman services, home repair experts" 
+        keywords="about handyman wannabe, handyman team, professional handyman services, home repair experts"
         featuredImage="/images/about-us-featured.jpg"
         ogImage="/images/about-us-featured.jpg"
       />
@@ -124,11 +155,13 @@ const AboutUsPage = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {member.name}
+                  </h3>
                   <p className="text-primary font-medium mb-4">{member.role}</p>
-                    <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      <p className="text-gray-200">{member.bio}</p>
-                    </div>
+                  <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    <p className="text-gray-200">{member.bio}</p>
+                  </div>
                   <p className="text-gray-600">{member.bio}</p>
                 </div>
               </motion.div>
