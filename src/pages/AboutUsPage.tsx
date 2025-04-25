@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO"; // Added import for SEO component
+import { Helmet } from 'react-helmet-async';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
