@@ -238,7 +238,7 @@ const ServiceAreaPage = () => {
       {
         question: "What areas do you service?",
         answer:
-          "We currently service Bucks County, Pennsylvania.  This includes cities like Bensalem, Doylestown, Levittown, and more.",
+          "We currently service El Paso County, Douglas County, and Teller County in Colorado. This includes cities like Colorado Springs, Fountain, Monument, Woodland Park, and more.",
       },
       {
         question: "How do I know if you service my specific location?",
@@ -312,9 +312,9 @@ const ServiceAreaPage = () => {
           >
             <h1 className="text-4xl font-bold mb-6">Our Service Areas</h1>
             <p className="text-xl mb-8">
-              Handyman Wannabe proudly serves Bucks County, Pennsylvania and
-              surrounding communities. Check if we service your area by entering
-              your ZIP code below.
+              Handyman Wannabe proudly serves the Greater Colorado Springs area
+              and surrounding communities. Check if we service your area by
+              entering your ZIP code below.
             </p>
 
             {/* ZIP Code Search */}
@@ -434,21 +434,21 @@ const ServiceAreaPage = () => {
                 >
                   <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-8">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195825.95788038583!2d-75.10297346725657!3d40.29529055208894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6085414cf5a61%3A0x3c759e43ce6100bf!2sBucks%20County%2C%20PA!5e0!3m2!1sen!2sus!4v1710873641424!5m2!1sen!2sus"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207019.11336308766!2d-104.9200903957284!3d38.87345444651031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8713412ea1e6d22b%3A0x418eeb92f5e86b13!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1666123456789!5m2!1sen!2sus"
                       width="100%"
                       height="450"
                       style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      title="Bucks County Service Area Map"
-                      className="absolute inset-0"
+                      title="Service Area Map"
                     ></iframe>
                   </div>
                   <p className="text-gray-600">
                     Our service areas include major cities and surrounding
-                    communities in Bucks County, PA. Use the ZIP code checker
-                    above to confirm service at your specific location.
+                    communities in El Paso County, Douglas County, and Teller
+                    County. Use the ZIP code checker above to confirm service at
+                    your specific location.
                   </p>
                 </motion.div>
               </div>
