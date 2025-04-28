@@ -97,8 +97,12 @@ const navItems: NavItem[] = [
         href: "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
         external: true,
         onClick: () => {
-          window.open("https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b", "_blank", "noopener,noreferrer");
-        }
+          window.open(
+            "https://client.housecallpro.com/customer_portal/request-link?token=a723826f09b6469fb06bd0ddb961381b",
+            "_blank",
+            "noopener,noreferrer",
+          );
+        },
       },
     ],
   },
@@ -138,17 +142,20 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest('.mobile-menu') && !target.closest('.mobile-menu-button')) {
+      if (
+        !target.closest(".mobile-menu") &&
+        !target.closest(".mobile-menu-button")
+      ) {
         setMobileSubMenuOpen(null);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, []);
 
@@ -523,7 +530,7 @@ const Navbar = () => {
                         role="menu"
                         onMouseLeave={handleDropdownLeave}
                       >
-                        {item.dropdown.map((dropdownItem) => (
+                        {item.dropdown.map((dropdownItem) =>
                           dropdownItem.external ? (
                             <a
                               key={dropdownItem.label}
@@ -550,8 +557,8 @@ const Navbar = () => {
                             >
                               {dropdownItem.label}
                             </Link>
-                          )
-                        ))}
+                          ),
+                        )}
                       </div>
                     )}
                   </div>
@@ -563,7 +570,7 @@ const Navbar = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    window.location.href = "tel:+12402667532";
+                    window.location.href = "tel:+12676357958";
                   }}
                   onMouseEnter={(e) => e.stopPropagation()}
                   onMouseOver={(e) => e.stopPropagation()}
@@ -646,11 +653,10 @@ const Navbar = () => {
                     >
                       {item.label}
                     </Link>
-                  )
+                  ),
                 )}
 
-                <div className="py-4 flex flex-col items-center mt-2">
-                </div>
+                <div className="py-4 flex flex-col items-center mt-2"></div>
               </div>
             </div>
           )}
