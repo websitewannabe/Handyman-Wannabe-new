@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO"; // Added import for SEO component
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -184,7 +184,7 @@ const AboutUsPage = () => {
               >
                 <MapPin className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">Our Service Area</h3>
-                <p className="text-gray-600">Greater Metropolitan Area</p>
+                <p className="text-gray-600">Bucks County Area</p>
               </motion.div>
               <motion.div
                 className="flex flex-col items-center"
@@ -194,7 +194,7 @@ const AboutUsPage = () => {
               >
                 <Phone className="w-12 h-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">Phone</h3>
-                <p className="text-gray-600">(719) 315-6629</p>
+                <p className="text-gray-600">(267) 635-7958</p>
               </motion.div>
               <motion.div
                 className="flex flex-col items-center"
