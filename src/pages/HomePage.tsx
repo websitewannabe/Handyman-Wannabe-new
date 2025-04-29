@@ -69,24 +69,6 @@ const HomePage: React.FC = () => {
     },
   };
 
-  const businessSchemaData = {
-    "@context": "https://schema.org/",
-    "@type": "LocalBusiness",
-    name: "Handyman Wannabe",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "123 Main St",
-      addressLocality: "Anytown",
-      addressRegion: "CA",
-      postalCode: "90210",
-      addressCountry: "US",
-    },
-    telephone: "+15551234567",
-    priceRange: "$$$",
-    openingHours: "Mo-Fr 09:00-17:00",
-    url: "https://www.example.com",
-  };
-
   const faqSchemaData = [
     {
       "@type": "Question",
