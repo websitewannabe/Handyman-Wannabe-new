@@ -9,6 +9,21 @@ import BlogSection from "../components/BlogSection";
 import PackagesSection from "../components/PackagesSection";
 import TrustedLocalExpertise from '../components/TrustedLocalExpertise'; // Added import
 
+const businessSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Handyman Wannabe",
+  "description": "Professional handyman services in Colorado Springs and surrounding areas",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Colorado Springs",
+    "addressRegion": "CO",
+    "addressCountry": "US"
+  },
+  "url": "https://handymanwannabe.com",
+  "telephone": "+1-719-123-4567"
+};
+
 // Memoized SEO component to prevent unnecessary re-renders
 const SEO = memo(
   ({
