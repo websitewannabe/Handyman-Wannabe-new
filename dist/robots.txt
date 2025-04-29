@@ -14,7 +14,7 @@ Disallow: /*?add-to-cart=*
 Disallow: /*?*add-to-cart=*
 Disallow: /*?*cart=*
 
-# Prevent common WordPress attack paths (if WordPress was previously used)
+# Prevent common Wordpress attack paths (if WordPress was previously used)
 Disallow: /wp-admin/
 Disallow: /wp-login.php
 Disallow: /wp-content/
