@@ -30,7 +30,7 @@ Crawl-delay: 1
 User-agent: Bingbot
 Crawl-delay: 2
 
-# Optimize for image indexing
+# Optimize for  image indexing
 User-agent: Googlebot-Image
 Allow: /images/
 
