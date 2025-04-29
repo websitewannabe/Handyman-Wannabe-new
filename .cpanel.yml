@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOY_PATH=/home/YOUR_CPANEL_USER/public_html
+    - /usr/local/bin/php $DEPLOY_PATH/deploy.php
