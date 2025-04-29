@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 const TrustedLocalExpertise = () => {
@@ -18,8 +17,8 @@ const TrustedLocalExpertise = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              title: "5+ Years Experience",
-              description: "Serving Colorado Springs since 2018",
+              title: "30+ Years Experience",
+              description: "Now serving Bucks County",
             },
             {
               title: "Local Knowledge",
