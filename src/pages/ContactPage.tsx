@@ -57,23 +57,25 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
-    
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       const text = await response.text();
       const result = text ? JSON.parse(text) : {};
-      
+
       if (!response.ok) {
-        throw new Error(result.error || `HTTP error! Status: ${response.status}`);
+        throw new Error(
+          result.error || `HTTP error! Status: ${response.status}`,
+        );
       }
-      
+
       if (result.success) {
         setSubmitted(true);
         setFormData({
@@ -84,11 +86,13 @@ const ContactPage = () => {
           message: "",
         });
       } else {
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error(result.error || "Failed to send message");
       }
     } catch (error) {
-      setSubmitError(error.message || 'An error occurred. Please try again later.');
-      console.error('Form submission error:', error);
+      setSubmitError(
+        error.message || "An error occurred. Please try again later.",
+      );
+      console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => {
@@ -142,7 +146,7 @@ const ContactPage = () => {
                     <div>
                       <p className="text-sm text-gray-600 mb-1">Phone Number</p>
                       <p className="text-2xl font-bold text-dark">
-                        (719) 315-6628
+                        (267)-635-7958
                       </p>
                     </div>
                   </a>
@@ -173,7 +177,7 @@ const ContactPage = () => {
                         Office Location
                       </p>
                       <p className="text-xl font-bold text-dark">
-                        Colorado Springs, CO
+                        Doylestown,PA
                       </p>
                       <p className="text-gray-600">Greater Metropolitan Area</p>
                     </div>
@@ -188,9 +192,9 @@ const ContactPage = () => {
                         Business Hours
                       </p>
                       <p className="text-lg font-bold text-dark">
-                        Monday - Saturday
+                        Friday-Saturday
                       </p>
-                      <p className="text-gray-600">8:00 AM - 6:00 PM</p>
+                      <p className="text-gray-600">7:00 AM - 8:00 PM</p>
                     </div>
                   </div>
                 </div>
@@ -204,124 +208,13 @@ const ContactPage = () => {
                 className="bg-white p-8 rounded-lg shadow-lg"
               >
                 <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Phone Number (Optional)
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                      placeholder="(800) 555-1234"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Subject *
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                    >
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Service Request">Service Request</option>
-                      <option value="Feedback">Feedback</option>
-                      <option value="Partnership">Partnership</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
-                      placeholder="How can we help you?"
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full btn-primary py-3 text-lg font-bold ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </button>
-
-                  {submitted && (
-                    <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
-                      Thank you! We'll get back to you as soon as possible.
-                    </div>
-                  )}
-
-                  {submitError && (
-                    <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-                      {submitError}
-                    </div>
-                  )}
-                </form>
+                <div className="w-full h-[600px]">
+                  <iframe
+                    src={"https://bv6w3pwoi5y.typeform.com/to/rC822NXc"}
+                    style={{ width: "100%", height: "100%", border: "0" }}
+                    allow="camera; microphone; autoplay; encrypted-media;"
+                  />
+                </div>
               </motion.div>
             </div>
           </div>

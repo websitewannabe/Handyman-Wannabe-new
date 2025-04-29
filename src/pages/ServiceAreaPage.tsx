@@ -237,8 +237,7 @@ const ServiceAreaPage = () => {
     () => [
       {
         question: "What areas do you service?",
-        answer:
-          "We currently service El Paso County, Douglas County, and Teller County in Colorado. This includes cities like Colorado Springs, Fountain, Monument, Woodland Park, and more.",
+        answer: "We currently service Bucks County.",
       },
       {
         question: "How do I know if you service my specific location?",
@@ -312,9 +311,9 @@ const ServiceAreaPage = () => {
           >
             <h1 className="text-4xl font-bold mb-6">Our Service Areas</h1>
             <p className="text-xl mb-8">
-              Handyman Wannabe proudly serves the Greater Colorado Springs area
-              and surrounding communities. Check if we service your area by
-              entering your ZIP code below.
+              Handyman Wannabe proudly serves the Bucks County area and
+              surrounding communities. Check if we service your area by entering
+              your ZIP code below.
             </p>
 
             {/* ZIP Code Search */}
@@ -434,7 +433,7 @@ const ServiceAreaPage = () => {
                 >
                   <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-8">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207019.11336308766!2d-104.9200903957284!3d38.87345444651031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8713412ea1e6d22b%3A0x418eeb92f5e86b13!2sColorado%20Springs%2C%20CO!5e0!3m2!1sen!2sus!4v1666123456789!5m2!1sen!2sus"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3042.380477630182!2d-75.13336592399416!3d40.31171267145669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6a821e0d6f8bb%3A0xb7bc41c04a1b73a9!2s72%20N%20Main%20St%2C%20Doylestown%2C%20PA%2018901!5e0!3m2!1sen!2sus!4v1745934345250!5m2!1sen!2sus"
                       width="100%"
                       height="450"
                       style={{ border: 0 }}
@@ -445,8 +444,7 @@ const ServiceAreaPage = () => {
                     ></iframe>
                   </div>
                   <p className="text-gray-600">
-                    Our service areas include major cities and surrounding
-                    communities in El Paso County, Douglas County, and Teller
+                    Our service areas focus on the Doylestown area in Bucks
                     County. Use the ZIP code checker above to confirm service at
                     your specific location.
                   </p>

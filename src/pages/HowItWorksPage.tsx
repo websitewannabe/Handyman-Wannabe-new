@@ -124,7 +124,9 @@ const HowItWorksPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <h1 className="text-4xl font-bold mb-4">Professional Handyman Service Process</h1>
+            <h1 className="text-4xl font-bold mb-4">
+              Professional Handyman Service Process
+            </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Get your home projects done in just a few simple steps.
               Professional service, guaranteed satisfaction.
@@ -256,7 +258,7 @@ const HowItWorksPage = () => {
                   question:
                     "What is your service radius from your main location?",
                   answer:
-                    "We typically service within a 50-mile radius of our main office. However, we can often accommodate requests beyond this range for larger projects.",
+                    "We typically service within a 5-mile radius of our main office. However, we can often accommodate requests beyond this range for larger projects.",
                 },
               ].map((faq, index) => (
                 <motion.div
@@ -297,7 +299,7 @@ const HowItWorksPage = () => {
                 className="inline-flex items-center text-2xl font-bold text-white hover:text-white/90 transition-colors"
               >
                 <Phone className="w-6 h-6 mr-2" />
-                (800) 555-1234
+                (267)-635-7958
               </a>
             </div>
           </div>

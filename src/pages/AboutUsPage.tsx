@@ -22,12 +22,6 @@ const fadeIn = {
 
 const teamMembers = [
   {
-    name: "Dennis Tierney",
-    role: "Field Manager",
-    image: "/images/Dennis-Tierney.png",
-    bio: "Experienced Field Manager",
-  },
-  {
     name: "Chris Tierney",
     role: "Director of Operations",
     image: "/images/Chris-Tierney.jpg",
@@ -238,7 +232,7 @@ const AboutUsPage = () => {
               </button>
               <div className="flex items-center">
                 <Phone className="w-6 h-6 mr-2" />
-                <span className="text-2xl font-bold">(800) 555-1234</span>
+                <span className="text-2xl font-bold">(267)-635-7958</span>
               </div>
             </div>
           </motion.div>

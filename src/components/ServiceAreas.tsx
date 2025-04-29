@@ -17,7 +17,7 @@ const serviceAreas = [
   {
     region: "Teller County",
     areas: ["Green Mountain Falls, CO", "Manitou Springs, 80829, CO"],
-  }
+  },
 ];
 
 const ServiceAreas = () => {
@@ -140,21 +140,21 @@ const ServiceAreas = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "5+ Years Experience",
-                description: "Serving Colorado Springs since 2018"
+                title: "30+ Years Experience",
+                description: "Now serving Bucks County",
               },
               {
                 title: "Local Knowledge",
-                description: "Deep understanding of local home needs"
+                description: "Deep understanding of local home needs",
               },
               {
                 title: "Licensed & Insured",
-                description: "Full coverage for your peace of mind"
+                description: "Full coverage for your peace of mind",
               },
               {
                 title: "5-Star Service",
-                description: "Consistently top-rated by customers"
-              }
+                description: "Consistently top-rated by customers",
+              },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -167,9 +167,7 @@ const ServiceAreas = () => {
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {item.title}
                 </h3>
-                <p className="text-white/90 text-lg">
-                  {item.description}
-                </p>
+                <p className="text-white/90 text-lg">{item.description}</p>
               </motion.div>
             ))}
           </div>

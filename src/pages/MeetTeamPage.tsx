@@ -20,19 +20,6 @@ const fadeIn = {
 
 const fieldMembers = [
   {
-    name: "Dennis Tierney",
-    role: "Field Manager",
-    specialty: "general",
-    experience: "15+ years",
-    image: "/images/Dennis-Tierney.png",
-    bio: "4 year residential electrical & repair trade school degree\ncurrent electrical apprentice ready to take the test for residential wireman\nExperienced maintenance & troubleshooting technician\nExcellent reputation for resolving problems, improving customer satisfaction,\nand driving overall operational improvements",
-    funFact: "Can troubleshoot any home issue within minutes of inspection",
-    icon: Wrench,
-    projects:
-      "Electrician - Freedom Solar Power - Colorado Springs, CO\nFebruary 2023 to Present\nSolar Electrician, in charge of equipment wall for solar panels. Installing meters, disconnect ,combination\npanels, full main panel upgrades, overhead & underground service upgrades. Bending conduit, planning\nand execution of one line diagram & permitted plans",
-    rating: 4.9,
-  },
-  {
     name: "Chris Tierney",
     role: "Director of Operations",
     specialty: "management",
