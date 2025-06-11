@@ -9,4 +9,18 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
+  <!-- Hidden form for Netlify form detection -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <select name="category">
+      <option value="general-request">General Request</option>
+      <option value="feedback">Feedback</option>
+      <option value="inquiry">Inquiry</option>
+      <option value="partnership">Partnership</option>
+    </select>
+    <textarea name="message"></textarea>
+  </form>
+
   

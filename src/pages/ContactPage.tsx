@@ -162,7 +162,8 @@ const ContactPage = () => {
                     setIsSubmitting(true);
                     setSubmitStatus('idle');
                     
-                    const formData = new FormData(e.currentTarget);
+                    const form = e.currentTarget;
+                    const formData = new FormData(form);
                     
                     try {
                       // Check if we're in development mode
@@ -173,19 +174,25 @@ const ContactPage = () => {
                         // In development, simulate successful submission after delay
                         await new Promise(resolve => setTimeout(resolve, 1000));
                         setSubmitStatus('success');
-                        e.currentTarget.reset();
+                        form.reset();
                         console.log('Form data (development mode):', Object.fromEntries(formData));
                       } else {
-                        // In production, use normal Netlify form submission
+                        // In production, encode form data properly for Netlify
+                        const encode = (data: FormData) => {
+                          return Object.keys(Object.fromEntries(data))
+                            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(Object.fromEntries(data)[key]))
+                            .join("&");
+                        };
+
                         const response = await fetch('/', {
                           method: 'POST',
                           headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                          body: new URLSearchParams(formData as any).toString()
+                          body: encode(formData)
                         });
                         
                         if (response.ok) {
                           setSubmitStatus('success');
-                          e.currentTarget.reset();
+                          form.reset();
                         } else {
                           setSubmitStatus('error');
                         }
