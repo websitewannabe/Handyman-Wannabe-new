@@ -141,7 +141,7 @@ const ContactPage = () => {
                 
                 {submitStatus === 'success' && (
                   <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                    <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you soon!
+                    <strong>Thank you!</strong> Your message has been {window.location.hostname === 'localhost' || window.location.hostname.includes('replit') ? 'processed (development mode)' : 'sent successfully'}. We'll get back to you soon!
                   </div>
                 )}
                 
@@ -165,17 +165,30 @@ const ContactPage = () => {
                     const formData = new FormData(e.currentTarget);
                     
                     try {
-                      const response = await fetch('/', {
-                        method: 'POST',
-                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: new URLSearchParams(formData as any).toString()
-                      });
+                      // Check if we're in development mode
+                      const isDevelopment = window.location.hostname === 'localhost' || 
+                                          window.location.hostname.includes('replit');
                       
-                      if (response.ok) {
+                      if (isDevelopment) {
+                        // In development, simulate successful submission after delay
+                        await new Promise(resolve => setTimeout(resolve, 1000));
                         setSubmitStatus('success');
                         e.currentTarget.reset();
+                        console.log('Form data (development mode):', Object.fromEntries(formData));
                       } else {
-                        setSubmitStatus('error');
+                        // In production, use normal Netlify form submission
+                        const response = await fetch('/', {
+                          method: 'POST',
+                          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                          body: new URLSearchParams(formData as any).toString()
+                        });
+                        
+                        if (response.ok) {
+                          setSubmitStatus('success');
+                          e.currentTarget.reset();
+                        } else {
+                          setSubmitStatus('error');
+                        }
                       }
                     } catch (error) {
                       console.error('Error:', error);
