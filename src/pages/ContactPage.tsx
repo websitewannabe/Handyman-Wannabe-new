@@ -41,6 +41,8 @@ const faqs = [
 
 const ContactPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   return (
     <div className="pt-28">
@@ -137,12 +139,51 @@ const ContactPage = () => {
               >
                 <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
                 
+                {submitStatus === 'success' && (
+                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+                    <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you soon!
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                    <strong>Error:</strong> There was an issue sending your message. Please try again.
+                  </div>
+                )}
+                
                 <form 
                   name="contact" 
                   method="POST" 
                   data-netlify="true" 
                   netlify-honeypot="bot-field"
                   className="space-y-6"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+                    setSubmitStatus('idle');
+                    
+                    const formData = new FormData(e.currentTarget);
+                    
+                    try {
+                      const response = await fetch('/', {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData as any).toString()
+                      });
+                      
+                      if (response.ok) {
+                        setSubmitStatus('success');
+                        e.currentTarget.reset();
+                      } else {
+                        setSubmitStatus('error');
+                      }
+                    } catch (error) {
+                      console.error('Error:', error);
+                      setSubmitStatus('error');
+                    } finally {
+                      setIsSubmitting(false);
+                    }
+                  }}
                 >
                   {/* Hidden fields for Netlify */}
                   <input type="hidden" name="form-name" value="contact" />
@@ -226,10 +267,11 @@ const ContactPage = () => {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
+                      disabled={isSubmitting}
+                      className="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <Mail className="w-5 h-5 mr-2" />
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                   </div>
                 </form>
