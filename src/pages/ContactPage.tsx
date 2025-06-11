@@ -179,8 +179,17 @@ const ContactPage = () => {
                       } else {
                         // In production, encode form data properly for Netlify
                         const encode = (data: FormData) => {
-                          return Object.keys(Object.fromEntries(data))
-                            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(Object.fromEntries(data)[key]))
+                          const formDataObj = Object.fromEntries(data);
+                          return Object.keys(formDataObj)
+                            .map(key => {
+                              const value = formDataObj[key];
+                              // Only encode string values, skip File objects
+                              if (typeof value === 'string') {
+                                return encodeURIComponent(key) + "=" + encodeURIComponent(value);
+                              }
+                              return '';
+                            })
+                            .filter(Boolean)
                             .join("&");
                         };
 
