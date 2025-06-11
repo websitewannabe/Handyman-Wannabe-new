@@ -41,78 +41,6 @@ const faqs = [
 
 const ContactPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "General Inquiry",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const text = await response.text();
-      const result = text ? JSON.parse(text) : {};
-
-      if (!response.ok) {
-        throw new Error(
-          result.error || `HTTP error! Status: ${response.status}`,
-        );
-      }
-
-      if (result.success) {
-        setSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "General Inquiry",
-          message: "",
-        });
-      } else {
-        throw new Error(result.error || "Failed to send message");
-      }
-    } catch (error) {
-      setSubmitError(
-        error.message || "An error occurred. Please try again later.",
-      );
-      console.error("Form submission error:", error);
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => {
-        setSubmitted(false);
-        setSubmitError(null);
-      }, 5000);
-    }
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   return (
     <div className="pt-28">
@@ -208,13 +136,103 @@ const ContactPage = () => {
                 className="bg-white p-8 rounded-lg shadow-lg"
               >
                 <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
-                <div className="w-full h-[600px]">
-                  <iframe
-                    src={"https://bv6w3pwoi5y.typeform.com/to/rC822NXc"}
-                    style={{ width: "100%", height: "100%", border: "0" }}
-                    allow="camera; microphone; autoplay; encrypted-media;"
-                  />
-                </div>
+                
+                <form 
+                  name="contact" 
+                  method="POST" 
+                  data-netlify="true" 
+                  netlify-honeypot="bot-field"
+                  className="space-y-6"
+                >
+                  {/* Hidden fields for Netlify */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="bot-field" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                        placeholder="Your full name"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                        placeholder="(123) 456-7890"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+                        Category *
+                      </label>
+                      <select
+                        id="category"
+                        name="category"
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                      >
+                        <option value="">Select a category</option>
+                        <option value="general-request">General Request</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="inquiry">Inquiry</option>
+                        <option value="partnership">Partnership</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                      placeholder="Please describe your project or inquiry in detail..."
+                    ></textarea>
+                  </div>
+
+                  <div className="pt-4">
+                    <button
+                      type="submit"
+                      className="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
+                    >
+                      <Mail className="w-5 h-5 mr-2" />
+                      Send Message
+                    </button>
+                  </div>
+                </form>
               </motion.div>
             </div>
           </div>
