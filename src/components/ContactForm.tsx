@@ -177,7 +177,7 @@ const ContactForm = () => {
             >
               <option value="">Select a project type</option>
               <option value="generalInquiry">General Inquiry</option>
-              <option value="basement">Partnership</option>
+              <option value="partnership">Partnership</option>
             </select>
           </div>
         </div>
