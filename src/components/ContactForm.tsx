@@ -1,6 +1,5 @@
-
-import React, { useState } from 'react';
-import { Send } from 'lucide-react';
+import React, { useState } from "react";
+import { Send } from "lucide-react";
 
 interface FormData {
   name: string;
@@ -10,66 +9,62 @@ interface FormData {
   message: string;
 }
 
-interface ContactFormProps {
-  className?: string;
-  showTitle?: boolean;
-  title?: string;
-}
-
-const ContactForm: React.FC<ContactFormProps> = ({ 
-  className = "", 
-  showTitle = true, 
-  title = "Send Us a Message" 
-}) => {
+const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    phone: '',
-    email: '',
-    projectType: '',
-    message: ''
+    name: "",
+    phone: "",
+    email: "",
+    projectType: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError('');
+    setError("");
 
     try {
       const formDataToSend = new FormData();
-      formDataToSend.append('form-name', 'contact');
+      formDataToSend.append("form-name", "contact");
       Object.entries(formData).forEach(([key, value]) => {
         formDataToSend.append(key, value);
       });
 
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formDataToSend
+      const response = await fetch("/", {
+        method: "POST",
+        body: formDataToSend,
       });
 
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          projectType: '',
-          message: ''
+          name: "",
+          phone: "",
+          email: "",
+          projectType: "",
+          message: "",
         });
       } else {
-        throw new Error('Form submission failed');
+        throw new Error("Form submission failed");
       }
     } catch (err) {
-      setError('Something went wrong. Please try again or contact us directly.');
+      setError(
+        "Something went wrong. Please try again or contact us directly.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -77,15 +72,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   if (isSubmitted) {
     return (
-      <div className={`bg-white p-8 rounded-lg shadow-lg text-center ${className}`}>
+      <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 text-center">
         <div className="text-green-400 text-6xl mb-4">✓</div>
-        <h3 className="text-2xl font-bold text-primary mb-2">Thank You!</h3>
-        <p className="text-gray-600 mb-4">
+        <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
+        <p className="text-gray-300 mb-4">
           Your message has been sent successfully. We'll get back to you soon!
         </p>
         <button
           onClick={() => setIsSubmitted(false)}
-          className="text-primary hover:text-primary/80 transition-colors"
+          className="text-[#157FBB] hover:text-[#1369A0] transition-colors"
         >
           Send Another Message
         </button>
@@ -94,17 +89,23 @@ const ContactForm: React.FC<ContactFormProps> = ({
   }
 
   return (
-    <div className={`bg-white p-8 rounded-lg shadow-lg ${className}`}>
-      {showTitle && (
-        <h2 className="text-3xl font-bold mb-8">{title}</h2>
-      )}
-      
-      <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true">
+    <div className="bg-gray-900 p-8 rounded-lg border border-gray-700">
+      <h2 className="text-3xl font-bold mb-8 text-white">Send Us a Message</h2>
+
+      <form
+        onSubmit={handleSubmit}
+        name="contact"
+        method="POST"
+        data-netlify="true"
+      >
         <input type="hidden" name="form-name" value="contact" />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Name *
             </label>
             <input
@@ -114,13 +115,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+              className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157FBB] focus:border-transparent"
               placeholder="Your full name"
             />
           </div>
-          
+
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Phone Number *
             </label>
             <input
@@ -130,15 +134,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-              placeholder="(267) 635-7958"
+              className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157FBB] focus:border-transparent"
+              placeholder="(267) 471-6120"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Email Address *
             </label>
             <input
@@ -148,13 +155,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+              className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157FBB] focus:border-transparent"
               placeholder="your.email@example.com"
             />
           </div>
-          
+
           <div>
-            <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="projectType"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
               Project Type *
             </label>
             <select
@@ -163,24 +173,21 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.projectType}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+              className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#157FBB] focus:border-transparent"
             >
               <option value="">Select a project type</option>
               <option value="bathroom">Bathroom</option>
               <option value="basement">Basement</option>
               <option value="kitchen">Kitchen</option>
-              <option value="general-repair">General Repair</option>
-              <option value="electrical">Electrical</option>
-              <option value="plumbing">Plumbing</option>
-              <option value="carpentry">Carpentry</option>
-              <option value="painting">Painting</option>
-              <option value="other">Other</option>
             </select>
           </div>
         </div>
 
         <div className="mb-6">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-300 mb-2"
+          >
             Message *
           </label>
           <textarea
@@ -190,13 +197,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
             onChange={handleChange}
             required
             rows={5}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-vertical"
+            className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#157FBB] focus:border-transparent resize-vertical"
             placeholder="Tell us about your project..."
           />
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-300 rounded-lg text-red-700">
+          <div className="mb-4 p-3 bg-red-900/50 border border-red-600 rounded-md text-red-300">
             {error}
           </div>
         )}
@@ -204,7 +211,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex items-center justify-center px-6 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-bold"
+          className="w-full flex items-center justify-center px-6 py-3 bg-[#157FBB] text-white rounded-md hover:bg-[#1369A0] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
         >
           {isSubmitting ? (
             <>
