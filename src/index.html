@@ -1,55 +1,51 @@
 <!-- Preload critical images -->
-  <link rel="preload" as="image" href="images/Handyman-Hero.jpeg" />
+<link rel="preload" as="image" href="images/Handyman-Hero.jpeg" />
 
+<!-- Cache control for images -->
+<meta
+  http-equiv="Cache-Control"
+  content="no-cache, no-store, must-revalidate"
+/>
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 
-  <!-- Cache control for images -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+<!-- Netlify Forms -->
+<script>
+  // Netlify form handling
+  document.addEventListener("DOMContentLoaded", function () {
+    const forms = document.querySelectorAll('form[data-netlify="true"]');
+    forms.forEach(function (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
 
-  <!-- Netlify Forms -->
-  <script>
-    // Netlify form handling
-    document.addEventListener('DOMContentLoaded', function() {
-      const forms = document.querySelectorAll('form[data-netlify="true"]');
-      forms.forEach(function(form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const formData = new FormData(form);
-
-          fetch('/', {
-            method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-          })
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
           .then(() => {
-            form.innerHTML = '<div class="bg-green-100 text-green-700 p-4 rounded-lg text-center"><h3 class="font-bold mb-2">Thank you!</h3><p>Your message has been sent successfully. We\'ll get back to you soon!</p></div>';
+            form.innerHTML =
+              '<div class="bg-green-100 text-green-700 p-4 rounded-lg text-center"><h3 class="font-bold mb-2">Thank you!</h3><p>Your message has been sent successfully. We\'ll get back to you soon!</p></div>';
           })
           .catch((error) => {
-            console.error('Error:', error);
-            alert('There was an error sending your message. Please try again.');
+            console.error("Error:", error);
+            alert("There was an error sending your message. Please try again.");
           });
-        });
       });
     });
-  </script>
+  });
+</script>
 
-  <!-- Hidden form for Netlify form detection -->
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="hidden" name="form-name" value="contact" />
-    <input type="text" name="name" />
-    <input type="tel" name="phone" />
-    <input type="email" name="email" />
-    <select name="projectType">
-      <option value="bathroom">Bathroom</option>
-      <option value="basement">Basement</option>
-      <option value="kitchen">Kitchen</option>
-      <option value="general-repair">General Repair</option>
-      <option value="electrical">Electrical</option>
-      <option value="plumbing">Plumbing</option>
-      <option value="carpentry">Carpentry</option>
-      <option value="painting">Painting</option>
-      <option value="other">Other</option>
-    </select>
-    <textarea name="message"></textarea>
-  </form>
+<!-- Hidden form for Netlify form detection -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="text" name="name" />
+  <input type="tel" name="phone" />
+  <input type="email" name="email" />
+  <select name="messageType">
+    <option value="generalInquiry">General Inquiry</option>
+    <option value="partnership">Partnership</option>
+  </select>
+  <textarea name="message"></textarea>
+</form>

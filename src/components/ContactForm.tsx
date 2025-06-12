@@ -5,7 +5,7 @@ interface FormData {
   name: string;
   phone: string;
   email: string;
-  projectType: string;
+  messageType: string;
   message: string;
 }
 
@@ -14,7 +14,7 @@ const ContactForm = () => {
     name: "",
     phone: "",
     email: "",
-    projectType: "",
+    messageType: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -162,23 +162,22 @@ const ContactForm = () => {
 
           <div>
             <label
-              htmlFor="projectType"
+              htmlFor="messageType"
               className="block text-sm font-medium text-gray-300 mb-2"
             >
               Project Type *
             </label>
             <select
-              id="projectType"
-              name="projectType"
-              value={formData.projectType}
+              id="messageType"
+              name="messageType"
+              value={formData.messageType}
               onChange={handleChange}
               required
               className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#157FBB] focus:border-transparent"
             >
               <option value="">Select a project type</option>
-              <option value="bathroom">Bathroom</option>
-              <option value="basement">Basement</option>
-              <option value="kitchen">Kitchen</option>
+              <option value="generalInquiry">General Inquiry</option>
+              <option value="basement">Partnership</option>
             </select>
           </div>
         </div>
