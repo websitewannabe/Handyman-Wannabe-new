@@ -177,26 +177,12 @@ const ContactPage = () => {
                         form.reset();
                         console.log('Form data (development mode):', Object.fromEntries(formData));
                       } else {
-                        // In production, encode form data properly for Netlify
-                        const encode = (data: FormData) => {
-                          const formDataObj = Object.fromEntries(data);
-                          return Object.keys(formDataObj)
-                            .map(key => {
-                              const value = formDataObj[key];
-                              // Only encode string values, skip File objects
-                              if (typeof value === 'string') {
-                                return encodeURIComponent(key) + "=" + encodeURIComponent(value);
-                              }
-                              return '';
-                            })
-                            .filter(Boolean)
-                            .join("&");
-                        };
-
+                        // In production, submit to Netlify
+                        formData.append('form-name', 'contact');
+                        
                         const response = await fetch('/', {
                           method: 'POST',
-                          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                          body: encode(formData)
+                          body: formData
                         });
                         
                         if (response.ok) {
