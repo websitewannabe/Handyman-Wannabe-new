@@ -12,10 +12,12 @@
   <!-- Hidden form for Netlify form detection -->
   <form name="contact" netlify netlify-honeypot="bot-field" hidden>
     <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="bot-field" />
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="tel" name="phone" />
     <select name="category">
+      <option value="">Select a category</option>
       <option value="general-request">General Request</option>
       <option value="feedback">Feedback</option>
       <option value="inquiry">Inquiry</option>

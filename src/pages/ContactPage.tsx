@@ -178,11 +178,18 @@ const ContactPage = () => {
                         console.log('Form data (development mode):', Object.fromEntries(formData));
                       } else {
                         // In production, submit to Netlify
-                        formData.append('form-name', 'contact');
+                        // Ensure all required fields are present
+                        if (!formData.has('form-name')) {
+                          formData.append('form-name', 'contact');
+                        }
+                        if (!formData.has('bot-field')) {
+                          formData.append('bot-field', '');
+                        }
                         
                         const response = await fetch('/', {
                           method: 'POST',
-                          body: formData
+                          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                          body: new URLSearchParams(formData as any).toString()
                         });
                         
                         if (response.ok) {
