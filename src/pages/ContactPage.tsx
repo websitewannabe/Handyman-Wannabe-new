@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -78,7 +77,7 @@ const ContactPage = () => {
       // Check if we're in development mode
       const isDevelopment = window.location.hostname === 'localhost' || 
                           window.location.hostname.includes('replit');
-      
+
       if (isDevelopment) {
         // In development, simulate successful submission after delay
         await new Promise(resolve => setTimeout(resolve, 1000));
@@ -95,8 +94,7 @@ const ContactPage = () => {
 
         const response = await fetch('/', {
           method: 'POST',
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formDataToSend as any).toString()
+          body: formDataToSend
         });
 
         if (response.ok) {
@@ -105,7 +103,7 @@ const ContactPage = () => {
           throw new Error('Form submission failed');
         }
       }
-      
+
       setFormData({
         name: '',
         phone: '',
@@ -229,7 +227,7 @@ const ContactPage = () => {
                 ) : (
                   <div className="bg-white p-8 rounded-lg shadow-lg">
                     <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
-                    
+
                     <form 
                       onSubmit={handleSubmit}
                       name="contact" 
