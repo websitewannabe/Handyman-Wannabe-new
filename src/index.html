@@ -1,6 +1,4 @@
-
-
-  <!-- Preload critical images -->
+<!-- Preload critical images -->
   <link rel="preload" as="image" href="images/Handyman-Hero.jpeg" />
 
 
@@ -18,7 +16,7 @@
         form.addEventListener('submit', function(e) {
           e.preventDefault();
           const formData = new FormData(form);
-          
+
           fetch('/', {
             method: 'POST',
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -35,3 +33,23 @@
       });
     });
   </script>
+
+  <!-- Hidden form for Netlify form detection -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <select name="projectType">
+      <option value="bathroom">Bathroom</option>
+      <option value="basement">Basement</option>
+      <option value="kitchen">Kitchen</option>
+      <option value="general-repair">General Repair</option>
+      <option value="electrical">Electrical</option>
+      <option value="plumbing">Plumbing</option>
+      <option value="carpentry">Carpentry</option>
+      <option value="painting">Painting</option>
+      <option value="other">Other</option>
+    </select>
+    <textarea name="message"></textarea>
+  </form>
