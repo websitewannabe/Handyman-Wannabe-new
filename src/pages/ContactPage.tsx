@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -8,6 +9,7 @@ import {
   ChevronDown,
   ChevronUp,
   MessageSquare,
+  Send,
 } from "lucide-react";
 
 const fadeIn = {
@@ -39,10 +41,84 @@ const faqs = [
   },
 ];
 
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+  category: string;
+  message: string;
+}
+
 const ContactPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    phone: '',
+    email: '',
+    category: '',
+    message: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      // Check if we're in development mode
+      const isDevelopment = window.location.hostname === 'localhost' || 
+                          window.location.hostname.includes('replit');
+      
+      if (isDevelopment) {
+        // In development, simulate successful submission after delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setIsSubmitted(true);
+        console.log('Form data (development mode):', formData);
+      } else {
+        // In production, submit to Netlify
+        const formDataToSend = new FormData();
+        formDataToSend.append('form-name', 'contact');
+        formDataToSend.append('bot-field', '');
+        Object.entries(formData).forEach(([key, value]) => {
+          formDataToSend.append(key, value);
+        });
+
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formDataToSend as any).toString()
+        });
+
+        if (response.ok) {
+          setIsSubmitted(true);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }
+      
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        category: '',
+        message: ''
+      });
+    } catch (err) {
+      setError('Something went wrong. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="pt-28">
@@ -135,168 +211,150 @@ const ContactPage = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white p-8 rounded-lg shadow-lg"
               >
-                <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
-                
-                {submitStatus === 'success' && (
-                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                    <strong>Thank you!</strong> Your message has been {window.location.hostname === 'localhost' || window.location.hostname.includes('replit') ? 'processed (development mode)' : 'sent successfully'}. We'll get back to you soon!
-                  </div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                    <strong>Error:</strong> There was an issue sending your message. Please try again.
-                  </div>
-                )}
-                
-                <form 
-                  name="contact" 
-                  method="POST" 
-                  data-netlify="true" 
-                  netlify-honeypot="bot-field"
-                  className="space-y-6"
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    setIsSubmitting(true);
-                    setSubmitStatus('idle');
-                    
-                    const form = e.currentTarget;
-                    const formData = new FormData(form);
-                    
-                    try {
-                      // Check if we're in development mode
-                      const isDevelopment = window.location.hostname === 'localhost' || 
-                                          window.location.hostname.includes('replit');
-                      
-                      if (isDevelopment) {
-                        // In development, simulate successful submission after delay
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        setSubmitStatus('success');
-                        form.reset();
-                        console.log('Form data (development mode):', Object.fromEntries(formData));
-                      } else {
-                        // In production, submit to Netlify
-                        // Ensure all required fields are present
-                        if (!formData.has('form-name')) {
-                          formData.append('form-name', 'contact');
-                        }
-                        if (!formData.has('bot-field')) {
-                          formData.append('bot-field', '');
-                        }
-                        
-                        const response = await fetch('/', {
-                          method: 'POST',
-                          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                          body: new URLSearchParams(formData as any).toString()
-                        });
-                        
-                        if (response.ok) {
-                          setSubmitStatus('success');
-                          form.reset();
-                        } else {
-                          setSubmitStatus('error');
-                        }
-                      }
-                    } catch (error) {
-                      console.error('Error:', error);
-                      setSubmitStatus('error');
-                    } finally {
-                      setIsSubmitting(false);
-                    }
-                  }}
-                >
-                  {/* Hidden fields for Netlify */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <input type="hidden" name="bot-field" />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                        placeholder="Your full name"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                        placeholder="(123) 456-7890"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-                        Category *
-                      </label>
-                      <select
-                        id="category"
-                        name="category"
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                      >
-                        <option value="">Select a category</option>
-                        <option value="general-request">General Request</option>
-                        <option value="feedback">Feedback</option>
-                        <option value="inquiry">Inquiry</option>
-                        <option value="partnership">Partnership</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                      placeholder="Please describe your project or inquiry in detail..."
-                    ></textarea>
-                  </div>
-
-                  <div className="pt-4">
+                {isSubmitted ? (
+                  <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div className="text-green-500 text-6xl mb-4">✓</div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                    <p className="text-gray-600 mb-4">
+                      Your message has been sent successfully. We'll get back to you soon!
+                    </p>
                     <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={() => setIsSubmitted(false)}
+                      className="text-primary hover:text-primary/80 transition-colors font-medium"
                     >
-                      <Mail className="w-5 h-5 mr-2" />
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      Send Another Message
                     </button>
                   </div>
-                </form>
+                ) : (
+                  <div className="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
+                    
+                    <form 
+                      onSubmit={handleSubmit}
+                      name="contact" 
+                      method="POST" 
+                      data-netlify="true" 
+                      netlify-honeypot="bot-field"
+                      className="space-y-6"
+                    >
+                      {/* Hidden fields for Netlify */}
+                      <input type="hidden" name="form-name" value="contact" />
+                      <input type="hidden" name="bot-field" />
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                            Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                            placeholder="Your full name"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                            placeholder="your.email@example.com"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                            Phone Number
+                          </label>
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                            placeholder="(123) 456-7890"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+                            Category *
+                          </label>
+                          <select
+                            id="category"
+                            name="category"
+                            value={formData.category}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                          >
+                            <option value="">Select a category</option>
+                            <option value="general-request">General Request</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="inquiry">Inquiry</option>
+                            <option value="partnership">Partnership</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                          Message *
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={6}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-vertical"
+                          placeholder="Please describe your project or inquiry in detail..."
+                        />
+                      </div>
+
+                      {error && (
+                        <div className="p-3 bg-red-100 border border-red-400 rounded-lg text-red-700">
+                          {error}
+                        </div>
+                      )}
+
+                      <div className="pt-4">
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full bg-primary text-white font-bold py-4 px-6 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                              Sending...
+                            </>
+                          ) : (
+                            <>
+                              Send Message
+                              <Send className="ml-2 h-5 w-5" />
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                )}
               </motion.div>
             </div>
           </div>
