@@ -19,112 +19,92 @@ const AccessibilityPage = () => {
           transition={{ duration: 0.5 }}
           className="prose prose-lg max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl font-bold mb-8 text-center">Declaration of Accessibility</h1>
-          
-          <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
+          <h1 className="text-4xl font-bold mb-8 text-center">Accessibility Statement</h1>
+
+          <h2 className="text-2xl font-semibold mb-4">Our Commitment</h2>
           <p>
-            The Internet constitutes the largest resource supporting freedom of information today for the user community in general and for users with disabilities in particular. For that reason we place emphasis on granting equal service to people with disabilities who use information displayed on the website, and on improving their browsing experience. We seek to ensure that our digital services will be accessible to people with disabilities, and accordingly, we have invested in the website's ease of use for people with disabilities, and continue to improve our web pages as needed.
+            Handyman Wannabe is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards to guarantee we provide equal access to all users.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4">Using the EqualWeb website accessibility tool</h2>
+          <h2 className="text-2xl font-semibold mb-4">Conformance Status</h2>
           <p>
-            This website employs the Nagich By Click accessibility software and is connected through a special accessibility server. The software complies with Israeli standard SI 5568 at AA level. The software is subject to the manufacturer's Terms of Use. The website owners and/or agents bear the responsibility for the usage and implementation on the website, including the content displayed on the website under the Terms of Use of the Software.
+            The Web Content Accessibility Guidelines (WCAG) define requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Our website strives to conform to WCAG 2.1 Level AA. We conduct regular reviews and remediation to maintain and improve compliance.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4">How does the site's accessibility work?</h2>
+          <h2 className="text-2xl font-semibold mb-4">Accessibility Features</h2>
           <p>
-            The website features an accessibility menu. A click on the menu makes accessibility buttons available. After selecting a menu item, the user should wait for the page to be loaded.
+            We have taken the following measures to ensure accessibility of our website:
           </p>
-
-          <h2 className="text-2xl font-semibold mb-4">What are the mean items?</h2>
           <ul className="list-disc pl-6 mb-6">
-            <li>Option for keyboard-based navigation</li>
-            <li>Adaptation of the website for NVDA assistive technology</li>
-            <li>Enlargement of the font on the website to 4 levels of magnification</li>
-            <li>Immobilization of moving elements, and stoppage of blinking</li>
-            <li>Altered color contrast against dark background</li>
-            <li>Altered color contrast against light background</li>
-            <li>Adaptation for color-blind users</li>
-            <li>Change of font for better readability</li>
-            <li>Enlarged cursor, and change of color to black or white</li>
-            <li>Enlargement of display to ~200%</li>
-            <li>Emphasizing links on the website</li>
-            <li>Emphasizing headings on the website</li>
-            <li>Presentation of alt text to graphics</li>
-            <li>Declaration of accessibility</li>
-            <li>Sending of accessibility feedback</li>
+            <li>Semantic HTML markup for clear document structure</li>
+            <li>Sufficient color contrast ratios throughout the design</li>
+            <li>Alt text provided for all meaningful images</li>
+            <li>Keyboard navigation support for all interactive elements</li>
+            <li>ARIA attributes where necessary to enhance assistive technology support</li>
+            <li>Resizable text without loss of content or functionality</li>
+            <li>Consistent and predictable navigation across all pages</li>
+            <li>An accessibility tools widget available on every page</li>
           </ul>
 
-          <h2 className="text-2xl font-semibold mb-4">Clarification</h2>
+          <h2 className="text-2xl font-semibold mb-4">Accessibility Tools</h2>
           <p>
-            Despite our efforts to apply accessibility to browsing on every webpage, it may be discovered that some of webpages have not yet received accessibility or are not suitable for any available accessibility solution.
-          </p>
-          <p>
-            We are continuing the effort to improve the website's accessibility to the full extent possible, guided by our belief, and by our moral commitment, that the website should be usable by the entire population, including people with disabilities.
+            Our website includes a built-in accessibility tools widget that provides options such as enhanced contrast, text resizing, readable fonts, highlight links, and more. You can activate it by clicking the accessibility icon on any page, or by using the link in the footer.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4">Measures to support accessibility</h2>
+          <h2 className="text-2xl font-semibold mb-4">Compatibility</h2>
+          <p>
+            Our website is designed to be compatible with the following assistive technologies:
+          </p>
           <ul className="list-disc pl-6 mb-6">
-            <li>Include accessibility as a requirement for all web content. Content must meet WCAG 2.1 AA, and should meet AAA as feasible.</li>
-            <li>Assign clear accessibility goals and responsibilities.</li>
-            <li>Ensure content authors have access to accessibility knowledge and skills.</li>
-            <li>Include accessibility as part of our technology mission.</li>
-            <li>Include accessibility throughout our website-related internal policies.</li>
+            <li>Screen readers (including NVDA, JAWS, and VoiceOver)</li>
+            <li>Screen magnification software</li>
+            <li>Speech recognition software</li>
+            <li>Keyboard-only navigation</li>
           </ul>
-
-          <h2 className="text-2xl font-semibold mb-4">Conformance status</h2>
           <p>
-            The Web Content Accessibility Guidelines (WCAG) standard defines requirements to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. "Fully conforms" means that the content meets all of the WCAG requirements at the specified Level without exceptions. We strive to be/remain fully compliant with an annual review of our website.
+            Our website is designed to be compatible with the last two versions of all major browsers including Chrome, Firefox, Safari, and Edge.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4">Feedback</h2>
+          <h2 className="text-2xl font-semibold mb-4">Technical Specifications</h2>
           <p>
-            We welcome your feedback on the accessibility of our website. Please let us know if you encounter accessibility barriers.
-          </p>
-          <p>
-            E-mail: support@websitewannabe.com
-          </p>
-          <p>
-            We usually respond to accessibility feedback from e-mail within 3-5 business days. If you do not receive a reply to your e-mail within 10 business days, you can contact Website Wannabe at 267-500-2928.
-          </p>
-
-          <h2 className="text-2xl font-semibold mb-4">Compatibility with browsers and assistive technology</h2>
-          <p>
-            Our website is designed to be compatible with assistive technologies and the last two versions of major browsers.
-          </p>
-          <p>
-            In Internet Explorer 10, 11, and older browsers, some aspects of the website may not display optimally. The website is not designed for Internet Explorer 9 and earlier versions.
-          </p>
-
-          <h2 className="text-2xl font-semibold mb-4">Technical specifications</h2>
-          <p>
-            Our website relies upon the following technologies for conformance with WCAG 2.1:
+            Accessibility of our website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:
           </p>
           <ul className="list-disc pl-6 mb-6">
             <li>HTML</li>
             <li>CSS</li>
-            <li>SVG</li>
-          </ul>
-          <p>
-            The following technologies are used to improve accessibility and the user experience for everyone:
-          </p>
-          <ul className="list-disc pl-6 mb-6">
             <li>JavaScript</li>
+            <li>SVG</li>
+            <li>WAI-ARIA</li>
           </ul>
 
-          <h2 className="text-2xl font-semibold mb-4">Limitations and alternatives</h2>
+          <h2 className="text-2xl font-semibold mb-4">Limitations</h2>
           <p>
-            Several videos on our website use YouTube. As an alternative, the videos are provided as MP4 files on our server.
+            Despite our best efforts to ensure accessibility of our website, there may be some limitations. We are continually seeking solutions to bring all areas of our site up to the same level of overall accessibility. If you encounter an issue, please contact us so we can provide the information you need through an alternative method and work to fix the issue.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4">Assessment approach</h2>
+          <h2 className="text-2xl font-semibold mb-4">Assessment Approach</h2>
           <p>
-            Handyman Wannabe assesses the accessibility of our website by self-evaluation and annual review.
+            Handyman Wannabe assesses the accessibility of our website through self-evaluation, automated testing tools, and periodic manual reviews.
           </p>
 
-          <h2 className="text-2xl font-semibold mb-4">Formal approval of this accessibility statement</h2>
+          <h2 className="text-2xl font-semibold mb-4">Feedback</h2>
           <p>
-            This Accessibility Statement is approved by Chris Tierney, Website Wannabe Technology Support.
+            We welcome your feedback on the accessibility of our website. Please let us know if you encounter accessibility barriers:
+          </p>
+          <p>
+            E-mail: <a href="mailto:support@websitewannabe.com">support@websitewannabe.com</a>
+          </p>
+          <p>
+            We usually respond to accessibility feedback within 3-5 business days. If you do not receive a reply to your e-mail within 10 business days, you can contact Website Wannabe at (267) 500-2928.
+          </p>
+
+          <h2 className="text-2xl font-semibold mb-4">Formal Approval</h2>
+          <p>
+            This Accessibility Statement is formally approved by Website Wannabe on behalf of Handyman Wannabe.
+          </p>
+
+          <p className="text-sm text-gray-500 mt-8">
+            Last updated: March 31, 2026
           </p>
         </motion.div>
       </div>
